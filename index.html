@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik:wght@400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik:wght@400;500;700&family=Orbitron:wght@400;700&display=swap');
         
         :root {
             --primary: #6c5ce7;
@@ -678,6 +678,841 @@
                 width: 100%;
             }
         }
+
+        /* Tetris Game Modal Styles */
+        .tetris-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(13, 2, 33, 0.95);
+            backdrop-filter: blur(3px);
+        }
+
+        .tetris-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            color: #05d9e8;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(5, 217, 232, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(213, 0, 197, 0.03) 0%, transparent 20%);
+        }
+
+        .tetris-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #05d9e8;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #05d9e8;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tetris-close:hover {
+            color: #ff2a6d;
+            border-color: #ff2a6d;
+            text-shadow: 0 0 10px #ff2a6d;
+            box-shadow: 0 0 20px rgba(255, 42, 109, 0.5);
+        }
+
+        /* Tetris specific styles */
+        .tetris-neon-text-pink {
+            color: #ff2a6d;
+            text-shadow: 0 0 5px #ff2a6d, 0 0 10px #ff2a6d;
+        }
+        
+        .tetris-neon-text-blue {
+            color: #05d9e8;
+            text-shadow: 0 0 5px #05d9e8, 0 0 10px #05d9e8;
+        }
+        
+        .tetris-neon-border-blue {
+            border: 2px solid #05d9e8;
+            box-shadow: 0 0 10px #05d9e8, inset 0 0 10px #05d9e8;
+        }
+        
+        .tetris-neon-border-pink {
+            border: 2px solid #ff2a6d;
+            box-shadow: 0 0 10px #ff2a6d, inset 0 0 10px #ff2a6d;
+        }
+        
+        .tetris-grid-cell {
+            width: 25px;
+            height: 25px;
+            border: 1px solid rgba(5, 217, 232, 0.1);
+            box-sizing: border-box;
+        }
+        
+        .tetris-piece-i {
+            background-color: #00f7ff;
+            box-shadow: 0 0 8px #00f7ff, inset 0 0 4px #00f7ff;
+        }
+        
+        .tetris-piece-j {
+            background-color: #0d00ff;
+            box-shadow: 0 0 8px #0d00ff, inset 0 0 4px #0d00ff;
+        }
+        
+        .tetris-piece-l {
+            background-color: #ff8800;
+            box-shadow: 0 0 8px #ff8800, inset 0 0 4px #ff8800;
+        }
+        
+        .tetris-piece-o {
+            background-color: #ffee00;
+            box-shadow: 0 0 8px #ffee00, inset 0 0 4px #ffee00;
+        }
+        
+        .tetris-piece-s {
+            background-color: #00ff4c;
+            box-shadow: 0 0 8px #00ff4c, inset 0 0 4px #00ff4c;
+        }
+        
+        .tetris-piece-t {
+            background-color: #b700ff;
+            box-shadow: 0 0 8px #b700ff, inset 0 0 4px #b700ff;
+        }
+        
+        .tetris-piece-z {
+            background-color: #ff0000;
+            box-shadow: 0 0 8px #ff0000, inset 0 0 4px #ff0000;
+        }
+        
+        .tetris-piece-ghost {
+            opacity: 0.4;
+            filter: brightness(2);
+        }
+        
+        .tetris-scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(5, 217, 232, 0.03) 50%,
+                transparent 100%
+            );
+            background-size: 100% 4px;
+            animation: tetrisScanline 8s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes tetrisScanline {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+        
+        .tetris-glow {
+            animation: tetrisGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes tetrisGlow {
+            from {
+                box-shadow: 0 0 5px #05d9e8, 0 0 10px #05d9e8;
+            }
+            to {
+                box-shadow: 0 0 10px #05d9e8, 0 0 20px #05d9e8, 0 0 30px #d300c5;
+            }
+        }
+        
+        .tetris-glitch {
+            position: relative;
+        }
+        
+        .tetris-glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 2px;
+            top: 0;
+            color: #ff2a6d;
+            background: #0d0221;
+            overflow: hidden;
+            clip: rect(0, 900px, 0, 0);
+            animation: tetrisNoiseAnim 2s infinite linear alternate-reverse;
+        }
+        
+        .tetris-glitch::before {
+            content: attr(data-text);
+            position: absolute;
+            left: -2px;
+            top: 0;
+            color: #05d9e8;
+            background: #0d0221;
+            overflow: hidden;
+            clip: rect(0, 900px, 0, 0);
+            animation: tetrisNoiseAnim2 3s infinite linear alternate-reverse;
+        }
+        
+        @keyframes tetrisNoiseAnim {
+            0% { clip: rect(41px, 9999px, 19px, 0); }
+            10% { clip: rect(84px, 9999px, 28px, 0); }
+            20% { clip: rect(19px, 9999px, 18px, 0); }
+            30% { clip: rect(57px, 9999px, 44px, 0); }
+            40% { clip: rect(19px, 9999px, 38px, 0); }
+            50% { clip: rect(83px, 9999px, 38px, 0); }
+            60% { clip: rect(4px, 9999px, 55px, 0); }
+            70% { clip: rect(51px, 9999px, 9px, 0); }
+            80% { clip: rect(66px, 9999px, 16px, 0); }
+            90% { clip: rect(37px, 9999px, 28px, 0); }
+            100% { clip: rect(79px, 9999px, 44px, 0); }
+        }
+        
+        @keyframes tetrisNoiseAnim2 {
+            0% { clip: rect(18px, 9999px, 36px, 0); }
+            15% { clip: rect(32px, 9999px, 15px, 0); }
+            30% { clip: rect(50px, 9999px, 10px, 0); }
+            45% { clip: rect(20px, 9999px, 35px, 0); }
+            60% { clip: rect(67px, 9999px, 27px, 0); }
+            75% { clip: rect(13px, 9999px, 50px, 0); }
+            100% { clip: rect(44px, 9999px, 16px, 0); }
+        }
+
+        /* Mobile adaptations for Tetris */
+        @media (max-width: 1024px) {
+            .tetris-game-container {
+                flex-direction: column !important;
+                gap: 20px !important;
+            }
+            
+            .tetris-grid-cell {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .tetris-close {
+                top: 10px;
+                right: 15px;
+                font-size: 30px;
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .tetris-grid-cell {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .tetris-game-container {
+                padding: 10px !important;
+            }
+        }
+
+        /* Ping Pong Game Modal Styles */
+        .pong-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(3px);
+        }
+
+        .pong-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+        }
+
+        .pong-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #00ffff;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #00ffff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pong-close:hover {
+            color: #ff00ff;
+            border-color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        #pong-game-container {
+            position: relative;
+            width: 90vw;
+            max-width: 800px;
+            height: 60vh;
+            max-height: 500px;
+            border: 3px solid #4d0099;
+            box-shadow: 0 0 20px #4d0099, inset 0 0 20px #4d0099;
+            border-radius: 10px;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #110033, #000000);
+        }
+        
+        #pong-paddle-left, #pong-paddle-right {
+            position: absolute;
+            width: 15px;
+            height: 100px;
+            background: linear-gradient(to bottom, #ff00ff, #4d0099);
+            box-shadow: 0 0 15px #ff00ff;
+            border-radius: 5px;
+            transition: transform 0.05s ease-out;
+        }
+        
+        #pong-paddle-left {
+            left: 20px;
+            top: 200px;
+        }
+        
+        #pong-paddle-right {
+            right: 20px;
+            top: 200px;
+        }
+        
+        #pong-ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(to bottom right, #00ffff, #0099ff);
+            border-radius: 50%;
+            box-shadow: 0 0 15px #00ffff;
+            transition: top 0.05s linear, left 0.05s linear;
+        }
+        
+        #pong-center-line {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            background: linear-gradient(to bottom, transparent, #4d0099, transparent);
+            animation: pulse 2s infinite;
+        }
+        
+        #pong-score {
+            display: flex;
+            justify-content: space-between;
+            width: 90vw;
+            max-width: 800px;
+            padding: 20px 100px;
+            font-size: 36px;
+            text-shadow: 0 0 10px #00ffff;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+        
+        #pong-player-score, #pong-ai-score {
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        #pong-game-over {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 30px #00ffff;
+            text-align: center;
+            z-index: 100;
+        }
+        
+        #pong-game-over h2 {
+            color: #ff00ff;
+            margin-bottom: 20px;
+            font-size: 36px;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+        
+        #pong-restart-btn {
+            background: #00ffff;
+            color: #000;
+            border: none;
+            padding: 10px 25px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px #00ffff;
+        }
+        
+        #pong-restart-btn:hover {
+            background: #ff00ff;
+            box-shadow: 0 0 20px #ff00ff;
+            transform: scale(1.05);
+        }
+        
+        #pong-start-screen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 30px #00ffff;
+            text-align: center;
+            z-index: 100;
+        }
+        
+        #pong-start-btn {
+            background: #ff00ff;
+            color: #000;
+            border: none;
+            padding: 10px 25px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px #ff00ff;
+            margin-top: 20px;
+        }
+        
+        #pong-start-btn:hover {
+            background: #00ffff;
+            box-shadow: 0 0 25px #00ffff;
+            transform: scale(1.05);
+        }
+        
+        .pong-particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+        }
+        
+        .pong-score-animation {
+            position: absolute;
+            font-size: 30px;
+            color: #00ffff;
+            opacity: 0;
+            text-shadow: 0 0 10px #00ffff;
+            animation: scorePop 1s forwards;
+            pointer-events: none;
+        }
+        
+        @keyframes scorePop {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.5); opacity: 1; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+        
+        #pong-instructions {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #999;
+            text-align: center;
+            max-width: 600px;
+        }
+        
+        .pong-grid-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(to right, rgba(77, 0, 153, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(77, 0, 153, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+        .pong-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px #ff00ff;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Mobile adaptations for Pong */
+        @media (max-width: 850px) {
+            #pong-game-container {
+                width: 95vw;
+                height: 50vh;
+            }
+            
+            #pong-score {
+                font-size: 24px;
+                padding: 15px 50px;
+            }
+
+            .pong-close {
+                top: 10px;
+                right: 15px;
+                font-size: 30px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .pong-title {
+                font-size: 32px;
+            }
+
+            #pong-instructions {
+                font-size: 14px;
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            #pong-game-container {
+                height: 40vh;
+            }
+            
+            #pong-score {
+                font-size: 20px;
+                padding: 10px 30px;
+            }
+
+            .pong-title {
+                font-size: 24px;
+            }
+
+            #pong-start-screen, #pong-game-over {
+                padding: 20px;
+                margin: 0 10px;
+            }
+
+            #pong-start-screen h2, #pong-game-over h2 {
+                font-size: 24px;
+            }
+        }
+
+        /* Asteroids Game Modal Styles */
+        .asteroids-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(3px);
+        }
+
+        .asteroids-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            color: #0f0;
+            text-shadow: 0 0 5px #0f0;
+        }
+
+        .asteroids-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #0f0;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #0f0;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .asteroids-close:hover {
+            color: #ff0;
+            border-color: #ff0;
+            text-shadow: 0 0 10px #ff0;
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
+        }
+
+        #asteroids-game-header {
+            text-align: center;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; text-shadow: 0 0 15px #0f0; }
+            100% { opacity: 0.8; }
+        }
+        
+        #asteroids-game-container {
+            position: relative;
+            width: 90vw;
+            max-width: 800px;
+            height: 70vh;
+            max-height: 600px;
+            border: 3px solid #0f0;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3),
+                        inset 0 0 20px rgba(0, 255, 0, 0.3);
+            background-color: #111;
+            overflow: hidden;
+        }
+        
+        #asteroids-canvas {
+            display: block;
+        }
+        
+        #asteroids-ui {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 20px;
+            display: flex;
+            gap: 30px;
+            z-index: 10;
+        }
+        
+        #asteroids-controls {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            font-size: 16px;
+            color: #0f0;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #0f0;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .key {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #222;
+            border: 2px solid #0f0;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 26px;
+            margin-right: 5px;
+        }
+        
+        .key.space {
+            width: 80px;
+        }
+        
+        #asteroids-game-over {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        
+        #asteroids-game-over h2 {
+            font-size: 72px;
+            color: #f00;
+            text-shadow: 0 0 15px #f00;
+            margin-bottom: 30px;
+            animation: flicker 0.5s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        #asteroids-final-score {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        
+        #asteroids-restart {
+            padding: 12px 25px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            background: linear-gradient(#222, #111);
+            color: #0f0;
+            border: 2px solid #0f0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        #asteroids-restart:hover {
+            background: linear-gradient(#333, #222);
+            box-shadow: 0 0 15px #0f0;
+            transform: scale(1.05);
+        }
+        
+        #asteroids-mobile-controls {
+            display: none;
+            position: absolute;
+            bottom: 80px;
+            width: 100%;
+            justify-content: center;
+            gap: 20px;
+            z-index: 10;
+        }
+        
+        .mobile-btn {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(0, 255, 0, 0.2);
+            border: 2px solid #0f0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #0f0;
+            font-size: 24px;
+            user-select: none;
+        }
+        
+        @media (max-width: 850px) {
+            #asteroids-game-container {
+                width: 95vw;
+                height: 60vh;
+                border: none;
+                border-bottom: 3px solid #0f0;
+            }
+            
+            #asteroids-mobile-controls {
+                display: flex;
+            }
+            
+            #asteroids-controls {
+                display: none;
+            }
+
+            .asteroids-close {
+                top: 10px;
+                right: 15px;
+                font-size: 30px;
+                width: 50px;
+                height: 50px;
+            }
+        }
+        
+        #asteroids-start-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+        }
+        
+        #asteroids-start-screen h1 {
+            font-size: 60px;
+            margin-bottom: 30px;
+            color: #0f0;
+            text-shadow: 0 0 15px #0f0;
+        }
+        
+        #asteroids-start-screen p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            text-align: center;
+            line-height: 1.5;
+        }
+        
+        #asteroids-start-btn {
+            padding: 15px 40px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            background: linear-gradient(#222, #111);
+            color: #0f0;
+            border: 2px solid #0f0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        #asteroids-start-btn:hover {
+            background: linear-gradient(#333, #222);
+            box-shadow: 0 0 15px #0f0;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 640px) {
+            #asteroids-start-screen h1 {
+                font-size: 40px;
+            }
+            
+            #asteroids-start-screen p {
+                font-size: 16px;
+                padding: 0 20px;
+            }
+            
+            #asteroids-start-btn {
+                font-size: 20px;
+                padding: 12px 30px;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -839,6 +1674,131 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cyberpunk Tetris Game Card -->
+                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center relative">
+                            <div class="text-6xl text-pink-400 font-mono animate-pulse">🟦</div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-pink-400/20"></div>
+                            <div class="absolute top-4 left-4 text-blue-400 text-xs font-mono">CYBER</div>
+                            <div class="absolute bottom-4 right-4 text-pink-400 text-xs font-mono">TETRIS</div>
+                            <div class="absolute inset-0">
+                                <div class="w-full h-full grid grid-cols-6 grid-rows-4 gap-1 p-4 opacity-30">
+                                    <div class="bg-blue-400 rounded-sm"></div>
+                                    <div class="bg-pink-400 rounded-sm"></div>
+                                    <div class="bg-yellow-400 rounded-sm"></div>
+                                    <div class="bg-green-400 rounded-sm"></div>
+                                    <div class="bg-purple-400 rounded-sm"></div>
+                                    <div class="bg-red-400 rounded-sm"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            PLAYABLE
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Cyberpunk Tetris</h3>
+                        <p class="text-gray-300 mb-4">
+                            Experience the classic puzzle game with a futuristic cyberpunk aesthetic. Stack falling blocks with glowing neon effects and CRT-style scanlines.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Puzzle</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Cyberpunk</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Classic</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button type="button" onclick="openTetrisGame()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                Play Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neon Ping Pong Game Card -->
+                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-purple-900 via-indigo-900 to-cyan-900 flex items-center justify-center relative">
+                            <div class="text-6xl text-cyan-400 font-mono animate-pulse">🏓</div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-cyan-400/20"></div>
+                            <div class="absolute top-4 left-4 text-cyan-400 text-xs font-mono">NEON</div>
+                            <div class="absolute bottom-4 right-4 text-purple-400 text-xs font-mono">PONG</div>
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent animate-pulse"></div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-cyan-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            PLAYABLE
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Neon Ping Pong</h3>
+                        <p class="text-gray-300 mb-4">
+                            Experience the classic game of Pong with a futuristic neon twist. Control your paddle with mouse movement and compete against AI in this cyberpunk-styled arcade game.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Arcade</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Neon</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Classic</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <button type="button" onclick="openPongGame()" class="bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                Play Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Asteroids Game Card -->
+                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="w-full h-full bg-black flex items-center justify-center relative">
+                            <div class="text-6xl text-green-400 font-mono animate-pulse">🚀</div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-green-400/20 to-transparent"></div>
+                            <div class="absolute top-4 left-4 text-green-400 text-xs font-mono">ASTEROIDS</div>
+                            <div class="absolute bottom-4 right-4 text-green-400 text-xs font-mono">ARCADE</div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            PLAYABLE
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Asteroids Arcade</h3>
+                        <p class="text-gray-300 mb-4">
+                            Classic space shooter reimagined. Navigate through asteroid fields, destroy space rocks, and survive as long as possible in this retro arcade experience.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Arcade</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Retro</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Action</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button type="button" onclick="openAsteroidsGame()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                Play Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Game Card 1 -->
                 <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
                     <div class="relative h-64 overflow-hidden">
@@ -1684,6 +2644,172 @@
         </div>
     </div>
 
+    <!-- Asteroids Game Modal -->
+    <div id="asteroidsModal" class="asteroids-modal">
+        <div class="asteroids-content">
+            <span class="asteroids-close" onclick="closeAsteroidsGame()">&times;</span>
+            
+            <div id="asteroids-game-header">
+                <h1>ASTEROIDS</h1>
+            </div>
+            
+            <div id="asteroids-game-container">
+                <canvas id="asteroids-canvas"></canvas>
+                
+                <div id="asteroids-ui">
+                    <div id="asteroids-score-display">SCORE: <span id="asteroids-score">0</span></div>
+                    <div id="asteroids-lives-display">LIVES: <span id="asteroids-lives">3</span></div>
+                </div>
+                
+                <div id="asteroids-controls">
+                    <div class="control-group">
+                        <div>SHIP CONTROLS:</div>
+                        <div><span class="key">←</span> Rotate Left</div>
+                        <div><span class="key">→</span> Rotate Right</div>
+                        <div><span class="key">↑</span> Thrust</div>
+                    </div>
+                    <div class="control-group">
+                        <div>WEAPONS:</div>
+                        <div><span class="key space">SPACE</span> Fire</div>
+                    </div>
+                </div>
+                
+                <div id="asteroids-mobile-controls">
+                    <div class="mobile-btn" id="asteroids-left-btn">←</div>
+                    <div class="mobile-btn" id="asteroids-up-btn">↑</div>
+                    <div class="mobile-btn" id="asteroids-right-btn">→</div>
+                    <div class="mobile-btn" id="asteroids-fire-btn">FIRE</div>
+                </div>
+                
+                <div id="asteroids-game-over">
+                    <h2>GAME OVER</h2>
+                    <div id="asteroids-final-score">FINAL SCORE: <span id="asteroids-end-score">0</span></div>
+                    <button id="asteroids-restart">PLAY AGAIN</button>
+                </div>
+                
+                <div id="asteroids-start-screen">
+                    <h1>ASTEROIDS ARCADE</h1>
+                    <p>Navigate your spaceship through an asteroid field. Destroy asteroids to earn points, but be careful - hitting them will cost you a life!</p>
+                    <button id="asteroids-start-btn">START GAME</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cyberpunk Tetris Game Modal -->
+    <div id="tetrisModal" class="tetris-modal">
+        <div class="tetris-content">
+            <span class="tetris-close" onclick="closeTetrisGame()">&times;</span>
+            
+            <!-- Tetris scanlines effect -->
+            <div class="tetris-scanline"></div>
+            
+            <!-- Main game container -->
+            <div class="tetris-game-container flex flex-col md:flex-row items-center justify-center gap-8 p-4">
+                <!-- Left panel with info -->
+                <div class="tetris-neon-border-blue bg-black bg-opacity-70 p-6 rounded-lg w-64 h-96 flex flex-col justify-between">
+                    <div>
+                        <h1 class="tetris-glitch text-3xl mb-6 text-center tetris-neon-text-blue" data-text="CYBER TETRIS">CYBER TETRIS</h1>
+                        <div class="mb-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="tetris-neon-text-pink">SCORE:</span>
+                                <span id="tetris-score" class="tetris-neon-text-blue">0</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="tetris-neon-text-pink">LEVEL:</span>
+                                <span id="tetris-level" class="tetris-neon-text-blue">1</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="tetris-neon-text-pink">LINES:</span>
+                                <span id="tetris-lines" class="tetris-neon-text-blue">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="tetris-neon-text-pink text-lg mb-2">CONTROLS:</h3>
+                        <ul class="space-y-1 text-sm">
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-left mr-2"></i> <span>Move Left</span></li>
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-right mr-2"></i> <span>Move Right</span></li>
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-down mr-2"></i> <span>Soft Drop</span></li>
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-up mr-2"></i> <span>Rotate</span></li>
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-space-shuttle mr-2"></i> <span>Hard Drop</span></li>
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-pause mr-2"></i> <span>Pause (P)</span></li>
+                        </ul>
+                    </div>
+                    
+                    <button id="tetris-start-btn" class="tetris-neon-border-pink tetris-neon-text-pink hover:bg-pink-900 hover:bg-opacity-30 py-2 px-4 rounded-md transition-all duration-300 tetris-glow">
+                        START GAME
+                    </button>
+                </div>
+                
+                <!-- Game field -->
+                <div class="relative">
+                    <div class="tetris-neon-border-blue bg-black bg-opacity-70">
+                        <div id="tetris-grid" class="grid grid-cols-10" style="grid-template-rows: repeat(20, 1fr);"></div>
+                    </div>
+                    
+                    <!-- Pause overlay -->
+                    <div id="tetris-pause-overlay" class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center hidden">
+                        <h2 class="tetris-neon-text-pink text-4xl mb-6">PAUSED</h2>
+                        <button id="tetris-continue-btn" class="tetris-neon-border-blue tetris-neon-text-blue hover:bg-blue-900 hover:bg-opacity-30 py-2 px-6 rounded-md transition-all duration-300">
+                            CONTINUE
+                        </button>
+                    </div>
+                    
+                    <!-- Game Over overlay -->
+                    <div id="tetris-game-over-overlay" class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center hidden">
+                        <h2 class="tetris-neon-text-pink text-4xl mb-4 tetris-glitch" data-text="GAME OVER">GAME OVER</h2>
+                        <p class="tetris-neon-text-blue mb-6">SCORE: <span id="tetris-final-score">0</span></p>
+                        <button id="tetris-play-again-btn" class="tetris-neon-border-blue tetris-neon-text-blue hover:bg-blue-900 hover:bg-opacity-30 py-2 px-6 rounded-md transition-all duration-300">
+                            PLAY AGAIN
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Next piece panel -->
+                <div class="tetris-neon-border-blue bg-black bg-opacity-70 p-4 rounded-lg w-32 h-32 flex flex-col items-center">
+                    <h3 class="tetris-neon-text-pink text-lg mb-2">NEXT:</h3>
+                    <div id="tetris-next-piece" class="grid grid-cols-4" style="grid-template-rows: repeat(4, 1fr); width: 80px; height: 80px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Neon Ping Pong Game Modal -->
+    <div id="pongModal" class="pong-modal">
+        <div class="pong-content">
+            <span class="pong-close" onclick="closePongGame()">&times;</span>
+            
+            <h1 class="pong-title">NEON PING PONG</h1>
+            <div id="pong-score">
+                <div id="pong-player-score">0</div>
+                <div id="pong-ai-score">0</div>
+            </div>
+            <div id="pong-game-container">
+                <div class="pong-grid-effect"></div>
+                <div id="pong-center-line"></div>
+                <div id="pong-paddle-left"></div>
+                <div id="pong-paddle-right"></div>
+                <div id="pong-ball"></div>
+                <div id="pong-game-over">
+                    <h2>GAME OVER</h2>
+                    <p id="pong-winner-text">Player wins!</p>
+                    <button id="pong-restart-btn">PLAY AGAIN</button>
+                </div>
+                <div id="pong-start-screen">
+                    <h2>WELCOME TO NEON PING PONG</h2>
+                    <p>Use your mouse to move the paddle</p>
+                    <p>First player to score 5 points wins!</p>
+                    <button id="pong-start-btn">START GAME</button>
+                </div>
+            </div>
+            <div id="pong-instructions">
+                Move your mouse up and down to control the paddle | First to 5 points wins!
+            </div>
+        </div>
+    </div>
+
     <!-- Quiz Functions Script - Must come first -->
     <script>
         // Define quiz functions immediately in global scope
@@ -1836,6 +2962,31 @@
                     game: 'Climate Crisis Chronicles',
                     reason: 'Interactive storytelling meets climate science!',
                     features: ['Climate scenarios', 'Scientific accuracy', 'Educational narrative']
+                },
+                'competitive-arcade': {
+                    game: 'Asteroids Arcade',
+                    reason: 'Classic arcade action for competitive gamers!',
+                    features: ['Skill-based gameplay', 'High score tracking', 'Retro arcade feel']
+                },
+                'classic-competitive': {
+                    game: 'Neon Ping Pong',
+                    reason: 'Perfect classic competitive gameplay with modern style!',
+                    features: ['Mouse-controlled precision', 'AI opponent', 'Neon cyberpunk aesthetic']
+                },
+                'casual-classic': {
+                    game: 'Neon Ping Pong',
+                    reason: 'Easy to learn, perfect for quick gaming sessions!',
+                    features: ['Simple controls', 'Classic gameplay', 'Beautiful visual effects']
+                },
+                'puzzle-cyberpunk': {
+                    game: 'Cyberpunk Tetris',
+                    reason: 'Perfect puzzle game with stunning cyberpunk aesthetics!',
+                    features: ['Classic Tetris gameplay', 'Neon visual effects', 'Progressive difficulty']
+                },
+                'competitive-puzzle': {
+                    game: 'Cyberpunk Tetris',
+                    reason: 'Challenge yourself with this skill-based puzzle game!',
+                    features: ['High score tracking', 'Increasing speed', 'Line clearing mastery']
                 }
             };
 
@@ -1843,17 +2994,29 @@
             var combo1 = platform + '-' + experience + '-' + theme;
             var combo2 = platform + '-' + time + '-' + theme;
             var combo3 = theme + '-' + experience;
+            var combo4 = experience + '-arcade';
+            var combo5 = 'classic-' + experience;
+            var combo6 = time + '-classic';
+            var combo7 = 'puzzle-' + theme;
+            var combo8 = experience + '-puzzle';
             
             if (recommendations[combo1]) bestMatch = recommendations[combo1];
             else if (recommendations[combo2]) bestMatch = recommendations[combo2];
             else if (recommendations[combo3]) bestMatch = recommendations[combo3];
+            else if (experience === 'competitive' && recommendations[combo4]) bestMatch = recommendations[combo4];
+            else if (recommendations[combo5]) bestMatch = recommendations[combo5];
+            else if (recommendations[combo6]) bestMatch = recommendations[combo6];
+            else if (recommendations[combo7]) bestMatch = recommendations[combo7];
+            else if (recommendations[combo8]) bestMatch = recommendations[combo8];
             
             if (!bestMatch) {
                 if (theme === 'science') bestMatch = recommendations['pc-educational-science'];
                 else if (theme === 'environment') bestMatch = recommendations['environment-science'];
                 else if (theme === 'urban') bestMatch = recommendations['urban-science'];
                 else if (platform === 'vr') bestMatch = recommendations['vr-educational'];
-                else bestMatch = recommendations['mobile-casual-environment'];
+                else if (experience === 'competitive') bestMatch = recommendations['competitive-puzzle'];
+                else if (time === 'casual') bestMatch = recommendations['casual-classic'];
+                else bestMatch = recommendations['puzzle-cyberpunk'];
             }
 
             var featuresHtml = '';
@@ -1861,11 +3024,22 @@
                 featuresHtml += '<li>• ' + bestMatch.features[i] + '</li>';
             }
 
+            var buttonAction = '';
+            if (bestMatch.game === 'Asteroids Arcade') {
+                buttonAction = 'onclick="closeQuiz(); openAsteroidsGame();"';
+            } else if (bestMatch.game === 'Neon Ping Pong') {
+                buttonAction = 'onclick="closeQuiz(); openPongGame();"';
+            } else if (bestMatch.game === 'Cyberpunk Tetris') {
+                buttonAction = 'onclick="closeQuiz(); openTetrisGame();"';
+            } else {
+                buttonAction = 'onclick="closeQuiz(); var gamesSection = document.querySelector(\'#games\'); if(gamesSection) gamesSection.scrollIntoView({behavior: \'smooth\'});"';
+            }
+
             return '<h4 class="text-xl font-bold text-teal-400 mb-4">🎯 ' + bestMatch.game + '</h4>' +
                    '<p class="mb-4">' + bestMatch.reason + '</p>' +
                    '<ul class="text-sm opacity-90">' + featuresHtml + '</ul>' +
                    '<div class="mt-4 text-center">' +
-                   '<button class="quiz-btn quiz-btn-primary" onclick="closeQuiz(); var gamesSection = document.querySelector(\'#games\'); if(gamesSection) gamesSection.scrollIntoView({behavior: \'smooth\'});">' +
+                   '<button class="quiz-btn quiz-btn-primary" ' + buttonAction + '>' +
                    'Explore This Game</button></div>';
         }
 
@@ -1891,6 +3065,1470 @@
         }
     </script>
 
+    <!-- Asteroids Game Script -->
+    <script>
+        // Asteroids Game Variables
+        let asteroidsGame = null;
+
+        function openAsteroidsGame() {
+            const modal = document.getElementById('asteroidsModal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                initializeAsteroidsGame();
+            }
+        }
+
+        function closeAsteroidsGame() {
+            const modal = document.getElementById('asteroidsModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                if (asteroidsGame) {
+                    asteroidsGame.destroy();
+                    asteroidsGame = null;
+                }
+            }
+        }
+
+        function initializeAsteroidsGame() {
+            if (asteroidsGame) {
+                asteroidsGame.destroy();
+            }
+            
+            // Game setup
+            const canvas = document.getElementById('asteroids-canvas');
+            const ctx = canvas.getContext('2d');
+            const scoreElement = document.getElementById('asteroids-score');
+            const livesElement = document.getElementById('asteroids-lives');
+            const endScoreElement = document.getElementById('asteroids-end-score');
+            const gameOverElement = document.getElementById('asteroids-game-over');
+            const restartButton = document.getElementById('asteroids-restart');
+            const startScreen = document.getElementById('asteroids-start-screen');
+            const startButton = document.getElementById('asteroids-start-btn');
+            
+            // Mobile controls
+            const leftBtn = document.getElementById('asteroids-left-btn');
+            const rightBtn = document.getElementById('asteroids-right-btn');
+            const upBtn = document.getElementById('asteroids-up-btn');
+            const fireBtn = document.getElementById('asteroids-fire-btn');
+            
+            // Set canvas dimensions
+            function resizeCanvas() {
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = canvas.parentElement.clientHeight;
+            }
+            
+            resizeCanvas();
+            
+            // Game state
+            let score = 0;
+            let lives = 3;
+            let gameOver = false;
+            let gameStarted = false;
+            let asteroids = [];
+            let bullets = [];
+            let particles = [];
+            let keys = {};
+            let animationFrameId;
+            
+            // Player ship
+            const ship = {
+                x: canvas.width / 2,
+                y: canvas.height / 2,
+                radius: 15,
+                angle: -Math.PI/2,
+                rotation: 0,
+                thrusting: false,
+                thrust: { x: 0, y: 0 },
+                velocity: { x: 0, y: 0 },
+                invulnerable: false,
+                invulnerableTime: 0
+            };
+            
+            // Event listeners
+            function handleKeyDown(e) {
+                if (gameStarted) {
+                    keys[e.key] = true;
+                    if (e.key === ' ' && e.target === document.body) {
+                        e.preventDefault();
+                    }
+                }
+            }
+            
+            function handleKeyUp(e) {
+                if (gameStarted) {
+                    keys[e.key] = false;
+                }
+            }
+            
+            // Mobile touch events
+            const handleMobileDown = (key) => {
+                return (e) => {
+                    e.preventDefault();
+                    if (!gameStarted) return;
+                    if (key === 'ArrowLeft') keys['ArrowLeft'] = true;
+                    if (key === 'ArrowRight') keys['ArrowRight'] = true;
+                    if (key === 'ArrowUp') keys['ArrowUp'] = true;
+                    if (key === ' ') keys[' '] = true;
+                };
+            };
+            
+            const handleMobileUp = (key) => {
+                return (e) => {
+                    e.preventDefault();
+                    if (!gameStarted) return;
+                    if (key === 'ArrowLeft') keys['ArrowLeft'] = false;
+                    if (key === 'ArrowRight') keys['ArrowRight'] = false;
+                    if (key === 'ArrowUp') keys['ArrowUp'] = false;
+                    if (key === ' ') keys[' '] = false;
+                };
+            };
+            
+            // Start game
+            function startGame() {
+                gameStarted = true;
+                startScreen.style.display = 'none';
+                resetGame();
+                gameLoop();
+            }
+            
+            function resetGame() {
+                score = 0;
+                lives = 3;
+                gameOver = false;
+                asteroids = [];
+                bullets = [];
+                particles = [];
+                
+                ship.x = canvas.width / 2;
+                ship.y = canvas.height / 2;
+                ship.angle = -Math.PI/2;
+                ship.velocity.x = 0;
+                ship.velocity.y = 0;
+                ship.invulnerable = true;
+                ship.invulnerableTime = 120;
+                
+                scoreElement.textContent = score;
+                livesElement.textContent = lives;
+                gameOverElement.style.display = 'none';
+                
+                createAsteroids(4);
+            }
+            
+            function createAsteroids(count) {
+                for (let i = 0; i < count; i++) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = Math.max(canvas.width, canvas.height) * 0.4;
+                    
+                    const asteroid = createAsteroid(
+                        canvas.width/2 + Math.cos(angle) * distance,
+                        canvas.height/2 + Math.sin(angle) * distance,
+                        Math.random() * Math.PI * 2,
+                        1
+                    );
+                    
+                    asteroids.push(asteroid);
+                }
+            }
+            
+            function createAsteroid(x, y, angle, size) {
+                let radius, points;
+                
+                switch(size) {
+                    case 1: radius = 40; points = 20; break;
+                    case 2: radius = 25; points = 50; break;
+                    case 3: radius = 10; points = 100; break;
+                }
+                
+                const speed = size === 1 ? 1 + Math.random() * 1 : 
+                              size === 2 ? 1.5 + Math.random() * 1.5 : 
+                              2 + Math.random() * 2;
+                
+                return {
+                    x, y, radius, size, points,
+                    vertices: Math.floor(Math.random() * 9) + 5,
+                    angle, speed,
+                    velocity: {
+                        x: Math.cos(angle) * speed,
+                        y: Math.sin(angle) * speed
+                    },
+                    rotation: (Math.random() - 0.5) * 0.2
+                };
+            }
+            
+            function gameLoop() {
+                if (!gameStarted || gameOver) return;
+                
+                resizeCanvas();
+                
+                // Clear canvas
+                ctx.fillStyle = '#111';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw starfield
+                drawStarfield();
+                
+                // Update and draw game elements
+                updateShip();
+                drawShip();
+                updateBullets();
+                drawBullets();
+                updateAsteroids();
+                drawAsteroids();
+                updateParticles();
+                drawParticles();
+                
+                checkCollisions();
+                spawnAsteroids();
+                
+                if (ship.invulnerable) {
+                    ship.invulnerableTime--;
+                    if (ship.invulnerableTime <= 0) {
+                        ship.invulnerable = false;
+                    }
+                }
+                
+                animationFrameId = requestAnimationFrame(gameLoop);
+            }
+            
+            function drawStarfield() {
+                ctx.fillStyle = '#fff';
+                ctx.save();
+                for (let i = 0; i < 100; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height;
+                    const size = Math.random() * 1.5;
+                    ctx.globalAlpha = Math.random();
+                    ctx.beginPath();
+                    ctx.arc(x, y, size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+            
+            function updateShip() {
+                if (keys['ArrowLeft']) {
+                    ship.rotation = -0.1;
+                } else if (keys['ArrowRight']) {
+                    ship.rotation = 0.1;
+                } else {
+                    ship.rotation = 0;
+                }
+                
+                ship.angle += ship.rotation;
+                
+                if (keys['ArrowUp']) {
+                    ship.thrusting = true;
+                    ship.thrust.x = Math.cos(ship.angle) * 0.1;
+                    ship.thrust.y = Math.sin(ship.angle) * 0.1;
+                } else {
+                    ship.thrusting = false;
+                    ship.thrust.x = 0;
+                    ship.thrust.y = 0;
+                }
+                
+                ship.velocity.x += ship.thrust.x;
+                ship.velocity.y += ship.thrust.y;
+                ship.velocity.x *= 0.98;
+                ship.velocity.y *= 0.98;
+                
+                ship.x += ship.velocity.x;
+                ship.y += ship.velocity.y;
+                
+                // Screen wrapping
+                if (ship.x < 0 - ship.radius) ship.x = canvas.width + ship.radius;
+                else if (ship.x > canvas.width + ship.radius) ship.x = 0 - ship.radius;
+                if (ship.y < 0 - ship.radius) ship.y = canvas.height + ship.radius;
+                else if (ship.y > canvas.height + ship.radius) ship.y = 0 - ship.radius;
+                
+                if (keys[' '] && !keys['_space']) {
+                    keys['_space'] = true;
+                    fireBullet();
+                } else if (!keys[' ']) {
+                    keys['_space'] = false;
+                }
+            }
+            
+            function drawShip() {
+                ctx.save();
+                ctx.translate(ship.x, ship.y);
+                ctx.rotate(ship.angle);
+                
+                if (ship.invulnerable) {
+                    ctx.strokeStyle = Date.now() % 200 > 100 ? '#0f0' : '#f80';
+                } else {
+                    ctx.strokeStyle = '#0f0';
+                }
+                
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(20, 0);
+                ctx.lineTo(-10, -10);
+                ctx.lineTo(-5, 0);
+                ctx.lineTo(-10, 10);
+                ctx.closePath();
+                ctx.stroke();
+                
+                if (ship.thrusting) {
+                    ctx.beginPath();
+                    ctx.moveTo(-15, 0);
+                    ctx.lineTo(-25, 0);
+                    ctx.strokeStyle = '#f80';
+                    ctx.stroke();
+                }
+                
+                ctx.restore();
+            }
+            
+            function fireBullet() {
+                if (bullets.length > 4) return;
+                
+                bullets.push({
+                    x: ship.x + Math.cos(ship.angle) * 20,
+                    y: ship.y + Math.sin(ship.angle) * 20,
+                    velocity: {
+                        x: Math.cos(ship.angle) * 7 + ship.velocity.x,
+                        y: Math.sin(ship.angle) * 7 + ship.velocity.y
+                    },
+                    radius: 3,
+                    life: 60
+                });
+                
+                playLaserSound();
+            }
+            
+            function playLaserSound() {
+                try {
+                    const audioContext = new (AudioContext || webkitAudioContext)();
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.type = 'square';
+                    oscillator.frequency.value = 440;
+                    gainNode.gain.value = 0.1;
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    oscillator.start();
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.2);
+                    oscillator.stop(audioContext.currentTime + 0.2);
+                } catch(e) {
+                    // Audio not supported
+                }
+            }
+            
+            function updateBullets() {
+                for (let i = bullets.length - 1; i >= 0; i--) {
+                    bullets[i].x += bullets[i].velocity.x;
+                    bullets[i].y += bullets[i].velocity.y;
+                    bullets[i].life--;
+                    
+                    // Screen wrapping
+                    if (bullets[i].x < 0) bullets[i].x = canvas.width;
+                    else if (bullets[i].x > canvas.width) bullets[i].x = 0;
+                    if (bullets[i].y < 0) bullets[i].y = canvas.height;
+                    else if (bullets[i].y > canvas.height) bullets[i].y = 0;
+                    
+                    if (bullets[i].life <= 0) {
+                        bullets.splice(i, 1);
+                    }
+                }
+            }
+            
+            function drawBullets() {
+                ctx.fillStyle = '#0f0';
+                for (let bullet of bullets) {
+                    ctx.beginPath();
+                    ctx.arc(bullet.x, bullet.y, bullet.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            function updateAsteroids() {
+                for (let asteroid of asteroids) {
+                    asteroid.x += asteroid.velocity.x;
+                    asteroid.y += asteroid.velocity.y;
+                    asteroid.angle += asteroid.rotation;
+                    
+                    // Screen wrapping
+                    if (asteroid.x < 0 - asteroid.radius) asteroid.x = canvas.width + asteroid.radius;
+                    else if (asteroid.x > canvas.width + asteroid.radius) asteroid.x = 0 - asteroid.radius;
+                    if (asteroid.y < 0 - asteroid.radius) asteroid.y = canvas.height + asteroid.radius;
+                    else if (asteroid.y > canvas.height + asteroid.radius) asteroid.y = 0 - asteroid.radius;
+                }
+            }
+            
+            function drawAsteroids() {
+                for (const asteroid of asteroids) {
+                    ctx.save();
+                    ctx.translate(asteroid.x, asteroid.y);
+                    ctx.rotate(asteroid.angle);
+                    
+                    ctx.strokeStyle = '#fff';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    
+                    for (let i = 0; i < asteroid.vertices; i++) {
+                        const angle = (i / asteroid.vertices) * Math.PI * 2;
+                        const offset = asteroid.radius * (0.7 + Math.random() * 0.3);
+                        const x = Math.cos(angle) * offset;
+                        const y = Math.sin(angle) * offset;
+                        
+                        if (i === 0) {
+                            ctx.moveTo(x, y);
+                        } else {
+                            ctx.lineTo(x, y);
+                        }
+                    }
+                    
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.restore();
+                }
+            }
+            
+            function checkCollisions() {
+                // Bullets vs Asteroids
+                for (let i = asteroids.length - 1; i >= 0; i--) {
+                    const asteroid = asteroids[i];
+                    
+                    for (let j = bullets.length - 1; j >= 0; j--) {
+                        const bullet = bullets[j];
+                        const dx = asteroid.x - bullet.x;
+                        const dy = asteroid.y - bullet.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < asteroid.radius + bullet.radius) {
+                            createParticles(asteroid);
+                            score += asteroid.points;
+                            scoreElement.textContent = score;
+                            
+                            if (asteroid.size < 3) {
+                                for (let n = 0; n < 2; n++) {
+                                    const angle = Math.random() * Math.PI * 2;
+                                    const newAsteroid = createAsteroid(
+                                        asteroid.x, asteroid.y, angle, asteroid.size + 1
+                                    );
+                                    asteroids.push(newAsteroid);
+                                }
+                            }
+                            
+                            asteroids.splice(i, 1);
+                            bullets.splice(j, 1);
+                            break;
+                        }
+                    }
+                }
+                
+                // Ship vs Asteroids
+                if (!ship.invulnerable) {
+                    for (let i = 0; i < asteroids.length; i++) {
+                        const asteroid = asteroids[i];
+                        const dx = ship.x - asteroid.x;
+                        const dy = ship.y - asteroid.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < ship.radius + asteroid.radius) {
+                            lives--;
+                            livesElement.textContent = lives;
+                            createParticles(asteroid);
+                            
+                            if (lives <= 0) {
+                                gameOver = true;
+                                gameOverElement.style.display = 'flex';
+                                endScoreElement.textContent = score;
+                                return;
+                            }
+                            
+                            ship.x = canvas.width / 2;
+                            ship.y = canvas.height / 2;
+                            ship.velocity.x = 0;
+                            ship.velocity.y = 0;
+                            ship.angle = -Math.PI/2;
+                            ship.invulnerable = true;
+                            ship.invulnerableTime = 120;
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            function createParticles(asteroid) {
+                const particleCount = 15 + Math.floor(Math.random() * 10);
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push({
+                        x: asteroid.x + (Math.random() * 20 - 10),
+                        y: asteroid.y + (Math.random() * 20 - 10),
+                        size: Math.random() * 3 + 1,
+                        color: `hsl(${Math.random() * 60 + 30}, 100%, 50%)`,
+                        speed: 1 + Math.random() * 3,
+                        angle: Math.random() * Math.PI * 2,
+                        life: 30 + Math.random() * 40,
+                        decay: 0.95 + Math.random() * 0.04
+                    });
+                }
+                playExplosionSound();
+            }
+            
+            function playExplosionSound() {
+                try {
+                    const audioContext = new (AudioContext || webkitAudioContext)();
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.type = 'sawtooth';
+                    oscillator.frequency.value = 100;
+                    gainNode.gain.value = 0.1;
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    oscillator.start();
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.5);
+                    oscillator.stop(audioContext.currentTime + 0.5);
+                } catch(e) {
+                    // Audio not supported
+                }
+            }
+            
+            function updateParticles() {
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    p.x += Math.cos(p.angle) * p.speed;
+                    p.y += Math.sin(p.angle) * p.speed;
+                    p.life--;
+                    p.speed *= p.decay;
+                    
+                    if (p.life <= 0) {
+                        particles.splice(i, 1);
+                    }
+                }
+            }
+            
+            function drawParticles() {
+                for (const particle of particles) {
+                    ctx.fillStyle = particle.color;
+                    ctx.globalAlpha = Math.min(1, particle.life / 30);
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.globalAlpha = 1;
+            }
+            
+            function spawnAsteroids() {
+                if (asteroids.length <= 3 && Math.random() < 0.01) {
+                    const side = Math.floor(Math.random() * 4);
+                    let x, y;
+                    
+                    switch(side) {
+                        case 0: x = Math.random() * canvas.width; y = 0 - 50; break;
+                        case 1: x = canvas.width + 50; y = Math.random() * canvas.height; break;
+                        case 2: x = Math.random() * canvas.width; y = canvas.height + 50; break;
+                        case 3: x = 0 - 50; y = Math.random() * canvas.height; break;
+                    }
+                    
+                    const angle = Math.atan2(canvas.height/2 - y, canvas.width/2 - x) + 
+                                  (Math.random() - 0.5) * 0.5;
+                    
+                    asteroids.push(createAsteroid(x, y, angle, 1));
+                }
+            }
+            
+            // Event listeners
+            window.addEventListener('keydown', handleKeyDown);
+            window.addEventListener('keyup', handleKeyUp);
+            
+            // Mobile controls
+            leftBtn.addEventListener('touchstart', handleMobileDown('ArrowLeft'), {passive: false});
+            leftBtn.addEventListener('touchend', handleMobileUp('ArrowLeft'), {passive: false});
+            rightBtn.addEventListener('touchstart', handleMobileDown('ArrowRight'), {passive: false});
+            rightBtn.addEventListener('touchend', handleMobileUp('ArrowRight'), {passive: false});
+            upBtn.addEventListener('touchstart', handleMobileDown('ArrowUp'), {passive: false});
+            upBtn.addEventListener('touchend', handleMobileUp('ArrowUp'), {passive: false});
+            fireBtn.addEventListener('touchstart', handleMobileDown(' '), {passive: false});
+            fireBtn.addEventListener('touchend', handleMobileUp(' '), {passive: false});
+            
+            startButton.addEventListener('click', startGame);
+            restartButton.addEventListener('click', resetGame);
+            
+            asteroidsGame = {
+                destroy: function() {
+                    if (animationFrameId) {
+                        cancelAnimationFrame(animationFrameId);
+                    }
+                    window.removeEventListener('keydown', handleKeyDown);
+                    window.removeEventListener('keyup', handleKeyUp);
+                    gameStarted = false;
+                    gameOver = true;
+                }
+            };
+        }
+    </script>
+
+    <!-- Neon Ping Pong Game Script -->
+    <script>
+        // Pong Game Variables
+        let pongGame = null;
+
+        function openPongGame() {
+            const modal = document.getElementById('pongModal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                initializePongGame();
+            }
+        }
+
+        function closePongGame() {
+            const modal = document.getElementById('pongModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                if (pongGame) {
+                    pongGame.destroy();
+                    pongGame = null;
+                }
+            }
+        }
+
+        function initializePongGame() {
+            if (pongGame) {
+                pongGame.destroy();
+            }
+            
+            // Game elements
+            const gameContainer = document.getElementById('pong-game-container');
+            const paddleLeft = document.getElementById('pong-paddle-left');
+            const paddleRight = document.getElementById('pong-paddle-right');
+            const ball = document.getElementById('pong-ball');
+            const playerScoreDisplay = document.getElementById('pong-player-score');
+            const aiScoreDisplay = document.getElementById('pong-ai-score');
+            const gameOverScreen = document.getElementById('pong-game-over');
+            const winnerText = document.getElementById('pong-winner-text');
+            const restartBtn = document.getElementById('pong-restart-btn');
+            const startScreen = document.getElementById('pong-start-screen');
+            const startBtn = document.getElementById('pong-start-btn');
+            
+            // Game state
+            let ballX = 400;
+            let ballY = 250;
+            let ballSpeedX = 5;
+            let ballSpeedY = 3;
+            let paddleLeftY = 200;
+            let paddleRightY = 200;
+            let playerScore = 0;
+            let aiScore = 0;
+            let gameRunning = false;
+            let gameFinished = false;
+            let winningScore = 5;
+            let paddleLeftHeight = 100;
+            let paddleRightHeight = 100;
+            let particles = [];
+            let animationFrameId;
+            
+            // Game dimensions
+            let GAME_WIDTH = gameContainer.clientWidth;
+            let GAME_HEIGHT = gameContainer.clientHeight;
+            const PADDLE_HEIGHT = paddleLeftHeight;
+            
+            // Resize handler
+            function updateGameDimensions() {
+                GAME_WIDTH = gameContainer.clientWidth;
+                GAME_HEIGHT = gameContainer.clientHeight;
+            }
+            
+            // Initialize game
+            function initGame() {
+                updateGameDimensions();
+                ballX = GAME_WIDTH / 2;
+                ballY = GAME_HEIGHT / 2;
+                ballSpeedX = 5 * (Math.random() > 0.5 ? 1 : -1);
+                ballSpeedY = 3 * (Math.random() > 0.5 ? 1 : -1);
+                
+                paddleLeftY = (GAME_HEIGHT - PADDLE_HEIGHT) / 2;
+                paddleRightY = (GAME_HEIGHT - PADDLE_HEIGHT) / 2;
+                
+                updatePositions();
+                gameFinished = false;
+                gameOverScreen.style.display = 'none';
+            }
+            
+            // Update element positions
+            function updatePositions() {
+                paddleLeft.style.top = paddleLeftY + 'px';
+                paddleRight.style.top = paddleRightY + 'px';
+                ball.style.left = (ballX - 10) + 'px';
+                ball.style.top = (ballY - 10) + 'px';
+            }
+            
+            // Main game loop
+            function gameLoop() {
+                if (!gameRunning || gameFinished) return;
+                
+                updateGameDimensions();
+                
+                // Move ball
+                ballX += ballSpeedX;
+                ballY += ballSpeedY;
+                
+                // Ball collision with top and bottom
+                if (ballY <= 0 || ballY >= GAME_HEIGHT) {
+                    ballSpeedY = -ballSpeedY;
+                    createParticles(ballX, ballY, '#00ffff');
+                }
+                
+                // Ball collision with paddles
+                if (ballX <= 30 && ballX >= 20 && ballY >= paddleLeftY && ballY <= paddleLeftY + PADDLE_HEIGHT) {
+                    ballSpeedX = -ballSpeedX * 1.1;
+                    createParticles(20, ballY, '#ff00ff');
+                    createScoreAnimation('+1', 100, ballY);
+                }
+                
+                if (ballX >= GAME_WIDTH - 30 && ballX <= GAME_WIDTH - 20 && 
+                    ballY >= paddleRightY && ballY <= paddleRightY + PADDLE_HEIGHT) {
+                    ballSpeedX = -ballSpeedX * 1.1;
+                    createParticles(GAME_WIDTH - 20, ballY, '#ff00ff');
+                    createScoreAnimation('+1', GAME_WIDTH - 100, ballY);
+                }
+                
+                // AI paddle movement
+                let paddleRightCenter = paddleRightY + (PADDLE_HEIGHT / 2);
+                if (paddleRightCenter < ballY - 15) {
+                    paddleRightY += 5;
+                } else if (paddleRightCenter > ballY + 15) {
+                    paddleRightY -= 5;
+                }
+                
+                // Keep AI paddle within bounds
+                if (paddleRightY < 0) paddleRightY = 0;
+                if (paddleRightY > GAME_HEIGHT - PADDLE_HEIGHT) {
+                    paddleRightY = GAME_HEIGHT - PADDLE_HEIGHT;
+                }
+                
+                // Check for scoring
+                if (ballX < 0) {
+                    aiScore++;
+                    aiScoreDisplay.textContent = aiScore;
+                    resetAfterPoint();
+                    if (aiScore >= winningScore) {
+                        endGame('AI wins!');
+                    }
+                }
+                
+                if (ballX > GAME_WIDTH) {
+                    playerScore++;
+                    playerScoreDisplay.textContent = playerScore;
+                    resetAfterPoint();
+                    if (playerScore >= winningScore) {
+                        endGame('Player wins!');
+                    }
+                }
+                
+                updateParticles();
+                updatePositions();
+                
+                animationFrameId = requestAnimationFrame(gameLoop);
+            }
+            
+            // Reset after point
+            function resetAfterPoint() {
+                ballX = GAME_WIDTH / 2;
+                ballY = GAME_HEIGHT / 2;
+                ballSpeedX = 5 * (Math.random() > 0.5 ? 1 : -1);
+                ballSpeedY = 3 * (Math.random() > 0.5 ? 1 : -1);
+                
+                setTimeout(() => {
+                    updatePositions();
+                }, 100);
+            }
+            
+            // Mouse movement handler
+            function handleMouseMove(e) {
+                if (!gameRunning || gameFinished) return;
+                
+                const rect = gameContainer.getBoundingClientRect();
+                const mouseY = e.clientY - rect.top - (PADDLE_HEIGHT / 2);
+                
+                if (mouseY > 0 && mouseY < GAME_HEIGHT - PADDLE_HEIGHT) {
+                    paddleLeftY = mouseY;
+                }
+            }
+            
+            // Touch movement handler for mobile
+            function handleTouchMove(e) {
+                e.preventDefault();
+                if (!gameRunning || gameFinished) return;
+                
+                const rect = gameContainer.getBoundingClientRect();
+                const touch = e.touches[0];
+                const touchY = touch.clientY - rect.top - (PADDLE_HEIGHT / 2);
+                
+                if (touchY > 0 && touchY < GAME_HEIGHT - PADDLE_HEIGHT) {
+                    paddleLeftY = touchY;
+                }
+            }
+            
+            // Create particles
+            function createParticles(x, y, color) {
+                for (let i = 0; i < 10; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'pong-particle';
+                    particle.style.left = x + 'px';
+                    particle.style.top = y + 'px';
+                    particle.style.backgroundColor = color;
+                    particle.style.boxShadow = `0 0 5px ${color}`;
+                    gameContainer.appendChild(particle);
+                    
+                    const angle = Math.random() * Math.PI * 2;
+                    const speed = Math.random() * 3 + 1;
+                    
+                    particles.push({
+                        element: particle,
+                        x: x,
+                        y: y,
+                        speedX: Math.cos(angle) * speed,
+                        speedY: Math.sin(angle) * speed,
+                        opacity: 1,
+                        lifetime: Math.random() * 20 + 10
+                    });
+                }
+            }
+            
+            // Create score animation
+            function createScoreAnimation(text, x, y) {
+                const scoreAnim = document.createElement('div');
+                scoreAnim.className = 'pong-score-animation';
+                scoreAnim.textContent = text;
+                scoreAnim.style.left = x + 'px';
+                scoreAnim.style.top = (y - 30) + 'px';
+                gameContainer.appendChild(scoreAnim);
+                
+                setTimeout(() => {
+                    scoreAnim.remove();
+                }, 1000);
+            }
+            
+            // Update particles
+            function updateParticles() {
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    p.lifetime--;
+                    p.opacity = p.lifetime / 20;
+                    
+                    p.element.style.left = p.x + 'px';
+                    p.element.style.top = p.y + 'px';
+                    p.element.style.opacity = p.opacity;
+                    
+                    if (p.lifetime <= 0) {
+                        p.element.remove();
+                        particles.splice(i, 1);
+                    }
+                }
+            }
+            
+            // End game
+            function endGame(message) {
+                gameFinished = true;
+                winnerText.textContent = message;
+                gameOverScreen.style.display = 'block';
+                createParticles(GAME_WIDTH / 2, GAME_HEIGHT / 2, '#00ffff');
+                createParticles(GAME_WIDTH / 2, GAME_HEIGHT / 2, '#ff00ff');
+            }
+            
+            // Restart game
+            function restartGame() {
+                playerScore = 0;
+                aiScore = 0;
+                playerScoreDisplay.textContent = '0';
+                aiScoreDisplay.textContent = '0';
+                initGame();
+                gameRunning = true;
+                gameLoop();
+            }
+            
+            // Start game
+            function startGame() {
+                startScreen.style.display = 'none';
+                playerScore = 0;
+                aiScore = 0;
+                playerScoreDisplay.textContent = '0';
+                aiScoreDisplay.textContent = '0';
+                initGame();
+                gameRunning = true;
+                gameLoop();
+            }
+            
+            // Event listeners
+            gameContainer.addEventListener('mousemove', handleMouseMove);
+            gameContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
+            restartBtn.addEventListener('click', restartGame);
+            startBtn.addEventListener('click', startGame);
+            
+            // Initialize
+            initGame();
+            
+            pongGame = {
+                destroy: function() {
+                    if (animationFrameId) {
+                        cancelAnimationFrame(animationFrameId);
+                    }
+                    gameContainer.removeEventListener('mousemove', handleMouseMove);
+                    gameContainer.removeEventListener('touchmove', handleTouchMove);
+                    gameRunning = false;
+                    gameFinished = true;
+                    
+                    // Clean up particles
+                    particles.forEach(p => p.element.remove());
+                    particles = [];
+                }
+            };
+        }
+    </script>
+
+    <!-- Cyberpunk Tetris Game Script -->
+    <script>
+        // Tetris Game Variables
+        let tetrisGame = null;
+
+        function openTetrisGame() {
+            const modal = document.getElementById('tetrisModal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                initializeTetrisGame();
+            }
+        }
+
+        function closeTetrisGame() {
+            const modal = document.getElementById('tetrisModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                if (tetrisGame) {
+                    tetrisGame.destroy();
+                    tetrisGame = null;
+                }
+            }
+        }
+
+        function initializeTetrisGame() {
+            if (tetrisGame) {
+                tetrisGame.destroy();
+            }
+            
+            // Game constants
+            const COLS = 10;
+            const ROWS = 20;
+            const EMPTY = 0;
+            
+            // Tetris shapes
+            const SHAPES = [
+                [[1, 1, 1, 1]],                       // I
+                [[1, 1, 1], [0, 0, 1]],               // J
+                [[1, 1, 1], [1, 0, 0]],               // L
+                [[1, 1], [1, 1]],                     // O
+                [[0, 1, 1], [1, 1, 0]],               // S
+                [[0, 1, 0], [1, 1, 1]],               // T
+                [[1, 1, 0], [0, 1, 1]]                // Z
+            ];
+            
+            const CLASSES = [
+                'tetris-piece-i', 'tetris-piece-j', 'tetris-piece-l', 'tetris-piece-o', 
+                'tetris-piece-s', 'tetris-piece-t', 'tetris-piece-z'
+            ];
+            
+            // DOM elements
+            const gridElement = document.getElementById('tetris-grid');
+            const nextPieceElement = document.getElementById('tetris-next-piece');
+            const scoreElement = document.getElementById('tetris-score');
+            const levelElement = document.getElementById('tetris-level');
+            const linesElement = document.getElementById('tetris-lines');
+            const startButton = document.getElementById('tetris-start-btn');
+            const pauseOverlay = document.getElementById('tetris-pause-overlay');
+            const gameOverOverlay = document.getElementById('tetris-game-over-overlay');
+            const continueBtn = document.getElementById('tetris-continue-btn');
+            const playAgainBtn = document.getElementById('tetris-play-again-btn');
+            const finalScoreElement = document.getElementById('tetris-final-score');
+            
+            // Game state
+            let grid = createGrid(ROWS, COLS);
+            let piece = null;
+            let nextPiece = null;
+            let score = 0;
+            let level = 1;
+            let lines = 0;
+            let gameLoop = null;
+            let isPaused = false;
+            let isGameOver = false;
+            let dropCounter = 0;
+            let dropInterval = 1000;
+            let lastTime = 0;
+            let ghostPiecePosition = null;
+            
+            // Create grid
+            function createGrid(rows, cols) {
+                const grid = [];
+                for (let r = 0; r < rows; r++) {
+                    grid.push(new Array(cols).fill(EMPTY));
+                }
+                return grid;
+            }
+            
+            // Initialize game elements
+            function init() {
+                gridElement.innerHTML = '';
+                for (let r = 0; r < ROWS; r++) {
+                    for (let c = 0; c < COLS; c++) {
+                        const cell = document.createElement('div');
+                        cell.classList.add('tetris-grid-cell');
+                        cell.setAttribute('data-row', r);
+                        cell.setAttribute('data-col', c);
+                        gridElement.appendChild(cell);
+                    }
+                }
+                
+                nextPieceElement.innerHTML = '';
+                for (let r = 0; r < 4; r++) {
+                    for (let c = 0; c < 4; c++) {
+                        const cell = document.createElement('div');
+                        cell.classList.add('tetris-grid-cell');
+                        cell.setAttribute('data-row', r);
+                        cell.setAttribute('data-col', c);
+                        nextPieceElement.appendChild(cell);
+                    }
+                }
+            }
+            
+            // Create piece
+            function createPiece(type) {
+                const shape = SHAPES[type];
+                const x = Math.floor(COLS / 2) - Math.floor(shape[0].length / 2);
+                const y = -2;
+                
+                return {
+                    x, y, shape, type,
+                    width: shape[0].length,
+                    height: shape.length
+                };
+            }
+            
+            // Draw game
+            function draw() {
+                const cells = document.querySelectorAll('#tetris-grid .tetris-grid-cell');
+                cells.forEach(cell => {
+                    cell.className = 'tetris-grid-cell';
+                });
+                
+                // Draw placed pieces
+                for (let r = 0; r < ROWS; r++) {
+                    for (let c = 0; c < COLS; c++) {
+                        if (grid[r][c] !== EMPTY) {
+                            const index = (r * COLS) + c;
+                            cells[index].classList.add(CLASSES[grid[r][c] - 1]);
+                        }
+                    }
+                }
+                
+                // Draw current piece
+                if (piece) {
+                    drawPiece(piece);
+                    if (ghostPiecePosition) {
+                        drawGhostPiece(ghostPiecePosition);
+                    }
+                }
+                
+                // Draw next piece
+                if (nextPiece) {
+                    drawNextPiece(nextPiece);
+                }
+            }
+            
+            // Draw piece
+            function drawPiece(piece) {
+                const cells = document.querySelectorAll('#tetris-grid .tetris-grid-cell');
+                
+                for (let r = 0; r < piece.shape.length; r++) {
+                    for (let c = 0; c < piece.shape[r].length; c++) {
+                        if (piece.shape[r][c]) {
+                            const gridRow = piece.y + r;
+                            const gridCol = piece.x + c;
+                            
+                            if (gridRow >= 0 && gridRow < ROWS && gridCol >= 0 && gridCol < COLS) {
+                                const index = (gridRow * COLS) + gridCol;
+                                cells[index].classList.add(CLASSES[piece.type]);
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Draw ghost piece
+            function drawGhostPiece(ghostPos) {
+                const cells = document.querySelectorAll('#tetris-grid .tetris-grid-cell');
+                cells.forEach(cell => cell.classList.remove('tetris-piece-ghost'));
+                
+                for (let r = 0; r < piece.shape.length; r++) {
+                    for (let c = 0; c < piece.shape[r].length; c++) {
+                        if (piece.shape[r][c]) {
+                            const gridRow = ghostPos.y + r;
+                            const gridCol = ghostPos.x + c;
+                            
+                            if (gridRow >= 0 && gridRow < ROWS && gridCol >= 0 && gridCol < COLS) {
+                                const index = (gridRow * COLS) + gridCol;
+                                if (grid[gridRow][gridCol] === EMPTY) {
+                                    cells[index].classList.add('tetris-piece-ghost');
+                                    cells[index].classList.add(CLASSES[piece.type]);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Draw next piece
+            function drawNextPiece(piece) {
+                const cells = document.querySelectorAll('#tetris-next-piece .tetris-grid-cell');
+                cells.forEach(cell => {
+                    cell.className = 'tetris-grid-cell';
+                });
+                
+                const offsetX = Math.floor((4 - piece.shape[0].length) / 2);
+                const offsetY = Math.floor((4 - piece.shape.length) / 2);
+                
+                for (let r = 0; r < piece.shape.length; r++) {
+                    for (let c = 0; c < piece.shape[r].length; c++) {
+                        if (piece.shape[r][c]) {
+                            const gridRow = offsetY + r;
+                            const gridCol = offsetX + c;
+                            const index = (gridRow * 4) + gridCol;
+                            if (index >= 0 && index < 16) {
+                                cells[index].classList.add(CLASSES[piece.type]);
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Update score
+            function updateScore(linesCleared) {
+                const linePoints = [0, 40, 100, 300, 1200];
+                score += linePoints[linesCleared] * level;
+                lines += linesCleared;
+                level = Math.floor(lines / 10) + 1;
+                dropInterval = Math.max(100, 1000 - (level - 1) * 100);
+                
+                scoreElement.textContent = score;
+                levelElement.textContent = level;
+                linesElement.textContent = lines;
+            }
+            
+            // Check collision
+            function isCollision(piece, offsetX = 0, offsetY = 0) {
+                for (let r = 0; r < piece.shape.length; r++) {
+                    for (let c = 0; c < piece.shape[r].length; c++) {
+                        if (piece.shape[r][c]) {
+                            const newX = piece.x + c + offsetX;
+                            const newY = piece.y + r + offsetY;
+                            
+                            if (newX < 0 || newX >= COLS || newY >= ROWS) {
+                                return true;
+                            }
+                            
+                            if (newY >= 0 && grid[newY][newX] !== EMPTY) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+                return false;
+            }
+            
+            // Clear lines
+            function clearLines() {
+                let linesCleared = 0;
+                
+                for (let r = ROWS - 1; r >= 0; r--) {
+                    const isLineFull = grid[r].every(cell => cell !== EMPTY);
+                    
+                    if (isLineFull) {
+                        linesCleared++;
+                        grid.splice(r, 1);
+                        grid.unshift(new Array(COLS).fill(EMPTY));
+                        r++;
+                    }
+                }
+                
+                if (linesCleared > 0) {
+                    updateScore(linesCleared);
+                }
+            }
+            
+            // Merge piece
+            function mergePiece() {
+                for (let r = 0; r < piece.shape.length; r++) {
+                    for (let c = 0; c < piece.shape[r].length; c++) {
+                        if (piece.shape[r][c]) {
+                            const gridRow = piece.y + r;
+                            const gridCol = piece.x + c;
+                            
+                            if (gridRow >= 0 && gridRow < ROWS && gridCol >= 0 && gridCol < COLS) {
+                                grid[gridRow][gridCol] = piece.type + 1;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Rotate piece
+            function rotate() {
+                if (!piece || isGameOver || isPaused) return;
+                
+                const newShape = [];
+                for (let c = 0; c < piece.width; c++) {
+                    const newRow = [];
+                    for (let r = piece.height - 1; r >= 0; r--) {
+                        newRow.push(piece.shape[r][c]);
+                    }
+                    newShape.push(newRow);
+                }
+                
+                const originalShape = piece.shape;
+                piece.shape = newShape;
+                piece.width = piece.shape[0].length;
+                piece.height = piece.shape.length;
+                
+                if (isCollision(piece)) {
+                    if (piece.x + piece.width > COLS) {
+                        piece.x = COLS - piece.width;
+                    }
+                    if (piece.x < 0) {
+                        piece.x = 0;
+                    }
+                    
+                    if (isCollision(piece)) {
+                        piece.shape = originalShape;
+                        piece.width = piece.shape[0].length;
+                        piece.height = piece.shape.length;
+                    }
+                }
+                
+                updateGhostPiece();
+                draw();
+            }
+            
+            // Move left
+            function moveLeft() {
+                if (!piece || isGameOver || isPaused) return;
+                
+                if (!isCollision(piece, -1)) {
+                    piece.x--;
+                    updateGhostPiece();
+                    draw();
+                }
+            }
+            
+            // Move right
+            function moveRight() {
+                if (!piece || isGameOver || isPaused) return;
+                
+                if (!isCollision(piece, 1)) {
+                    piece.x++;
+                    updateGhostPiece();
+                    draw();
+                }
+            }
+            
+            // Soft drop
+            function softDrop() {
+                if (!piece || isGameOver || isPaused) return;
+                
+                if (!isCollision(piece, 0, 1)) {
+                    piece.y++;
+                    dropCounter = 0;
+                    draw();
+                }
+            }
+            
+            // Hard drop
+            function hardDrop() {
+                if (!piece || isGameOver || isPaused) return;
+                
+                while (!isCollision(piece, 0, 1)) {
+                    piece.y++;
+                }
+                
+                dropCounter = dropInterval;
+            }
+            
+            // Update ghost piece
+            function updateGhostPiece() {
+                if (!piece) return;
+                
+                ghostPiecePosition = { ...piece };
+                
+                while (!isCollision(ghostPiecePosition, 0, 1)) {
+                    ghostPiecePosition.y++;
+                }
+            }
+            
+            // Toggle pause
+            function togglePause() {
+                if (isGameOver) return;
+                
+                isPaused = !isPaused;
+                
+                if (isPaused) {
+                    pauseOverlay.classList.remove('hidden');
+                } else {
+                    pauseOverlay.classList.add('hidden');
+                    lastTime = performance.now();
+                }
+            }
+            
+            // Game over
+            function gameOver() {
+                isGameOver = true;
+                finalScoreElement.textContent = score;
+                gameOverOverlay.classList.remove('hidden');
+                if (gameLoop) cancelAnimationFrame(gameLoop);
+            }
+            
+            // Reset game
+            function resetGame() {
+                grid = createGrid(ROWS, COLS);
+                piece = null;
+                nextPiece = null;
+                score = 0;
+                level = 1;
+                lines = 0;
+                dropInterval = 1000;
+                isGameOver = false;
+                isPaused = false;
+                lastTime = 0;
+                dropCounter = 0;
+                
+                scoreElement.textContent = score;
+                levelElement.textContent = level;
+                linesElement.textContent = lines;
+                
+                gameOverOverlay.classList.add('hidden');
+                pauseOverlay.classList.add('hidden');
+                
+                nextPiece = createPiece(Math.floor(Math.random() * SHAPES.length));
+                spawnPiece();
+                
+                if (gameLoop) cancelAnimationFrame(gameLoop);
+                lastTime = performance.now();
+                gameLoop = requestAnimationFrame(update);
+            }
+            
+            // Spawn piece
+            function spawnPiece() {
+                if (nextPiece) {
+                    piece = nextPiece;
+                    nextPiece = createPiece(Math.floor(Math.random() * SHAPES.length));
+                } else {
+                    piece = createPiece(Math.floor(Math.random() * SHAPES.length));
+                    nextPiece = createPiece(Math.floor(Math.random() * SHAPES.length));
+                }
+                
+                updateGhostPiece();
+                
+                if (isCollision(piece)) {
+                    gameOver();
+                }
+            }
+            
+            // Main game loop
+            function update(time = 0) {
+                if (isPaused || isGameOver) {
+                    lastTime = time;
+                    gameLoop = requestAnimationFrame(update);
+                    return;
+                }
+                
+                const deltaTime = time - lastTime;
+                lastTime = time;
+                
+                dropCounter += deltaTime;
+                
+                if (dropCounter > dropInterval) {
+                    if (!isCollision(piece, 0, 1)) {
+                        piece.y++;
+                    } else {
+                        mergePiece();
+                        clearLines();
+                        spawnPiece();
+                    }
+                    
+                    dropCounter = 0;
+                }
+                
+                draw();
+                gameLoop = requestAnimationFrame(update);
+            }
+            
+            // Key handler
+            function handleKeyDown(e) {
+                if (isGameOver) return;
+                
+                switch (e.key) {
+                    case 'ArrowLeft':
+                        moveLeft();
+                        break;
+                    case 'ArrowRight':
+                        moveRight();
+                        break;
+                    case 'ArrowDown':
+                        softDrop();
+                        break;
+                    case 'ArrowUp':
+                        rotate();
+                        break;
+                    case ' ':
+                        e.preventDefault();
+                        hardDrop();
+                        break;
+                    case 'p':
+                    case 'P':
+                        togglePause();
+                        break;
+                }
+            }
+            
+            // Start game
+            function startGame() {
+                resetGame();
+                startButton.textContent = 'RESTART';
+            }
+            
+            // Event listeners
+            startButton.addEventListener('click', startGame);
+            continueBtn.addEventListener('click', togglePause);
+            playAgainBtn.addEventListener('click', resetGame);
+            document.addEventListener('keydown', handleKeyDown);
+            
+            // Initialize
+            init();
+            
+            tetrisGame = {
+                destroy: function() {
+                    if (gameLoop) {
+                        cancelAnimationFrame(gameLoop);
+                    }
+                    document.removeEventListener('keydown', handleKeyDown);
+                    isGameOver = true;
+                    isPaused = true;
+                }
+            };
+        }
+    </script>
+
     <script>
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -1905,13 +4543,18 @@
         searchButton.addEventListener('click', () => {
             const searchTerm = prompt('Search for games, research, or content:');
             if (searchTerm) {
-                // Simple search functionality - can be enhanced
                 const searchLower = searchTerm.toLowerCase();
                 
-                // Define search mappings
                 const searchMappings = {
                     'game': '#games',
                     'games': '#games',
+                    'asteroids': '#games',
+                    'pong': '#games',
+                    'ping pong': '#games',
+                    'neon': '#games',
+                    'tetris': '#games',
+                    'cyberpunk': '#games',
+                    'puzzle': '#games',
                     'data city': '#games',
                     'quantum': '#games',
                     'eco balance': '#games',
@@ -1927,7 +4570,6 @@
                     'professor': '#about'
                 };
                 
-                // Find matching section
                 let targetSection = null;
                 for (const [key, section] of Object.entries(searchMappings)) {
                     if (searchLower.includes(key)) {
@@ -1958,7 +4600,6 @@
                         behavior: 'smooth'
                     });
                     
-                    // Close mobile menu if open
                     if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
@@ -1996,7 +4637,6 @@
 
         // Enhanced form handling
         document.getElementById('contact-form').addEventListener('submit', function(e) {
-            // Let the default mailto behavior work, but also show a confirmation
             setTimeout(() => {
                 alert('Thank you for your message! Your default email client should now open with the pre-filled message. If it doesn\'t open automatically, please send your message directly to wrodda@kaplan.iit.edu');
             }, 100);
@@ -2009,7 +4649,7 @@
                     const typewriter = entry.target.querySelector('.typewriter');
                     if (typewriter) {
                         typewriter.style.animation = 'none';
-                        typewriter.offsetHeight; // Trigger reflow
+                        typewriter.offsetHeight;
                         typewriter.style.animation = 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite';
                     }
                 }
@@ -2027,6 +4667,27 @@
             icon.addEventListener('mouseleave', () => {
                 icon.classList.remove('pulse-ring');
             });
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            const quizModal = document.getElementById('quizModal');
+            const asteroidsModal = document.getElementById('asteroidsModal');
+            const pongModal = document.getElementById('pongModal');
+            const tetrisModal = document.getElementById('tetrisModal');
+            
+            if (e.target === quizModal) {
+                closeQuiz();
+            }
+            if (e.target === asteroidsModal) {
+                closeAsteroidsGame();
+            }
+            if (e.target === pongModal) {
+                closePongGame();
+            }
+            if (e.target === tetrisModal) {
+                closeTetrisGame();
+            }
         });
     </script>
 </body>
