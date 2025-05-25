@@ -124,8 +124,10 @@
             .typewriter {
                 font-size: 0.9rem !important;
                 white-space: normal;
-                animation: none;
-                border-right: none;
+                animation: none !important;
+                border-right: none !important;
+                width: auto !important;
+                overflow: visible !important;
             }
             
             .game-card {
@@ -161,12 +163,44 @@
                 font-size: 1rem !important;
             }
             
+            .typewriter {
+                font-size: 0.8rem !important;
+                text-align: center;
+                line-height: 1.4;
+                animation: none !important;
+                border-right: none !important;
+                white-space: normal;
+                width: auto !important;
+                overflow: visible !important;
+            }
+            
             .marquee {
                 overflow: hidden;
             }
             
             .marquee > div {
                 min-width: 200%;
+            }
+        }
+
+        /* Larger mobile devices and tablets */
+        @media (max-width: 1024px) {
+            .typewriter {
+                animation: none !important;
+                border-right: none !important;
+                white-space: normal;
+                width: auto !important;
+                overflow: visible !important;
+            }
+        }
+
+        /* Only enable typewriter on larger screens where text won't wrap */
+        @media (min-width: 1025px) {
+            .typewriter {
+                white-space: nowrap;
+                overflow: hidden;
+                border-right: .15em solid var(--secondary);
+                animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
             }
         }
 
