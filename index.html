@@ -103,6 +103,72 @@
                 opacity: 0;
             }
         }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .marquee {
+                animation-duration: 30s;
+            }
+            
+            .marquee img {
+                height: 2.5rem !important;
+                max-width: 120px;
+                object-fit: contain;
+            }
+            
+            .hero-gradient h1 {
+                font-size: 2.5rem !important;
+                line-height: 1.1;
+            }
+            
+            .typewriter {
+                font-size: 0.9rem !important;
+                white-space: normal;
+                animation: none;
+                border-right: none;
+            }
+            
+            .game-card {
+                margin-bottom: 1rem;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+                text-align: center !important;
+            }
+            
+            .timeline-item > div {
+                width: 100% !important;
+                padding: 0 !important;
+                margin-bottom: 1rem;
+            }
+            
+            .w-5\/12, .w-2\/12 {
+                width: 100% !important;
+            }
+            
+            .timeline-item .bg-gray-800 {
+                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-gradient h1 {
+                font-size: 2rem !important;
+            }
+            
+            .hero-gradient p {
+                font-size: 1rem !important;
+            }
+            
+            .marquee {
+                overflow: hidden;
+            }
+            
+            .marquee > div {
+                min-width: 200%;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -177,23 +243,23 @@
         </div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10 text-center">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white glow pixel-font">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white glow pixel-font">
                 Gaming<span class="text-yellow-300">with</span>Bo
             </h1>
-            <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto">
+            <p class="text-lg sm:text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto px-4">
                 Exploring the intersection of game design, emerging technology, and data-driven storytelling through niche independent games.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#games" class="px-8 py-3 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-105">
+            <div class="flex flex-col sm:flex-row justify-center gap-4 px-4">
+                <a href="#games" class="px-6 sm:px-8 py-3 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-105">
                     Explore Games
                 </a>
-                <a href="#about" class="px-8 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-gray-900 transition duration-300 transform hover:scale-105">
+                <a href="#about" class="px-6 sm:px-8 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-gray-900 transition duration-300 transform hover:scale-105">
                     About Bo
                 </a>
             </div>
             
-            <div class="mt-16">
-                <div class="inline-block typewriter text-xl md:text-2xl text-white font-mono">
+            <div class="mt-16 px-4">
+                <div class="inline-block typewriter text-sm sm:text-xl md:text-2xl text-white font-mono text-center">
                     Assistant Professor of Experiential Media and Design at Illinois Tech
                 </div>
             </div>
@@ -439,9 +505,9 @@
                 </p>
             </div>
             
-            <div class="flex flex-col lg:flex-row items-center gap-12">
-                <div class="lg:w-1/3">
-                    <div class="relative group">
+            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+                <div class="w-full lg:w-1/3 flex justify-center">
+                    <div class="relative group max-w-sm">
                         <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-teal-400 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
                         <div class="relative bg-gray-900 rounded-lg overflow-hidden">
                             <img src="https://yt3.googleusercontent.com/ytc/AIdro_mjMCGtI5elq9YXwwz7AA3IMESYqVnYwVYsyKXr0EENNBI=s900-c-k-c0x00ffffff-no-rj" 
@@ -450,12 +516,12 @@
                     </div>
                 </div>
                 
-                <div class="lg:w-2/3">
-                    <h3 class="text-3xl font-bold text-white mb-6">Exploring the intersection of design, technology, and storytelling</h3>
-                    <p class="text-gray-300 mb-6">
+                <div class="w-full lg:w-2/3 px-4 lg:px-0">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 text-center lg:text-left">Exploring the intersection of design, technology, and storytelling</h3>
+                    <p class="text-gray-300 mb-6 text-center lg:text-left">
                         Bo Rodda is an internationally exhibited designer and co-founder of ChiLab Design Studio. His research and practice explore the intersection of design, emerging technology, game design and data-driven storytelling.
                     </p>
-                    <p class="text-gray-300 mb-6">
+                    <p class="text-gray-300 mb-6 text-center lg:text-left">
                         He leads cross-sector collaborations that bridge the arts, science, and innovation. His work has been supported by the NSF, Infosys, United Airlines, Wilson Sporting Goods, among many others. He engages audiences through both public exhibition and applied research.
                     </p>
                     
@@ -485,11 +551,11 @@
                         </div>
                     </div>
                     
-                    <div class="flex flex-wrap gap-4">
-                        <a href="https://www.borodda.com/work" target="_blank" class="px-6 py-2 bg-teal-500 text-white font-bold rounded-full hover:bg-teal-600 transition">
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start">
+                        <a href="https://www.borodda.com/work" target="_blank" class="px-6 py-2 bg-teal-500 text-white font-bold rounded-full hover:bg-teal-600 transition text-center">
                             View Research
                         </a>
-                        <a href="https://www.linkedin.com/in/bo-rodda-3249a614/details/experience/" target="_blank" class="px-6 py-2 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-gray-900 transition">
+                        <a href="https://www.linkedin.com/in/bo-rodda-3249a614/details/experience/" target="_blank" class="px-6 py-2 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-gray-900 transition text-center">
                             View CV
                         </a>
                     </div>
@@ -511,11 +577,11 @@
             
             <!-- Timeline -->
             <div class="relative">
-                <div class="absolute left-1/2 w-1 h-full bg-gray-700 transform -translate-x-1/2"></div>
+                <div class="hidden md:block absolute left-1/2 w-1 h-full bg-gray-700 transform -translate-x-1/2"></div>
                 
                 <!-- Timeline Item 1 -->
-                <div class="mb-16 flex items-center justify-between timeline-item">
-                    <div class="w-5/12 pr-8 text-right">
+                <div class="mb-16 flex flex-col md:flex-row items-center justify-between timeline-item">
+                    <div class="w-full md:w-5/12 md:pr-8 md:text-right mb-6 md:mb-0">
                         <h3 class="text-2xl font-bold text-white mb-2">LakeSIM</h3>
                         <p class="text-gray-300 mb-4">
                             Urban Simulation and Planning Platform developed in collaboration with University of Chicago and Argonne National Laboratory.
@@ -524,13 +590,13 @@
                             2015 - Present
                         </span>
                     </div>
-                    <div class="w-2/12 flex justify-center">
+                    <div class="hidden md:flex w-2/12 justify-center">
                         <div class="relative">
                             <div class="h-6 w-6 bg-purple-500 rounded-full"></div>
                             <div class="absolute inset-0 animate-ping bg-purple-500 rounded-full opacity-75"></div>
                         </div>
                     </div>
-                    <div class="w-5/12 pl-8">
+                    <div class="w-full md:w-5/12 md:pl-8">
                         <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
                             <p class="text-gray-300">
                                 Lead architect of a data-driven tool designed to connect urban design concepts with scientific modeling. Funded in part by the NSF, and featured in ISOCARP Review.
@@ -540,21 +606,21 @@
                 </div>
                 
                 <!-- Timeline Item 2 -->
-                <div class="mb-16 flex items-center justify-between timeline-item">
-                    <div class="w-5/12 pr-8 text-right">
+                <div class="mb-16 flex flex-col md:flex-row items-center justify-between timeline-item">
+                    <div class="w-full md:w-5/12 md:pr-8 md:text-right mb-6 md:mb-0 md:order-1">
                         <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
                             <p class="text-gray-300">
                                 Senior personnel on a groundbreaking urban sensing project co-developed with Argonne National Laboratory and the University of Chicago.
                             </p>
                         </div>
                     </div>
-                    <div class="w-2/12 flex justify-center">
+                    <div class="hidden md:flex w-2/12 justify-center md:order-2">
                         <div class="relative">
                             <div class="h-6 w-6 bg-teal-500 rounded-full"></div>
                             <div class="absolute inset-0 animate-ping bg-teal-500 rounded-full opacity-75"></div>
                         </div>
                     </div>
-                    <div class="w-5/12 pl-8">
+                    <div class="w-full md:w-5/12 md:pl-8 md:order-3">
                         <h3 class="text-2xl font-bold text-white mb-2">The Array of Things</h3>
                         <p class="text-gray-300 mb-4">
                             Contributed to sensor design, public engagement strategies, and educational workshops.
@@ -566,8 +632,8 @@
                 </div>
                 
                 <!-- Timeline Item 3 -->
-                <div class="mb-16 flex items-center justify-between timeline-item">
-                    <div class="w-5/12 pr-8 text-right">
+                <div class="mb-16 flex flex-col md:flex-row items-center justify-between timeline-item">
+                    <div class="w-full md:w-5/12 md:pr-8 md:text-right mb-6 md:mb-0">
                         <h3 class="text-2xl font-bold text-white mb-2">Chicago City Model</h3>
                         <p class="text-gray-300 mb-4">
                             Dynamic Data Projection Mapping for the Chicago Architecture Foundation's City of Big Data exhibition.
@@ -576,13 +642,13 @@
                             2012 - 2014
                         </span>
                     </div>
-                    <div class="w-2/12 flex justify-center">
+                    <div class="hidden md:flex w-2/12 justify-center">
                         <div class="relative">
                             <div class="h-6 w-6 bg-yellow-500 rounded-full"></div>
                             <div class="absolute inset-0 animate-ping bg-yellow-500 rounded-full opacity-75"></div>
                         </div>
                     </div>
-                    <div class="w-5/12 pl-8">
+                    <div class="w-full md:w-5/12 md:pl-8">
                         <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
                             <p class="text-gray-300">
                                 Created a projection system mapping real-time urban data onto a 3D model of the city, serving as technical advisor for the exhibition.
@@ -644,38 +710,38 @@
     <!-- Media Appearances -->
     <section class="py-16 bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-3xl font-bold text-white mb-12 text-center">Featured In</h3>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-12 text-center">Featured In</h3>
             
             <div class="relative overflow-hidden">
                 <div class="flex marquee">
-                    <div class="flex-shrink-0 mx-8">
+                    <div class="flex-shrink-0 mx-4 sm:mx-8">
                         <a href="https://www.nytimes.com/2013/05/23/garden/at-the-international-contemporary-furniture-fair-going-for-the-remix.html?_r=0#" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-10 sm:h-16 object-contain opacity-80 hover:opacity-100 transition">
                         </a>
                     </div>
-                    <div class="flex-shrink-0 mx-8">
+                    <div class="flex-shrink-0 mx-4 sm:mx-8">
                         <a href="https://digital.modernluxury.com/publication/?i=216825&article_id=1758227&view=articleBrowser" target="_blank">
-                            <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                            <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-10 sm:h-16 object-contain opacity-80 hover:opacity-100 transition">
                         </a>
                     </div>
-                    <div class="flex-shrink-0 mx-8">
+                    <div class="flex-shrink-0 mx-4 sm:mx-8">
                         <a href="https://www.researchgate.net/publication/281099639_Designing_Future_Cities_-_LakeSIM_Integrated_Design_Tool_For_Assessing_Short-_and_Long-Term_Impacts_of_Urban_Scale_Conceptual_Designs" target="_blank">
-                            <img src="https://c5.rgstatic.net/m/419438641133902/images/icons/svgicons/new-index-logo.svg" alt="ResearchGate" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                            <img src="https://c5.rgstatic.net/m/419438641133902/images/icons/svgicons/new-index-logo.svg" alt="ResearchGate" class="h-10 sm:h-16 object-contain opacity-80 hover:opacity-100 transition">
                         </a>
                     </div>
-                    <div class="flex-shrink-0 mx-8">
+                    <div class="flex-shrink-0 mx-4 sm:mx-8">
                         <a href="https://www.architectmagazine.com/design/these-collectives-made-it-work-at-wanteddesign-2014_o" target="_blank">
-                            <img src="https://cdnassets.hw.net/ca/e1/2ee6b6a64149a76c3ccaff7c5689/architect.png" alt="Architect Magazine" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                            <img src="https://cdnassets.hw.net/ca/e1/2ee6b6a64149a76c3ccaff7c5689/architect.png" alt="Architect Magazine" class="h-10 sm:h-16 object-contain opacity-80 hover:opacity-100 transition">
                         </a>
                     </div>
-                    <div class="flex-shrink-0 mx-8">
+                    <div class="flex-shrink-0 mx-4 sm:mx-8">
                         <a href="https://digital.modernluxury.com/publication/?i=216825&article_id=1758227&view=articleBrowser" target="_blank">
-                            <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                            <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-10 sm:h-16 object-contain opacity-80 hover:opacity-100 transition">
                         </a>
                     </div>
-                    <div class="flex-shrink-0 mx-8">
+                    <div class="flex-shrink-0 mx-4 sm:mx-8">
                         <a href="https://www.nytimes.com/2013/05/23/garden/at-the-international-contemporary-furniture-fair-going-for-the-remix.html?_r=0#" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-10 sm:h-16 object-contain opacity-80 hover:opacity-100 transition">
                         </a>
                     </div>
                 </div>
