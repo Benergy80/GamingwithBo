@@ -512,9 +512,9 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
-                            <a href="#" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                            <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
                                 Play Now
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -543,9 +543,9 @@
                                 <i class="fas fa-star"></i>
                                 <i class="far fa-star"></i>
                             </div>
-                            <a href="#" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                            <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
                                 Play Now
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -577,9 +577,9 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <a href="#" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                            <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
                                 Play Now
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -611,9 +611,9 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <a href="#" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                            <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
                                 Play Now
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -645,9 +645,9 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
-                            <a href="#" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                            <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
                                 Play Now
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -679,9 +679,9 @@
                                 <i class="fas fa-star"></i>
                                 <i class="far fa-star"></i>
                             </div>
-                            <a href="#" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                            <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
                                 Play Now
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -980,7 +980,7 @@
             
             <div class="flex flex-col lg:flex-row gap-12">
                 <div class="lg:w-1/2">
-                    <form action="mailto:wrodda@kaplan.iit.edu" method="post" enctype="text/plain" class="space-y-6" id="contact-form">
+                    <form id="contact-form" class="space-y-6">
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
                             <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-500">
@@ -1311,6 +1311,213 @@
             </div>
         </div>
     </div>
+
+    <!-- Quiz Functions Script - Must come first -->
+    <script>
+        // Define quiz functions immediately in global scope
+        var currentQuestion = 1;
+        var totalQuestions = 4;
+        var quizAnswers = {};
+
+        function openQuiz() {
+            console.log('Opening quiz...');
+            var modal = document.getElementById('quizModal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                updateProgressBar();
+                updateButtons();
+                console.log('Quiz opened successfully');
+            } else {
+                console.error('Quiz modal not found!');
+            }
+        }
+
+        function closeQuiz() {
+            var modal = document.getElementById('quizModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+            document.body.style.overflow = 'auto';
+            resetQuiz();
+        }
+
+        function selectOption(element, value) {
+            var siblings = element.parentNode.children;
+            for (var i = 0; i < siblings.length; i++) {
+                siblings[i].classList.remove('selected');
+                var radio = siblings[i].querySelector('input[type="radio"]');
+                if (radio) radio.checked = false;
+            }
+            
+            element.classList.add('selected');
+            var radio = element.querySelector('input[type="radio"]');
+            if (radio) {
+                radio.checked = true;
+                quizAnswers[radio.name] = value;
+            }
+            
+            setTimeout(function() {
+                if (currentQuestion < totalQuestions) {
+                    nextQuestion();
+                } else {
+                    showResults();
+                }
+            }, 500);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                document.querySelector('[data-question="' + currentQuestion + '"]').classList.remove('active');
+                currentQuestion++;
+                document.querySelector('[data-question="' + currentQuestion + '"]').classList.add('active');
+                updateProgressBar();
+                updateButtons();
+            } else {
+                showResults();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                document.querySelector('[data-question="' + currentQuestion + '"]').classList.remove('active');
+                currentQuestion--;
+                document.querySelector('[data-question="' + currentQuestion + '"]').classList.add('active');
+                updateProgressBar();
+                updateButtons();
+            }
+        }
+
+        function restartQuiz() {
+            resetQuiz();
+            document.getElementById('quizResults').classList.remove('active');
+            document.querySelector('.quiz-buttons').style.display = 'flex';
+            document.querySelector('[data-question="1"]').classList.add('active');
+        }
+
+        function updateProgressBar() {
+            var progress = (currentQuestion / totalQuestions) * 100;
+            var progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                progressBar.style.width = progress + '%';
+            }
+        }
+
+        function updateButtons() {
+            var prevBtn = document.getElementById('prevBtn');
+            var nextBtn = document.getElementById('nextBtn');
+            
+            if (prevBtn) prevBtn.style.display = currentQuestion === 1 ? 'none' : 'block';
+            if (nextBtn) nextBtn.textContent = currentQuestion === totalQuestions ? 'Finish' : 'Next';
+        }
+
+        function showResults() {
+            var questions = document.querySelectorAll('.quiz-question');
+            for (var i = 0; i < questions.length; i++) {
+                questions[i].classList.remove('active');
+            }
+            
+            var buttonsDiv = document.querySelector('.quiz-buttons');
+            if (buttonsDiv) buttonsDiv.style.display = 'none';
+            
+            var resultsDiv = document.getElementById('quizResults');
+            if (resultsDiv) resultsDiv.classList.add('active');
+            
+            var recommendation = generateRecommendation();
+            var gameRecDiv = document.getElementById('gameRecommendation');
+            if (gameRecDiv) gameRecDiv.innerHTML = recommendation;
+            
+            var progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                progressBar.style.width = '100%';
+            }
+        }
+
+        function generateRecommendation() {
+            var platform = quizAnswers.platform || 'pc';
+            var experience = quizAnswers.experience || 'educational';
+            var time = quizAnswers.time || 'moderate';
+            var theme = quizAnswers.theme || 'science';
+            
+            var recommendations = {
+                'pc-educational-science': {
+                    game: 'Neural Network Builder',
+                    reason: 'Perfect for PC users who love learning about AI and technology!',
+                    features: ['Visual programming interface', 'Machine learning concepts', 'Complex data visualization']
+                },
+                'mobile-casual-environment': {
+                    game: 'Eco Balance',
+                    reason: 'Great for quick environmental awareness sessions on mobile!',
+                    features: ['Touch-friendly controls', 'Sustainability focus', 'Bite-sized gameplay']
+                },
+                'vr-educational': {
+                    game: 'Memory Palace VR',
+                    reason: 'Immersive VR learning experience for cognitive enhancement!',
+                    features: ['Virtual reality immersion', 'Memory techniques', 'Spatial learning']
+                },
+                'urban-science': {
+                    game: 'Data City Sim',
+                    reason: 'Perfect blend of urban planning and data science!',
+                    features: ['Real urban data', 'City building mechanics', 'Scientific modeling']
+                },
+                'environment-science': {
+                    game: 'Climate Crisis Chronicles',
+                    reason: 'Interactive storytelling meets climate science!',
+                    features: ['Climate scenarios', 'Scientific accuracy', 'Educational narrative']
+                }
+            };
+
+            var bestMatch = null;
+            var combo1 = platform + '-' + experience + '-' + theme;
+            var combo2 = platform + '-' + time + '-' + theme;
+            var combo3 = theme + '-' + experience;
+            
+            if (recommendations[combo1]) bestMatch = recommendations[combo1];
+            else if (recommendations[combo2]) bestMatch = recommendations[combo2];
+            else if (recommendations[combo3]) bestMatch = recommendations[combo3];
+            
+            if (!bestMatch) {
+                if (theme === 'science') bestMatch = recommendations['pc-educational-science'];
+                else if (theme === 'environment') bestMatch = recommendations['environment-science'];
+                else if (theme === 'urban') bestMatch = recommendations['urban-science'];
+                else if (platform === 'vr') bestMatch = recommendations['vr-educational'];
+                else bestMatch = recommendations['mobile-casual-environment'];
+            }
+
+            var featuresHtml = '';
+            for (var i = 0; i < bestMatch.features.length; i++) {
+                featuresHtml += '<li>• ' + bestMatch.features[i] + '</li>';
+            }
+
+            return '<h4 class="text-xl font-bold text-teal-400 mb-4">🎯 ' + bestMatch.game + '</h4>' +
+                   '<p class="mb-4">' + bestMatch.reason + '</p>' +
+                   '<ul class="text-sm opacity-90">' + featuresHtml + '</ul>' +
+                   '<div class="mt-4 text-center">' +
+                   '<button class="quiz-btn quiz-btn-primary" onclick="closeQuiz(); var gamesSection = document.querySelector(\'#games\'); if(gamesSection) gamesSection.scrollIntoView({behavior: \'smooth\'});">' +
+                   'Explore This Game</button></div>';
+        }
+
+        function resetQuiz() {
+            currentQuestion = 1;
+            quizAnswers = {};
+            var questions = document.querySelectorAll('.quiz-question');
+            for (var i = 0; i < questions.length; i++) {
+                questions[i].classList.remove('active');
+            }
+            var options = document.querySelectorAll('.quiz-option');
+            for (var i = 0; i < options.length; i++) {
+                options[i].classList.remove('selected');
+            }
+            var radios = document.querySelectorAll('input[type="radio"]');
+            for (var i = 0; i < radios.length; i++) {
+                radios[i].checked = false;
+            }
+            var firstQuestion = document.querySelector('[data-question="1"]');
+            if (firstQuestion) firstQuestion.classList.add('active');
+            updateProgressBar();
+            updateButtons();
+        }
+    </script>
 
     <script>
         // Mobile menu toggle
