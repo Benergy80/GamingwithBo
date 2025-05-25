@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamingwithBo | Niche Independent Games</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik:wght@400;500;700&display=swap');
+        
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #00cec9;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+        }
+        
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .pixel-font {
+            font-family: 'Press Start 2P', cursive;
+        }
+        
+        .game-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .glow {
+            text-shadow: 0 0 10px rgba(108, 92, 231, 0.8);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid var(--secondary);
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--secondary) }
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -20px;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 20px;
+            background: var(--secondary);
+        }
+        
+        .marquee {
+            animation: marquee 20s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+            80%, 100% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-90 backdrop-filter backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-2xl font-bold text-white pixel-font">GamingwithBo</span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">Home</a>
+                            <a href="#games" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">Games</a>
+                            <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">About Bo</a>
+                            <a href="#research" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">Research</a>
+                            <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <button id="search-button" class="p-1 rounded-full text-gray-400 hover:text-white focus:outline-none">
+                            <span class="sr-only">Search</span>
+                            <i class="fas fa-search h-6 w-6"></i>
+                        </button>
+                        <a href="https://www.borodda.com/" target="_blank" class="ml-3 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none">
+                            <span class="sr-only">Profile</span>
+                            <i class="fas fa-user-circle h-6 w-6"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Home</a>
+                <a href="#games" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Games</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">About Bo</a>
+                <a href="#research" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Research</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Contact</a>
+            </div>
+            <div class="pt-4 pb-3 border-t border-gray-700">
+                <div class="flex items-center px-5">
+                    <button class="ml-auto flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none" onclick="document.getElementById('search-button').click()">
+                        <span class="sr-only">Search</span>
+                        <i class="fas fa-search h-6 w-6"></i>
+                    </button>
+                    <a href="https://www.borodda.com/" target="_blank" class="ml-3 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none">
+                        <span class="sr-only">Profile</span>
+                        <i class="fas fa-user-circle h-6 w-6"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="absolute top-0 left-0 w-full h-full">
+            <div class="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-10"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white glow pixel-font">
+                Gaming<span class="text-yellow-300">with</span>Bo
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto">
+                Exploring the intersection of game design, emerging technology, and data-driven storytelling through niche independent games.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#games" class="px-8 py-3 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-105">
+                    Explore Games
+                </a>
+                <a href="#about" class="px-8 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-gray-900 transition duration-300 transform hover:scale-105">
+                    About Bo
+                </a>
+            </div>
+            
+            <div class="mt-16">
+                <div class="inline-block typewriter text-xl md:text-2xl text-white font-mono">
+                    Assistant Professor of Experiential Media and Design at Illinois Tech
+                </div>
+            </div>
+            
+            <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+                <a href="#games" class="text-white animate-bounce">
+                    <i class="fas fa-chevron-down text-3xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4 pixel-font">Featured Games</h2>
+                <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
+                <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+                    Experimental games that push boundaries of storytelling and interaction
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Game Card 1 -->
+                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/datacitysim.png" 
+                             alt="Data City Sim" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            NEW
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Data City Sim</h3>
+                        <p class="text-gray-300 mb-4">
+                            A city builder where every decision is driven by real urban data. Experience the complexity of urban planning.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Simulation</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Educational</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Data-Driven</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <a href="https://www.borodda.com/fine-art" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                Play Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Card 2 -->
+                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/quantumexplorer.png" 
+                             alt="Quantum Explorer" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Quantum Explorer</h3>
+                        <p class="text-gray-300 mb-4">
+                            Navigate through quantum dimensions where your choices create parallel universes with different outcomes.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Adventure</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Sci-Fi</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Narrative</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <a href="https://www.borodda.com/fine-art" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                Play Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Card 3 -->
+                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/ecobalance.png" 
+                             alt="Eco Balance" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            FREE
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Eco Balance</h3>
+                        <p class="text-gray-300 mb-4">
+                            A strategy game about maintaining ecological balance while developing a sustainable civilization.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Strategy</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Sustainability</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Resource Mgmt</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <a href="https://www.borodda.com/fine-art" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                Play Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 4 - New -->
+                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/neuralnetworkbuilder.png" 
+                             alt="Neural Network Builder" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            BETA
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Neural Network Builder</h3>
+                        <p class="text-gray-300 mb-4">
+                            Design and train AI systems through an intuitive visual interface. Learn machine learning concepts through play.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Educational</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">AI/ML</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Puzzle</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <a href="https://www.borodda.com/fine-art" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                Play Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 5 - New -->
+                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/climatecrisischronicles.png" 
+                             alt="Climate Crisis Chronicles" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            FEATURED
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Climate Crisis Chronicles</h3>
+                        <p class="text-gray-300 mb-4">
+                            Experience climate change scenarios through interactive storytelling and scientific simulation.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Interactive Fiction</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Science</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Social Impact</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <a href="https://www.borodda.com/fine-art" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                Play Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 6 - New -->
+                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Memory Palace VR" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            VR
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Memory Palace VR</h3>
+                        <p class="text-gray-300 mb-4">
+                            Build and explore virtual memory palaces to enhance learning and cognitive abilities through spatial memory techniques.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">VR</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Cognitive</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Learning</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <a href="https://www.borodda.com/fine-art" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                Play Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <button class="px-8 py-3 border-2 border-purple-500 text-purple-500 font-bold rounded-full hover:bg-purple-500 hover:text-white transition duration-300 transform hover:scale-105">
+                    View All Games
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Bo Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4 pixel-font">About Bo Rodda</h2>
+                <div class="w-24 h-1 bg-teal-400 mx-auto"></div>
+                <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+                    Assistant Professor of Experiential Media and Design at Illinois Tech
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/3">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-teal-400 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                        <div class="relative bg-gray-900 rounded-lg overflow-hidden">
+                            <img src="https://yt3.googleusercontent.com/ytc/AIdro_mjMCGtI5elq9YXwwz7AA3IMESYqVnYwVYsyKXr0EENNBI=s900-c-k-c0x00ffffff-no-rj" 
+                                 alt="Bo Rodda" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-2/3">
+                    <h3 class="text-3xl font-bold text-white mb-6">Exploring the intersection of design, technology, and storytelling</h3>
+                    <p class="text-gray-300 mb-6">
+                        Bo Rodda is an internationally exhibited designer and co-founder of ChiLab Design Studio. His research and practice explore the intersection of design, emerging technology, game design and data-driven storytelling.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        He leads cross-sector collaborations that bridge the arts, science, and innovation. His work has been supported by the NSF, Infosys, United Airlines, Wilson Sporting Goods, among many others. He engages audiences through both public exhibition and applied research.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gray-700 bg-opacity-50 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-teal-500 p-2 rounded-full mr-4">
+                                    <i class="fas fa-graduation-cap text-white"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-white">Education</h4>
+                            </div>
+                            <p class="text-gray-300">
+                                BFA, Rhode Island School of Design, Studio Arts | Painting
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gray-700 bg-opacity-50 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-purple-500 p-2 rounded-full mr-4">
+                                    <i class="fas fa-users text-white"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-white">Affiliations</h4>
+                            </div>
+                            <p class="text-gray-300">
+                                DVS, Data Visualization Society
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://www.borodda.com/work" target="_blank" class="px-6 py-2 bg-teal-500 text-white font-bold rounded-full hover:bg-teal-600 transition">
+                            View Research
+                        </a>
+                        <a href="https://www.linkedin.com/in/bo-rodda-3249a614/details/experience/" target="_blank" class="px-6 py-2 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-gray-900 transition">
+                            View CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research & Projects Section -->
+    <section id="research" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4 pixel-font">Research & Projects</h2>
+                <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
+                <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+                    Groundbreaking work at the intersection of technology, design, and urban systems
+                </p>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="relative">
+                <div class="absolute left-1/2 w-1 h-full bg-gray-700 transform -translate-x-1/2"></div>
+                
+                <!-- Timeline Item 1 -->
+                <div class="mb-16 flex items-center justify-between timeline-item">
+                    <div class="w-5/12 pr-8 text-right">
+                        <h3 class="text-2xl font-bold text-white mb-2">LakeSIM</h3>
+                        <p class="text-gray-300 mb-4">
+                            Urban Simulation and Planning Platform developed in collaboration with University of Chicago and Argonne National Laboratory.
+                        </p>
+                        <span class="inline-block bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            2015 - Present
+                        </span>
+                    </div>
+                    <div class="w-2/12 flex justify-center">
+                        <div class="relative">
+                            <div class="h-6 w-6 bg-purple-500 rounded-full"></div>
+                            <div class="absolute inset-0 animate-ping bg-purple-500 rounded-full opacity-75"></div>
+                        </div>
+                    </div>
+                    <div class="w-5/12 pl-8">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                            <p class="text-gray-300">
+                                Lead architect of a data-driven tool designed to connect urban design concepts with scientific modeling. Funded in part by the NSF, and featured in ISOCARP Review.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="mb-16 flex items-center justify-between timeline-item">
+                    <div class="w-5/12 pr-8 text-right">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                            <p class="text-gray-300">
+                                Senior personnel on a groundbreaking urban sensing project co-developed with Argonne National Laboratory and the University of Chicago.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-2/12 flex justify-center">
+                        <div class="relative">
+                            <div class="h-6 w-6 bg-teal-500 rounded-full"></div>
+                            <div class="absolute inset-0 animate-ping bg-teal-500 rounded-full opacity-75"></div>
+                        </div>
+                    </div>
+                    <div class="w-5/12 pl-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">The Array of Things</h3>
+                        <p class="text-gray-300 mb-4">
+                            Contributed to sensor design, public engagement strategies, and educational workshops.
+                        </p>
+                        <span class="inline-block bg-teal-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            2013 - 2017
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3 -->
+                <div class="mb-16 flex items-center justify-between timeline-item">
+                    <div class="w-5/12 pr-8 text-right">
+                        <h3 class="text-2xl font-bold text-white mb-2">Chicago City Model</h3>
+                        <p class="text-gray-300 mb-4">
+                            Dynamic Data Projection Mapping for the Chicago Architecture Foundation's City of Big Data exhibition.
+                        </p>
+                        <span class="inline-block bg-yellow-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            2012 - 2014
+                        </span>
+                    </div>
+                    <div class="w-2/12 flex justify-center">
+                        <div class="relative">
+                            <div class="h-6 w-6 bg-yellow-500 rounded-full"></div>
+                            <div class="absolute inset-0 animate-ping bg-yellow-500 rounded-full opacity-75"></div>
+                        </div>
+                    </div>
+                    <div class="w-5/12 pl-8">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                            <p class="text-gray-300">
+                                Created a projection system mapping real-time urban data onto a 3D model of the city, serving as technical advisor for the exhibition.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Expertise Section -->
+            <div class="mt-24">
+                <h3 class="text-3xl font-bold text-white mb-8 text-center">Areas of Expertise</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
+                        <div class="text-purple-500 text-4xl mb-4">
+                            <i class="fas fa-vr-cardboard"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Experiential Media</h4>
+                        <p class="text-gray-300">
+                            Development and critical exploration of immersive media, AR/VR, physical computing, and sensor-based systems.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
+                        <div class="text-teal-500 text-4xl mb-4">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Human-Centered Design</h4>
+                        <p class="text-gray-300">
+                            Expertise in rapid prototyping, user experience design, and microcontroller-based development.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
+                        <div class="text-yellow-500 text-4xl mb-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Data Visualization</h4>
+                        <p class="text-gray-300">
+                            Design of data-driven tools and visual narratives for public understanding, planning, and civic engagement.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
+                        <div class="text-red-500 text-4xl mb-4">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Game Studies</h4>
+                        <p class="text-gray-300">
+                            Research and teaching at the intersection of interactive media, ludic systems, and cultural critique.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Appearances -->
+    <section class="py-16 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-white mb-12 text-center">Featured In</h3>
+            
+            <div class="relative overflow-hidden">
+                <div class="flex marquee">
+                    <div class="flex-shrink-0 mx-8">
+                        <a href="https://www.nytimes.com/2013/05/23/garden/at-the-international-contemporary-furniture-fair-going-for-the-remix.html?_r=0#" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                        </a>
+                    </div>
+                    <div class="flex-shrink-0 mx-8">
+                        <a href="https://digital.modernluxury.com/publication/?i=216825&article_id=1758227&view=articleBrowser" target="_blank">
+                            <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                        </a>
+                    </div>
+                    <div class="flex-shrink-0 mx-8">
+                        <a href="https://www.researchgate.net/publication/281099639_Designing_Future_Cities_-_LakeSIM_Integrated_Design_Tool_For_Assessing_Short-_and_Long-Term_Impacts_of_Urban_Scale_Conceptual_Designs" target="_blank">
+                            <img src="https://c5.rgstatic.net/m/419438641133902/images/icons/svgicons/new-index-logo.svg" alt="ResearchGate" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                        </a>
+                    </div>
+                    <div class="flex-shrink-0 mx-8">
+                        <a href="https://www.architectmagazine.com/design/these-collectives-made-it-work-at-wanteddesign-2014_o" target="_blank">
+                            <img src="https://cdnassets.hw.net/ca/e1/2ee6b6a64149a76c3ccaff7c5689/architect.png" alt="Architect Magazine" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                        </a>
+                    </div>
+                    <div class="flex-shrink-0 mx-8">
+                        <a href="https://digital.modernluxury.com/publication/?i=216825&article_id=1758227&view=articleBrowser" target="_blank">
+                            <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                        </a>
+                    </div>
+                    <div class="flex-shrink-0 mx-8">
+                        <a href="https://www.nytimes.com/2013/05/23/garden/at-the-international-contemporary-furniture-fair-going-for-the-remix.html?_r=0#" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4 pixel-font">Get In Touch</h2>
+                <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
+                <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+                    Interested in collaborations, research opportunities, or just want to chat about games?
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form action="mailto:wrodda@kaplan.iit.edu" method="post" enctype="text/plain" class="space-y-6" id="contact-form">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-500">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-500">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Subject</label>
+                            <select id="subject" name="subject" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
+                                <option>Game Development</option>
+                                <option>Research Collaboration</option>
+                                <option>Speaking Engagement</option>
+                                <option>Educational Partnership</option>
+                                <option>Media Inquiry</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-500" placeholder="Tell me about your project or inquiry..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg transition duration-300 transform hover:scale-105">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-800 p-8 rounded-xl h-full">
+                        <h3 class="text-2xl font-bold text-white mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-purple-500 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white mb-1">Location</h4>
+                                    <p class="text-gray-300">Illinois Institute of Technology, Chicago</p>
+                                    <p class="text-gray-400 text-sm">Institute of Design</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-teal-500 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white mb-1">Email</h4>
+                                    <p class="text-gray-300">wrodda@kaplan.iit.edu</p>
+                                    <p class="text-gray-400 text-sm">Academic inquiries welcome</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-yellow-500 p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white mb-1">Office Hours</h4>
+                                    <p class="text-gray-300">By appointment</p>
+                                    <p class="text-gray-400 text-sm">Usually respond within 24 hours</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12">
+                            <h4 class="text-lg font-bold text-white mb-4">Connect on Social Media</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://x.com/b0rodda" target="_blank" class="bg-gray-700 hover:bg-blue-600 text-white p-3 rounded-full transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/bo-rodda-3249a614/" target="_blank" class="bg-gray-700 hover:bg-blue-800 text-white p-3 rounded-full transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://www.instagram.com/b0rodda/" target="_blank" class="bg-gray-700 hover:bg-purple-600 text-white p-3 rounded-full transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.youtube.com/@BoRodda" target="_blank" class="bg-gray-700 hover:bg-red-600 text-white p-3 rounded-full transition">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="https://github.com/borodda" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white p-3 rounded-full transition">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Quick Contact Stats -->
+                        <div class="mt-8 p-4 bg-gray-700 bg-opacity-50 rounded-lg">
+                            <h5 class="text-white font-bold mb-2">Quick Stats</h5>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <span class="text-purple-400">Response Rate:</span>
+                                    <span class="text-white block">98%</span>
+                                </div>
+                                <div>
+                                    <span class="text-teal-400">Avg. Response:</span>
+                                    <span class="text-white block">< 24 hrs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-2xl font-bold text-white pixel-font">GamingwithBo</span>
+                    <p class="text-gray-400 mt-2">Exploring the future of game design and technology</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
+                    <div>
+                        <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Navigation</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-300 hover:text-white transition">Home</a></li>
+                            <li><a href="#games" class="text-gray-300 hover:text-white transition">Games</a></li>
+                            <li><a href="#about" class="text-gray-300 hover:text-white transition">About</a></li>
+                            <li><a href="#research" class="text-gray-300 hover:text-white transition">Research</a></li>
+                            <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Legal</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-300 hover:text-white transition">Privacy Policy</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition">Terms of Service</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2025 GamingwithBo. All rights reserved.
+                </p>
+                
+                <div class="mt-4 md:mt-0">
+                    <p class="text-gray-400 text-sm">
+                        Made with <i class="fas fa-heart text-red-500"></i> by ChiLab
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Search functionality
+        const searchButton = document.getElementById('search-button');
+        searchButton.addEventListener('click', () => {
+            const searchTerm = prompt('Search for games, research, or content:');
+            if (searchTerm) {
+                // Simple search functionality - can be enhanced
+                const searchLower = searchTerm.toLowerCase();
+                
+                // Define search mappings
+                const searchMappings = {
+                    'game': '#games',
+                    'games': '#games',
+                    'data city': '#games',
+                    'quantum': '#games',
+                    'eco balance': '#games',
+                    'neural network': '#games',
+                    'climate': '#games',
+                    'memory palace': '#games',
+                    'research': '#research',
+                    'lakesim': '#research',
+                    'array of things': '#research',
+                    'about': '#about',
+                    'contact': '#contact',
+                    'bo rodda': '#about',
+                    'professor': '#about'
+                };
+                
+                // Find matching section
+                let targetSection = null;
+                for (const [key, section] of Object.entries(searchMappings)) {
+                    if (searchLower.includes(key)) {
+                        targetSection = section;
+                        break;
+                    }
+                }
+                
+                if (targetSection) {
+                    document.querySelector(targetSection).scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    alert(`No results found for "${searchTerm}". Try searching for: games, research, about, or contact.`);
+                }
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Add shadow to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+        
+        // Game card hover effect
+        const gameCards = document.querySelectorAll('.game-card');
+        gameCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const img = card.querySelector('img');
+                if (img) {
+                    img.style.transform = 'scale(1.1)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                const img = card.querySelector('img');
+                if (img) {
+                    img.style.transform = 'scale(1)';
+                }
+            });
+        });
+
+        // Enhanced form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            // Let the default mailto behavior work, but also show a confirmation
+            setTimeout(() => {
+                alert('Thank you for your message! Your default email client should now open with the pre-filled message. If it doesn\'t open automatically, please send your message directly to wrodda@kaplan.iit.edu');
+            }, 100);
+        });
+
+        // Add typing animation restart on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const typewriter = entry.target.querySelector('.typewriter');
+                    if (typewriter) {
+                        typewriter.style.animation = 'none';
+                        typewriter.offsetHeight; // Trigger reflow
+                        typewriter.style.animation = 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite';
+                    }
+                }
+            });
+        });
+
+        observer.observe(document.querySelector('#home'));
+
+        // Add pulse animation to contact icons
+        const contactIcons = document.querySelectorAll('.bg-purple-500, .bg-teal-500, .bg-yellow-500');
+        contactIcons.forEach(icon => {
+            icon.addEventListener('mouseenter', () => {
+                icon.classList.add('pulse-ring');
+            });
+            icon.addEventListener('mouseleave', () => {
+                icon.classList.remove('pulse-ring');
+            });
+        });
+    </script>
+</body>
+</html>
