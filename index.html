@@ -109,19 +109,28 @@
             height: 4rem;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             margin: 0 auto;
+            max-width: 100%;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .typewriter-container {
+                height: 5rem;
+                align-items: center;
+            }
         }
 
         @media (max-width: 640px) {
             .typewriter-container {
-                height: 3rem;
+                height: 4.5rem;
             }
         }
 
         @media (max-width: 480px) {
             .typewriter-container {
-                height: 2.5rem;
+                height: 4rem;
             }
         }
 
@@ -563,8 +572,8 @@
             
             <div class="mt-16 px-4">
                 <div class="typewriter-container">
-                    <div class="typewriter text-sm sm:text-xl md:text-2xl text-white font-mono text-center">
-                        Assistant Professor of Experiential Media and Design at Illinois Tech
+                    <div class="typewriter text-sm sm:text-xl md:text-2xl text-white font-mono">
+                        Assistant Professor of Experiential Media and Design<br class="sm:hidden"> at Illinois Tech
                     </div>
                 </div>
             </div>
