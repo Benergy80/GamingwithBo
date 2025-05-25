@@ -169,6 +169,207 @@
                 min-width: 200%;
             }
         }
+
+        /* Quiz Modal Styles */
+        .quiz-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .quiz-content {
+            position: relative;
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .quiz-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+        }
+
+        .quiz-body {
+            padding: 30px;
+            color: white;
+        }
+
+        .quiz-question {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .quiz-question.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .quiz-option.selected {
+            background: var(--primary);
+            border-color: var(--secondary);
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+        }
+
+        .quiz-option input[type="radio"] {
+            margin-right: 15px;
+            transform: scale(1.2);
+        }
+
+        .quiz-progress {
+            background: rgba(255, 255, 255, 0.2);
+            height: 6px;
+            border-radius: 3px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .quiz-progress-bar {
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .quiz-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .quiz-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .quiz-btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .quiz-btn-primary:hover {
+            background: #5a4cd9;
+            transform: translateY(-2px);
+        }
+
+        .quiz-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--secondary);
+        }
+
+        .quiz-btn-secondary:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .quiz-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .quiz-close:hover {
+            color: var(--secondary);
+        }
+
+        .quiz-results {
+            text-align: center;
+            display: none;
+        }
+
+        .quiz-results.active {
+            display: block;
+        }
+
+        .game-recommendation {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .quiz-content {
+                margin: 10% auto;
+                width: 95%;
+            }
+            
+            .quiz-body {
+                padding: 20px;
+            }
+            
+            .quiz-buttons {
+                flex-direction: column;
+            }
+            
+            .quiz-btn {
+                flex: none;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -311,7 +512,7 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
-                            <a href="https://www.borodda.com/fine-art" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                            <a href="#" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
                                 Play Now
                             </a>
                         </div>
@@ -342,7 +543,7 @@
                                 <i class="fas fa-star"></i>
                                 <i class="far fa-star"></i>
                             </div>
-                            <a href="https://www.borodda.com/fine-art" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                            <a href="#" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
                                 Play Now
                             </a>
                         </div>
@@ -376,7 +577,7 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <a href="https://www.borodda.com/fine-art" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                            <a href="#" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
                                 Play Now
                             </a>
                         </div>
@@ -410,7 +611,7 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <a href="https://www.borodda.com/fine-art" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                            <a href="#" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
                                 Play Now
                             </a>
                         </div>
@@ -444,7 +645,7 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
-                            <a href="https://www.borodda.com/fine-art" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                            <a href="#" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
                                 Play Now
                             </a>
                         </div>
@@ -478,7 +679,7 @@
                                 <i class="fas fa-star"></i>
                                 <i class="far fa-star"></i>
                             </div>
-                            <a href="https://www.borodda.com/fine-art" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                            <a href="#" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
                                 Play Now
                             </a>
                         </div>
@@ -939,6 +1140,177 @@
             </div>
         </div>
     </footer>
+
+    <!-- Gaming Preferences Quiz Modal -->
+    <div id="quizModal" class="quiz-modal">
+        <div class="quiz-content">
+            <span class="quiz-close" onclick="closeQuiz()">&times;</span>
+            
+            <div class="quiz-header">
+                <h2 class="text-2xl font-bold pixel-font">🎮 Gaming Preferences Quiz</h2>
+                <p class="mt-2 opacity-90">Help us understand what type of games you love!</p>
+            </div>
+            
+            <div class="quiz-body">
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar" id="progressBar"></div>
+                </div>
+                
+                <!-- Question 1 -->
+                <div class="quiz-question active" data-question="1">
+                    <h3 class="text-xl font-bold mb-6">What's your favorite gaming platform?</h3>
+                    <div class="quiz-option" onclick="selectOption(this, 'pc')">
+                        <input type="radio" name="platform" value="pc">
+                        <div>
+                            <strong>🖥️ PC/Desktop</strong>
+                            <p class="text-sm opacity-80">High-end graphics, complex controls, modding community</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'mobile')">
+                        <input type="radio" name="platform" value="mobile">
+                        <div>
+                            <strong>📱 Mobile/Tablet</strong>
+                            <p class="text-sm opacity-80">Portable, touch controls, quick sessions</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'console')">
+                        <input type="radio" name="platform" value="console">
+                        <div>
+                            <strong>🎮 Console</strong>
+                            <p class="text-sm opacity-80">Couch gaming, exclusive titles, controller precision</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'vr')">
+                        <input type="radio" name="platform" value="vr">
+                        <div>
+                            <strong>🥽 VR/AR</strong>
+                            <p class="text-sm opacity-80">Immersive experiences, motion controls, presence</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="quiz-question" data-question="2">
+                    <h3 class="text-xl font-bold mb-6">What type of game experience do you prefer?</h3>
+                    <div class="quiz-option" onclick="selectOption(this, 'educational')">
+                        <input type="radio" name="experience" value="educational">
+                        <div>
+                            <strong>🎓 Educational & Learning</strong>
+                            <p class="text-sm opacity-80">Learn new skills, scientific concepts, real-world knowledge</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'narrative')">
+                        <input type="radio" name="experience" value="narrative">
+                        <div>
+                            <strong>📖 Story-Driven</strong>
+                            <p class="text-sm opacity-80">Rich narratives, character development, emotional journeys</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'competitive')">
+                        <input type="radio" name="experience" value="competitive">
+                        <div>
+                            <strong>🏆 Competitive & Challenging</strong>
+                            <p class="text-sm opacity-80">Skill-based gameplay, leaderboards, mastery</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'social')">
+                        <input type="radio" name="experience" value="social">
+                        <div>
+                            <strong>👥 Social & Collaborative</strong>
+                            <p class="text-sm opacity-80">Multiplayer, team building, community-driven</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="quiz-question" data-question="3">
+                    <h3 class="text-xl font-bold mb-6">How much time do you typically spend gaming?</h3>
+                    <div class="quiz-option" onclick="selectOption(this, 'casual')">
+                        <input type="radio" name="time" value="casual">
+                        <div>
+                            <strong>⏰ 15-30 minutes</strong>
+                            <p class="text-sm opacity-80">Quick sessions, bite-sized content</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'moderate')">
+                        <input type="radio" name="time" value="moderate">
+                        <div>
+                            <strong>🕐 1-2 hours</strong>
+                            <p class="text-sm opacity-80">Regular gaming sessions, deeper gameplay</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'dedicated')">
+                        <input type="radio" name="time" value="dedicated">
+                        <div>
+                            <strong>🕒 2+ hours</strong>
+                            <p class="text-sm opacity-80">Long sessions, complex games, immersive worlds</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'variable')">
+                        <input type="radio" name="time" value="variable">
+                        <div>
+                            <strong>🔄 It varies</strong>
+                            <p class="text-sm opacity-80">Depends on the game and my schedule</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="quiz-question" data-question="4">
+                    <h3 class="text-xl font-bold mb-6">What themes interest you most in games?</h3>
+                    <div class="quiz-option" onclick="selectOption(this, 'science')">
+                        <input type="radio" name="theme" value="science">
+                        <div>
+                            <strong>🔬 Science & Technology</strong>
+                            <p class="text-sm opacity-80">AI, space exploration, scientific discovery</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'environment')">
+                        <input type="radio" name="theme" value="environment">
+                        <div>
+                            <strong>🌱 Environment & Sustainability</strong>
+                            <p class="text-sm opacity-80">Climate change, ecology, green technology</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'urban')">
+                        <input type="radio" name="theme" value="urban">
+                        <div>
+                            <strong>🏙️ Urban Planning & Society</strong>
+                            <p class="text-sm opacity-80">City building, social systems, data visualization</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'fantasy')">
+                        <input type="radio" name="theme" value="fantasy">
+                        <div>
+                            <strong>✨ Fantasy & Adventure</strong>
+                            <p class="text-sm opacity-80">Magic, exploration, fictional worlds</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div class="quiz-results" id="quizResults">
+                    <h3 class="text-2xl font-bold mb-6">🎉 Your Perfect Game Match!</h3>
+                    <div id="gameRecommendation" class="game-recommendation">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                    <p class="mt-6 text-center opacity-80">
+                        Thank you for taking our quiz! Your preferences help us understand our gaming community better.
+                    </p>
+                    <div class="mt-6 text-center">
+                        <button class="quiz-btn quiz-btn-primary" onclick="restartQuiz()">
+                            Take Quiz Again
+                        </button>
+                    </div>
+                </div>
+
+                <div class="quiz-buttons">
+                    <button class="quiz-btn quiz-btn-secondary" id="prevBtn" onclick="prevQuestion()">Previous</button>
+                    <button class="quiz-btn quiz-btn-primary" id="nextBtn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Mobile menu toggle
