@@ -445,6 +445,25 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .pong-mobile-controls {
+                display: flex;
+            }
+            
+            #pong-instructions {
+                font-size: 14px;
+                text-align: center;
+                padding: 0 20px;
+            }
+            
+            #pong-instructions::before {
+                content: "Touch and drag on game area OR use buttons below | ";
+                display: block;
+                margin-bottom: 5px;
+                color: #ff00ff;
+            }
+        }
+
         @media (max-width: 480px) {
             .typewriter-container {
                 height: 2.5rem;
@@ -917,6 +936,166 @@
             
             .tetris-game-container {
                 padding: 10px !important;
+            }
+        }
+
+        /* Tetris Mobile Controls */
+        .tetris-mobile-controls {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1002;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 90vw;
+            background: rgba(13, 2, 33, 0.9);
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid #05d9e8;
+            box-shadow: 0 0 20px rgba(5, 217, 232, 0.3);
+        }
+
+        .tetris-mobile-btn {
+            width: 55px;
+            height: 55px;
+            background-color: rgba(5, 217, 232, 0.2);
+            border: 2px solid #05d9e8;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #05d9e8;
+            font-size: 18px;
+            user-select: none;
+            transition: all 0.2s;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            text-shadow: 0 0 5px #05d9e8;
+        }
+
+        .tetris-mobile-btn:active {
+            background-color: rgba(5, 217, 232, 0.4);
+            transform: scale(0.95);
+            box-shadow: 0 0 15px #05d9e8;
+        }
+
+        .tetris-mobile-btn.wide {
+            width: 85px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .tetris-mobile-controls {
+                display: flex;
+            }
+            
+            .tetris-game-container .tetris-neon-border-blue:first-child {
+                width: 100% !important;
+                height: auto !important;
+                order: 2;
+            }
+            
+            .tetris-game-container .tetris-neon-border-blue:first-child .mb-6:last-of-type {
+                display: none;
+            }
+            
+            .tetris-game-container .tetris-neon-border-blue:first-child::after {
+                content: "Use touch controls below";
+                display: block;
+                text-align: center;
+                color: #ff2a6d;
+                font-size: 14px;
+                margin-top: 10px;
+                padding: 10px;
+                border: 1px solid #ff2a6d;
+                border-radius: 5px;
+                background: rgba(255, 42, 109, 0.1);
+            }
+            
+            .tetris-game-container > div:nth-child(2) {
+                order: 1;
+            }
+            
+            .tetris-game-container > div:nth-child(3) {
+                order: 3;
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+
+        /* Pong Mobile Controls */
+        .pong-mobile-controls {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1002;
+            gap: 20px;
+            justify-content: center;
+            background: rgba(10, 10, 26, 0.9);
+            padding: 20px;
+            border-radius: 20px;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+        }
+
+        .pong-mobile-btn {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(0, 255, 255, 0.2);
+            border: 2px solid #00ffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #00ffff;
+            font-size: 20px;
+            user-select: none;
+            transition: all 0.2s;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        .pong-mobile-btn:active {
+            background-color: rgba(0, 255, 255, 0.4);
+            transform: scale(0.95);
+            box-shadow: 0 0 20px #00ffff;
+        }
+
+        @media (max-width: 480px) {
+            .tetris-mobile-controls {
+                bottom: 10px;
+                gap: 8px;
+                padding: 10px;
+                max-width: 95vw;
+            }
+            
+            .tetris-mobile-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 14px;
+            }
+            
+            .tetris-mobile-btn.wide {
+                width: 70px;
+                font-size: 10px;
+            }
+            
+            .pong-mobile-controls {
+                bottom: 10px;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .pong-mobile-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 18px;
             }
         }
 
@@ -2773,6 +2952,16 @@
                     <div id="tetris-next-piece" class="grid grid-cols-4" style="grid-template-rows: repeat(4, 1fr); width: 80px; height: 80px;"></div>
                 </div>
             </div>
+            
+            <!-- Tetris Mobile Controls -->
+            <div class="tetris-mobile-controls">
+                <div class="tetris-mobile-btn" id="tetris-move-left">←</div>
+                <div class="tetris-mobile-btn" id="tetris-rotate">↻</div>
+                <div class="tetris-mobile-btn" id="tetris-move-right">→</div>
+                <div class="tetris-mobile-btn" id="tetris-soft-drop">↓</div>
+                <div class="tetris-mobile-btn wide" id="tetris-hard-drop">DROP</div>
+                <div class="tetris-mobile-btn" id="tetris-pause">⏸</div>
+            </div>
         </div>
     </div>
 
@@ -2806,6 +2995,12 @@
             </div>
             <div id="pong-instructions">
                 Move your mouse up and down to control the paddle | First to 5 points wins!
+            </div>
+            
+            <!-- Pong Mobile Controls -->
+            <div class="pong-mobile-controls">
+                <div class="pong-mobile-btn" id="pong-move-up">↑</div>
+                <div class="pong-mobile-btn" id="pong-move-down">↓</div>
             </div>
         </div>
     </div>
@@ -3075,6 +3270,8 @@
             if (modal) {
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
+                // Prevent mobile scrolling when playing
+                document.addEventListener('touchmove', preventDefaultMobile, { passive: false });
                 initializeAsteroidsGame();
             }
         }
@@ -3084,6 +3281,7 @@
             if (modal) {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
+                document.removeEventListener('touchmove', preventDefaultMobile);
                 if (asteroidsGame) {
                     asteroidsGame.destroy();
                     asteroidsGame = null;
@@ -3678,6 +3876,8 @@
             if (modal) {
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
+                // Prevent mobile scrolling when playing
+                document.addEventListener('touchmove', preventDefaultMobile, { passive: false });
                 initializePongGame();
             }
         }
@@ -3687,6 +3887,7 @@
             if (modal) {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
+                document.removeEventListener('touchmove', preventDefaultMobile);
                 if (pongGame) {
                     pongGame.destroy();
                     pongGame = null;
@@ -3711,6 +3912,10 @@
             const restartBtn = document.getElementById('pong-restart-btn');
             const startScreen = document.getElementById('pong-start-screen');
             const startBtn = document.getElementById('pong-start-btn');
+            
+            // Mobile controls
+            const moveUpBtn = document.getElementById('pong-move-up');
+            const moveDownBtn = document.getElementById('pong-move-down');
             
             // Game state
             let ballX = 400;
@@ -3871,6 +4076,48 @@
                 }
             }
             
+            // Touch start handler for mobile
+            function handleTouchStart(e) {
+                e.preventDefault();
+                if (!gameRunning || gameFinished) return;
+                
+                const rect = gameContainer.getBoundingClientRect();
+                const touch = e.touches[0];
+                const touchY = touch.clientY - rect.top - (PADDLE_HEIGHT / 2);
+                
+                if (touchY > 0 && touchY < GAME_HEIGHT - PADDLE_HEIGHT) {
+                    paddleLeftY = touchY;
+                }
+            }
+            
+            // Mobile button controls
+            let mobileControlInterval = null;
+            
+            function startMoveUp() {
+                if (!gameRunning || gameFinished) return;
+                mobileControlInterval = setInterval(() => {
+                    if (paddleLeftY > 0) {
+                        paddleLeftY = Math.max(0, paddleLeftY - 8);
+                    }
+                }, 16);
+            }
+            
+            function startMoveDown() {
+                if (!gameRunning || gameFinished) return;
+                mobileControlInterval = setInterval(() => {
+                    if (paddleLeftY < GAME_HEIGHT - PADDLE_HEIGHT) {
+                        paddleLeftY = Math.min(GAME_HEIGHT - PADDLE_HEIGHT, paddleLeftY + 8);
+                    }
+                }, 16);
+            }
+            
+            function stopMobileMove() {
+                if (mobileControlInterval) {
+                    clearInterval(mobileControlInterval);
+                    mobileControlInterval = null;
+                }
+            }
+            
             // Create particles
             function createParticles(x, y, color) {
                 for (let i = 0; i < 10; i++) {
@@ -3966,8 +4213,42 @@
             // Event listeners
             gameContainer.addEventListener('mousemove', handleMouseMove);
             gameContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
+            gameContainer.addEventListener('touchstart', handleTouchStart, { passive: false });
             restartBtn.addEventListener('click', restartGame);
             startBtn.addEventListener('click', startGame);
+            
+            // Mobile button controls
+            if (moveUpBtn) {
+                moveUpBtn.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    startMoveUp();
+                }, { passive: false });
+                
+                moveUpBtn.addEventListener('touchend', (e) => {
+                    e.preventDefault();
+                    stopMobileMove();
+                }, { passive: false });
+                
+                moveUpBtn.addEventListener('mousedown', startMoveUp);
+                moveUpBtn.addEventListener('mouseup', stopMobileMove);
+                moveUpBtn.addEventListener('mouseleave', stopMobileMove);
+            }
+            
+            if (moveDownBtn) {
+                moveDownBtn.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    startMoveDown();
+                }, { passive: false });
+                
+                moveDownBtn.addEventListener('touchend', (e) => {
+                    e.preventDefault();
+                    stopMobileMove();
+                }, { passive: false });
+                
+                moveDownBtn.addEventListener('mousedown', startMoveDown);
+                moveDownBtn.addEventListener('mouseup', stopMobileMove);
+                moveDownBtn.addEventListener('mouseleave', stopMobileMove);
+            }
             
             // Initialize
             initGame();
@@ -3979,12 +4260,19 @@
                     }
                     gameContainer.removeEventListener('mousemove', handleMouseMove);
                     gameContainer.removeEventListener('touchmove', handleTouchMove);
+                    gameContainer.removeEventListener('touchstart', handleTouchStart);
                     gameRunning = false;
                     gameFinished = true;
                     
                     // Clean up particles
                     particles.forEach(p => p.element.remove());
                     particles = [];
+                    
+                    // Clean up mobile controls
+                    if (mobileControlInterval) {
+                        clearInterval(mobileControlInterval);
+                        mobileControlInterval = null;
+                    }
                 }
             };
         }
@@ -4000,6 +4288,8 @@
             if (modal) {
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
+                // Prevent mobile scrolling when playing
+                document.addEventListener('touchmove', preventDefaultMobile, { passive: false });
                 initializeTetrisGame();
             }
         }
@@ -4009,11 +4299,16 @@
             if (modal) {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
+                document.removeEventListener('touchmove', preventDefaultMobile);
                 if (tetrisGame) {
                     tetrisGame.destroy();
                     tetrisGame = null;
                 }
             }
+        }
+
+        function preventDefaultMobile(e) {
+            e.preventDefault();
         }
 
         function initializeTetrisGame() {
@@ -4054,6 +4349,14 @@
             const continueBtn = document.getElementById('tetris-continue-btn');
             const playAgainBtn = document.getElementById('tetris-play-again-btn');
             const finalScoreElement = document.getElementById('tetris-final-score');
+            
+            // Mobile controls
+            const moveLeftBtn = document.getElementById('tetris-move-left');
+            const moveRightBtn = document.getElementById('tetris-move-right');
+            const rotateBtn = document.getElementById('tetris-rotate');
+            const softDropBtn = document.getElementById('tetris-soft-drop');
+            const hardDropBtn = document.getElementById('tetris-hard-drop');
+            const pauseBtn = document.getElementById('tetris-pause');
             
             // Game state
             let grid = createGrid(ROWS, COLS);
@@ -4513,6 +4816,91 @@
             playAgainBtn.addEventListener('click', resetGame);
             document.addEventListener('keydown', handleKeyDown);
             
+            // Mobile touch controls
+            if (moveLeftBtn) {
+                moveLeftBtn.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    moveLeft();
+                }, { passive: false });
+                
+                moveLeftBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    moveLeft();
+                });
+            }
+            
+            if (moveRightBtn) {
+                moveRightBtn.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    moveRight();
+                }, { passive: false });
+                
+                moveRightBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    moveRight();
+                });
+            }
+            
+            if (rotateBtn) {
+                rotateBtn.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    rotate();
+                }, { passive: false });
+                
+                rotateBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    rotate();
+                });
+            }
+            
+            if (softDropBtn) {
+                let softDropInterval;
+                
+                const startSoftDrop = (e) => {
+                    e.preventDefault();
+                    softDrop();
+                    softDropInterval = setInterval(softDrop, 100);
+                };
+                
+                const stopSoftDrop = (e) => {
+                    e.preventDefault();
+                    if (softDropInterval) {
+                        clearInterval(softDropInterval);
+                        softDropInterval = null;
+                    }
+                };
+                
+                softDropBtn.addEventListener('touchstart', startSoftDrop, { passive: false });
+                softDropBtn.addEventListener('touchend', stopSoftDrop, { passive: false });
+                softDropBtn.addEventListener('mousedown', startSoftDrop);
+                softDropBtn.addEventListener('mouseup', stopSoftDrop);
+                softDropBtn.addEventListener('mouseleave', stopSoftDrop);
+            }
+            
+            if (hardDropBtn) {
+                hardDropBtn.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    hardDrop();
+                }, { passive: false });
+                
+                hardDropBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    hardDrop();
+                });
+            }
+            
+            if (pauseBtn) {
+                pauseBtn.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    togglePause();
+                }, { passive: false });
+                
+                pauseBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    togglePause();
+                });
+            }
+            
             // Initialize
             init();
             
@@ -4524,6 +4912,12 @@
                     document.removeEventListener('keydown', handleKeyDown);
                     isGameOver = true;
                     isPaused = true;
+                    
+                    // Clean up any intervals from mobile controls
+                    const softDropInterval = document.querySelector('#tetris-soft-drop')?._interval;
+                    if (softDropInterval) {
+                        clearInterval(softDropInterval);
+                    }
                 }
             };
         }
