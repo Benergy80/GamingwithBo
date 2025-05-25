@@ -712,39 +712,56 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 class="text-2xl sm:text-3xl font-bold text-white mb-12 text-center">Featured In</h3>
             
-            <div class="relative overflow-hidden">
+            <!-- Desktop Marquee -->
+            <div class="hidden md:block relative overflow-hidden">
                 <div class="flex marquee">
-                    <div class="flex-shrink-0 mx-4 sm:mx-8">
+                    <div class="flex-shrink-0 mx-8">
                         <a href="https://www.nytimes.com/2013/05/23/garden/at-the-international-contemporary-furniture-fair-going-for-the-remix.html?_r=0#" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-10 sm:h-16 object-contain opacity-80 hover:opacity-100 transition">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
                         </a>
                     </div>
-                    <div class="flex-shrink-0 mx-4 sm:mx-8">
+                    <div class="flex-shrink-0 mx-8">
                         <a href="https://digital.modernluxury.com/publication/?i=216825&article_id=1758227&view=articleBrowser" target="_blank">
-                            <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-10 sm:h-16 object-contain opacity-80 hover:opacity-100 transition">
+                            <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
                         </a>
                     </div>
-                    <div class="flex-shrink-0 mx-4 sm:mx-8">
+                    <div class="flex-shrink-0 mx-8">
                         <a href="https://www.researchgate.net/publication/281099639_Designing_Future_Cities_-_LakeSIM_Integrated_Design_Tool_For_Assessing_Short-_and_Long-Term_Impacts_of_Urban_Scale_Conceptual_Designs" target="_blank">
-                            <img src="https://c5.rgstatic.net/m/419438641133902/images/icons/svgicons/new-index-logo.svg" alt="ResearchGate" class="h-10 sm:h-16 object-contain opacity-80 hover:opacity-100 transition">
+                            <img src="https://c5.rgstatic.net/m/419438641133902/images/icons/svgicons/new-index-logo.svg" alt="ResearchGate" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
                         </a>
                     </div>
-                    <div class="flex-shrink-0 mx-4 sm:mx-8">
+                    <div class="flex-shrink-0 mx-8">
                         <a href="https://www.architectmagazine.com/design/these-collectives-made-it-work-at-wanteddesign-2014_o" target="_blank">
-                            <img src="https://cdnassets.hw.net/ca/e1/2ee6b6a64149a76c3ccaff7c5689/architect.png" alt="Architect Magazine" class="h-10 sm:h-16 object-contain opacity-80 hover:opacity-100 transition">
+                            <img src="https://cdnassets.hw.net/ca/e1/2ee6b6a64149a76c3ccaff7c5689/architect.png" alt="Architect Magazine" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
                         </a>
                     </div>
-                    <div class="flex-shrink-0 mx-4 sm:mx-8">
+                    <div class="flex-shrink-0 mx-8">
                         <a href="https://digital.modernluxury.com/publication/?i=216825&article_id=1758227&view=articleBrowser" target="_blank">
-                            <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-10 sm:h-16 object-contain opacity-80 hover:opacity-100 transition">
+                            <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
                         </a>
                     </div>
-                    <div class="flex-shrink-0 mx-4 sm:mx-8">
+                    <div class="flex-shrink-0 mx-8">
                         <a href="https://www.nytimes.com/2013/05/23/garden/at-the-international-contemporary-furniture-fair-going-for-the-remix.html?_r=0#" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-10 sm:h-16 object-contain opacity-80 hover:opacity-100 transition">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
                         </a>
                     </div>
                 </div>
+            </div>
+
+            <!-- Mobile Grid -->
+            <div class="md:hidden grid grid-cols-2 gap-6 max-w-md mx-auto">
+                <a href="https://www.nytimes.com/2013/05/23/garden/at-the-international-contemporary-furniture-fair-going-for-the-remix.html?_r=0#" target="_blank" class="bg-gray-700 bg-opacity-50 p-4 rounded-lg flex items-center justify-center hover:bg-opacity-70 transition">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-8 w-auto max-w-full object-contain opacity-90">
+                </a>
+                <a href="https://digital.modernluxury.com/publication/?i=216825&article_id=1758227&view=articleBrowser" target="_blank" class="bg-gray-700 bg-opacity-50 p-4 rounded-lg flex items-center justify-center hover:bg-opacity-70 transition">
+                    <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-8 w-auto max-w-full object-contain opacity-90">
+                </a>
+                <a href="https://www.researchgate.net/publication/281099639_Designing_Future_Cities_-_LakeSIM_Integrated_Design_Tool_For_Assessing_Short-_and_Long-Term_Impacts_of_Urban_Scale_Conceptual_Designs" target="_blank" class="bg-gray-700 bg-opacity-50 p-4 rounded-lg flex items-center justify-center hover:bg-opacity-70 transition">
+                    <img src="https://c5.rgstatic.net/m/419438641133902/images/icons/svgicons/new-index-logo.svg" alt="ResearchGate" class="h-8 w-auto max-w-full object-contain opacity-90">
+                </a>
+                <a href="https://www.architectmagazine.com/design/these-collectives-made-it-work-at-wanteddesign-2014_o" target="_blank" class="bg-gray-700 bg-opacity-50 p-4 rounded-lg flex items-center justify-center hover:bg-opacity-70 transition">
+                    <img src="https://cdnassets.hw.net/ca/e1/2ee6b6a64149a76c3ccaff7c5689/architect.png" alt="Architect Magazine" class="h-8 w-auto max-w-full object-contain opacity-90">
+                </a>
             </div>
         </div>
     </section>
