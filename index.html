@@ -1215,6 +1215,296 @@
             }
         }
 
+        /* Snake Game Modal Styles */
+        .snake-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 15, 26, 0.95);
+            backdrop-filter: blur(3px);
+        }
+
+        .snake-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            padding: 20px;
+        }
+
+        .snake-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #39ff14;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #39ff14;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .snake-close:hover {
+            color: #ff2ced;
+            border-color: #ff2ced;
+            text-shadow: 0 0 10px #ff2ced;
+            box-shadow: 0 0 20px rgba(255, 44, 237, 0.5);
+        }
+
+        .snake-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #39ff14;
+            text-shadow: 0 0 20px #39ff14;
+            background: linear-gradient(45deg, #39ff14, #00e5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .snake-score-display {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.5rem;
+            color: #39ff14;
+            text-shadow: 0 0 10px #39ff14;
+            margin-bottom: 1rem;
+        }
+
+        .snake-game-container {
+            position: relative;
+            width: 90vmin;
+            height: 90vmin;
+            max-width: 500px;
+            max-height: 500px;
+            border: 4px solid #9d00ff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px #9d00ff, inset 0 0 20px #9d00ff;
+            overflow: hidden;
+            background-color: rgba(15, 15, 26, 0.8);
+        }
+
+        #snake-canvas {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        #snake-game-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .snake-grid-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(57, 255, 20, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(57, 255, 20, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .snake-segment {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #39ff14;
+            border-radius: 4px;
+            box-shadow: 0 0 10px #39ff14;
+            transition: transform 0.1s ease-out;
+        }
+
+        .snake-head {
+            background-color: #00e5ff;
+            box-shadow: 0 0 15px #00e5ff;
+            z-index: 10;
+        }
+
+        .snake-food {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff2ced;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #ff2ced;
+            animation: snakePulse 1.5s infinite alternate;
+        }
+
+        @keyframes snakePulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .snake-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .snake-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid #00e5ff;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px #00e5ff;
+        }
+
+        .snake-btn:hover {
+            background: #00e5ff;
+            color: black;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px #00e5ff;
+        }
+
+        .snake-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .snake-instructions {
+            margin-top: 1rem;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .snake-game-over-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .snake-game-over-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .snake-modal-content {
+            background-color: #0f0f1a;
+            border: 3px solid #9d00ff;
+            border-radius: 8px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 0 30px #9d00ff;
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+
+        .snake-game-over-modal.active .snake-modal-content {
+            transform: scale(1);
+        }
+
+        .snake-modal-title {
+            color: #39ff14;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #39ff14;
+        }
+
+        .snake-game-over-text {
+            color: #ff2ced;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px #ff2ced;
+            animation: snakeBlink 0.5s infinite alternate;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        @keyframes snakeBlink {
+            0% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        .snake-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: #00e5ff;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        /* Mobile adaptations for Snake */
+        @media (max-width: 768px) {
+            .snake-content {
+                padding-top: 80px;
+            }
+            
+            .snake-title {
+                font-size: 32px;
+            }
+            
+            .snake-score-display {
+                font-size: 1rem;
+            }
+            
+            .snake-controls {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .snake-close {
+                top: 10px;
+                right: 15px;
+                font-size: 30px;
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .snake-title {
+                font-size: 24px;
+            }
+            
+            .snake-game-container {
+                width: 95vmin;
+                height: 95vmin;
+            }
+        }
+
         /* Ping Pong Game Modal Styles */
         .pong-modal {
             display: none;
@@ -2003,19 +2293,31 @@
                     </div>
                 </div>
 
-                <!-- Neon Ping Pong Game Card -->
+                <!-- Neon Snake Game Card -->
                 <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/neonpong.jpg" 
-                             alt="Neon Ping Pong" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-cyan-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                        <div class="w-full h-full bg-gradient-to-br from-green-900 via-purple-900 to-blue-900 flex items-center justify-center relative">
+                            <div class="text-6xl text-green-400 font-mono animate-pulse">🐍</div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-green-400/20 to-blue-400/20"></div>
+                            <div class="absolute top-4 left-4 text-green-400 text-xs font-mono">NEON</div>
+                            <div class="absolute bottom-4 right-4 text-purple-400 text-xs font-mono">SNAKE</div>
+                            <div class="absolute inset-0">
+                                <div class="w-full h-full grid grid-cols-8 grid-rows-6 gap-1 p-4 opacity-20">
+                                    <div class="bg-green-400 rounded-sm"></div>
+                                    <div class="bg-green-400 rounded-sm"></div>
+                                    <div class="bg-green-400 rounded-sm"></div>
+                                    <div class="bg-pink-400 rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                             PLAYABLE
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold text-white mb-2">Neon Ping Pong</h3>
+                        <h3 class="text-2xl font-bold text-white mb-2">Neon Snake</h3>
                         <p class="text-gray-300 mb-4">
-                            Experience the classic game of Pong with a futuristic neon twist. Control your paddle with mouse movement and compete against AI in this cyberpunk-styled arcade game.
+                            Classic Snake game with stunning neon aesthetics. Guide your glowing snake to eat food, grow longer, and avoid hitting walls or yourself in this addictive arcade experience.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Arcade</span>
@@ -2028,9 +2330,9 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
+                                <i class="fas fa-star"></i>
                             </div>
-                            <button type="button" onclick="openPongGame()" class="bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                            <button type="button" onclick="openSnakeGame()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
                                 Play Now
                             </button>
                         </div>
@@ -3058,42 +3360,49 @@
         </div>
     </div>
 
-    <!-- Neon Ping Pong Game Modal -->
-    <div id="pongModal" class="pong-modal">
-        <div class="pong-content">
-            <span class="pong-close" onclick="closePongGame()">&times;</span>
+    <!-- Neon Snake Game Modal -->
+    <div id="snakeModal" class="snake-modal">
+        <div class="snake-content">
+            <span class="snake-close" onclick="closeSnakeGame()">&times;</span>
             
-            <h1 class="pong-title">NEON PING PONG</h1>
-            <div id="pong-score">
-                <div id="pong-player-score">0</div>
-                <div id="pong-ai-score">0</div>
-            </div>
-            <div id="pong-game-container">
-                <div class="pong-grid-effect"></div>
-                <div id="pong-center-line"></div>
-                <div id="pong-paddle-left"></div>
-                <div id="pong-paddle-right"></div>
-                <div id="pong-ball"></div>
-                <div id="pong-game-over">
-                    <h2>GAME OVER</h2>
-                    <p id="pong-winner-text">Player wins!</p>
-                    <button id="pong-restart-btn">PLAY AGAIN</button>
-                </div>
-                <div id="pong-start-screen">
-                    <h2>WELCOME TO NEON PING PONG</h2>
-                    <p>Use your mouse to move the paddle</p>
-                    <p>First player to score 5 points wins!</p>
-                    <button id="pong-start-btn">START GAME</button>
-                </div>
-            </div>
-            <div id="pong-instructions">
-                Move your mouse up and down to control the paddle | First to 5 points wins!
+            <h1 class="snake-title">NEON SNAKE</h1>
+            
+            <div class="snake-score-display">
+                SCORE: <span id="snake-score">0</span> | HIGH: <span id="snake-high-score">0</span>
             </div>
             
-            <!-- Pong Mobile Controls -->
-            <div class="pong-mobile-controls">
-                <div class="pong-mobile-btn" id="pong-move-up">↑</div>
-                <div class="pong-mobile-btn" id="pong-move-down">↓</div>
+            <div class="snake-game-container">
+                <canvas id="snake-canvas"></canvas>
+                <div id="snake-game-elements"></div>
+                <div class="snake-grid-lines"></div>
+            </div>
+            
+            <div class="snake-controls">
+                <button id="snake-start-btn" class="snake-btn">
+                    <i class="fas fa-play mr-2"></i> START
+                </button>
+                <button id="snake-pause-btn" class="snake-btn" disabled>
+                    <i class="fas fa-pause mr-2"></i> PAUSE
+                </button>
+                <button id="snake-restart-btn" class="snake-btn">
+                    <i class="fas fa-redo mr-2"></i> RESTART
+                </button>
+            </div>
+            
+            <div class="snake-instructions">
+                Use arrow keys or swipe to control your snake
+            </div>
+        </div>
+        
+        <!-- Game Over Modal for Snake -->
+        <div class="snake-game-over-modal" id="snake-game-over-modal">
+            <div class="snake-modal-content">
+                <div class="snake-game-over-text">GAME OVER!</div>
+                <h2 class="snake-modal-title">Your Score: <span id="snake-final-score">0</span></h2>
+                <p class="text-white mb-4">Try again to beat your high score!</p>
+                <button id="snake-play-again-btn" class="snake-btn">
+                    <i class="fas fa-gamepad mr-2"></i> PLAY AGAIN
+                </button>
             </div>
         </div>
     </div>
