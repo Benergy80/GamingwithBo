@@ -450,6 +450,10 @@
                 display: flex !important;
             }
             
+            .pong-content {
+                padding-top: 80px; /* Space for close button and iPhone notch */
+            }
+            
             #pong-instructions {
                 font-size: 14px;
                 text-align: center;
@@ -467,6 +471,33 @@
         @media (max-width: 1024px) {
             .pong-mobile-controls {
                 display: flex !important;
+            }
+            
+            .pong-content {
+                padding-top: 60px;
+            }
+        }
+
+        /* iPhone specific adjustments for Pong */
+        @media (max-width: 414px) and (max-height: 896px) {
+            .pong-content {
+                padding-top: 60px;
+            }
+            
+            .pong-close {
+                top: 15px !important;
+                right: 15px !important;
+                width: 45px !important;
+                height: 45px !important;
+                font-size: 24px !important;
+            }
+            
+            .pong-title {
+                font-size: 28px !important;
+            }
+            
+            #pong-game-container {
+                height: 45vh !important;
             }
         }
 
@@ -1000,43 +1031,91 @@
                 display: flex !important;
             }
             
+            .tetris-game-container {
+                flex-direction: column !important;
+                gap: 15px !important;
+                padding: 15px !important;
+                margin-top: 80px !important; /* Add space for iPhone notch/header */
+            }
+            
             .tetris-game-container .tetris-neon-border-blue:first-child {
                 width: 100% !important;
                 height: auto !important;
-                order: 2;
+                order: 3; /* Move info panel to bottom */
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: flex-start !important;
+                gap: 15px !important;
+            }
+            
+            .tetris-game-container .tetris-neon-border-blue:first-child > div:first-child {
+                flex: 1;
             }
             
             .tetris-game-container .tetris-neon-border-blue:first-child .mb-6:last-of-type {
                 display: none;
             }
             
-            .tetris-game-container .tetris-neon-border-blue:first-child::after {
-                content: "Use touch controls below";
-                display: block;
-                text-align: center;
-                color: #ff2a6d;
-                font-size: 14px;
-                margin-top: 10px;
-                padding: 10px;
-                border: 1px solid #ff2a6d;
-                border-radius: 5px;
-                background: rgba(255, 42, 109, 0.1);
+            .tetris-game-container .tetris-neon-border-blue:first-child #tetris-start-btn {
+                width: auto !important;
+                white-space: nowrap;
+                margin: 0 !important;
             }
             
             .tetris-game-container > div:nth-child(2) {
-                order: 1;
+                order: 1; /* Game field first */
             }
             
             .tetris-game-container > div:nth-child(3) {
-                order: 3;
+                order: 2; /* Next piece panel second */
                 width: 100% !important;
                 height: auto !important;
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 20px !important;
+                padding: 15px !important;
+            }
+            
+            .tetris-game-container > div:nth-child(3) h3 {
+                margin: 0 !important;
+                white-space: nowrap;
+            }
+            
+            .tetris-game-container > div:nth-child(3) #tetris-next-piece {
+                margin: 0 !important;
             }
         }
 
         @media (max-width: 1024px) {
             .tetris-mobile-controls {
                 display: flex !important;
+            }
+            
+            .tetris-content {
+                padding-top: 80px; /* Space for close button */
+            }
+        }
+
+        /* iPhone specific adjustments */
+        @media (max-width: 414px) and (max-height: 896px) {
+            .tetris-game-container {
+                margin-top: 60px !important;
+                gap: 10px !important;
+            }
+            
+            .tetris-content {
+                padding-top: 60px;
+            }
+            
+            .tetris-close {
+                top: 15px !important;
+                right: 15px !important;
+                width: 45px !important;
+                height: 45px !important;
+                font-size: 24px !important;
             }
         }
 
@@ -1083,7 +1162,7 @@
 
         @media (max-width: 480px) {
             .tetris-mobile-controls {
-                bottom: 10px;
+                bottom: 15px;
                 gap: 6px;
                 padding: 8px;
                 max-width: 98vw;
@@ -1101,7 +1180,7 @@
             }
             
             .pong-mobile-controls {
-                bottom: 10px;
+                bottom: 15px;
                 gap: 15px;
                 padding: 12px;
             }
@@ -1110,6 +1189,29 @@
                 width: 55px;
                 height: 55px;
                 font-size: 16px;
+            }
+            
+            .tetris-game-container {
+                margin-bottom: 120px !important; /* Space for mobile controls */
+            }
+        }
+
+        /* Safe area adjustments for iPhone with notch */
+        @supports (padding: max(0px)) {
+            .tetris-content {
+                padding-top: max(80px, env(safe-area-inset-top) + 60px);
+            }
+            
+            .pong-content {
+                padding-top: max(80px, env(safe-area-inset-top) + 60px);
+            }
+            
+            .tetris-mobile-controls {
+                bottom: max(15px, env(safe-area-inset-bottom) + 15px);
+            }
+            
+            .pong-mobile-controls {
+                bottom: max(15px, env(safe-area-inset-bottom) + 15px);
             }
         }
 
@@ -1870,22 +1972,8 @@
                 <!-- Cyberpunk Tetris Game Card -->
                 <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
                     <div class="relative h-64 overflow-hidden">
-                        <div class="w-full h-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center relative">
-                            <div class="text-6xl text-pink-400 font-mono animate-pulse">🟦</div>
-                            <div class="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-pink-400/20"></div>
-                            <div class="absolute top-4 left-4 text-blue-400 text-xs font-mono">CYBER</div>
-                            <div class="absolute bottom-4 right-4 text-pink-400 text-xs font-mono">TETRIS</div>
-                            <div class="absolute inset-0">
-                                <div class="w-full h-full grid grid-cols-6 grid-rows-4 gap-1 p-4 opacity-30">
-                                    <div class="bg-blue-400 rounded-sm"></div>
-                                    <div class="bg-pink-400 rounded-sm"></div>
-                                    <div class="bg-yellow-400 rounded-sm"></div>
-                                    <div class="bg-green-400 rounded-sm"></div>
-                                    <div class="bg-purple-400 rounded-sm"></div>
-                                    <div class="bg-red-400 rounded-sm"></div>
-                                </div>
-                            </div>
-                        </div>
+                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/cybertetris.jpg" 
+                             alt="Cyberpunk Tetris" class="w-full h-full object-cover transition duration-500 hover:scale-110">
                         <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                             PLAYABLE
                         </div>
@@ -1918,13 +2006,8 @@
                 <!-- Neon Ping Pong Game Card -->
                 <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
                     <div class="relative h-64 overflow-hidden">
-                        <div class="w-full h-full bg-gradient-to-br from-purple-900 via-indigo-900 to-cyan-900 flex items-center justify-center relative">
-                            <div class="text-6xl text-cyan-400 font-mono animate-pulse">🏓</div>
-                            <div class="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-cyan-400/20"></div>
-                            <div class="absolute top-4 left-4 text-cyan-400 text-xs font-mono">NEON</div>
-                            <div class="absolute bottom-4 right-4 text-purple-400 text-xs font-mono">PONG</div>
-                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent animate-pulse"></div>
-                        </div>
+                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/neonpong.jpg" 
+                             alt="Neon Ping Pong" class="w-full h-full object-cover transition duration-500 hover:scale-110">
                         <div class="absolute top-4 right-4 bg-cyan-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                             PLAYABLE
                         </div>
@@ -1957,12 +2040,8 @@
                 <!-- Asteroids Game Card -->
                 <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
                     <div class="relative h-64 overflow-hidden">
-                        <div class="w-full h-full bg-black flex items-center justify-center relative">
-                            <div class="text-6xl text-green-400 font-mono animate-pulse">🚀</div>
-                            <div class="absolute inset-0 bg-gradient-to-br from-green-400/20 to-transparent"></div>
-                            <div class="absolute top-4 left-4 text-green-400 text-xs font-mono">ASTEROIDS</div>
-                            <div class="absolute bottom-4 right-4 text-green-400 text-xs font-mono">ARCADE</div>
-                        </div>
+                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/asteroids.jpg" 
+                             alt="Asteroids Arcade" class="w-full h-full object-cover transition duration-500 hover:scale-110">
                         <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                             PLAYABLE
                         </div>
@@ -4232,6 +4311,13 @@
                 gameLoop();
             }
             
+            // Show start screen initially
+            function showStartScreen() {
+                startScreen.style.display = 'flex';
+                gameRunning = false;
+                gameFinished = false;
+            }
+            
             // Event listeners
             gameContainer.addEventListener('mousemove', handleMouseMove);
             gameContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
@@ -4290,6 +4376,7 @@
             
             // Initialize
             initGame();
+            showStartScreen(); // Show start screen on load
             
             pongGame = {
                 destroy: function() {
