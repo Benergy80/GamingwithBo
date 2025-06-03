@@ -445,62 +445,6 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .pong-mobile-controls {
-                display: flex !important;
-            }
-            
-            .pong-content {
-                padding-top: 80px; /* Space for close button and iPhone notch */
-            }
-            
-            #pong-instructions {
-                font-size: 14px;
-                text-align: center;
-                padding: 0 20px;
-            }
-            
-            #pong-instructions::before {
-                content: "Touch and drag on game area OR use buttons below | ";
-                display: block;
-                margin-bottom: 5px;
-                color: #ff00ff;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .pong-mobile-controls {
-                display: flex !important;
-            }
-            
-            .pong-content {
-                padding-top: 60px;
-            }
-        }
-
-        /* iPhone specific adjustments for Pong */
-        @media (max-width: 414px) and (max-height: 896px) {
-            .pong-content {
-                padding-top: 60px;
-            }
-            
-            .pong-close {
-                top: 15px !important;
-                right: 15px !important;
-                width: 45px !important;
-                height: 45px !important;
-                font-size: 24px !important;
-            }
-            
-            .pong-title {
-                font-size: 28px !important;
-            }
-            
-            #pong-game-container {
-                height: 45vh !important;
-            }
-        }
-
         @media (max-width: 480px) {
             .typewriter-container {
                 height: 2.5rem;
@@ -733,6 +677,72 @@
                 flex: none;
                 width: 100%;
             }
+        }
+
+        /* Neon Snake Game Modal Styles */
+        .snake-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 15, 26, 0.95);
+            backdrop-filter: blur(3px);
+        }
+
+        .snake-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            color: #39ff14;
+            text-shadow: 0 0 5px #39ff14;
+            background: radial-gradient(circle at center, rgba(15, 15, 26, 0.8), rgba(0, 0, 0, 0.9));
+        }
+
+        .snake-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #39ff14;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #39ff14;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .snake-close:hover {
+            color: #ff2ced;
+            border-color: #ff2ced;
+            text-shadow: 0 0 10px #ff2ced;
+            box-shadow: 0 0 20px rgba(255, 44, 237, 0.5);
+        }
+
+        .snake-grid-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(57, 255, 20, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(57, 255, 20, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
         }
 
         /* Tetris Game Modal Styles */
@@ -973,840 +983,6 @@
             
             .tetris-game-container {
                 padding: 10px !important;
-            }
-        }
-
-        /* Tetris Mobile Controls */
-        .tetris-mobile-controls {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1002;
-            gap: 8px;
-            flex-wrap: nowrap;
-            justify-content: center;
-            max-width: 95vw;
-            background: rgba(13, 2, 33, 0.9);
-            padding: 12px;
-            border-radius: 12px;
-            border: 2px solid #05d9e8;
-            box-shadow: 0 0 20px rgba(5, 217, 232, 0.3);
-            overflow-x: auto;
-        }
-
-        .tetris-mobile-btn {
-            width: 50px;
-            height: 50px;
-            background-color: rgba(5, 217, 232, 0.2);
-            border: 2px solid #05d9e8;
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #05d9e8;
-            font-size: 16px;
-            user-select: none;
-            transition: all 0.2s;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: bold;
-            text-shadow: 0 0 5px #05d9e8;
-            flex-shrink: 0;
-        }
-
-        .tetris-mobile-btn:active {
-            background-color: rgba(5, 217, 232, 0.4);
-            transform: scale(0.95);
-            box-shadow: 0 0 15px #05d9e8;
-        }
-
-        .tetris-mobile-btn.wide {
-            width: 70px;
-            font-size: 11px;
-        }
-
-        @media (max-width: 768px) {
-            .tetris-mobile-controls {
-                display: flex !important;
-            }
-            
-            .tetris-game-container {
-                flex-direction: column !important;
-                gap: 15px !important;
-                padding: 15px !important;
-                margin-top: 80px !important; /* Add space for iPhone notch/header */
-            }
-            
-            .tetris-game-container .tetris-neon-border-blue:first-child {
-                width: 100% !important;
-                height: auto !important;
-                order: 3; /* Move info panel to bottom */
-                display: flex !important;
-                flex-direction: row !important;
-                justify-content: space-between !important;
-                align-items: flex-start !important;
-                gap: 15px !important;
-            }
-            
-            .tetris-game-container .tetris-neon-border-blue:first-child > div:first-child {
-                flex: 1;
-            }
-            
-            .tetris-game-container .tetris-neon-border-blue:first-child .mb-6:last-of-type {
-                display: none;
-            }
-            
-            .tetris-game-container .tetris-neon-border-blue:first-child #tetris-start-btn {
-                width: auto !important;
-                white-space: nowrap;
-                margin: 0 !important;
-            }
-            
-            .tetris-game-container > div:nth-child(2) {
-                order: 1; /* Game field first */
-            }
-            
-            .tetris-game-container > div:nth-child(3) {
-                order: 2; /* Next piece panel second */
-                width: 100% !important;
-                height: auto !important;
-                display: flex !important;
-                flex-direction: row !important;
-                justify-content: center !important;
-                align-items: center !important;
-                gap: 20px !important;
-                padding: 15px !important;
-            }
-            
-            .tetris-game-container > div:nth-child(3) h3 {
-                margin: 0 !important;
-                white-space: nowrap;
-            }
-            
-            .tetris-game-container > div:nth-child(3) #tetris-next-piece {
-                margin: 0 !important;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .tetris-mobile-controls {
-                display: flex !important;
-            }
-            
-            .tetris-content {
-                padding-top: 80px; /* Space for close button */
-            }
-        }
-
-        /* iPhone specific adjustments */
-        @media (max-width: 414px) and (max-height: 896px) {
-            .tetris-game-container {
-                margin-top: 60px !important;
-                gap: 10px !important;
-            }
-            
-            .tetris-content {
-                padding-top: 60px;
-            }
-            
-            .tetris-close {
-                top: 15px !important;
-                right: 15px !important;
-                width: 45px !important;
-                height: 45px !important;
-                font-size: 24px !important;
-            }
-        }
-
-        /* Pong Mobile Controls */
-        .pong-mobile-controls {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1002;
-            gap: 20px;
-            justify-content: center;
-            background: rgba(10, 10, 26, 0.9);
-            padding: 20px;
-            border-radius: 20px;
-            border: 2px solid #00ffff;
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
-        }
-
-        .pong-mobile-btn {
-            width: 70px;
-            height: 70px;
-            background-color: rgba(0, 255, 255, 0.2);
-            border: 2px solid #00ffff;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #00ffff;
-            font-size: 20px;
-            user-select: none;
-            transition: all 0.2s;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: bold;
-            text-shadow: 0 0 5px #00ffff;
-        }
-
-        .pong-mobile-btn:active {
-            background-color: rgba(0, 255, 255, 0.4);
-            transform: scale(0.95);
-            box-shadow: 0 0 20px #00ffff;
-        }
-
-        @media (max-width: 480px) {
-            .tetris-mobile-controls {
-                bottom: 15px;
-                gap: 6px;
-                padding: 8px;
-                max-width: 98vw;
-            }
-            
-            .tetris-mobile-btn {
-                width: 42px;
-                height: 42px;
-                font-size: 14px;
-            }
-            
-            .tetris-mobile-btn.wide {
-                width: 60px;
-                font-size: 10px;
-            }
-            
-            .pong-mobile-controls {
-                bottom: 15px;
-                gap: 15px;
-                padding: 12px;
-            }
-            
-            .pong-mobile-btn {
-                width: 55px;
-                height: 55px;
-                font-size: 16px;
-            }
-            
-            .tetris-game-container {
-                margin-bottom: 120px !important; /* Space for mobile controls */
-            }
-        }
-
-        /* Safe area adjustments for iPhone with notch */
-        @supports (padding: max(0px)) {
-            .tetris-content {
-                padding-top: max(80px, env(safe-area-inset-top) + 60px);
-            }
-            
-            .pong-content {
-                padding-top: max(80px, env(safe-area-inset-top) + 60px);
-            }
-            
-            .tetris-mobile-controls {
-                bottom: max(15px, env(safe-area-inset-bottom) + 15px);
-            }
-            
-            .pong-mobile-controls {
-                bottom: max(15px, env(safe-area-inset-bottom) + 15px);
-            }
-        }
-
-        /* Snake Game Modal Styles */
-        .snake-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(15, 15, 26, 0.95);
-            backdrop-filter: blur(3px);
-        }
-
-        .snake-content {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Orbitron', sans-serif;
-            color: white;
-            padding: 20px;
-        }
-
-        .snake-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #39ff14;
-            font-size: 40px;
-            cursor: pointer;
-            z-index: 1001;
-            transition: all 0.3s;
-            background: rgba(0, 0, 0, 0.7);
-            border: 2px solid #39ff14;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .snake-close:hover {
-            color: #ff2ced;
-            border-color: #ff2ced;
-            text-shadow: 0 0 10px #ff2ced;
-            box-shadow: 0 0 20px rgba(255, 44, 237, 0.5);
-        }
-
-        .snake-title {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #39ff14;
-            text-shadow: 0 0 20px #39ff14;
-            background: linear-gradient(45deg, #39ff14, #00e5ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-family: 'Press Start 2P', cursive;
-        }
-
-        .snake-score-display {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 1.5rem;
-            color: #39ff14;
-            text-shadow: 0 0 10px #39ff14;
-            margin-bottom: 1rem;
-        }
-
-        .snake-game-container {
-            position: relative;
-            width: 90vmin;
-            height: 90vmin;
-            max-width: 500px;
-            max-height: 500px;
-            border: 4px solid #9d00ff;
-            border-radius: 8px;
-            box-shadow: 0 0 20px #9d00ff, inset 0 0 20px #9d00ff;
-            overflow: hidden;
-            background-color: rgba(15, 15, 26, 0.8);
-        }
-
-        #snake-canvas {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            z-index: 1;
-        }
-
-        #snake-game-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-        }
-
-        .snake-grid-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(57, 255, 20, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(57, 255, 20, 0.05) 1px, transparent 1px);
-            background-size: 20px 20px;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .snake-segment {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: #39ff14;
-            border-radius: 4px;
-            box-shadow: 0 0 10px #39ff14;
-            transition: transform 0.1s ease-out;
-        }
-
-        .snake-head {
-            background-color: #00e5ff;
-            box-shadow: 0 0 15px #00e5ff;
-            z-index: 10;
-        }
-
-        .snake-food {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: #ff2ced;
-            border-radius: 50%;
-            box-shadow: 0 0 15px #ff2ced;
-            animation: snakePulse 1.5s infinite alternate;
-        }
-
-        @keyframes snakePulse {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(1.2); opacity: 0.8; }
-        }
-
-        .snake-controls {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .snake-btn {
-            background: transparent;
-            color: white;
-            border: 2px solid #00e5ff;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-family: 'Orbitron', sans-serif;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 0 10px #00e5ff;
-        }
-
-        .snake-btn:hover {
-            background: #00e5ff;
-            color: black;
-            transform: translateY(-2px);
-            box-shadow: 0 0 20px #00e5ff;
-        }
-
-        .snake-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .snake-instructions {
-            margin-top: 1rem;
-            color: #888;
-            font-size: 14px;
-        }
-
-        .snake-game-over-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1100;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-        }
-
-        .snake-game-over-modal.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .snake-modal-content {
-            background-color: #0f0f1a;
-            border: 3px solid #9d00ff;
-            border-radius: 8px;
-            padding: 2rem;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 0 30px #9d00ff;
-            transform: scale(0.9);
-            transition: transform 0.3s;
-        }
-
-        .snake-game-over-modal.active .snake-modal-content {
-            transform: scale(1);
-        }
-
-        .snake-modal-title {
-            color: #39ff14;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 10px #39ff14;
-        }
-
-        .snake-game-over-text {
-            color: #ff2ced;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 15px #ff2ced;
-            animation: snakeBlink 0.5s infinite alternate;
-            font-family: 'Press Start 2P', cursive;
-        }
-
-        @keyframes snakeBlink {
-            0% { opacity: 1; }
-            100% { opacity: 0.5; }
-        }
-
-        .snake-particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background-color: #00e5ff;
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
-        }
-
-        /* Mobile adaptations for Snake */
-        @media (max-width: 768px) {
-            .snake-content {
-                padding-top: 80px;
-            }
-            
-            .snake-title {
-                font-size: 32px;
-            }
-            
-            .snake-score-display {
-                font-size: 1rem;
-            }
-            
-            .snake-controls {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .snake-close {
-                top: 10px;
-                right: 15px;
-                font-size: 30px;
-                width: 50px;
-                height: 50px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .snake-title {
-                font-size: 24px;
-            }
-            
-            .snake-game-container {
-                width: 95vmin;
-                height: 95vmin;
-            }
-        }
-
-        /* Ping Pong Game Modal Styles */
-        .pong-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(10, 10, 26, 0.95);
-            backdrop-filter: blur(3px);
-        }
-
-        .pong-content {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Orbitron', sans-serif;
-            color: #fff;
-        }
-
-        .pong-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #00ffff;
-            font-size: 40px;
-            cursor: pointer;
-            z-index: 1001;
-            transition: all 0.3s;
-            background: rgba(0, 0, 0, 0.7);
-            border: 2px solid #00ffff;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .pong-close:hover {
-            color: #ff00ff;
-            border-color: #ff00ff;
-            text-shadow: 0 0 10px #ff00ff;
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
-        }
-
-        #pong-game-container {
-            position: relative;
-            width: 90vw;
-            max-width: 800px;
-            height: 60vh;
-            max-height: 500px;
-            border: 3px solid #4d0099;
-            box-shadow: 0 0 20px #4d0099, inset 0 0 20px #4d0099;
-            border-radius: 10px;
-            overflow: hidden;
-            background: radial-gradient(circle at center, #110033, #000000);
-        }
-        
-        #pong-paddle-left, #pong-paddle-right {
-            position: absolute;
-            width: 15px;
-            height: 100px;
-            background: linear-gradient(to bottom, #ff00ff, #4d0099);
-            box-shadow: 0 0 15px #ff00ff;
-            border-radius: 5px;
-            transition: transform 0.05s ease-out;
-        }
-        
-        #pong-paddle-left {
-            left: 20px;
-            top: 200px;
-        }
-        
-        #pong-paddle-right {
-            right: 20px;
-            top: 200px;
-        }
-        
-        #pong-ball {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: linear-gradient(to bottom right, #00ffff, #0099ff);
-            border-radius: 50%;
-            box-shadow: 0 0 15px #00ffff;
-            transition: top 0.05s linear, left 0.05s linear;
-        }
-        
-        #pong-center-line {
-            position: absolute;
-            width: 2px;
-            height: 100%;
-            left: 50%;
-            background: linear-gradient(to bottom, transparent, #4d0099, transparent);
-            animation: pulse 2s infinite;
-        }
-        
-        #pong-score {
-            display: flex;
-            justify-content: space-between;
-            width: 90vw;
-            max-width: 800px;
-            padding: 20px 100px;
-            font-size: 36px;
-            text-shadow: 0 0 10px #00ffff;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-        }
-        
-        #pong-player-score, #pong-ai-score {
-            position: relative;
-            padding: 0 20px;
-        }
-        
-        #pong-game-over {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 30px;
-            border-radius: 10px;
-            border: 2px solid #00ffff;
-            box-shadow: 0 0 30px #00ffff;
-            text-align: center;
-            z-index: 100;
-        }
-        
-        #pong-game-over h2 {
-            color: #ff00ff;
-            margin-bottom: 20px;
-            font-size: 36px;
-            text-shadow: 0 0 10px #ff00ff;
-        }
-        
-        #pong-restart-btn {
-            background: #00ffff;
-            color: #000;
-            border: none;
-            padding: 10px 25px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 0 10px #00ffff;
-        }
-        
-        #pong-restart-btn:hover {
-            background: #ff00ff;
-            box-shadow: 0 0 20px #ff00ff;
-            transform: scale(1.05);
-        }
-        
-        #pong-start-screen {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 30px;
-            border-radius: 10px;
-            border: 2px solid #00ffff;
-            box-shadow: 0 0 30px #00ffff;
-            text-align: center;
-            z-index: 100;
-        }
-        
-        #pong-start-btn {
-            background: #ff00ff;
-            color: #000;
-            border: none;
-            padding: 10px 25px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 0 15px #ff00ff;
-            margin-top: 20px;
-        }
-        
-        #pong-start-btn:hover {
-            background: #00ffff;
-            box-shadow: 0 0 25px #00ffff;
-            transform: scale(1.05);
-        }
-        
-        .pong-particle {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
-        }
-        
-        .pong-score-animation {
-            position: absolute;
-            font-size: 30px;
-            color: #00ffff;
-            opacity: 0;
-            text-shadow: 0 0 10px #00ffff;
-            animation: scorePop 1s forwards;
-            pointer-events: none;
-        }
-        
-        @keyframes scorePop {
-            0% { transform: scale(0.5); opacity: 0; }
-            50% { transform: scale(1.5); opacity: 1; }
-            100% { transform: scale(1); opacity: 0; }
-        }
-        
-        #pong-instructions {
-            margin-top: 20px;
-            font-size: 16px;
-            color: #999;
-            text-align: center;
-            max-width: 600px;
-        }
-        
-        .pong-grid-effect {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(to right, rgba(77, 0, 153, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(77, 0, 153, 0.05) 1px, transparent 1px);
-            background-size: 20px 20px;
-            pointer-events: none;
-        }
-
-        .pong-title {
-            font-size: 48px;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px #ff00ff;
-            background: linear-gradient(45deg, #ff00ff, #00ffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Mobile adaptations for Pong */
-        @media (max-width: 850px) {
-            #pong-game-container {
-                width: 95vw;
-                height: 50vh;
-            }
-            
-            #pong-score {
-                font-size: 24px;
-                padding: 15px 50px;
-            }
-
-            .pong-close {
-                top: 10px;
-                right: 15px;
-                font-size: 30px;
-                width: 50px;
-                height: 50px;
-            }
-
-            .pong-title {
-                font-size: 32px;
-            }
-
-            #pong-instructions {
-                font-size: 14px;
-                padding: 0 20px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            #pong-game-container {
-                height: 40vh;
-            }
-            
-            #pong-score {
-                font-size: 20px;
-                padding: 10px 30px;
-            }
-
-            .pong-title {
-                font-size: 24px;
-            }
-
-            #pong-start-screen, #pong-game-over {
-                padding: 20px;
-                margin: 0 10px;
-            }
-
-            #pong-start-screen h2, #pong-game-over h2 {
-                font-size: 24px;
             }
         }
 
@@ -2262,8 +1438,22 @@
                 <!-- Cyberpunk Tetris Game Card -->
                 <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/cybertetris.jpg" 
-                             alt="Cyberpunk Tetris" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="w-full h-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center relative">
+                            <div class="text-6xl text-pink-400 font-mono animate-pulse">🟦</div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-pink-400/20"></div>
+                            <div class="absolute top-4 left-4 text-blue-400 text-xs font-mono">CYBER</div>
+                            <div class="absolute bottom-4 right-4 text-pink-400 text-xs font-mono">TETRIS</div>
+                            <div class="absolute inset-0">
+                                <div class="w-full h-full grid grid-cols-6 grid-rows-4 gap-1 p-4 opacity-30">
+                                    <div class="bg-blue-400 rounded-sm"></div>
+                                    <div class="bg-pink-400 rounded-sm"></div>
+                                    <div class="bg-yellow-400 rounded-sm"></div>
+                                    <div class="bg-green-400 rounded-sm"></div>
+                                    <div class="bg-purple-400 rounded-sm"></div>
+                                    <div class="bg-red-400 rounded-sm"></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                             PLAYABLE
                         </div>
@@ -2296,16 +1486,19 @@
                 <!-- Neon Snake Game Card -->
                 <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
                     <div class="relative h-64 overflow-hidden">
-                        <div class="w-full h-full bg-gradient-to-br from-green-900 via-purple-900 to-blue-900 flex items-center justify-center relative">
+                        <div class="w-full h-full bg-gradient-to-br from-green-900 via-teal-900 to-purple-900 flex items-center justify-center relative">
                             <div class="text-6xl text-green-400 font-mono animate-pulse">🐍</div>
-                            <div class="absolute inset-0 bg-gradient-to-br from-green-400/20 to-blue-400/20"></div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-green-400/20 to-purple-400/20"></div>
                             <div class="absolute top-4 left-4 text-green-400 text-xs font-mono">NEON</div>
                             <div class="absolute bottom-4 right-4 text-purple-400 text-xs font-mono">SNAKE</div>
                             <div class="absolute inset-0">
-                                <div class="w-full h-full grid grid-cols-8 grid-rows-6 gap-1 p-4 opacity-20">
+                                <div class="w-full h-full grid grid-cols-10 grid-rows-10 gap-1 p-4 opacity-20">
                                     <div class="bg-green-400 rounded-sm"></div>
                                     <div class="bg-green-400 rounded-sm"></div>
                                     <div class="bg-green-400 rounded-sm"></div>
+                                    <div class="bg-transparent rounded-sm"></div>
+                                    <div class="bg-transparent rounded-sm"></div>
+                                    <div class="bg-transparent rounded-sm"></div>
                                     <div class="bg-pink-400 rounded-full"></div>
                                 </div>
                             </div>
@@ -2317,7 +1510,7 @@
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-white mb-2">Neon Snake</h3>
                         <p class="text-gray-300 mb-4">
-                            Classic Snake game with stunning neon aesthetics. Guide your glowing snake to eat food, grow longer, and avoid hitting walls or yourself in this addictive arcade experience.
+                            Experience the classic Snake game with stunning neon visuals and particle effects. Control your growing snake to collect food while avoiding collisions.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Arcade</span>
@@ -2330,7 +1523,7 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
                             </div>
                             <button type="button" onclick="openSnakeGame()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
                                 Play Now
@@ -2342,8 +1535,12 @@
                 <!-- Asteroids Game Card -->
                 <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/asteroids.jpg" 
-                             alt="Asteroids Arcade" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="w-full h-full bg-black flex items-center justify-center relative">
+                            <div class="text-6xl text-green-400 font-mono animate-pulse">🚀</div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-green-400/20 to-transparent"></div>
+                            <div class="absolute top-4 left-4 text-green-400 text-xs font-mono">ASTEROIDS</div>
+                            <div class="absolute bottom-4 right-4 text-green-400 text-xs font-mono">ARCADE</div>
+                        </div>
                         <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                             PLAYABLE
                         </div>
@@ -3218,198 +2415,14 @@
         </div>
     </div>
 
-    <!-- Asteroids Game Modal -->
-    <div id="asteroidsModal" class="asteroids-modal">
-        <div class="asteroids-content">
-            <span class="asteroids-close" onclick="closeAsteroidsGame()">&times;</span>
-            
-            <div id="asteroids-game-header">
-                <h1>ASTEROIDS</h1>
-            </div>
-            
-            <div id="asteroids-game-container">
-                <canvas id="asteroids-canvas"></canvas>
-                
-                <div id="asteroids-ui">
-                    <div id="asteroids-score-display">SCORE: <span id="asteroids-score">0</span></div>
-                    <div id="asteroids-lives-display">LIVES: <span id="asteroids-lives">3</span></div>
-                </div>
-                
-                <div id="asteroids-controls">
-                    <div class="control-group">
-                        <div>SHIP CONTROLS:</div>
-                        <div><span class="key">←</span> Rotate Left</div>
-                        <div><span class="key">→</span> Rotate Right</div>
-                        <div><span class="key">↑</span> Thrust</div>
-                    </div>
-                    <div class="control-group">
-                        <div>WEAPONS:</div>
-                        <div><span class="key space">SPACE</span> Fire</div>
-                    </div>
-                </div>
-                
-                <div id="asteroids-mobile-controls">
-                    <div class="mobile-btn" id="asteroids-left-btn">←</div>
-                    <div class="mobile-btn" id="asteroids-up-btn">↑</div>
-                    <div class="mobile-btn" id="asteroids-right-btn">→</div>
-                    <div class="mobile-btn" id="asteroids-fire-btn">FIRE</div>
-                </div>
-                
-                <div id="asteroids-game-over">
-                    <h2>GAME OVER</h2>
-                    <div id="asteroids-final-score">FINAL SCORE: <span id="asteroids-end-score">0</span></div>
-                    <button id="asteroids-restart">PLAY AGAIN</button>
-                </div>
-                
-                <div id="asteroids-start-screen">
-                    <h1>ASTEROIDS ARCADE</h1>
-                    <p>Navigate your spaceship through an asteroid field. Destroy asteroids to earn points, but be careful - hitting them will cost you a life!</p>
-                    <button id="asteroids-start-btn">START GAME</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cyberpunk Tetris Game Modal -->
-    <div id="tetrisModal" class="tetris-modal">
-        <div class="tetris-content">
-            <span class="tetris-close" onclick="closeTetrisGame()">&times;</span>
-            
-            <!-- Tetris scanlines effect -->
-            <div class="tetris-scanline"></div>
-            
-            <!-- Main game container -->
-            <div class="tetris-game-container flex flex-col md:flex-row items-center justify-center gap-8 p-4">
-                <!-- Left panel with info -->
-                <div class="tetris-neon-border-blue bg-black bg-opacity-70 p-6 rounded-lg w-64 h-96 flex flex-col justify-between">
-                    <div>
-                        <h1 class="tetris-glitch text-3xl mb-6 text-center tetris-neon-text-blue" data-text="CYBER TETRIS">CYBER TETRIS</h1>
-                        <div class="mb-6">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="tetris-neon-text-pink">SCORE:</span>
-                                <span id="tetris-score" class="tetris-neon-text-blue">0</span>
-                            </div>
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="tetris-neon-text-pink">LEVEL:</span>
-                                <span id="tetris-level" class="tetris-neon-text-blue">1</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="tetris-neon-text-pink">LINES:</span>
-                                <span id="tetris-lines" class="tetris-neon-text-blue">0</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <h3 class="tetris-neon-text-pink text-lg mb-2">CONTROLS:</h3>
-                        <ul class="space-y-1 text-sm">
-                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-left mr-2"></i> <span>Move Left</span></li>
-                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-right mr-2"></i> <span>Move Right</span></li>
-                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-down mr-2"></i> <span>Soft Drop</span></li>
-                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-up mr-2"></i> <span>Rotate</span></li>
-                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-space-shuttle mr-2"></i> <span>Hard Drop</span></li>
-                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-pause mr-2"></i> <span>Pause (P)</span></li>
-                        </ul>
-                    </div>
-                    
-                    <button id="tetris-start-btn" class="tetris-neon-border-pink tetris-neon-text-pink hover:bg-pink-900 hover:bg-opacity-30 py-2 px-4 rounded-md transition-all duration-300 tetris-glow">
-                        START GAME
-                    </button>
-                </div>
-                
-                <!-- Game field -->
-                <div class="relative">
-                    <div class="tetris-neon-border-blue bg-black bg-opacity-70">
-                        <div id="tetris-grid" class="grid grid-cols-10" style="grid-template-rows: repeat(20, 1fr);"></div>
-                    </div>
-                    
-                    <!-- Pause overlay -->
-                    <div id="tetris-pause-overlay" class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center hidden">
-                        <h2 class="tetris-neon-text-pink text-4xl mb-6">PAUSED</h2>
-                        <button id="tetris-continue-btn" class="tetris-neon-border-blue tetris-neon-text-blue hover:bg-blue-900 hover:bg-opacity-30 py-2 px-6 rounded-md transition-all duration-300">
-                            CONTINUE
-                        </button>
-                    </div>
-                    
-                    <!-- Game Over overlay -->
-                    <div id="tetris-game-over-overlay" class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center hidden">
-                        <h2 class="tetris-neon-text-pink text-4xl mb-4 tetris-glitch" data-text="GAME OVER">GAME OVER</h2>
-                        <p class="tetris-neon-text-blue mb-6">SCORE: <span id="tetris-final-score">0</span></p>
-                        <button id="tetris-play-again-btn" class="tetris-neon-border-blue tetris-neon-text-blue hover:bg-blue-900 hover:bg-opacity-30 py-2 px-6 rounded-md transition-all duration-300">
-                            PLAY AGAIN
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Next piece panel -->
-                <div class="tetris-neon-border-blue bg-black bg-opacity-70 p-4 rounded-lg w-32 h-32 flex flex-col items-center">
-                    <h3 class="tetris-neon-text-pink text-lg mb-2">NEXT:</h3>
-                    <div id="tetris-next-piece" class="grid grid-cols-4" style="grid-template-rows: repeat(4, 1fr); width: 80px; height: 80px;"></div>
-                </div>
-            </div>
-            
-            <!-- Tetris Mobile Controls -->
-            <div class="tetris-mobile-controls">
-                <div class="tetris-mobile-btn" id="tetris-move-left">←</div>
-                <div class="tetris-mobile-btn" id="tetris-rotate">↻</div>
-                <div class="tetris-mobile-btn" id="tetris-move-right">→</div>
-                <div class="tetris-mobile-btn" id="tetris-soft-drop">↓</div>
-                <div class="tetris-mobile-btn wide" id="tetris-hard-drop">DROP</div>
-                <div class="tetris-mobile-btn" id="tetris-pause">⏸</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Neon Snake Game Modal -->
-    <div id="snakeModal" class="snake-modal">
-        <div class="snake-content">
-            <span class="snake-close" onclick="closeSnakeGame()">&times;</span>
-            
-            <h1 class="snake-title">NEON SNAKE</h1>
-            
-            <div class="snake-score-display">
-                SCORE: <span id="snake-score">0</span> | HIGH: <span id="snake-high-score">0</span>
-            </div>
-            
-            <div class="snake-game-container">
-                <canvas id="snake-canvas"></canvas>
-                <div id="snake-game-elements"></div>
-                <div class="snake-grid-lines"></div>
-            </div>
-            
-            <div class="snake-controls">
-                <button id="snake-start-btn" class="snake-btn">
-                    <i class="fas fa-play mr-2"></i> START
-                </button>
-                <button id="snake-pause-btn" class="snake-btn" disabled>
-                    <i class="fas fa-pause mr-2"></i> PAUSE
-                </button>
-                <button id="snake-restart-btn" class="snake-btn">
-                    <i class="fas fa-redo mr-2"></i> RESTART
-                </button>
-            </div>
-            
-            <div class="snake-instructions">
-                Use arrow keys or swipe to control your snake
-            </div>
-        </div>
-        
-        <!-- Game Over Modal for Snake -->
-        <div class="snake-game-over-modal" id="snake-game-over-modal">
-            <div class="snake-modal-content">
-                <div class="snake-game-over-text">GAME OVER!</div>
-                <h2 class="snake-modal-title">Your Score: <span id="snake-final-score">0</span></h2>
-                <p class="text-white mb-4">Try again to beat your high score!</p>
-                <button id="snake-play-again-btn" class="snake-btn">
-                    <i class="fas fa-gamepad mr-2"></i> PLAY AGAIN
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Quiz Functions Script - Must come first -->
+    <!-- JavaScript Functions -->
     <script>
-        // Define quiz functions immediately in global scope
+        // Prevent mobile scrolling during game play
+        function preventDefaultMobile(e) {
+            e.preventDefault();
+        }
+
+        // Quiz Functions
         var currentQuestion = 1;
         var totalQuestions = 4;
         var quizAnswers = {};
@@ -3566,12 +2579,12 @@
                     features: ['Skill-based gameplay', 'High score tracking', 'Retro arcade feel']
                 },
                 'classic-competitive': {
-                    game: 'Neon Ping Pong',
+                    game: 'Neon Snake',
                     reason: 'Perfect classic competitive gameplay with modern style!',
-                    features: ['Mouse-controlled precision', 'AI opponent', 'Neon cyberpunk aesthetic']
+                    features: ['Arrow key precision', 'Growing challenge', 'Neon cyberpunk aesthetic']
                 },
                 'casual-classic': {
-                    game: 'Neon Ping Pong',
+                    game: 'Neon Snake',
                     reason: 'Easy to learn, perfect for quick gaming sessions!',
                     features: ['Simple controls', 'Classic gameplay', 'Beautiful visual effects']
                 },
@@ -3624,8 +2637,8 @@
             var buttonAction = '';
             if (bestMatch.game === 'Asteroids Arcade') {
                 buttonAction = 'onclick="closeQuiz(); openAsteroidsGame();"';
-            } else if (bestMatch.game === 'Neon Ping Pong') {
-                buttonAction = 'onclick="closeQuiz(); openPongGame();"';
+            } else if (bestMatch.game === 'Neon Snake') {
+                buttonAction = 'onclick="closeQuiz(); openSnakeGame();"';
             } else if (bestMatch.game === 'Cyberpunk Tetris') {
                 buttonAction = 'onclick="closeQuiz(); openTetrisGame();"';
             } else {
@@ -3660,10 +2673,461 @@
             updateProgressBar();
             updateButtons();
         }
-    </script>
 
-    <!-- Asteroids Game Script -->
-    <script>
+        // Snake Game Variables
+        let snakeGame = null;
+
+        function openSnakeGame() {
+            const modal = document.getElementById('snakeModal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                document.addEventListener('touchmove', preventDefaultMobile, { passive: false });
+                initializeSnakeGame();
+            }
+        }
+
+        function closeSnakeGame() {
+            const modal = document.getElementById('snakeModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                document.removeEventListener('touchmove', preventDefaultMobile);
+                if (snakeGame) {
+                    snakeGame.destroy();
+                    snakeGame = null;
+                }
+            }
+        }
+
+        function initializeSnakeGame() {
+            if (snakeGame) {
+                snakeGame.destroy();
+            }
+            
+            // Game elements
+            const canvas = document.getElementById('snake-canvas');
+            const gameElements = document.getElementById('snake-game-elements');
+            const scoreElement = document.getElementById('snake-score');
+            const highScoreElement = document.getElementById('snake-high-score');
+            const startBtn = document.getElementById('snake-start-btn');
+            const pauseBtn = document.getElementById('snake-pause-btn');
+            const restartBtn = document.getElementById('snake-restart-btn');
+            const gameOverModal = document.getElementById('snake-game-over-modal');
+            const finalScoreElement = document.getElementById('snake-final-score');
+            const playAgainBtn = document.getElementById('snake-play-again-btn');
+            
+            if (!canvas) {
+                console.error('Snake canvas not found');
+                return;
+            }
+            
+            const ctx = canvas.getContext('2d');
+            
+            // Game constants
+            const GRID_SIZE = 20;
+            let CANVAS_WIDTH = 500;
+            let CANVAS_HEIGHT = 500;
+            
+            // Game state
+            let snake = [{ x: 200, y: 200 }];
+            let food = { x: 300, y: 300 };
+            let direction = { x: 0, y: 0 };
+            let nextDirection = { x: 0, y: 0 };
+            let score = 0;
+            let highScore = localStorage.getItem('snakeHighScore') || 0;
+            let gameRunning = false;
+            let gamePaused = false;
+            let gameInterval = null;
+            let particles = [];
+            let touchStartX = 0;
+            let touchStartY = 0;
+            
+            // Initialize canvas
+            function initCanvas() {
+                const container = canvas.parentElement;
+                const containerRect = container.getBoundingClientRect();
+                
+                CANVAS_WIDTH = Math.min(containerRect.width - 40, 500);
+                CANVAS_HEIGHT = Math.min(containerRect.height - 40, 500);
+                
+                // Make sure dimensions are multiples of grid size
+                CANVAS_WIDTH = Math.floor(CANVAS_WIDTH / GRID_SIZE) * GRID_SIZE;
+                CANVAS_HEIGHT = Math.floor(CANVAS_HEIGHT / GRID_SIZE) * GRID_SIZE;
+                
+                canvas.width = CANVAS_WIDTH;
+                canvas.height = CANVAS_HEIGHT;
+                canvas.style.width = CANVAS_WIDTH + 'px';
+                canvas.style.height = CANVAS_HEIGHT + 'px';
+            }
+            
+            // Update high score display
+            function updateHighScore() {
+                highScoreElement.textContent = highScore;
+            }
+            
+            // Generate random food position
+            function generateFood() {
+                let newFood;
+                do {
+                    newFood = {
+                        x: Math.floor(Math.random() * (CANVAS_WIDTH / GRID_SIZE)) * GRID_SIZE,
+                        y: Math.floor(Math.random() * (CANVAS_HEIGHT / GRID_SIZE)) * GRID_SIZE
+                    };
+                } while (snake.some(segment => segment.x === newFood.x && segment.y === newFood.y));
+                
+                return newFood;
+            }
+            
+            // Create particles
+            function createParticles(x, y, color, count = 8) {
+                for (let i = 0; i < count; i++) {
+                    particles.push({
+                        x: x + GRID_SIZE / 2,
+                        y: y + GRID_SIZE / 2,
+                        vx: (Math.random() - 0.5) * 4,
+                        vy: (Math.random() - 0.5) * 4,
+                        life: 1.0,
+                        decay: 0.02 + Math.random() * 0.02,
+                        color: color,
+                        size: 2 + Math.random() * 3
+                    });
+                }
+            }
+            
+            // Update particles
+            function updateParticles() {
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.life -= p.decay;
+                    p.vx *= 0.98;
+                    p.vy *= 0.98;
+                    
+                    if (p.life <= 0) {
+                        particles.splice(i, 1);
+                    }
+                }
+            }
+            
+            // Draw particles
+            function drawParticles() {
+                particles.forEach(p => {
+                    ctx.save();
+                    ctx.globalAlpha = p.life;
+                    ctx.fillStyle = p.color;
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                });
+            }
+            
+            // Draw game
+            function draw() {
+                // Clear canvas with dark background
+                ctx.fillStyle = 'rgba(15, 15, 26, 0.9)';
+                ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+                
+                // Draw snake
+                snake.forEach((segment, index) => {
+                    ctx.save();
+                    
+                    if (index === 0) {
+                        // Head
+                        ctx.fillStyle = '#00e5ff';
+                        ctx.shadowBlur = 15;
+                        ctx.shadowColor = '#00e5ff';
+                    } else {
+                        // Body
+                        ctx.fillStyle = '#39ff14';
+                        ctx.shadowBlur = 10;
+                        ctx.shadowColor = '#39ff14';
+                    }
+                    
+                    ctx.fillRect(segment.x + 1, segment.y + 1, GRID_SIZE - 2, GRID_SIZE - 2);
+                    ctx.restore();
+                });
+                
+                // Draw food
+                ctx.save();
+                ctx.fillStyle = '#ff2ced';
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = '#ff2ced';
+                
+                const pulseSize = 2 + Math.sin(Date.now() * 0.01) * 1;
+                const foodSize = GRID_SIZE - 4 + pulseSize;
+                const offset = (GRID_SIZE - foodSize) / 2;
+                
+                ctx.beginPath();
+                ctx.arc(
+                    food.x + GRID_SIZE / 2, 
+                    food.y + GRID_SIZE / 2, 
+                    foodSize / 2, 
+                    0, 
+                    Math.PI * 2
+                );
+                ctx.fill();
+                ctx.restore();
+                
+                // Draw particles
+                drawParticles();
+            }
+            
+            // Update game state
+            function update() {
+                if (!gameRunning || gamePaused) return;
+                
+                // Update direction
+                direction = { ...nextDirection };
+                
+                // Calculate new head position
+                const head = { ...snake[0] };
+                head.x += direction.x * GRID_SIZE;
+                head.y += direction.y * GRID_SIZE;
+                
+                // Check wall collision
+                if (head.x < 0 || head.x >= CANVAS_WIDTH || head.y < 0 || head.y >= CANVAS_HEIGHT) {
+                    gameOver();
+                    return;
+                }
+                
+                // Check self collision
+                if (snake.some(segment => segment.x === head.x && segment.y === head.y)) {
+                    gameOver();
+                    return;
+                }
+                
+                snake.unshift(head);
+                
+                // Check food collision
+                if (head.x === food.x && head.y === food.y) {
+                    score++;
+                    scoreElement.textContent = score;
+                    
+                    // Create particles
+                    createParticles(food.x, food.y, '#ff2ced', 12);
+                    
+                    // Generate new food
+                    food = generateFood();
+                    
+                    // Don't remove tail (snake grows)
+                } else {
+                    // Remove tail
+                    snake.pop();
+                }
+                
+                // Update particles
+                updateParticles();
+            }
+            
+            // Game over
+            function gameOver() {
+                gameRunning = false;
+                gamePaused = false;
+                
+                if (gameInterval) {
+                    clearInterval(gameInterval);
+                    gameInterval = null;
+                }
+                
+                // Update high score
+                if (score > highScore) {
+                    highScore = score;
+                    localStorage.setItem('snakeHighScore', highScore);
+                    updateHighScore();
+                }
+                
+                // Create explosion particles
+                createParticles(snake[0].x, snake[0].y, '#ff2ced', 20);
+                
+                // Show game over modal
+                finalScoreElement.textContent = score;
+                gameOverModal.classList.add('active');
+                
+                // Update button states
+                startBtn.disabled = false;
+                pauseBtn.disabled = true;
+                startBtn.innerHTML = '<i class="fas fa-play mr-2"></i> START';
+            }
+            
+            // Start game
+            function startGame() {
+                if (gameRunning) return;
+                
+                // Reset game state
+                snake = [{ x: Math.floor(CANVAS_WIDTH / 2 / GRID_SIZE) * GRID_SIZE, y: Math.floor(CANVAS_HEIGHT / 2 / GRID_SIZE) * GRID_SIZE }];
+                direction = { x: 0, y: 0 };
+                nextDirection = { x: 0, y: 0 };
+                score = 0;
+                particles = [];
+                food = generateFood();
+                
+                scoreElement.textContent = score;
+                gameOverModal.classList.remove('active');
+                
+                gameRunning = true;
+                gamePaused = false;
+                
+                // Update button states
+                startBtn.disabled = true;
+                pauseBtn.disabled = false;
+                startBtn.innerHTML = '<i class="fas fa-pause mr-2"></i> PLAYING';
+                pauseBtn.innerHTML = '<i class="fas fa-pause mr-2"></i> PAUSE';
+                
+                // Start game loop
+                gameInterval = setInterval(() => {
+                    update();
+                    draw();
+                }, 150);
+                
+                draw();
+            }
+            
+            // Pause/unpause game
+            function togglePause() {
+                if (!gameRunning) return;
+                
+                gamePaused = !gamePaused;
+                
+                if (gamePaused) {
+                    pauseBtn.innerHTML = '<i class="fas fa-play mr-2"></i> RESUME';
+                } else {
+                    pauseBtn.innerHTML = '<i class="fas fa-pause mr-2"></i> PAUSE';
+                }
+            }
+            
+            // Restart game
+            function restartGame() {
+                if (gameInterval) {
+                    clearInterval(gameInterval);
+                    gameInterval = null;
+                }
+                
+                gameRunning = false;
+                gamePaused = false;
+                gameOverModal.classList.remove('active');
+                
+                // Reset button states
+                startBtn.disabled = false;
+                pauseBtn.disabled = true;
+                startBtn.innerHTML = '<i class="fas fa-play mr-2"></i> START';
+                pauseBtn.innerHTML = '<i class="fas fa-pause mr-2"></i> PAUSE';
+                
+                draw();
+            }
+            
+            // Handle keyboard input
+            function handleKeyPress(e) {
+                if (!gameRunning || gamePaused) return;
+                
+                switch (e.key) {
+                    case 'ArrowUp':
+                        if (direction.y === 0) {
+                            nextDirection = { x: 0, y: -1 };
+                        }
+                        break;
+                    case 'ArrowDown':
+                        if (direction.y === 0) {
+                            nextDirection = { x: 0, y: 1 };
+                        }
+                        break;
+                    case 'ArrowLeft':
+                        if (direction.x === 0) {
+                            nextDirection = { x: -1, y: 0 };
+                        }
+                        break;
+                    case 'ArrowRight':
+                        if (direction.x === 0) {
+                            nextDirection = { x: 1, y: 0 };
+                        }
+                        break;
+                }
+            }
+            
+            // Handle touch input
+            function handleTouchStart(e) {
+                e.preventDefault();
+                const touch = e.touches[0];
+                touchStartX = touch.clientX;
+                touchStartY = touch.clientY;
+            }
+            
+            function handleTouchEnd(e) {
+                e.preventDefault();
+                if (!gameRunning || gamePaused) return;
+                
+                const touch = e.changedTouches[0];
+                const deltaX = touch.clientX - touchStartX;
+                const deltaY = touch.clientY - touchStartY;
+                const minSwipeDistance = 30;
+                
+                if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                    // Horizontal swipe
+                    if (Math.abs(deltaX) > minSwipeDistance && direction.x === 0) {
+                        if (deltaX > 0) {
+                            nextDirection = { x: 1, y: 0 }; // Right
+                        } else {
+                            nextDirection = { x: -1, y: 0 }; // Left
+                        }
+                    }
+                } else {
+                    // Vertical swipe
+                    if (Math.abs(deltaY) > minSwipeDistance && direction.y === 0) {
+                        if (deltaY > 0) {
+                            nextDirection = { x: 0, y: 1 }; // Down
+                        } else {
+                            nextDirection = { x: 0, y: -1 }; // Up
+                        }
+                    }
+                }
+            }
+            
+            // Event listeners
+            document.addEventListener('keydown', handleKeyPress);
+            canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
+            canvas.addEventListener('touchend', handleTouchEnd, { passive: false });
+            
+            startBtn.addEventListener('click', startGame);
+            pauseBtn.addEventListener('click', togglePause);
+            restartBtn.addEventListener('click', restartGame);
+            playAgainBtn.addEventListener('click', () => {
+                gameOverModal.classList.remove('active');
+                restartGame();
+            });
+            
+            // Initialize
+            initCanvas();
+            updateHighScore();
+            draw();
+            
+            // Window resize handler
+            window.addEventListener('resize', () => {
+                initCanvas();
+                draw();
+            });
+            
+            snakeGame = {
+                destroy: function() {
+                    if (gameInterval) {
+                        clearInterval(gameInterval);
+                        gameInterval = null;
+                    }
+                    
+                    document.removeEventListener('keydown', handleKeyPress);
+                    canvas.removeEventListener('touchstart', handleTouchStart);
+                    canvas.removeEventListener('touchend', handleTouchEnd);
+                    
+                    gameRunning = false;
+                    gamePaused = false;
+                    particles = [];
+                }
+            };
+        }
+
         // Asteroids Game Variables
         let asteroidsGame = null;
 
@@ -3672,7 +3136,6 @@
             if (modal) {
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
-                // Prevent mobile scrolling when playing
                 document.addEventListener('touchmove', preventDefaultMobile, { passive: false });
                 initializeAsteroidsGame();
             }
@@ -3994,29 +3457,6 @@
                     radius: 3,
                     life: 60
                 });
-                
-                playLaserSound();
-            }
-            
-            function playLaserSound() {
-                try {
-                    const audioContext = new (AudioContext || webkitAudioContext)();
-                    const oscillator = audioContext.createOscillator();
-                    const gainNode = audioContext.createGain();
-                    
-                    oscillator.type = 'square';
-                    oscillator.frequency.value = 440;
-                    gainNode.gain.value = 0.1;
-                    
-                    oscillator.connect(gainNode);
-                    gainNode.connect(audioContext.destination);
-                    
-                    oscillator.start();
-                    gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.2);
-                    oscillator.stop(audioContext.currentTime + 0.2);
-                } catch(e) {
-                    // Audio not supported
-                }
             }
             
             function updateBullets() {
@@ -4169,28 +3609,6 @@
                         decay: 0.95 + Math.random() * 0.04
                     });
                 }
-                playExplosionSound();
-            }
-            
-            function playExplosionSound() {
-                try {
-                    const audioContext = new (AudioContext || webkitAudioContext)();
-                    const oscillator = audioContext.createOscillator();
-                    const gainNode = audioContext.createGain();
-                    
-                    oscillator.type = 'sawtooth';
-                    oscillator.frequency.value = 100;
-                    gainNode.gain.value = 0.1;
-                    
-                    oscillator.connect(gainNode);
-                    gainNode.connect(audioContext.destination);
-                    
-                    oscillator.start();
-                    gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.5);
-                    oscillator.stop(audioContext.currentTime + 0.5);
-                } catch(e) {
-                    // Audio not supported
-                }
             }
             
             function updateParticles() {
@@ -4266,454 +3684,7 @@
                 }
             };
         }
-    </script>
 
-    <!-- Neon Ping Pong Game Script -->
-    <script>
-        // Pong Game Variables
-        let pongGame = null;
-
-        function openPongGame() {
-            const modal = document.getElementById('pongModal');
-            if (modal) {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                // Prevent mobile scrolling when playing
-                document.addEventListener('touchmove', preventDefaultMobile, { passive: false });
-                initializePongGame();
-            }
-        }
-
-        function closePongGame() {
-            const modal = document.getElementById('pongModal');
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                document.removeEventListener('touchmove', preventDefaultMobile);
-                if (pongGame) {
-                    pongGame.destroy();
-                    pongGame = null;
-                }
-            }
-        }
-
-        function initializePongGame() {
-            if (pongGame) {
-                pongGame.destroy();
-            }
-            
-            // Game elements
-            const gameContainer = document.getElementById('pong-game-container');
-            const paddleLeft = document.getElementById('pong-paddle-left');
-            const paddleRight = document.getElementById('pong-paddle-right');
-            const ball = document.getElementById('pong-ball');
-            const playerScoreDisplay = document.getElementById('pong-player-score');
-            const aiScoreDisplay = document.getElementById('pong-ai-score');
-            const gameOverScreen = document.getElementById('pong-game-over');
-            const winnerText = document.getElementById('pong-winner-text');
-            const restartBtn = document.getElementById('pong-restart-btn');
-            const startScreen = document.getElementById('pong-start-screen');
-            const startBtn = document.getElementById('pong-start-btn');
-            
-            // Mobile controls
-            const moveUpBtn = document.getElementById('pong-move-up');
-            const moveDownBtn = document.getElementById('pong-move-down');
-            
-            // Force show mobile controls on touch devices or small screens
-            if ('ontouchstart' in window || navigator.maxTouchPoints > 0 || window.innerWidth <= 1024) {
-                const mobileControls = document.querySelector('.pong-mobile-controls');
-                if (mobileControls) {
-                    mobileControls.style.display = 'flex';
-                }
-            }
-            
-            // Game state
-            let ballX = 400;
-            let ballY = 250;
-            let ballSpeedX = 5;
-            let ballSpeedY = 3;
-            let paddleLeftY = 200;
-            let paddleRightY = 200;
-            let playerScore = 0;
-            let aiScore = 0;
-            let gameRunning = false;
-            let gameFinished = false;
-            let winningScore = 5;
-            let paddleLeftHeight = 100;
-            let paddleRightHeight = 100;
-            let particles = [];
-            let animationFrameId;
-            
-            // Game dimensions
-            let GAME_WIDTH = gameContainer.clientWidth;
-            let GAME_HEIGHT = gameContainer.clientHeight;
-            const PADDLE_HEIGHT = paddleLeftHeight;
-            
-            // Resize handler
-            function updateGameDimensions() {
-                GAME_WIDTH = gameContainer.clientWidth;
-                GAME_HEIGHT = gameContainer.clientHeight;
-            }
-            
-            // Initialize game
-            function initGame() {
-                updateGameDimensions();
-                ballX = GAME_WIDTH / 2;
-                ballY = GAME_HEIGHT / 2;
-                ballSpeedX = 5 * (Math.random() > 0.5 ? 1 : -1);
-                ballSpeedY = 3 * (Math.random() > 0.5 ? 1 : -1);
-                
-                paddleLeftY = (GAME_HEIGHT - PADDLE_HEIGHT) / 2;
-                paddleRightY = (GAME_HEIGHT - PADDLE_HEIGHT) / 2;
-                
-                updatePositions();
-                gameFinished = false;
-                gameOverScreen.style.display = 'none';
-            }
-            
-            // Update element positions
-            function updatePositions() {
-                paddleLeft.style.top = paddleLeftY + 'px';
-                paddleRight.style.top = paddleRightY + 'px';
-                ball.style.left = (ballX - 10) + 'px';
-                ball.style.top = (ballY - 10) + 'px';
-            }
-            
-            // Main game loop
-            function gameLoop() {
-                if (!gameRunning || gameFinished) return;
-                
-                updateGameDimensions();
-                
-                // Move ball
-                ballX += ballSpeedX;
-                ballY += ballSpeedY;
-                
-                // Ball collision with top and bottom
-                if (ballY <= 0 || ballY >= GAME_HEIGHT) {
-                    ballSpeedY = -ballSpeedY;
-                    createParticles(ballX, ballY, '#00ffff');
-                }
-                
-                // Ball collision with paddles
-                if (ballX <= 30 && ballX >= 20 && ballY >= paddleLeftY && ballY <= paddleLeftY + PADDLE_HEIGHT) {
-                    ballSpeedX = -ballSpeedX * 1.1;
-                    createParticles(20, ballY, '#ff00ff');
-                    createScoreAnimation('+1', 100, ballY);
-                }
-                
-                if (ballX >= GAME_WIDTH - 30 && ballX <= GAME_WIDTH - 20 && 
-                    ballY >= paddleRightY && ballY <= paddleRightY + PADDLE_HEIGHT) {
-                    ballSpeedX = -ballSpeedX * 1.1;
-                    createParticles(GAME_WIDTH - 20, ballY, '#ff00ff');
-                    createScoreAnimation('+1', GAME_WIDTH - 100, ballY);
-                }
-                
-                // AI paddle movement
-                let paddleRightCenter = paddleRightY + (PADDLE_HEIGHT / 2);
-                if (paddleRightCenter < ballY - 15) {
-                    paddleRightY += 5;
-                } else if (paddleRightCenter > ballY + 15) {
-                    paddleRightY -= 5;
-                }
-                
-                // Keep AI paddle within bounds
-                if (paddleRightY < 0) paddleRightY = 0;
-                if (paddleRightY > GAME_HEIGHT - PADDLE_HEIGHT) {
-                    paddleRightY = GAME_HEIGHT - PADDLE_HEIGHT;
-                }
-                
-                // Check for scoring
-                if (ballX < 0) {
-                    aiScore++;
-                    aiScoreDisplay.textContent = aiScore;
-                    resetAfterPoint();
-                    if (aiScore >= winningScore) {
-                        endGame('AI wins!');
-                    }
-                }
-                
-                if (ballX > GAME_WIDTH) {
-                    playerScore++;
-                    playerScoreDisplay.textContent = playerScore;
-                    resetAfterPoint();
-                    if (playerScore >= winningScore) {
-                        endGame('Player wins!');
-                    }
-                }
-                
-                updateParticles();
-                updatePositions();
-                
-                animationFrameId = requestAnimationFrame(gameLoop);
-            }
-            
-            // Reset after point
-            function resetAfterPoint() {
-                ballX = GAME_WIDTH / 2;
-                ballY = GAME_HEIGHT / 2;
-                ballSpeedX = 5 * (Math.random() > 0.5 ? 1 : -1);
-                ballSpeedY = 3 * (Math.random() > 0.5 ? 1 : -1);
-                
-                setTimeout(() => {
-                    updatePositions();
-                }, 100);
-            }
-            
-            // Mouse movement handler
-            function handleMouseMove(e) {
-                if (!gameRunning || gameFinished) return;
-                
-                const rect = gameContainer.getBoundingClientRect();
-                const mouseY = e.clientY - rect.top - (PADDLE_HEIGHT / 2);
-                
-                if (mouseY > 0 && mouseY < GAME_HEIGHT - PADDLE_HEIGHT) {
-                    paddleLeftY = mouseY;
-                }
-            }
-            
-            // Touch movement handler for mobile
-            function handleTouchMove(e) {
-                e.preventDefault();
-                if (!gameRunning || gameFinished) return;
-                
-                const rect = gameContainer.getBoundingClientRect();
-                const touch = e.touches[0];
-                const touchY = touch.clientY - rect.top - (PADDLE_HEIGHT / 2);
-                
-                if (touchY > 0 && touchY < GAME_HEIGHT - PADDLE_HEIGHT) {
-                    paddleLeftY = touchY;
-                }
-            }
-            
-            // Touch start handler for mobile
-            function handleTouchStart(e) {
-                e.preventDefault();
-                if (!gameRunning || gameFinished) return;
-                
-                const rect = gameContainer.getBoundingClientRect();
-                const touch = e.touches[0];
-                const touchY = touch.clientY - rect.top - (PADDLE_HEIGHT / 2);
-                
-                if (touchY > 0 && touchY < GAME_HEIGHT - PADDLE_HEIGHT) {
-                    paddleLeftY = touchY;
-                }
-            }
-            
-            // Mobile button controls
-            let mobileControlInterval = null;
-            
-            function startMoveUp() {
-                if (!gameRunning || gameFinished) return;
-                mobileControlInterval = setInterval(() => {
-                    if (paddleLeftY > 0) {
-                        paddleLeftY = Math.max(0, paddleLeftY - 8);
-                    }
-                }, 16);
-            }
-            
-            function startMoveDown() {
-                if (!gameRunning || gameFinished) return;
-                mobileControlInterval = setInterval(() => {
-                    if (paddleLeftY < GAME_HEIGHT - PADDLE_HEIGHT) {
-                        paddleLeftY = Math.min(GAME_HEIGHT - PADDLE_HEIGHT, paddleLeftY + 8);
-                    }
-                }, 16);
-            }
-            
-            function stopMobileMove() {
-                if (mobileControlInterval) {
-                    clearInterval(mobileControlInterval);
-                    mobileControlInterval = null;
-                }
-            }
-            
-            // Create particles
-            function createParticles(x, y, color) {
-                for (let i = 0; i < 10; i++) {
-                    const particle = document.createElement('div');
-                    particle.className = 'pong-particle';
-                    particle.style.left = x + 'px';
-                    particle.style.top = y + 'px';
-                    particle.style.backgroundColor = color;
-                    particle.style.boxShadow = `0 0 5px ${color}`;
-                    gameContainer.appendChild(particle);
-                    
-                    const angle = Math.random() * Math.PI * 2;
-                    const speed = Math.random() * 3 + 1;
-                    
-                    particles.push({
-                        element: particle,
-                        x: x,
-                        y: y,
-                        speedX: Math.cos(angle) * speed,
-                        speedY: Math.sin(angle) * speed,
-                        opacity: 1,
-                        lifetime: Math.random() * 20 + 10
-                    });
-                }
-            }
-            
-            // Create score animation
-            function createScoreAnimation(text, x, y) {
-                const scoreAnim = document.createElement('div');
-                scoreAnim.className = 'pong-score-animation';
-                scoreAnim.textContent = text;
-                scoreAnim.style.left = x + 'px';
-                scoreAnim.style.top = (y - 30) + 'px';
-                gameContainer.appendChild(scoreAnim);
-                
-                setTimeout(() => {
-                    scoreAnim.remove();
-                }, 1000);
-            }
-            
-            // Update particles
-            function updateParticles() {
-                for (let i = particles.length - 1; i >= 0; i--) {
-                    const p = particles[i];
-                    p.x += p.speedX;
-                    p.y += p.speedY;
-                    p.lifetime--;
-                    p.opacity = p.lifetime / 20;
-                    
-                    p.element.style.left = p.x + 'px';
-                    p.element.style.top = p.y + 'px';
-                    p.element.style.opacity = p.opacity;
-                    
-                    if (p.lifetime <= 0) {
-                        p.element.remove();
-                        particles.splice(i, 1);
-                    }
-                }
-            }
-            
-            // End game
-            function endGame(message) {
-                gameFinished = true;
-                winnerText.textContent = message;
-                gameOverScreen.style.display = 'block';
-                createParticles(GAME_WIDTH / 2, GAME_HEIGHT / 2, '#00ffff');
-                createParticles(GAME_WIDTH / 2, GAME_HEIGHT / 2, '#ff00ff');
-            }
-            
-            // Restart game
-            function restartGame() {
-                playerScore = 0;
-                aiScore = 0;
-                playerScoreDisplay.textContent = '0';
-                aiScoreDisplay.textContent = '0';
-                initGame();
-                gameRunning = true;
-                gameLoop();
-            }
-            
-            // Start game
-            function startGame() {
-                startScreen.style.display = 'none';
-                playerScore = 0;
-                aiScore = 0;
-                playerScoreDisplay.textContent = '0';
-                aiScoreDisplay.textContent = '0';
-                initGame();
-                gameRunning = true;
-                gameLoop();
-            }
-            
-            // Show start screen initially
-            function showStartScreen() {
-                startScreen.style.display = 'flex';
-                gameRunning = false;
-                gameFinished = false;
-            }
-            
-            // Event listeners
-            gameContainer.addEventListener('mousemove', handleMouseMove);
-            gameContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
-            gameContainer.addEventListener('touchstart', handleTouchStart, { passive: false });
-            restartBtn.addEventListener('click', restartGame);
-            startBtn.addEventListener('click', startGame);
-            
-            // Mobile button controls
-            if (moveUpBtn) {
-                moveUpBtn.addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    startMoveUp();
-                }, { passive: false });
-                
-                moveUpBtn.addEventListener('touchend', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    stopMobileMove();
-                }, { passive: false });
-                
-                moveUpBtn.addEventListener('mousedown', (e) => {
-                    e.preventDefault();
-                    startMoveUp();
-                });
-                moveUpBtn.addEventListener('mouseup', (e) => {
-                    e.preventDefault();
-                    stopMobileMove();
-                });
-                moveUpBtn.addEventListener('mouseleave', stopMobileMove);
-            }
-            
-            if (moveDownBtn) {
-                moveDownBtn.addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    startMoveDown();
-                }, { passive: false });
-                
-                moveDownBtn.addEventListener('touchend', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    stopMobileMove();
-                }, { passive: false });
-                
-                moveDownBtn.addEventListener('mousedown', (e) => {
-                    e.preventDefault();
-                    startMoveDown();
-                });
-                moveDownBtn.addEventListener('mouseup', (e) => {
-                    e.preventDefault();
-                    stopMobileMove();
-                });
-                moveDownBtn.addEventListener('mouseleave', stopMobileMove);
-            }
-            
-            // Initialize
-            initGame();
-            showStartScreen(); // Show start screen on load
-            
-            pongGame = {
-                destroy: function() {
-                    if (animationFrameId) {
-                        cancelAnimationFrame(animationFrameId);
-                    }
-                    gameContainer.removeEventListener('mousemove', handleMouseMove);
-                    gameContainer.removeEventListener('touchmove', handleTouchMove);
-                    gameContainer.removeEventListener('touchstart', handleTouchStart);
-                    gameRunning = false;
-                    gameFinished = true;
-                    
-                    // Clean up particles
-                    particles.forEach(p => p.element.remove());
-                    particles = [];
-                    
-                    // Clean up mobile controls
-                    if (mobileControlInterval) {
-                        clearInterval(mobileControlInterval);
-                        mobileControlInterval = null;
-                    }
-                }
-            };
-        }
-    </script>
-
-    <!-- Cyberpunk Tetris Game Script -->
-    <script>
         // Tetris Game Variables
         let tetrisGame = null;
 
@@ -4722,7 +3693,6 @@
             if (modal) {
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
-                // Prevent mobile scrolling when playing
                 document.addEventListener('touchmove', preventDefaultMobile, { passive: false });
                 initializeTetrisGame();
             }
@@ -4739,10 +3709,6 @@
                     tetrisGame = null;
                 }
             }
-        }
-
-        function preventDefaultMobile(e) {
-            e.preventDefault();
         }
 
         function initializeTetrisGame() {
@@ -4783,22 +3749,6 @@
             const continueBtn = document.getElementById('tetris-continue-btn');
             const playAgainBtn = document.getElementById('tetris-play-again-btn');
             const finalScoreElement = document.getElementById('tetris-final-score');
-            
-            // Mobile controls
-            const moveLeftBtn = document.getElementById('tetris-move-left');
-            const moveRightBtn = document.getElementById('tetris-move-right');
-            const rotateBtn = document.getElementById('tetris-rotate');
-            const softDropBtn = document.getElementById('tetris-soft-drop');
-            const hardDropBtn = document.getElementById('tetris-hard-drop');
-            const pauseBtn = document.getElementById('tetris-pause');
-            
-            // Force show mobile controls on touch devices or small screens
-            if ('ontouchstart' in window || navigator.maxTouchPoints > 0 || window.innerWidth <= 1024) {
-                const mobileControls = document.querySelector('.tetris-mobile-controls');
-                if (mobileControls) {
-                    mobileControls.style.display = 'flex';
-                }
-            }
             
             // Game state
             let grid = createGrid(ROWS, COLS);
@@ -5258,101 +4208,6 @@
             playAgainBtn.addEventListener('click', resetGame);
             document.addEventListener('keydown', handleKeyDown);
             
-            // Mobile touch controls
-            if (moveLeftBtn) {
-                moveLeftBtn.addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    moveLeft();
-                }, { passive: false });
-                
-                moveLeftBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    moveLeft();
-                });
-            }
-            
-            if (moveRightBtn) {
-                moveRightBtn.addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    moveRight();
-                }, { passive: false });
-                
-                moveRightBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    moveRight();
-                });
-            }
-            
-            if (rotateBtn) {
-                rotateBtn.addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    rotate();
-                }, { passive: false });
-                
-                rotateBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    rotate();
-                });
-            }
-            
-            if (softDropBtn) {
-                let softDropInterval;
-                
-                const startSoftDrop = (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    softDrop();
-                    if (softDropInterval) clearInterval(softDropInterval);
-                    softDropInterval = setInterval(softDrop, 100);
-                };
-                
-                const stopSoftDrop = (e) => {
-                    if (e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                    }
-                    if (softDropInterval) {
-                        clearInterval(softDropInterval);
-                        softDropInterval = null;
-                    }
-                };
-                
-                softDropBtn.addEventListener('touchstart', startSoftDrop, { passive: false });
-                softDropBtn.addEventListener('touchend', stopSoftDrop, { passive: false });
-                softDropBtn.addEventListener('mousedown', startSoftDrop);
-                softDropBtn.addEventListener('mouseup', stopSoftDrop);
-                softDropBtn.addEventListener('mouseleave', stopSoftDrop);
-            }
-            
-            if (hardDropBtn) {
-                hardDropBtn.addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    hardDrop();
-                }, { passive: false });
-                
-                hardDropBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    hardDrop();
-                });
-            }
-            
-            if (pauseBtn) {
-                pauseBtn.addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    togglePause();
-                }, { passive: false });
-                
-                pauseBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    togglePause();
-                });
-            }
-            
             // Initialize
             init();
             
@@ -5364,18 +4219,10 @@
                     document.removeEventListener('keydown', handleKeyDown);
                     isGameOver = true;
                     isPaused = true;
-                    
-                    // Clean up any intervals from mobile controls
-                    const softDropInterval = document.querySelector('#tetris-soft-drop')?._interval;
-                    if (softDropInterval) {
-                        clearInterval(softDropInterval);
-                    }
                 }
             };
         }
-    </script>
 
-    <script>
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -5395,9 +4242,8 @@
                     'game': '#games',
                     'games': '#games',
                     'asteroids': '#games',
-                    'pong': '#games',
-                    'ping pong': '#games',
-                    'neon': '#games',
+                    'snake': '#games',
+                    'neon snake': '#games',
                     'tetris': '#games',
                     'cyberpunk': '#games',
                     'puzzle': '#games',
@@ -5519,7 +4365,7 @@
         window.addEventListener('click', (e) => {
             const quizModal = document.getElementById('quizModal');
             const asteroidsModal = document.getElementById('asteroidsModal');
-            const pongModal = document.getElementById('pongModal');
+            const snakeModal = document.getElementById('snakeModal');
             const tetrisModal = document.getElementById('tetrisModal');
             
             if (e.target === quizModal) {
@@ -5528,8 +4374,8 @@
             if (e.target === asteroidsModal) {
                 closeAsteroidsGame();
             }
-            if (e.target === pongModal) {
-                closePongGame();
+            if (e.target === snakeModal) {
+                closeSnakeGame();
             }
             if (e.target === tetrisModal) {
                 closeTetrisGame();
@@ -5538,3 +4384,184 @@
     </script>
 </body>
 </html>
+
+    <!-- Snake Game Modal -->
+    <div id="snakeModal" class="snake-modal">
+        <div class="snake-content">
+            <span class="snake-close" onclick="closeSnakeGame()">&times;</span>
+            
+            <div id="snake-game-elements">
+                <div class="text-center mb-6">
+                    <h1 class="text-4xl mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">
+                        NEON SNAKE
+                    </h1>
+                    <div class="text-xl text-green-400 font-mono">
+                        SCORE: <span id="snake-score">0</span> | HIGH: <span id="snake-high-score">0</span>
+                    </div>
+                </div>
+                
+                <div id="snake-game-container">
+                    <canvas id="snake-canvas"></canvas>
+                    <div class="snake-grid-lines"></div>
+                </div>
+                
+                <div class="flex justify-center mt-6 gap-4">
+                    <button id="snake-start-btn" class="snake-btn">
+                        <i class="fas fa-play mr-2"></i> START
+                    </button>
+                    <button id="snake-pause-btn" class="snake-btn" disabled>
+                        <i class="fas fa-pause mr-2"></i> PAUSE
+                    </button>
+                    <button id="snake-restart-btn" class="snake-btn">
+                        <i class="fas fa-redo mr-2"></i> RESTART
+                    </button>
+                </div>
+                
+                <div class="text-center mt-4 text-sm text-gray-400">
+                    Use arrow keys or swipe to control
+                </div>
+            </div>
+            
+            <!-- Game Over Modal -->
+            <div id="snake-game-over-modal" class="snake-game-over-modal">
+                <div class="snake-game-over-title">GAME OVER!</div>
+                <h2 class="text-2xl mb-4 text-green-400">Your Score: <span id="snake-final-score">0</span></h2>
+                <p class="text-white mb-4">Try again to beat your high score!</p>
+                <button id="snake-play-again-btn" class="snake-btn">
+                    <i class="fas fa-gamepad mr-2"></i> PLAY AGAIN
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Asteroids Game Modal -->
+    <div id="asteroidsModal" class="asteroids-modal">
+        <div class="asteroids-content">
+            <span class="asteroids-close" onclick="closeAsteroidsGame()">&times;</span>
+            
+            <div id="asteroids-game-header">
+                <h1>ASTEROIDS</h1>
+            </div>
+            
+            <div id="asteroids-game-container">
+                <canvas id="asteroids-canvas"></canvas>
+                
+                <div id="asteroids-ui">
+                    <div id="asteroids-score-display">SCORE: <span id="asteroids-score">0</span></div>
+                    <div id="asteroids-lives-display">LIVES: <span id="asteroids-lives">3</span></div>
+                </div>
+                
+                <div id="asteroids-controls">
+                    <div class="control-group">
+                        <div>SHIP CONTROLS:</div>
+                        <div><span class="key">←</span> Rotate Left</div>
+                        <div><span class="key">→</span> Rotate Right</div>
+                        <div><span class="key">↑</span> Thrust</div>
+                    </div>
+                    <div class="control-group">
+                        <div>WEAPONS:</div>
+                        <div><span class="key space">SPACE</span> Fire</div>
+                    </div>
+                </div>
+                
+                <div id="asteroids-mobile-controls">
+                    <div class="mobile-btn" id="asteroids-left-btn">←</div>
+                    <div class="mobile-btn" id="asteroids-up-btn">↑</div>
+                    <div class="mobile-btn" id="asteroids-right-btn">→</div>
+                    <div class="mobile-btn" id="asteroids-fire-btn">FIRE</div>
+                </div>
+                
+                <div id="asteroids-game-over">
+                    <h2>GAME OVER</h2>
+                    <div id="asteroids-final-score">FINAL SCORE: <span id="asteroids-end-score">0</span></div>
+                    <button id="asteroids-restart">PLAY AGAIN</button>
+                </div>
+                
+                <div id="asteroids-start-screen">
+                    <h1>ASTEROIDS ARCADE</h1>
+                    <p>Navigate your spaceship through an asteroid field. Destroy asteroids to earn points, but be careful - hitting them will cost you a life!</p>
+                    <button id="asteroids-start-btn">START GAME</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cyberpunk Tetris Game Modal -->
+    <div id="tetrisModal" class="tetris-modal">
+        <div class="tetris-content">
+            <span class="tetris-close" onclick="closeTetrisGame()">&times;</span>
+            
+            <!-- Tetris scanlines effect -->
+            <div class="tetris-scanline"></div>
+            
+            <!-- Main game container -->
+            <div class="tetris-game-container flex flex-col md:flex-row items-center justify-center gap-8 p-4">
+                <!-- Left panel with info -->
+                <div class="tetris-neon-border-blue bg-black bg-opacity-70 p-6 rounded-lg w-64 h-96 flex flex-col justify-between">
+                    <div>
+                        <h1 class="tetris-glitch text-3xl mb-6 text-center tetris-neon-text-blue" data-text="CYBER TETRIS">CYBER TETRIS</h1>
+                        <div class="mb-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="tetris-neon-text-pink">SCORE:</span>
+                                <span id="tetris-score" class="tetris-neon-text-blue">0</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="tetris-neon-text-pink">LEVEL:</span>
+                                <span id="tetris-level" class="tetris-neon-text-blue">1</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="tetris-neon-text-pink">LINES:</span>
+                                <span id="tetris-lines" class="tetris-neon-text-blue">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="tetris-neon-text-pink text-lg mb-2">CONTROLS:</h3>
+                        <ul class="space-y-1 text-sm">
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-left mr-2"></i> <span>Move Left</span></li>
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-right mr-2"></i> <span>Move Right</span></li>
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-down mr-2"></i> <span>Soft Drop</span></li>
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-up mr-2"></i> <span>Rotate</span></li>
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-space-shuttle mr-2"></i> <span>Hard Drop</span></li>
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-pause mr-2"></i> <span>Pause (P)</span></li>
+                        </ul>
+                    </div>
+                    
+                    <button id="tetris-start-btn" class="tetris-neon-border-pink tetris-neon-text-pink hover:bg-pink-900 hover:bg-opacity-30 py-2 px-4 rounded-md transition-all duration-300 tetris-glow">
+                        START GAME
+                    </button>
+                </div>
+                
+                <!-- Game field -->
+                <div class="relative">
+                    <div class="tetris-neon-border-blue bg-black bg-opacity-70">
+                        <div id="tetris-grid" class="grid grid-cols-10" style="grid-template-rows: repeat(20, 1fr);"></div>
+                    </div>
+                    
+                    <!-- Pause overlay -->
+                    <div id="tetris-pause-overlay" class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center hidden">
+                        <h2 class="tetris-neon-text-pink text-4xl mb-6">PAUSED</h2>
+                        <button id="tetris-continue-btn" class="tetris-neon-border-blue tetris-neon-text-blue hover:bg-blue-900 hover:bg-opacity-30 py-2 px-6 rounded-md transition-all duration-300">
+                            CONTINUE
+                        </button>
+                    </div>
+                    
+                    <!-- Game Over overlay -->
+                    <div id="tetris-game-over-overlay" class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center hidden">
+                        <h2 class="tetris-neon-text-pink text-4xl mb-4 tetris-glitch" data-text="GAME OVER">GAME OVER</h2>
+                        <p class="tetris-neon-text-blue mb-6">SCORE: <span id="tetris-final-score">0</span></p>
+                        <button id="tetris-play-again-btn" class="tetris-neon-border-blue tetris-neon-text-blue hover:bg-blue-900 hover:bg-opacity-30 py-2 px-6 rounded-md transition-all duration-300">
+                            PLAY AGAIN
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Next piece panel -->
+                <div class="tetris-neon-border-blue bg-black bg-opacity-70 p-4 rounded-lg w-32 h-32 flex flex-col items-center">
+                    <h3 class="tetris-neon-text-pink text-lg mb-2">NEXT:</h3>
+                    <div id="tetris-next-piece" class="grid grid-cols-4" style="grid-template-rows: repeat(4, 1fr); width: 80px; height: 80px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
