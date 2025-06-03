@@ -1041,7 +1041,6 @@
                 flex-direction: column !important;
                 gap: 20px !important;
                 align-items: center;
-                position: relative;
             }
             
             .tetris-grid-cell {
@@ -1066,10 +1065,6 @@
                 width: 50px;
                 height: 50px;
             }
-
-            .tetris-mobile-controls {
-                display: flex !important;
-            }
         }
 
         @media (max-width: 640px) {
@@ -1091,66 +1086,6 @@
             .tetris-game-container {
                 padding: 10px !important;
             }
-        }
-
-        /* Tetris Mobile Controls */
-        .tetris-mobile-controls {
-            display: none;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .tetris-mobile-left, .tetris-mobile-right {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px 10px;
-            pointer-events: auto;
-        }
-
-        .tetris-mobile-left {
-            left: -90px;
-        }
-
-        .tetris-mobile-right {
-            right: -90px;
-        }
-
-        .tetris-mobile-btn {
-            width: 60px;
-            height: 60px;
-            background-color: rgba(5, 217, 232, 0.2);
-            border: 2px solid #05d9e8;
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #05d9e8;
-            font-size: 16px;
-            font-weight: bold;
-            user-select: none;
-            box-shadow: 0 0 10px rgba(5, 217, 232, 0.3);
-            transition: all 0.2s;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .tetris-mobile-btn:active {
-            background-color: rgba(5, 217, 232, 0.4);
-            box-shadow: 0 0 20px rgba(5, 217, 232, 0.6);
-            transform: scale(0.95);
-        }
-
-        .tetris-mobile-btn.tall {
-            height: 80px;
         }
 
         /* Asteroids Game Modal Styles */
@@ -3294,36 +3229,6 @@
             playAgainBtn.addEventListener('click', resetGame);
             document.addEventListener('keydown', handleKeyDown);
             
-            // Mobile control event listeners
-            const leftBtn = document.getElementById('tetris-left-btn');
-            const rightBtn = document.getElementById('tetris-right-btn');
-            const downBtn = document.getElementById('tetris-down-btn');
-            const rotateBtn = document.getElementById('tetris-rotate-btn');
-            const dropBtn = document.getElementById('tetris-drop-btn');
-            const pauseMobileBtn = document.getElementById('tetris-pause-btn');
-            
-            // Mobile touch events
-            function addMobileListeners(btn, action) {
-                if (!btn) return;
-                
-                btn.addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    if (isGameOver || isPaused) return;
-                    action();
-                }, { passive: false });
-                
-                btn.addEventListener('touchend', (e) => {
-                    e.preventDefault();
-                }, { passive: false });
-            }
-            
-            addMobileListeners(leftBtn, moveLeft);
-            addMobileListeners(rightBtn, moveRight);
-            addMobileListeners(downBtn, softDrop);
-            addMobileListeners(rotateBtn, rotate);
-            addMobileListeners(dropBtn, hardDrop);
-            addMobileListeners(pauseMobileBtn, togglePause);
-            
             // Initialize
             init();
             
@@ -3333,20 +3238,6 @@
                         cancelAnimationFrame(gameLoop);
                     }
                     document.removeEventListener('keydown', handleKeyDown);
-                    
-                    // Remove mobile listeners
-                    const mobileButtons = [
-                        'tetris-left-btn', 'tetris-right-btn', 'tetris-down-btn',
-                        'tetris-rotate-btn', 'tetris-drop-btn', 'tetris-pause-btn'
-                    ];
-                    mobileButtons.forEach(id => {
-                        const btn = document.getElementById(id);
-                        if (btn) {
-                            btn.removeEventListener('touchstart', () => {});
-                            btn.removeEventListener('touchend', () => {});
-                        }
-                    });
-                    
                     isGameOver = true;
                     isPaused = true;
                 }
@@ -4772,23 +4663,6 @@
                 <!-- Game field -->
                 <div class="tetris-grid-container">
                     <div id="tetris-grid" class="tetris-neon-border-blue bg-black bg-opacity-70"></div>
-                    
-                    <!-- Mobile Controls -->
-                    <div class="tetris-mobile-controls">
-                        <!-- Left side controls -->
-                        <div class="tetris-mobile-left">
-                            <div class="tetris-mobile-btn" id="tetris-left-btn">←</div>
-                            <div class="tetris-mobile-btn" id="tetris-right-btn">→</div>
-                            <div class="tetris-mobile-btn" id="tetris-down-btn">↓</div>
-                        </div>
-                        
-                        <!-- Right side controls -->
-                        <div class="tetris-mobile-right">
-                            <div class="tetris-mobile-btn" id="tetris-rotate-btn">↻</div>
-                            <div class="tetris-mobile-btn tall" id="tetris-drop-btn">DROP</div>
-                            <div class="tetris-mobile-btn" id="tetris-pause-btn">⏸</div>
-                        </div>
-                    </div>
                     
                     <!-- Pause overlay -->
                     <div id="tetris-pause-overlay" class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center hidden">
