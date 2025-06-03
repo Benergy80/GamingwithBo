@@ -14,6 +14,11 @@
             --secondary: #00cec9;
             --dark: #2d3436;
             --light: #f5f6fa;
+            --neon-green: #39ff14;
+            --neon-pink: #ff2ced;
+            --neon-blue: #00e5ff;
+            --neon-purple: #9d00ff;
+            --dark-bg: #0f0f1a;
         }
         
         body {
@@ -162,39 +167,19 @@
         }
 
         @keyframes float-across {
-            0% {
-                transform: translateX(-100px) translateY(0px);
-            }
-            25% {
-                transform: translateX(20vw) translateY(-25px);
-            }
-            50% {
-                transform: translateX(60vw) translateY(15px);
-            }
-            75% {
-                transform: translateX(90vw) translateY(-20px);
-            }
-            100% {
-                transform: translateX(calc(100vw + 100px)) translateY(10px);
-            }
+            0% { transform: translateX(-100px) translateY(0px); }
+            25% { transform: translateX(20vw) translateY(-25px); }
+            50% { transform: translateX(60vw) translateY(15px); }
+            75% { transform: translateX(90vw) translateY(-20px); }
+            100% { transform: translateX(calc(100vw + 100px)) translateY(10px); }
         }
 
         @keyframes float-across-reverse {
-            0% {
-                transform: translateX(calc(100vw + 100px)) translateY(0px);
-            }
-            25% {
-                transform: translateX(80vw) translateY(-20px);
-            }
-            50% {
-                transform: translateX(40vw) translateY(12px);
-            }
-            75% {
-                transform: translateX(10vw) translateY(-25px);
-            }
-            100% {
-                transform: translateX(-100px) translateY(8px);
-            }
+            0% { transform: translateX(calc(100vw + 100px)) translateY(0px); }
+            25% { transform: translateX(80vw) translateY(-20px); }
+            50% { transform: translateX(40vw) translateY(12px); }
+            75% { transform: translateX(10vw) translateY(-25px); }
+            100% { transform: translateX(-100px) translateY(8px); }
         }
 
         /* Invader sprites using CSS */
@@ -204,15 +189,10 @@
             width: 100%;
             height: 100%;
             background: 
-                /* Top row */
                 linear-gradient(90deg, transparent 25%, #00cec9 25% 75%, transparent 75%),
-                /* Second row */
                 linear-gradient(90deg, transparent 12.5%, #00cec9 12.5% 87.5%, transparent 87.5%),
-                /* Third row */
                 linear-gradient(90deg, #00cec9 0% 25%, transparent 25% 37.5%, #00cec9 37.5% 62.5%, transparent 62.5% 75%, #00cec9 75% 100%),
-                /* Fourth row */
                 linear-gradient(90deg, #00cec9 0% 37.5%, transparent 37.5% 62.5%, #00cec9 62.5% 100%),
-                /* Fifth row */
                 linear-gradient(90deg, transparent 25%, #00cec9 25% 75%, transparent 75%);
             background-size: 100% 20%;
             background-position: 0 0%, 0 20%, 0 40%, 0 60%, 0 80%;
@@ -225,7 +205,6 @@
             width: 100%;
             height: 100%;
             background: 
-                /* Slightly different pattern */
                 linear-gradient(90deg, transparent 12.5%, #6c5ce7 12.5% 87.5%, transparent 87.5%),
                 linear-gradient(90deg, #6c5ce7 0% 25%, transparent 25% 75%, #6c5ce7 75% 100%),
                 linear-gradient(90deg, #6c5ce7 0% 100%),
@@ -266,39 +245,19 @@
             }
             
             @keyframes float-across {
-                0% {
-                    transform: translateX(-60px) translateY(0px);
-                }
-                25% {
-                    transform: translateX(20vw) translateY(-12px);
-                }
-                50% {
-                    transform: translateX(60vw) translateY(8px);
-                }
-                75% {
-                    transform: translateX(85vw) translateY(-10px);
-                }
-                100% {
-                    transform: translateX(calc(100vw + 60px)) translateY(5px);
-                }
+                0% { transform: translateX(-60px) translateY(0px); }
+                25% { transform: translateX(20vw) translateY(-12px); }
+                50% { transform: translateX(60vw) translateY(8px); }
+                75% { transform: translateX(85vw) translateY(-10px); }
+                100% { transform: translateX(calc(100vw + 60px)) translateY(5px); }
             }
 
             @keyframes float-across-reverse-mobile {
-                0% {
-                    transform: translateX(calc(100vw + 60px)) translateY(0px);
-                }
-                25% {
-                    transform: translateX(80vw) translateY(-10px);
-                }
-                50% {
-                    transform: translateX(40vw) translateY(8px);
-                }
-                75% {
-                    transform: translateX(15vw) translateY(-12px);
-                }
-                100% {
-                    transform: translateX(-60px) translateY(5px);
-                }
+                0% { transform: translateX(calc(100vw + 60px)) translateY(0px); }
+                25% { transform: translateX(80vw) translateY(-10px); }
+                50% { transform: translateX(40vw) translateY(8px); }
+                75% { transform: translateX(15vw) translateY(-12px); }
+                100% { transform: translateX(-60px) translateY(5px); }
             }
 
             @keyframes bob {
@@ -430,26 +389,6 @@
             }
         }
 
-        /* Add a container for the typewriter to prevent layout shifts */
-        .typewriter-container {
-            height: 4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 640px) {
-            .typewriter-container {
-                height: 3rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .typewriter-container {
-                height: 2.5rem;
-            }
-        }
         @keyframes typing-mobile {
             from { width: 0 }
             to { width: 90vw }
@@ -679,7 +618,7 @@
             }
         }
 
-        /* Neon Snake Game Modal Styles */
+        /* Snake Game Modal Styles */
         .snake-modal {
             display: none;
             position: fixed;
@@ -701,22 +640,24 @@
             align-items: center;
             justify-content: center;
             font-family: 'Orbitron', sans-serif;
-            color: #39ff14;
-            text-shadow: 0 0 5px #39ff14;
+            color: var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-green);
             background: radial-gradient(circle at center, rgba(15, 15, 26, 0.8), rgba(0, 0, 0, 0.9));
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .snake-close {
             position: absolute;
             top: 20px;
             right: 30px;
-            color: #39ff14;
+            color: var(--neon-green);
             font-size: 40px;
             cursor: pointer;
             z-index: 1001;
             transition: all 0.3s;
             background: rgba(0, 0, 0, 0.7);
-            border: 2px solid #39ff14;
+            border: 2px solid var(--neon-green);
             border-radius: 50%;
             width: 60px;
             height: 60px;
@@ -726,9 +667,9 @@
         }
 
         .snake-close:hover {
-            color: #ff2ced;
-            border-color: #ff2ced;
-            text-shadow: 0 0 10px #ff2ced;
+            color: var(--neon-pink);
+            border-color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
             box-shadow: 0 0 20px rgba(255, 44, 237, 0.5);
         }
 
@@ -743,6 +684,110 @@
                 linear-gradient(90deg, rgba(57, 255, 20, 0.05) 1px, transparent 1px);
             background-size: 20px 20px;
             pointer-events: none;
+        }
+
+        .snake-game-container {
+            position: relative;
+            width: 90vmin;
+            height: 60vmin;
+            max-width: 600px;
+            max-height: 400px;
+            border: 4px solid var(--neon-purple);
+            border-radius: 8px;
+            box-shadow: 0 0 20px var(--neon-purple), 
+                        inset 0 0 20px var(--neon-purple);
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        #snake-canvas {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 15, 26, 0.8);
+            display: block;
+        }
+
+        .snake-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--neon-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px var(--neon-blue);
+            margin: 0 0.5rem;
+        }
+
+        .snake-btn:hover {
+            background: var(--neon-blue);
+            color: black;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        .snake-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .snake-game-over-modal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .snake-game-over-modal.active {
+            display: flex;
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .snake-game-over-title {
+            color: var(--neon-pink);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px var(--neon-pink);
+            animation: blink 0.5s infinite alternate;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        @media (max-width: 768px) {
+            .snake-close {
+                top: 10px;
+                right: 15px;
+                font-size: 30px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .snake-game-container {
+                width: 95vw;
+                height: 50vh;
+                max-width: none;
+                max-height: none;
+            }
+
+            .snake-game-over-title {
+                font-size: 2rem;
+            }
         }
 
         /* Tetris Game Modal Styles */
@@ -771,6 +816,9 @@
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(5, 217, 232, 0.03) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(213, 0, 197, 0.03) 0%, transparent 20%);
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
         }
 
         .tetris-close {
@@ -799,7 +847,17 @@
             box-shadow: 0 0 20px rgba(255, 42, 109, 0.5);
         }
 
-        /* Tetris specific styles */
+        .tetris-game-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
         .tetris-neon-text-pink {
             color: #ff2a6d;
             text-shadow: 0 0 5px #ff2a6d, 0 0 10px #ff2a6d;
@@ -825,45 +883,46 @@
             height: 25px;
             border: 1px solid rgba(5, 217, 232, 0.1);
             box-sizing: border-box;
+            background-color: transparent;
         }
         
         .tetris-piece-i {
-            background-color: #00f7ff;
+            background-color: #00f7ff !important;
             box-shadow: 0 0 8px #00f7ff, inset 0 0 4px #00f7ff;
         }
         
         .tetris-piece-j {
-            background-color: #0d00ff;
+            background-color: #0d00ff !important;
             box-shadow: 0 0 8px #0d00ff, inset 0 0 4px #0d00ff;
         }
         
         .tetris-piece-l {
-            background-color: #ff8800;
+            background-color: #ff8800 !important;
             box-shadow: 0 0 8px #ff8800, inset 0 0 4px #ff8800;
         }
         
         .tetris-piece-o {
-            background-color: #ffee00;
+            background-color: #ffee00 !important;
             box-shadow: 0 0 8px #ffee00, inset 0 0 4px #ffee00;
         }
         
         .tetris-piece-s {
-            background-color: #00ff4c;
+            background-color: #00ff4c !important;
             box-shadow: 0 0 8px #00ff4c, inset 0 0 4px #00ff4c;
         }
         
         .tetris-piece-t {
-            background-color: #b700ff;
+            background-color: #b700ff !important;
             box-shadow: 0 0 8px #b700ff, inset 0 0 4px #b700ff;
         }
         
         .tetris-piece-z {
-            background-color: #ff0000;
+            background-color: #ff0000 !important;
             box-shadow: 0 0 8px #ff0000, inset 0 0 4px #ff0000;
         }
         
         .tetris-piece-ghost {
-            opacity: 0.4;
+            opacity: 0.4 !important;
             filter: brightness(2);
         }
         
@@ -954,16 +1013,49 @@
             100% { clip: rect(44px, 9999px, 16px, 0); }
         }
 
+        .tetris-grid-container {
+            position: relative;
+        }
+
+        #tetris-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 25px);
+            grid-template-rows: repeat(20, 25px);
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid #05d9e8;
+            box-shadow: 0 0 10px #05d9e8, inset 0 0 10px #05d9e8;
+        }
+
+        #tetris-next-piece {
+            display: grid;
+            grid-template-columns: repeat(4, 25px);
+            grid-template-rows: repeat(4, 25px);
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid #05d9e8;
+            box-shadow: 0 0 10px #05d9e8, inset 0 0 10px #05d9e8;
+        }
+
         /* Mobile adaptations for Tetris */
         @media (max-width: 1024px) {
             .tetris-game-container {
                 flex-direction: column !important;
                 gap: 20px !important;
+                align-items: center;
             }
             
             .tetris-grid-cell {
                 width: 20px;
                 height: 20px;
+            }
+
+            #tetris-grid {
+                grid-template-columns: repeat(10, 20px);
+                grid-template-rows: repeat(20, 20px);
+            }
+
+            #tetris-next-piece {
+                grid-template-columns: repeat(4, 20px);
+                grid-template-rows: repeat(4, 20px);
             }
             
             .tetris-close {
@@ -979,6 +1071,16 @@
             .tetris-grid-cell {
                 width: 18px;
                 height: 18px;
+            }
+
+            #tetris-grid {
+                grid-template-columns: repeat(10, 18px);
+                grid-template-rows: repeat(20, 18px);
+            }
+
+            #tetris-next-piece {
+                grid-template-columns: repeat(4, 18px);
+                grid-template-rows: repeat(4, 18px);
             }
             
             .tetris-game-container {
@@ -1285,6 +1387,2036 @@
                     <div class="flex-shrink-0">
                         <span class="text-2xl font-bold text-white pixel-font">GamingwithBo</span>
                     </div>
+
+    <!-- JavaScript Functions -->
+    <script>
+        // Prevent mobile scrolling during game play
+        function preventDefaultMobile(e) {
+            e.preventDefault();
+        }
+
+        // Quiz Functions
+        var currentQuestion = 1;
+        var totalQuestions = 4;
+        var quizAnswers = {};
+
+        function openQuiz() {
+            console.log('Opening quiz...');
+            var modal = document.getElementById('quizModal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                updateProgressBar();
+                updateButtons();
+                console.log('Quiz opened successfully');
+            } else {
+                console.error('Quiz modal not found!');
+            }
+        }
+
+        function closeQuiz() {
+            var modal = document.getElementById('quizModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+            document.body.style.overflow = 'auto';
+            resetQuiz();
+        }
+
+        function selectOption(element, value) {
+            var siblings = element.parentNode.children;
+            for (var i = 0; i < siblings.length; i++) {
+                siblings[i].classList.remove('selected');
+                var radio = siblings[i].querySelector('input[type="radio"]');
+                if (radio) radio.checked = false;
+            }
+            
+            element.classList.add('selected');
+            var radio = element.querySelector('input[type="radio"]');
+            if (radio) {
+                radio.checked = true;
+                quizAnswers[radio.name] = value;
+            }
+            
+            setTimeout(function() {
+                if (currentQuestion < totalQuestions) {
+                    nextQuestion();
+                } else {
+                    showResults();
+                }
+            }, 500);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                document.querySelector('[data-question="' + currentQuestion + '"]').classList.remove('active');
+                currentQuestion++;
+                document.querySelector('[data-question="' + currentQuestion + '"]').classList.add('active');
+                updateProgressBar();
+                updateButtons();
+            } else {
+                showResults();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                document.querySelector('[data-question="' + currentQuestion + '"]').classList.remove('active');
+                currentQuestion--;
+                document.querySelector('[data-question="' + currentQuestion + '"]').classList.add('active');
+                updateProgressBar();
+                updateButtons();
+            }
+        }
+
+        function restartQuiz() {
+            resetQuiz();
+            document.getElementById('quizResults').classList.remove('active');
+            document.querySelector('.quiz-buttons').style.display = 'flex';
+            document.querySelector('[data-question="1"]').classList.add('active');
+        }
+
+        function updateProgressBar() {
+            var progress = (currentQuestion / totalQuestions) * 100;
+            var progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                progressBar.style.width = progress + '%';
+            }
+        }
+
+        function updateButtons() {
+            var prevBtn = document.getElementById('prevBtn');
+            var nextBtn = document.getElementById('nextBtn');
+            
+            if (prevBtn) prevBtn.style.display = currentQuestion === 1 ? 'none' : 'block';
+            if (nextBtn) nextBtn.textContent = currentQuestion === totalQuestions ? 'Finish' : 'Next';
+        }
+
+        function showResults() {
+            var questions = document.querySelectorAll('.quiz-question');
+            for (var i = 0; i < questions.length; i++) {
+                questions[i].classList.remove('active');
+            }
+            
+            var buttonsDiv = document.querySelector('.quiz-buttons');
+            if (buttonsDiv) buttonsDiv.style.display = 'none';
+            
+            var resultsDiv = document.getElementById('quizResults');
+            if (resultsDiv) resultsDiv.classList.add('active');
+            
+            var recommendation = generateRecommendation();
+            var gameRecDiv = document.getElementById('gameRecommendation');
+            if (gameRecDiv) gameRecDiv.innerHTML = recommendation;
+            
+            var progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                progressBar.style.width = '100%';
+            }
+        }
+
+        function generateRecommendation() {
+            var platform = quizAnswers.platform || 'pc';
+            var experience = quizAnswers.experience || 'educational';
+            var time = quizAnswers.time || 'moderate';
+            var theme = quizAnswers.theme || 'science';
+            
+            var recommendations = {
+                'pc-educational-science': {
+                    game: 'Neural Network Builder',
+                    reason: 'Perfect for PC users who love learning about AI and technology!',
+                    features: ['Visual programming interface', 'Machine learning concepts', 'Complex data visualization']
+                },
+                'mobile-casual-environment': {
+                    game: 'Eco Balance',
+                    reason: 'Great for quick environmental awareness sessions on mobile!',
+                    features: ['Touch-friendly controls', 'Sustainability focus', 'Bite-sized gameplay']
+                },
+                'vr-educational': {
+                    game: 'Memory Palace VR',
+                    reason: 'Immersive VR learning experience for cognitive enhancement!',
+                    features: ['Virtual reality immersion', 'Memory techniques', 'Spatial learning']
+                },
+                'urban-science': {
+                    game: 'Data City Sim',
+                    reason: 'Perfect blend of urban planning and data science!',
+                    features: ['Real urban data', 'City building mechanics', 'Scientific modeling']
+                },
+                'environment-science': {
+                    game: 'Climate Crisis Chronicles',
+                    reason: 'Interactive storytelling meets climate science!',
+                    features: ['Climate scenarios', 'Scientific accuracy', 'Educational narrative']
+                },
+                'competitive-arcade': {
+                    game: 'Asteroids Arcade',
+                    reason: 'Classic arcade action for competitive gamers!',
+                    features: ['Skill-based gameplay', 'High score tracking', 'Retro arcade feel']
+                },
+                'classic-competitive': {
+                    game: 'Neon Snake',
+                    reason: 'Perfect classic competitive gameplay with modern style!',
+                    features: ['Arrow key precision', 'Growing challenge', 'Neon cyberpunk aesthetic']
+                },
+                'casual-classic': {
+                    game: 'Neon Snake',
+                    reason: 'Easy to learn, perfect for quick gaming sessions!',
+                    features: ['Simple controls', 'Classic gameplay', 'Beautiful visual effects']
+                },
+                'puzzle-cyberpunk': {
+                    game: 'Cyberpunk Tetris',
+                    reason: 'Perfect puzzle game with stunning cyberpunk aesthetics!',
+                    features: ['Classic Tetris gameplay', 'Neon visual effects', 'Progressive difficulty']
+                },
+                'competitive-puzzle': {
+                    game: 'Cyberpunk Tetris',
+                    reason: 'Challenge yourself with this skill-based puzzle game!',
+                    features: ['High score tracking', 'Increasing speed', 'Line clearing mastery']
+                }
+            };
+
+            var bestMatch = null;
+            var combo1 = platform + '-' + experience + '-' + theme;
+            var combo2 = platform + '-' + time + '-' + theme;
+            var combo3 = theme + '-' + experience;
+            var combo4 = experience + '-arcade';
+            var combo5 = 'classic-' + experience;
+            var combo6 = time + '-classic';
+            var combo7 = 'puzzle-' + theme;
+            var combo8 = experience + '-puzzle';
+            
+            if (recommendations[combo1]) bestMatch = recommendations[combo1];
+            else if (recommendations[combo2]) bestMatch = recommendations[combo2];
+            else if (recommendations[combo3]) bestMatch = recommendations[combo3];
+            else if (experience === 'competitive' && recommendations[combo4]) bestMatch = recommendations[combo4];
+            else if (recommendations[combo5]) bestMatch = recommendations[combo5];
+            else if (recommendations[combo6]) bestMatch = recommendations[combo6];
+            else if (recommendations[combo7]) bestMatch = recommendations[combo7];
+            else if (recommendations[combo8]) bestMatch = recommendations[combo8];
+            
+            if (!bestMatch) {
+                if (theme === 'science') bestMatch = recommendations['pc-educational-science'];
+                else if (theme === 'environment') bestMatch = recommendations['environment-science'];
+                else if (theme === 'urban') bestMatch = recommendations['urban-science'];
+                else if (platform === 'vr') bestMatch = recommendations['vr-educational'];
+                else if (experience === 'competitive') bestMatch = recommendations['competitive-puzzle'];
+                else if (time === 'casual') bestMatch = recommendations['casual-classic'];
+                else bestMatch = recommendations['puzzle-cyberpunk'];
+            }
+
+            var featuresHtml = '';
+            for (var i = 0; i < bestMatch.features.length; i++) {
+                featuresHtml += '<li>• ' + bestMatch.features[i] + '</li>';
+            }
+
+            var buttonAction = '';
+            if (bestMatch.game === 'Asteroids Arcade') {
+                buttonAction = 'onclick="closeQuiz(); openAsteroidsGame();"';
+            } else if (bestMatch.game === 'Neon Snake') {
+                buttonAction = 'onclick="closeQuiz(); openSnakeGame();"';
+            } else if (bestMatch.game === 'Cyberpunk Tetris') {
+                buttonAction = 'onclick="closeQuiz(); openTetrisGame();"';
+            } else {
+                buttonAction = 'onclick="closeQuiz(); var gamesSection = document.querySelector(\'#games\'); if(gamesSection) gamesSection.scrollIntoView({behavior: \'smooth\'});"';
+            }
+
+            return '<h4 class="text-xl font-bold text-teal-400 mb-4">🎯 ' + bestMatch.game + '</h4>' +
+                   '<p class="mb-4">' + bestMatch.reason + '</p>' +
+                   '<ul class="text-sm opacity-90">' + featuresHtml + '</ul>' +
+                   '<div class="mt-4 text-center">' +
+                   '<button class="quiz-btn quiz-btn-primary" ' + buttonAction + '>' +
+                   'Explore This Game</button></div>';
+        }
+
+        function resetQuiz() {
+            currentQuestion = 1;
+            quizAnswers = {};
+            var questions = document.querySelectorAll('.quiz-question');
+            for (var i = 0; i < questions.length; i++) {
+                questions[i].classList.remove('active');
+            }
+            var options = document.querySelectorAll('.quiz-option');
+            for (var i = 0; i < options.length; i++) {
+                options[i].classList.remove('selected');
+            }
+            var radios = document.querySelectorAll('input[type="radio"]');
+            for (var i = 0; i < radios.length; i++) {
+                radios[i].checked = false;
+            }
+            var firstQuestion = document.querySelector('[data-question="1"]');
+            if (firstQuestion) firstQuestion.classList.add('active');
+            updateProgressBar();
+            updateButtons();
+        }
+
+        // Snake Game Variables
+        let snakeGame = null;
+
+        function openSnakeGame() {
+            const modal = document.getElementById('snakeModal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                document.addEventListener('touchmove', preventDefaultMobile, { passive: false });
+                initializeSnakeGame();
+            }
+        }
+
+        function closeSnakeGame() {
+            const modal = document.getElementById('snakeModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                document.removeEventListener('touchmove', preventDefaultMobile);
+                if (snakeGame) {
+                    snakeGame.destroy();
+                    snakeGame = null;
+                }
+            }
+        }
+
+        function initializeSnakeGame() {
+            if (snakeGame) {
+                snakeGame.destroy();
+            }
+            
+            // Game elements
+            const canvas = document.getElementById('snake-canvas');
+            const scoreElement = document.getElementById('snake-score');
+            const highScoreElement = document.getElementById('snake-high-score');
+            const startBtn = document.getElementById('snake-start-btn');
+            const pauseBtn = document.getElementById('snake-pause-btn');
+            const restartBtn = document.getElementById('snake-restart-btn');
+            const gameOverModal = document.getElementById('snake-game-over-modal');
+            const finalScoreElement = document.getElementById('snake-final-score');
+            const playAgainBtn = document.getElementById('snake-play-again-btn');
+            
+            if (!canvas) {
+                console.error('Snake canvas not found');
+                return;
+            }
+            
+            const ctx = canvas.getContext('2d');
+            
+            // Game constants
+            const GRID_SIZE = 20;
+            let CANVAS_WIDTH = 500;
+            let CANVAS_HEIGHT = 400;
+            
+            // Game state
+            let snake = [];
+            let food = {};
+            let direction = { x: 0, y: 0 };
+            let score = 0;
+            let highScore = parseInt(localStorage.getItem('snakeHighScore')) || 0;
+            let gameRunning = false;
+            let gamePaused = false;
+            let gameInterval = null;
+            let particles = [];
+            let touchStartX = 0;
+            let touchStartY = 0;
+            
+            // Initialize canvas
+            function initCanvas() {
+                const container = canvas.parentElement;
+                const containerRect = container.getBoundingClientRect();
+                
+                CANVAS_WIDTH = Math.min(containerRect.width - 40, 500);
+                CANVAS_HEIGHT = Math.min(containerRect.height - 40, 400);
+                
+                // Make sure dimensions are multiples of grid size
+                CANVAS_WIDTH = Math.floor(CANVAS_WIDTH / GRID_SIZE) * GRID_SIZE;
+                CANVAS_HEIGHT = Math.floor(CANVAS_HEIGHT / GRID_SIZE) * GRID_SIZE;
+                
+                canvas.width = CANVAS_WIDTH;
+                canvas.height = CANVAS_HEIGHT;
+                canvas.style.width = CANVAS_WIDTH + 'px';
+                canvas.style.height = CANVAS_HEIGHT + 'px';
+            }
+            
+            // Initialize game state
+            function resetGame() {
+                const centerX = Math.floor(CANVAS_WIDTH / 2 / GRID_SIZE) * GRID_SIZE;
+                const centerY = Math.floor(CANVAS_HEIGHT / 2 / GRID_SIZE) * GRID_SIZE;
+                
+                snake = [
+                    { x: centerX, y: centerY },
+                    { x: centerX - GRID_SIZE, y: centerY },
+                    { x: centerX - (GRID_SIZE * 2), y: centerY }
+                ];
+                
+                direction = { x: 0, y: 0 };
+                score = 0;
+                particles = [];
+                gameRunning = false;
+                gamePaused = false;
+                
+                food = generateFood();
+                scoreElement.textContent = score;
+                gameOverModal.classList.remove('active');
+                
+                // Reset button states
+                startBtn.disabled = false;
+                pauseBtn.disabled = true;
+                startBtn.innerHTML = '<i class="fas fa-play mr-2"></i> START';
+                pauseBtn.innerHTML = '<i class="fas fa-pause mr-2"></i> PAUSE';
+                
+                draw();
+            }
+            
+            // Update high score display
+            function updateHighScore() {
+                highScoreElement.textContent = highScore;
+            }
+            
+            // Generate random food position
+            function generateFood() {
+                let newFood;
+                do {
+                    newFood = {
+                        x: Math.floor(Math.random() * (CANVAS_WIDTH / GRID_SIZE)) * GRID_SIZE,
+                        y: Math.floor(Math.random() * (CANVAS_HEIGHT / GRID_SIZE)) * GRID_SIZE
+                    };
+                } while (snake.some(segment => segment.x === newFood.x && segment.y === newFood.y));
+                
+                return newFood;
+            }
+            
+            // Create particles
+            function createParticles(x, y, color, count = 8) {
+                for (let i = 0; i < count; i++) {
+                    particles.push({
+                        x: x + GRID_SIZE / 2,
+                        y: y + GRID_SIZE / 2,
+                        vx: (Math.random() - 0.5) * 4,
+                        vy: (Math.random() - 0.5) * 4,
+                        life: 1.0,
+                        decay: 0.02 + Math.random() * 0.02,
+                        color: color,
+                        size: 2 + Math.random() * 3
+                    });
+                }
+            }
+            
+            // Update particles
+            function updateParticles() {
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.life -= p.decay;
+                    p.vx *= 0.98;
+                    p.vy *= 0.98;
+                    
+                    if (p.life <= 0) {
+                        particles.splice(i, 1);
+                    }
+                }
+            }
+            
+            // Draw particles
+            function drawParticles() {
+                particles.forEach(p => {
+                    ctx.save();
+                    ctx.globalAlpha = p.life;
+                    ctx.fillStyle = p.color;
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                });
+            }
+            
+            // Draw game
+            function draw() {
+                // Clear canvas with dark background
+                ctx.fillStyle = 'rgba(15, 15, 26, 0.9)';
+                ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+                
+                // Draw snake
+                snake.forEach((segment, index) => {
+                    ctx.save();
+                    
+                    if (index === 0) {
+                        // Head
+                        ctx.fillStyle = '#00e5ff';
+                        ctx.shadowBlur = 15;
+                        ctx.shadowColor = '#00e5ff';
+                    } else {
+                        // Body
+                        ctx.fillStyle = '#39ff14';
+                        ctx.shadowBlur = 10;
+                        ctx.shadowColor = '#39ff14';
+                    }
+                    
+                    ctx.fillRect(segment.x + 1, segment.y + 1, GRID_SIZE - 2, GRID_SIZE - 2);
+                    ctx.restore();
+                });
+                
+                // Draw food
+                ctx.save();
+                ctx.fillStyle = '#ff2ced';
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = '#ff2ced';
+                
+                const pulseSize = 2 + Math.sin(Date.now() * 0.01) * 1;
+                const foodSize = GRID_SIZE - 4 + pulseSize;
+                const offset = (GRID_SIZE - foodSize) / 2;
+                
+                ctx.beginPath();
+                ctx.arc(
+                    food.x + GRID_SIZE / 2, 
+                    food.y + GRID_SIZE / 2, 
+                    foodSize / 2, 
+                    0, 
+                    Math.PI * 2
+                );
+                ctx.fill();
+                ctx.restore();
+                
+                // Draw particles
+                drawParticles();
+            }
+            
+            // Update game state
+            function update() {
+                if (!gameRunning || gamePaused) return;
+                
+                // Don't move if no direction is set
+                if (direction.x === 0 && direction.y === 0) return;
+                
+                // Calculate new head position
+                const head = { ...snake[0] };
+                head.x += direction.x * GRID_SIZE;
+                head.y += direction.y * GRID_SIZE;
+                
+                // Check wall collision
+                if (head.x < 0 || head.x >= CANVAS_WIDTH || head.y < 0 || head.y >= CANVAS_HEIGHT) {
+                    endGame();
+                    return;
+                }
+                
+                // Check self collision
+                for (let i = 0; i < snake.length; i++) {
+                    if (head.x === snake[i].x && head.y === snake[i].y) {
+                        endGame();
+                        return;
+                    }
+                }
+                
+                snake.unshift(head);
+                
+                // Check food collision
+                if (head.x === food.x && head.y === food.y) {
+                    score++;
+                    scoreElement.textContent = score;
+                    
+                    // Create particles
+                    createParticles(food.x, food.y, '#ff2ced', 12);
+                    
+                    // Generate new food
+                    food = generateFood();
+                    
+                    // Don't remove tail (snake grows)
+                } else {
+                    // Remove tail
+                    snake.pop();
+                }
+                
+                // Update particles
+                updateParticles();
+            }
+            
+            // End the game
+            function endGame() {
+                gameRunning = false;
+                gamePaused = false;
+                
+                if (gameInterval) {
+                    clearInterval(gameInterval);
+                    gameInterval = null;
+                }
+                
+                // Update high score
+                if (score > highScore) {
+                    highScore = score;
+                    localStorage.setItem('snakeHighScore', highScore);
+                    updateHighScore();
+                }
+                
+                // Create explosion particles
+                if (snake.length > 0) {
+                    createParticles(snake[0].x, snake[0].y, '#ff2ced', 20);
+                }
+                
+                // Show game over modal
+                finalScoreElement.textContent = score;
+                gameOverModal.classList.add('active');
+                
+                // Update button states
+                startBtn.disabled = false;
+                pauseBtn.disabled = true;
+                startBtn.innerHTML = '<i class="fas fa-play mr-2"></i> START';
+            }
+            
+            // Alias for compatibility
+            function gameOver() {
+                endGame();
+            }
+            
+            // Start game
+            function startGame() {
+                if (gameRunning) return;
+                
+                gameRunning = true;
+                gamePaused = false;
+                
+                // Update button states
+                startBtn.disabled = true;
+                pauseBtn.disabled = false;
+                startBtn.innerHTML = '<i class="fas fa-pause mr-2"></i> PLAYING';
+                pauseBtn.innerHTML = '<i class="fas fa-pause mr-2"></i> PAUSE';
+                
+                // Start game loop
+                if (gameInterval) {
+                    clearInterval(gameInterval);
+                }
+                gameInterval = setInterval(() => {
+                    update();
+                    draw();
+                }, 150);
+                
+                draw();
+            }
+            
+            // Pause/unpause game
+            function togglePause() {
+                if (!gameRunning) return;
+                
+                gamePaused = !gamePaused;
+                
+                if (gamePaused) {
+                    pauseBtn.innerHTML = '<i class="fas fa-play mr-2"></i> RESUME';
+                } else {
+                    pauseBtn.innerHTML = '<i class="fas fa-pause mr-2"></i> PAUSE';
+                }
+            }
+            
+            // Restart game
+            function restartGame() {
+                if (gameInterval) {
+                    clearInterval(gameInterval);
+                    gameInterval = null;
+                }
+                
+                resetGame();
+            }
+            
+            // Handle keyboard input
+            function handleKeyPress(e) {
+                if (!gameRunning || gamePaused) return;
+                
+                switch (e.key) {
+                    case 'ArrowUp':
+                        if (direction.y === 0) {
+                            direction = { x: 0, y: -1 };
+                        }
+                        break;
+                    case 'ArrowDown':
+                        if (direction.y === 0) {
+                            direction = { x: 0, y: 1 };
+                        }
+                        break;
+                    case 'ArrowLeft':
+                        if (direction.x === 0) {
+                            direction = { x: -1, y: 0 };
+                        }
+                        break;
+                    case 'ArrowRight':
+                        if (direction.x === 0) {
+                            direction = { x: 1, y: 0 };
+                        }
+                        break;
+                }
+            }
+            
+            // Handle touch input
+            function handleTouchStart(e) {
+                e.preventDefault();
+                const touch = e.touches[0];
+                touchStartX = touch.clientX;
+                touchStartY = touch.clientY;
+            }
+            
+            function handleTouchEnd(e) {
+                e.preventDefault();
+                if (!gameRunning || gamePaused) return;
+                
+                const touch = e.changedTouches[0];
+                const deltaX = touch.clientX - touchStartX;
+                const deltaY = touch.clientY - touchStartY;
+                const minSwipeDistance = 30;
+                
+                if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                    // Horizontal swipe
+                    if (Math.abs(deltaX) > minSwipeDistance && direction.x === 0) {
+                        if (deltaX > 0) {
+                            direction = { x: 1, y: 0 }; // Right
+                        } else {
+                            direction = { x: -1, y: 0 }; // Left
+                        }
+                    }
+                } else {
+                    // Vertical swipe
+                    if (Math.abs(deltaY) > minSwipeDistance && direction.y === 0) {
+                        if (deltaY > 0) {
+                            direction = { x: 0, y: 1 }; // Down
+                        } else {
+                            direction = { x: 0, y: -1 }; // Up
+                        }
+                    }
+                }
+            }
+            
+            // Event listeners
+            document.addEventListener('keydown', handleKeyPress);
+            canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
+            canvas.addEventListener('touchend', handleTouchEnd, { passive: false });
+            
+            startBtn.addEventListener('click', startGame);
+            pauseBtn.addEventListener('click', togglePause);
+            restartBtn.addEventListener('click', restartGame);
+            playAgainBtn.addEventListener('click', () => {
+                gameOverModal.classList.remove('active');
+                resetGame();
+                startGame();
+            });
+            
+            // Initialize
+            initCanvas();
+            updateHighScore();
+            resetGame();
+            
+            // Window resize handler
+            window.addEventListener('resize', () => {
+                initCanvas();
+                draw();
+            });
+            
+            snakeGame = {
+                destroy: function() {
+                    if (gameInterval) {
+                        clearInterval(gameInterval);
+                        gameInterval = null;
+                    }
+                    
+                    document.removeEventListener('keydown', handleKeyPress);
+                    canvas.removeEventListener('touchstart', handleTouchStart);
+                    canvas.removeEventListener('touchend', handleTouchEnd);
+                    
+                    gameRunning = false;
+                    gamePaused = false;
+                    particles = [];
+                }
+            };
+        }
+
+        // Asteroids Game Variables
+        let asteroidsGame = null;
+
+        function openAsteroidsGame() {
+            const modal = document.getElementById('asteroidsModal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                document.addEventListener('touchmove', preventDefaultMobile, { passive: false });
+                initializeAsteroidsGame();
+            }
+        }
+
+        function closeAsteroidsGame() {
+            const modal = document.getElementById('asteroidsModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                document.removeEventListener('touchmove', preventDefaultMobile);
+                if (asteroidsGame) {
+                    asteroidsGame.destroy();
+                    asteroidsGame = null;
+                }
+            }
+        }
+
+        function initializeAsteroidsGame() {
+            if (asteroidsGame) {
+                asteroidsGame.destroy();
+            }
+            
+            // Game setup
+            const canvas = document.getElementById('asteroids-canvas');
+            const ctx = canvas.getContext('2d');
+            const scoreElement = document.getElementById('asteroids-score');
+            const livesElement = document.getElementById('asteroids-lives');
+            const endScoreElement = document.getElementById('asteroids-end-score');
+            const gameOverElement = document.getElementById('asteroids-game-over');
+            const restartButton = document.getElementById('asteroids-restart');
+            const startScreen = document.getElementById('asteroids-start-screen');
+            const startButton = document.getElementById('asteroids-start-btn');
+            
+            // Mobile controls
+            const leftBtn = document.getElementById('asteroids-left-btn');
+            const rightBtn = document.getElementById('asteroids-right-btn');
+            const upBtn = document.getElementById('asteroids-up-btn');
+            const fireBtn = document.getElementById('asteroids-fire-btn');
+            
+            // Set canvas dimensions
+            function resizeCanvas() {
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = canvas.parentElement.clientHeight;
+            }
+            
+            resizeCanvas();
+            
+            // Game state
+            let score = 0;
+            let lives = 3;
+            let gameOver = false;
+            let gameStarted = false;
+            let asteroids = [];
+            let bullets = [];
+            let particles = [];
+            let keys = {};
+            let animationFrameId;
+            
+            // Player ship
+            const ship = {
+                x: canvas.width / 2,
+                y: canvas.height / 2,
+                radius: 15,
+                angle: -Math.PI/2,
+                rotation: 0,
+                thrusting: false,
+                thrust: { x: 0, y: 0 },
+                velocity: { x: 0, y: 0 },
+                invulnerable: false,
+                invulnerableTime: 0
+            };
+            
+            // Event listeners
+            function handleKeyDown(e) {
+                if (gameStarted) {
+                    keys[e.key] = true;
+                    if (e.key === ' ' && e.target === document.body) {
+                        e.preventDefault();
+                    }
+                }
+            }
+            
+            function handleKeyUp(e) {
+                if (gameStarted) {
+                    keys[e.key] = false;
+                }
+            }
+            
+            // Mobile touch events
+            const handleMobileDown = (key) => {
+                return (e) => {
+                    e.preventDefault();
+                    if (!gameStarted) return;
+                    if (key === 'ArrowLeft') keys['ArrowLeft'] = true;
+                    if (key === 'ArrowRight') keys['ArrowRight'] = true;
+                    if (key === 'ArrowUp') keys['ArrowUp'] = true;
+                    if (key === ' ') keys[' '] = true;
+                };
+            };
+            
+            const handleMobileUp = (key) => {
+                return (e) => {
+                    e.preventDefault();
+                    if (!gameStarted) return;
+                    if (key === 'ArrowLeft') keys['ArrowLeft'] = false;
+                    if (key === 'ArrowRight') keys['ArrowRight'] = false;
+                    if (key === 'ArrowUp') keys['ArrowUp'] = false;
+                    if (key === ' ') keys[' '] = false;
+                };
+            };
+            
+            // Start game
+            function startGame() {
+                gameStarted = true;
+                startScreen.style.display = 'none';
+                resetGame();
+                gameLoop();
+            }
+            
+            function resetGame() {
+                score = 0;
+                lives = 3;
+                gameOver = false;
+                asteroids = [];
+                bullets = [];
+                particles = [];
+                
+                ship.x = canvas.width / 2;
+                ship.y = canvas.height / 2;
+                ship.angle = -Math.PI/2;
+                ship.velocity.x = 0;
+                ship.velocity.y = 0;
+                ship.invulnerable = true;
+                ship.invulnerableTime = 120;
+                
+                scoreElement.textContent = score;
+                livesElement.textContent = lives;
+                gameOverElement.style.display = 'none';
+                
+                createAsteroids(4);
+            }
+            
+            function createAsteroids(count) {
+                for (let i = 0; i < count; i++) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = Math.max(canvas.width, canvas.height) * 0.4;
+                    
+                    const asteroid = createAsteroid(
+                        canvas.width/2 + Math.cos(angle) * distance,
+                        canvas.height/2 + Math.sin(angle) * distance,
+                        Math.random() * Math.PI * 2,
+                        1
+                    );
+                    
+                    asteroids.push(asteroid);
+                }
+            }
+            
+            function createAsteroid(x, y, angle, size) {
+                let radius, points;
+                
+                switch(size) {
+                    case 1: radius = 40; points = 20; break;
+                    case 2: radius = 25; points = 50; break;
+                    case 3: radius = 10; points = 100; break;
+                }
+                
+                const speed = size === 1 ? 1 + Math.random() * 1 : 
+                              size === 2 ? 1.5 + Math.random() * 1.5 : 
+                              2 + Math.random() * 2;
+                
+                return {
+                    x, y, radius, size, points,
+                    vertices: Math.floor(Math.random() * 9) + 5,
+                    angle, speed,
+                    velocity: {
+                        x: Math.cos(angle) * speed,
+                        y: Math.sin(angle) * speed
+                    },
+                    rotation: (Math.random() - 0.5) * 0.2
+                };
+            }
+            
+            function gameLoop() {
+                if (!gameStarted || gameOver) return;
+                
+                resizeCanvas();
+                
+                // Clear canvas
+                ctx.fillStyle = '#111';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw starfield
+                drawStarfield();
+                
+                // Update and draw game elements
+                updateShip();
+                drawShip();
+                updateBullets();
+                drawBullets();
+                updateAsteroids();
+                drawAsteroids();
+                updateParticles();
+                drawParticles();
+                
+                checkCollisions();
+                spawnAsteroids();
+                
+                if (ship.invulnerable) {
+                    ship.invulnerableTime--;
+                    if (ship.invulnerableTime <= 0) {
+                        ship.invulnerable = false;
+                    }
+                }
+                
+                animationFrameId = requestAnimationFrame(gameLoop);
+            }
+            
+            function drawStarfield() {
+                ctx.fillStyle = '#fff';
+                ctx.save();
+                for (let i = 0; i < 100; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height;
+                    const size = Math.random() * 1.5;
+                    ctx.globalAlpha = Math.random();
+                    ctx.beginPath();
+                    ctx.arc(x, y, size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+            
+            function updateShip() {
+                if (keys['ArrowLeft']) {
+                    ship.rotation = -0.1;
+                } else if (keys['ArrowRight']) {
+                    ship.rotation = 0.1;
+                } else {
+                    ship.rotation = 0;
+                }
+                
+                ship.angle += ship.rotation;
+                
+                if (keys['ArrowUp']) {
+                    ship.thrusting = true;
+                    ship.thrust.x = Math.cos(ship.angle) * 0.1;
+                    ship.thrust.y = Math.sin(ship.angle) * 0.1;
+                } else {
+                    ship.thrusting = false;
+                    ship.thrust.x = 0;
+                    ship.thrust.y = 0;
+                }
+                
+                ship.velocity.x += ship.thrust.x;
+                ship.velocity.y += ship.thrust.y;
+                ship.velocity.x *= 0.98;
+                ship.velocity.y *= 0.98;
+                
+                ship.x += ship.velocity.x;
+                ship.y += ship.velocity.y;
+                
+                // Screen wrapping
+                if (ship.x < 0 - ship.radius) ship.x = canvas.width + ship.radius;
+                else if (ship.x > canvas.width + ship.radius) ship.x = 0 - ship.radius;
+                if (ship.y < 0 - ship.radius) ship.y = canvas.height + ship.radius;
+                else if (ship.y > canvas.height + ship.radius) ship.y = 0 - ship.radius;
+                
+                if (keys[' '] && !keys['_space']) {
+                    keys['_space'] = true;
+                    fireBullet();
+                } else if (!keys[' ']) {
+                    keys['_space'] = false;
+                }
+            }
+            
+            function drawShip() {
+                ctx.save();
+                ctx.translate(ship.x, ship.y);
+                ctx.rotate(ship.angle);
+                
+                if (ship.invulnerable) {
+                    ctx.strokeStyle = Date.now() % 200 > 100 ? '#0f0' : '#f80';
+                } else {
+                    ctx.strokeStyle = '#0f0';
+                }
+                
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(20, 0);
+                ctx.lineTo(-10, -10);
+                ctx.lineTo(-5, 0);
+                ctx.lineTo(-10, 10);
+                ctx.closePath();
+                ctx.stroke();
+                
+                if (ship.thrusting) {
+                    ctx.beginPath();
+                    ctx.moveTo(-15, 0);
+                    ctx.lineTo(-25, 0);
+                    ctx.strokeStyle = '#f80';
+                    ctx.stroke();
+                }
+                
+                ctx.restore();
+            }
+            
+            function fireBullet() {
+                if (bullets.length > 4) return;
+                
+                bullets.push({
+                    x: ship.x + Math.cos(ship.angle) * 20,
+                    y: ship.y + Math.sin(ship.angle) * 20,
+                    velocity: {
+                        x: Math.cos(ship.angle) * 7 + ship.velocity.x,
+                        y: Math.sin(ship.angle) * 7 + ship.velocity.y
+                    },
+                    radius: 3,
+                    life: 60
+                });
+            }
+            
+            function updateBullets() {
+                for (let i = bullets.length - 1; i >= 0; i--) {
+                    bullets[i].x += bullets[i].velocity.x;
+                    bullets[i].y += bullets[i].velocity.y;
+                    bullets[i].life--;
+                    
+                    // Screen wrapping
+                    if (bullets[i].x < 0) bullets[i].x = canvas.width;
+                    else if (bullets[i].x > canvas.width) bullets[i].x = 0;
+                    if (bullets[i].y < 0) bullets[i].y = canvas.height;
+                    else if (bullets[i].y > canvas.height) bullets[i].y = 0;
+                    
+                    if (bullets[i].life <= 0) {
+                        bullets.splice(i, 1);
+                    }
+                }
+            }
+            
+            function drawBullets() {
+                ctx.fillStyle = '#0f0';
+                for (let bullet of bullets) {
+                    ctx.beginPath();
+                    ctx.arc(bullet.x, bullet.y, bullet.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            function updateAsteroids() {
+                for (let asteroid of asteroids) {
+                    asteroid.x += asteroid.velocity.x;
+                    asteroid.y += asteroid.velocity.y;
+                    asteroid.angle += asteroid.rotation;
+                    
+                    // Screen wrapping
+                    if (asteroid.x < 0 - asteroid.radius) asteroid.x = canvas.width + asteroid.radius;
+                    else if (asteroid.x > canvas.width + asteroid.radius) asteroid.x = 0 - asteroid.radius;
+                    if (asteroid.y < 0 - asteroid.radius) asteroid.y = canvas.height + asteroid.radius;
+                    else if (asteroid.y > canvas.height + asteroid.radius) asteroid.y = 0 - asteroid.radius;
+                }
+            }
+            
+            function drawAsteroids() {
+                for (const asteroid of asteroids) {
+                    ctx.save();
+                    ctx.translate(asteroid.x, asteroid.y);
+                    ctx.rotate(asteroid.angle);
+                    
+                    ctx.strokeStyle = '#fff';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    
+                    for (let i = 0; i < asteroid.vertices; i++) {
+                        const angle = (i / asteroid.vertices) * Math.PI * 2;
+                        const offset = asteroid.radius * (0.7 + Math.random() * 0.3);
+                        const x = Math.cos(angle) * offset;
+                        const y = Math.sin(angle) * offset;
+                        
+                        if (i === 0) {
+                            ctx.moveTo(x, y);
+                        } else {
+                            ctx.lineTo(x, y);
+                        }
+                    }
+                    
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.restore();
+                }
+            }
+            
+            function checkCollisions() {
+                // Bullets vs Asteroids
+                for (let i = asteroids.length - 1; i >= 0; i--) {
+                    const asteroid = asteroids[i];
+                    
+                    for (let j = bullets.length - 1; j >= 0; j--) {
+                        const bullet = bullets[j];
+                        const dx = asteroid.x - bullet.x;
+                        const dy = asteroid.y - bullet.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < asteroid.radius + bullet.radius) {
+                            createParticles(asteroid);
+                            score += asteroid.points;
+                            scoreElement.textContent = score;
+                            
+                            if (asteroid.size < 3) {
+                                for (let n = 0; n < 2; n++) {
+                                    const angle = Math.random() * Math.PI * 2;
+                                    const newAsteroid = createAsteroid(
+                                        asteroid.x, asteroid.y, angle, asteroid.size + 1
+                                    );
+                                    asteroids.push(newAsteroid);
+                                }
+                            }
+                            
+                            asteroids.splice(i, 1);
+                            bullets.splice(j, 1);
+                            break;
+                        }
+                    }
+                }
+                
+                // Ship vs Asteroids
+                if (!ship.invulnerable) {
+                    for (let i = 0; i < asteroids.length; i++) {
+                        const asteroid = asteroids[i];
+                        const dx = ship.x - asteroid.x;
+                        const dy = ship.y - asteroid.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < ship.radius + asteroid.radius) {
+                            lives--;
+                            livesElement.textContent = lives;
+                            createParticles(asteroid);
+                            
+                            if (lives <= 0) {
+                                gameOver = true;
+                                gameOverElement.style.display = 'flex';
+                                endScoreElement.textContent = score;
+                                return;
+                            }
+                            
+                            ship.x = canvas.width / 2;
+                            ship.y = canvas.height / 2;
+                            ship.velocity.x = 0;
+                            ship.velocity.y = 0;
+                            ship.angle = -Math.PI/2;
+                            ship.invulnerable = true;
+                            ship.invulnerableTime = 120;
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            function createParticles(asteroid) {
+                const particleCount = 15 + Math.floor(Math.random() * 10);
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push({
+                        x: asteroid.x + (Math.random() * 20 - 10),
+                        y: asteroid.y + (Math.random() * 20 - 10),
+                        size: Math.random() * 3 + 1,
+                        color: `hsl(${Math.random() * 60 + 30}, 100%, 50%)`,
+                        speed: 1 + Math.random() * 3,
+                        angle: Math.random() * Math.PI * 2,
+                        life: 30 + Math.random() * 40,
+                        decay: 0.95 + Math.random() * 0.04
+                    });
+                }
+            }
+            
+            function updateParticles() {
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    p.x += Math.cos(p.angle) * p.speed;
+                    p.y += Math.sin(p.angle) * p.speed;
+                    p.life--;
+                    p.speed *= p.decay;
+                    
+                    if (p.life <= 0) {
+                        particles.splice(i, 1);
+                    }
+                }
+            }
+            
+            function drawParticles() {
+                for (const particle of particles) {
+                    ctx.fillStyle = particle.color;
+                    ctx.globalAlpha = Math.min(1, particle.life / 30);
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.globalAlpha = 1;
+            }
+            
+            function spawnAsteroids() {
+                if (asteroids.length <= 3 && Math.random() < 0.01) {
+                    const side = Math.floor(Math.random() * 4);
+                    let x, y;
+                    
+                    switch(side) {
+                        case 0: x = Math.random() * canvas.width; y = 0 - 50; break;
+                        case 1: x = canvas.width + 50; y = Math.random() * canvas.height; break;
+                        case 2: x = Math.random() * canvas.width; y = canvas.height + 50; break;
+                        case 3: x = 0 - 50; y = Math.random() * canvas.height; break;
+                    }
+                    
+                    const angle = Math.atan2(canvas.height/2 - y, canvas.width/2 - x) + 
+                                  (Math.random() - 0.5) * 0.5;
+                    
+                    asteroids.push(createAsteroid(x, y, angle, 1));
+                }
+            }
+            
+            // Event listeners
+            window.addEventListener('keydown', handleKeyDown);
+            window.addEventListener('keyup', handleKeyUp);
+            
+            // Mobile controls
+            if (leftBtn) leftBtn.addEventListener('touchstart', handleMobileDown('ArrowLeft'), {passive: false});
+            if (leftBtn) leftBtn.addEventListener('touchend', handleMobileUp('ArrowLeft'), {passive: false});
+            if (rightBtn) rightBtn.addEventListener('touchstart', handleMobileDown('ArrowRight'), {passive: false});
+            if (rightBtn) rightBtn.addEventListener('touchend', handleMobileUp('ArrowRight'), {passive: false});
+            if (upBtn) upBtn.addEventListener('touchstart', handleMobileDown('ArrowUp'), {passive: false});
+            if (upBtn) upBtn.addEventListener('touchend', handleMobileUp('ArrowUp'), {passive: false});
+            if (fireBtn) fireBtn.addEventListener('touchstart', handleMobileDown(' '), {passive: false});
+            if (fireBtn) fireBtn.addEventListener('touchend', handleMobileUp(' '), {passive: false});
+            
+            startButton.addEventListener('click', startGame);
+            restartButton.addEventListener('click', resetGame);
+            
+            asteroidsGame = {
+                destroy: function() {
+                    if (animationFrameId) {
+                        cancelAnimationFrame(animationFrameId);
+                    }
+                    window.removeEventListener('keydown', handleKeyDown);
+                    window.removeEventListener('keyup', handleKeyUp);
+                    gameStarted = false;
+                    gameOver = true;
+                }
+            };
+        }
+
+        // Tetris Game Variables
+        let tetrisGame = null;
+
+        function openTetrisGame() {
+            const modal = document.getElementById('tetrisModal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                document.addEventListener('touchmove', preventDefaultMobile, { passive: false });
+                initializeTetrisGame();
+            }
+        }
+
+        function closeTetrisGame() {
+            const modal = document.getElementById('tetrisModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                document.removeEventListener('touchmove', preventDefaultMobile);
+                if (tetrisGame) {
+                    tetrisGame.destroy();
+                    tetrisGame = null;
+                }
+            }
+        }
+
+        function initializeTetrisGame() {
+            if (tetrisGame) {
+                tetrisGame.destroy();
+            }
+            
+            // Game constants
+            const COLS = 10;
+            const ROWS = 20;
+            const EMPTY = 0;
+            
+            // Tetris shapes
+            const SHAPES = [
+                [[1, 1, 1, 1]],                       // I
+                [[1, 1, 1], [0, 0, 1]],               // J
+                [[1, 1, 1], [1, 0, 0]],               // L
+                [[1, 1], [1, 1]],                     // O
+                [[0, 1, 1], [1, 1, 0]],               // S
+                [[0, 1, 0], [1, 1, 1]],               // T
+                [[1, 1, 0], [0, 1, 1]]                // Z
+            ];
+            
+            const CLASSES = [
+                'tetris-piece-i', 'tetris-piece-j', 'tetris-piece-l', 'tetris-piece-o', 
+                'tetris-piece-s', 'tetris-piece-t', 'tetris-piece-z'
+            ];
+            
+            // DOM elements
+            const gridElement = document.getElementById('tetris-grid');
+            const nextPieceElement = document.getElementById('tetris-next-piece');
+            const scoreElement = document.getElementById('tetris-score');
+            const levelElement = document.getElementById('tetris-level');
+            const linesElement = document.getElementById('tetris-lines');
+            const startButton = document.getElementById('tetris-start-btn');
+            const pauseOverlay = document.getElementById('tetris-pause-overlay');
+            const gameOverOverlay = document.getElementById('tetris-game-over-overlay');
+            const continueBtn = document.getElementById('tetris-continue-btn');
+            const playAgainBtn = document.getElementById('tetris-play-again-btn');
+            const finalScoreElement = document.getElementById('tetris-final-score');
+            
+            // Game state
+            let grid = createGrid(ROWS, COLS);
+            let piece = null;
+            let nextPiece = null;
+            let score = 0;
+            let level = 1;
+            let lines = 0;
+            let gameLoop = null;
+            let isPaused = false;
+            let isGameOver = false;
+            let dropCounter = 0;
+            let dropInterval = 1000;
+            let lastTime = 0;
+            let ghostPiecePosition = null;
+            
+            // Create grid
+            function createGrid(rows, cols) {
+                const grid = [];
+                for (let r = 0; r < rows; r++) {
+                    grid.push(new Array(cols).fill(EMPTY));
+                }
+                return grid;
+            }
+            
+            // Initialize game elements
+            function init() {
+                gridElement.innerHTML = '';
+                for (let r = 0; r < ROWS; r++) {
+                    for (let c = 0; c < COLS; c++) {
+                        const cell = document.createElement('div');
+                        cell.classList.add('tetris-grid-cell');
+                        cell.setAttribute('data-row', r);
+                        cell.setAttribute('data-col', c);
+                        gridElement.appendChild(cell);
+                    }
+                }
+                
+                nextPieceElement.innerHTML = '';
+                for (let r = 0; r < 4; r++) {
+                    for (let c = 0; c < 4; c++) {
+                        const cell = document.createElement('div');
+                        cell.classList.add('tetris-grid-cell');
+                        cell.setAttribute('data-row', r);
+                        cell.setAttribute('data-col', c);
+                        nextPieceElement.appendChild(cell);
+                    }
+                }
+            }
+            
+            // Create piece
+            function createPiece(type) {
+                const shape = SHAPES[type];
+                const x = Math.floor(COLS / 2) - Math.floor(shape[0].length / 2);
+                const y = 0; // Always spawn at the top
+                
+                return {
+                    x, y, shape, type,
+                    width: shape[0].length,
+                    height: shape.length
+                };
+            }
+            
+            // Draw game
+            function draw() {
+                const cells = document.querySelectorAll('#tetris-grid .tetris-grid-cell');
+                cells.forEach(cell => {
+                    cell.className = 'tetris-grid-cell';
+                });
+                
+                // Draw placed pieces
+                for (let r = 0; r < ROWS; r++) {
+                    for (let c = 0; c < COLS; c++) {
+                        if (grid[r][c] !== EMPTY) {
+                            const index = (r * COLS) + c;
+                            cells[index].classList.add(CLASSES[grid[r][c] - 1]);
+                        }
+                    }
+                }
+                
+                // Draw current piece
+                if (piece) {
+                    drawPiece(piece);
+                    if (ghostPiecePosition) {
+                        drawGhostPiece(ghostPiecePosition);
+                    }
+                }
+                
+                // Draw next piece
+                if (nextPiece) {
+                    drawNextPiece(nextPiece);
+                }
+            }
+            
+            // Draw piece
+            function drawPiece(piece) {
+                const cells = document.querySelectorAll('#tetris-grid .tetris-grid-cell');
+                
+                for (let r = 0; r < piece.shape.length; r++) {
+                    for (let c = 0; c < piece.shape[r].length; c++) {
+                        if (piece.shape[r][c]) {
+                            const gridRow = piece.y + r;
+                            const gridCol = piece.x + c;
+                            
+                            if (gridRow >= 0 && gridRow < ROWS && gridCol >= 0 && gridCol < COLS) {
+                                const index = (gridRow * COLS) + gridCol;
+                                cells[index].classList.add(CLASSES[piece.type]);
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Draw ghost piece
+            function drawGhostPiece(ghostPos) {
+                const cells = document.querySelectorAll('#tetris-grid .tetris-grid-cell');
+                cells.forEach(cell => cell.classList.remove('tetris-piece-ghost'));
+                
+                for (let r = 0; r < piece.shape.length; r++) {
+                    for (let c = 0; c < piece.shape[r].length; c++) {
+                        if (piece.shape[r][c]) {
+                            const gridRow = ghostPos.y + r;
+                            const gridCol = ghostPos.x + c;
+                            
+                            if (gridRow >= 0 && gridRow < ROWS && gridCol >= 0 && gridCol < COLS) {
+                                const index = (gridRow * COLS) + gridCol;
+                                if (grid[gridRow][gridCol] === EMPTY) {
+                                    cells[index].classList.add('tetris-piece-ghost');
+                                    cells[index].classList.add(CLASSES[piece.type]);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Draw next piece
+            function drawNextPiece(piece) {
+                const cells = document.querySelectorAll('#tetris-next-piece .tetris-grid-cell');
+                cells.forEach(cell => {
+                    cell.className = 'tetris-grid-cell';
+                });
+                
+                const offsetX = Math.floor((4 - piece.shape[0].length) / 2);
+                const offsetY = Math.floor((4 - piece.shape.length) / 2);
+                
+                for (let r = 0; r < piece.shape.length; r++) {
+                    for (let c = 0; c < piece.shape[r].length; c++) {
+                        if (piece.shape[r][c]) {
+                            const gridRow = offsetY + r;
+                            const gridCol = offsetX + c;
+                            const index = (gridRow * 4) + gridCol;
+                            if (index >= 0 && index < 16) {
+                                cells[index].classList.add(CLASSES[piece.type]);
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Update score
+            function updateScore(linesCleared) {
+                const linePoints = [0, 40, 100, 300, 1200];
+                score += linePoints[linesCleared] * level;
+                lines += linesCleared;
+                level = Math.floor(lines / 10) + 1;
+                dropInterval = Math.max(100, 1000 - (level - 1) * 100);
+                
+                scoreElement.textContent = score;
+                levelElement.textContent = level;
+                linesElement.textContent = lines;
+            }
+            
+            // Check collision - simplified like the working version
+            function isCollision(piece, offsetX = 0, offsetY = 0) {
+                for (let r = 0; r < piece.shape.length; r++) {
+                    for (let c = 0; c < piece.shape[r].length; c++) {
+                        if (piece.shape[r][c]) {
+                            const newX = piece.x + c + offsetX;
+                            const newY = piece.y + r + offsetY;
+                            
+                            // Check bounds
+                            if (newX < 0 || newX >= COLS || newY >= ROWS) {
+                                return true;
+                            }
+                            
+                            // Check collision with existing pieces
+                            if (newY >= 0 && grid[newY] && grid[newY][newX] !== EMPTY) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+                return false;
+            }
+            
+            // Merge piece
+            function mergePiece() {
+                for (let r = 0; r < piece.shape.length; r++) {
+                    for (let c = 0; c < piece.shape[r].length; c++) {
+                        if (piece.shape[r][c]) {
+                            const gridRow = piece.y + r;
+                            const gridCol = piece.x + c;
+                            
+                            // Only merge if within grid bounds
+                            if (gridRow >= 0 && gridRow < ROWS && gridCol >= 0 && gridCol < COLS) {
+                                grid[gridRow][gridCol] = piece.type + 1;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Clear lines
+            function clearLines() {
+                let linesCleared = 0;
+                
+                for (let r = ROWS - 1; r >= 0; r--) {
+                    const isLineFull = grid[r].every(cell => cell !== EMPTY);
+                    
+                    if (isLineFull) {
+                        linesCleared++;
+                        grid.splice(r, 1);
+                        grid.unshift(new Array(COLS).fill(EMPTY));
+                        r++;
+                    }
+                }
+                
+                if (linesCleared > 0) {
+                    updateScore(linesCleared);
+                }
+            }
+            
+            // Merge piece
+            function mergePiece() {
+                for (let r = 0; r < piece.shape.length; r++) {
+                    for (let c = 0; c < piece.shape[r].length; c++) {
+                        if (piece.shape[r][c]) {
+                            const gridRow = piece.y + r;
+                            const gridCol = piece.x + c;
+                            
+                            if (gridRow >= 0 && gridRow < ROWS && gridCol >= 0 && gridCol < COLS) {
+                                grid[gridRow][gridCol] = piece.type + 1;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Rotate piece
+            function rotate() {
+                if (!piece || isGameOver || isPaused) return;
+                
+                const newShape = [];
+                for (let c = 0; c < piece.width; c++) {
+                    const newRow = [];
+                    for (let r = piece.height - 1; r >= 0; r--) {
+                        newRow.push(piece.shape[r][c]);
+                    }
+                    newShape.push(newRow);
+                }
+                
+                const originalShape = piece.shape;
+                piece.shape = newShape;
+                piece.width = piece.shape[0].length;
+                piece.height = piece.shape.length;
+                
+                if (isCollision(piece)) {
+                    if (piece.x + piece.width > COLS) {
+                        piece.x = COLS - piece.width;
+                    }
+                    if (piece.x < 0) {
+                        piece.x = 0;
+                    }
+                    
+                    if (isCollision(piece)) {
+                        piece.shape = originalShape;
+                        piece.width = piece.shape[0].length;
+                        piece.height = piece.shape.length;
+                    }
+                }
+                
+                updateGhostPiece();
+                draw();
+            }
+            
+            // Move left
+            function moveLeft() {
+                if (!piece || isGameOver || isPaused) return;
+                
+                if (!isCollision(piece, -1)) {
+                    piece.x--;
+                    updateGhostPiece();
+                    draw();
+                }
+            }
+            
+            // Move right
+            function moveRight() {
+                if (!piece || isGameOver || isPaused) return;
+                
+                if (!isCollision(piece, 1)) {
+                    piece.x++;
+                    updateGhostPiece();
+                    draw();
+                }
+            }
+            
+            // Soft drop
+            function softDrop() {
+                if (!piece || isGameOver || isPaused) return;
+                
+                if (!isCollision(piece, 0, 1)) {
+                    piece.y++;
+                    dropCounter = 0;
+                    draw();
+                }
+            }
+            
+            // Hard drop
+            function hardDrop() {
+                if (!piece || isGameOver || isPaused) return;
+                
+                while (!isCollision(piece, 0, 1)) {
+                    piece.y++;
+                }
+                
+                dropCounter = dropInterval;
+            }
+            
+            // Update ghost piece
+            function updateGhostPiece() {
+                if (!piece) return;
+                
+                ghostPiecePosition = { ...piece };
+                
+                while (!isCollision(ghostPiecePosition, 0, 1)) {
+                    ghostPiecePosition.y++;
+                }
+            }
+            
+            // Toggle pause
+            function togglePause() {
+                if (isGameOver) return;
+                
+                isPaused = !isPaused;
+                
+                if (isPaused) {
+                    pauseOverlay.classList.remove('hidden');
+                } else {
+                    pauseOverlay.classList.add('hidden');
+                    lastTime = performance.now();
+                }
+            }
+            
+            // Game over
+            function gameOver() {
+                isGameOver = true;
+                finalScoreElement.textContent = score;
+                gameOverOverlay.classList.remove('hidden');
+                if (gameLoop) cancelAnimationFrame(gameLoop);
+            }
+            
+            // Reset game
+            function resetGame() {
+                grid = createGrid(ROWS, COLS);
+                piece = null;
+                nextPiece = null;
+                score = 0;
+                level = 1;
+                lines = 0;
+                dropInterval = 1000;
+                isGameOver = false;
+                isPaused = false;
+                lastTime = 0;
+                dropCounter = 0;
+                
+                scoreElement.textContent = score;
+                levelElement.textContent = level;
+                linesElement.textContent = lines;
+                
+                gameOverOverlay.classList.add('hidden');
+                pauseOverlay.classList.add('hidden');
+                
+                nextPiece = createPiece(Math.floor(Math.random() * SHAPES.length));
+                spawnPiece();
+                
+                if (gameLoop) cancelAnimationFrame(gameLoop);
+                lastTime = performance.now();
+                gameLoop = requestAnimationFrame(update);
+            }
+            
+            // Spawn piece - simplified like working version
+            function spawnPiece() {
+                if (nextPiece) {
+                    piece = nextPiece;
+                    nextPiece = createPiece(Math.floor(Math.random() * SHAPES.length));
+                } else {
+                    piece = createPiece(Math.floor(Math.random() * SHAPES.length));
+                    nextPiece = createPiece(Math.floor(Math.random() * SHAPES.length));
+                }
+                
+                // Game over if the new piece collides immediately
+                if (isCollision(piece)) {
+                    gameOver();
+                    return;
+                }
+                
+                updateGhostPiece();
+            }
+            
+            // Main game loop
+            function update(time = 0) {
+                if (isPaused || isGameOver) {
+                    if (!isGameOver) {
+                        lastTime = time;
+                        gameLoop = requestAnimationFrame(update);
+                    }
+                    return;
+                }
+                
+                const deltaTime = time - lastTime;
+                lastTime = time;
+                
+                dropCounter += deltaTime;
+                
+                if (dropCounter > dropInterval) {
+                    if (!isCollision(piece, 0, 1)) {
+                        piece.y++;
+                    } else {
+                        mergePiece();
+                        clearLines();
+                        spawnPiece();
+                        
+                        // Check if game is over after spawning
+                        if (isGameOver) {
+                            return;
+                        }
+                    }
+                    
+                    dropCounter = 0;
+                }
+                
+                draw();
+                gameLoop = requestAnimationFrame(update);
+            }
+            
+            // Key handler
+            function handleKeyDown(e) {
+                if (isGameOver) return;
+                
+                switch (e.key) {
+                    case 'ArrowLeft':
+                        moveLeft();
+                        break;
+                    case 'ArrowRight':
+                        moveRight();
+                        break;
+                    case 'ArrowDown':
+                        softDrop();
+                        break;
+                    case 'ArrowUp':
+                        rotate();
+                        break;
+                    case ' ':
+                        e.preventDefault();
+                        hardDrop();
+                        break;
+                    case 'p':
+                    case 'P':
+                        togglePause();
+                        break;
+                }
+            }
+            
+            // Start game
+            function startGame() {
+                resetGame();
+                startButton.textContent = 'RESTART';
+            }
+            
+            // Event listeners
+            startButton.addEventListener('click', startGame);
+            continueBtn.addEventListener('click', togglePause);
+            playAgainBtn.addEventListener('click', resetGame);
+            document.addEventListener('keydown', handleKeyDown);
+            
+            // Initialize
+            init();
+            
+            tetrisGame = {
+                destroy: function() {
+                    if (gameLoop) {
+                        cancelAnimationFrame(gameLoop);
+                    }
+                    document.removeEventListener('keydown', handleKeyDown);
+                    isGameOver = true;
+                    isPaused = true;
+                }
+            };
+        }
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Search functionality
+        const searchButton = document.getElementById('search-button');
+        if (searchButton) {
+            searchButton.addEventListener('click', () => {
+                const searchTerm = prompt('Search for games, research, or content:');
+                if (searchTerm) {
+                    const searchLower = searchTerm.toLowerCase();
+                    
+                    const searchMappings = {
+                        'game': '#games',
+                        'games': '#games',
+                        'asteroids': '#games',
+                        'snake': '#games',
+                        'neon snake': '#games',
+                        'tetris': '#games',
+                        'cyberpunk': '#games',
+                        'puzzle': '#games',
+                        'data city': '#games',
+                        'quantum': '#games',
+                        'eco balance': '#games',
+                        'neural network': '#games',
+                        'climate': '#games',
+                        'memory palace': '#games',
+                        'research': '#research',
+                        'lakesim': '#research',
+                        'array of things': '#research',
+                        'about': '#about',
+                        'contact': '#contact',
+                        'bo rodda': '#about',
+                        'professor': '#about'
+                    };
+                    
+                    let targetSection = null;
+                    for (const [key, section] of Object.entries(searchMappings)) {
+                        if (searchLower.includes(key)) {
+                            targetSection = section;
+                            break;
+                        }
+                    }
+                    
+                    if (targetSection) {
+                        document.querySelector(targetSection).scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        alert(`No results found for "${searchTerm}". Try searching for: games, research, about, or contact.`);
+                    }
+                }
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Add shadow to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (nav) {
+                if (window.scrollY > 50) {
+                    nav.classList.add('shadow-lg');
+                } else {
+                    nav.classList.remove('shadow-lg');
+                }
+            }
+        });
+        
+        // Game card hover effect
+        const gameCards = document.querySelectorAll('.game-card');
+        gameCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const img = card.querySelector('img');
+                if (img) {
+                    img.style.transform = 'scale(1.1)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                const img = card.querySelector('img');
+                if (img) {
+                    img.style.transform = 'scale(1)';
+                }
+            });
+        });
+
+        // Enhanced form handling
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                setTimeout(() => {
+                    alert('Thank you for your message! Your default email client should now open with the pre-filled message. If it doesn\'t open automatically, please send your message directly to wrodda@kaplan.iit.edu');
+                }, 100);
+            });
+        }
+
+        // Add typing animation restart on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const typewriter = entry.target.querySelector('.typewriter');
+                    if (typewriter) {
+                        typewriter.style.animation = 'none';
+                        typewriter.offsetHeight;
+                        typewriter.style.animation = 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite';
+                    }
+                }
+            });
+        });
+
+        const homeSection = document.querySelector('#home');
+        if (homeSection) {
+            observer.observe(homeSection);
+        }
+
+        // Add pulse animation to contact icons
+        const contactIcons = document.querySelectorAll('.bg-purple-500, .bg-teal-500, .bg-yellow-500');
+        contactIcons.forEach(icon => {
+            icon.addEventListener('mouseenter', () => {
+                icon.classList.add('pulse-ring');
+            });
+            icon.addEventListener('mouseleave', () => {
+                icon.classList.remove('pulse-ring');
+            });
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            const quizModal = document.getElementById('quizModal');
+            const asteroidsModal = document.getElementById('asteroidsModal');
+            const snakeModal = document.getElementById('snakeModal');
+            const tetrisModal = document.getElementById('tetrisModal');
+            
+            if (e.target === quizModal) {
+                closeQuiz();
+            }
+            if (e.target === asteroidsModal) {
+                closeAsteroidsGame();
+            }
+            if (e.target === snakeModal) {
+                closeSnakeGame();
+            }
+            if (e.target === tetrisModal) {
+                closeTetrisGame();
+            }
+        });
+    </script>
+</body>
+</html>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">Home</a>
@@ -1535,12 +3667,8 @@
                 <!-- Asteroids Game Card -->
                 <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
                     <div class="relative h-64 overflow-hidden">
-                        <div class="w-full h-full bg-black flex items-center justify-center relative">
-                            <div class="text-6xl text-green-400 font-mono animate-pulse">🚀</div>
-                            <div class="absolute inset-0 bg-gradient-to-br from-green-400/20 to-transparent"></div>
-                            <div class="absolute top-4 left-4 text-green-400 text-xs font-mono">ASTEROIDS</div>
-                            <div class="absolute bottom-4 right-4 text-green-400 text-xs font-mono">ARCADE</div>
-                        </div>
+                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/asteroids.jpg" 
+                             alt="Asteroids Arcade" class="w-full h-full object-cover transition duration-500 hover:scale-110">
                         <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                             PLAYABLE
                         </div>
@@ -2415,2011 +4543,39 @@
         </div>
     </div>
 
-    <!-- JavaScript Functions -->
-    <script>
-        // Prevent mobile scrolling during game play
-        function preventDefaultMobile(e) {
-            e.preventDefault();
-        }
-
-        // Quiz Functions
-        var currentQuestion = 1;
-        var totalQuestions = 4;
-        var quizAnswers = {};
-
-        function openQuiz() {
-            console.log('Opening quiz...');
-            var modal = document.getElementById('quizModal');
-            if (modal) {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                updateProgressBar();
-                updateButtons();
-                console.log('Quiz opened successfully');
-            } else {
-                console.error('Quiz modal not found!');
-            }
-        }
-
-        function closeQuiz() {
-            var modal = document.getElementById('quizModal');
-            if (modal) {
-                modal.style.display = 'none';
-            }
-            document.body.style.overflow = 'auto';
-            resetQuiz();
-        }
-
-        function selectOption(element, value) {
-            var siblings = element.parentNode.children;
-            for (var i = 0; i < siblings.length; i++) {
-                siblings[i].classList.remove('selected');
-                var radio = siblings[i].querySelector('input[type="radio"]');
-                if (radio) radio.checked = false;
-            }
-            
-            element.classList.add('selected');
-            var radio = element.querySelector('input[type="radio"]');
-            if (radio) {
-                radio.checked = true;
-                quizAnswers[radio.name] = value;
-            }
-            
-            setTimeout(function() {
-                if (currentQuestion < totalQuestions) {
-                    nextQuestion();
-                } else {
-                    showResults();
-                }
-            }, 500);
-        }
-
-        function nextQuestion() {
-            if (currentQuestion < totalQuestions) {
-                document.querySelector('[data-question="' + currentQuestion + '"]').classList.remove('active');
-                currentQuestion++;
-                document.querySelector('[data-question="' + currentQuestion + '"]').classList.add('active');
-                updateProgressBar();
-                updateButtons();
-            } else {
-                showResults();
-            }
-        }
-
-        function prevQuestion() {
-            if (currentQuestion > 1) {
-                document.querySelector('[data-question="' + currentQuestion + '"]').classList.remove('active');
-                currentQuestion--;
-                document.querySelector('[data-question="' + currentQuestion + '"]').classList.add('active');
-                updateProgressBar();
-                updateButtons();
-            }
-        }
-
-        function restartQuiz() {
-            resetQuiz();
-            document.getElementById('quizResults').classList.remove('active');
-            document.querySelector('.quiz-buttons').style.display = 'flex';
-            document.querySelector('[data-question="1"]').classList.add('active');
-        }
-
-        function updateProgressBar() {
-            var progress = (currentQuestion / totalQuestions) * 100;
-            var progressBar = document.getElementById('progressBar');
-            if (progressBar) {
-                progressBar.style.width = progress + '%';
-            }
-        }
-
-        function updateButtons() {
-            var prevBtn = document.getElementById('prevBtn');
-            var nextBtn = document.getElementById('nextBtn');
-            
-            if (prevBtn) prevBtn.style.display = currentQuestion === 1 ? 'none' : 'block';
-            if (nextBtn) nextBtn.textContent = currentQuestion === totalQuestions ? 'Finish' : 'Next';
-        }
-
-        function showResults() {
-            var questions = document.querySelectorAll('.quiz-question');
-            for (var i = 0; i < questions.length; i++) {
-                questions[i].classList.remove('active');
-            }
-            
-            var buttonsDiv = document.querySelector('.quiz-buttons');
-            if (buttonsDiv) buttonsDiv.style.display = 'none';
-            
-            var resultsDiv = document.getElementById('quizResults');
-            if (resultsDiv) resultsDiv.classList.add('active');
-            
-            var recommendation = generateRecommendation();
-            var gameRecDiv = document.getElementById('gameRecommendation');
-            if (gameRecDiv) gameRecDiv.innerHTML = recommendation;
-            
-            var progressBar = document.getElementById('progressBar');
-            if (progressBar) {
-                progressBar.style.width = '100%';
-            }
-        }
-
-        function generateRecommendation() {
-            var platform = quizAnswers.platform || 'pc';
-            var experience = quizAnswers.experience || 'educational';
-            var time = quizAnswers.time || 'moderate';
-            var theme = quizAnswers.theme || 'science';
-            
-            var recommendations = {
-                'pc-educational-science': {
-                    game: 'Neural Network Builder',
-                    reason: 'Perfect for PC users who love learning about AI and technology!',
-                    features: ['Visual programming interface', 'Machine learning concepts', 'Complex data visualization']
-                },
-                'mobile-casual-environment': {
-                    game: 'Eco Balance',
-                    reason: 'Great for quick environmental awareness sessions on mobile!',
-                    features: ['Touch-friendly controls', 'Sustainability focus', 'Bite-sized gameplay']
-                },
-                'vr-educational': {
-                    game: 'Memory Palace VR',
-                    reason: 'Immersive VR learning experience for cognitive enhancement!',
-                    features: ['Virtual reality immersion', 'Memory techniques', 'Spatial learning']
-                },
-                'urban-science': {
-                    game: 'Data City Sim',
-                    reason: 'Perfect blend of urban planning and data science!',
-                    features: ['Real urban data', 'City building mechanics', 'Scientific modeling']
-                },
-                'environment-science': {
-                    game: 'Climate Crisis Chronicles',
-                    reason: 'Interactive storytelling meets climate science!',
-                    features: ['Climate scenarios', 'Scientific accuracy', 'Educational narrative']
-                },
-                'competitive-arcade': {
-                    game: 'Asteroids Arcade',
-                    reason: 'Classic arcade action for competitive gamers!',
-                    features: ['Skill-based gameplay', 'High score tracking', 'Retro arcade feel']
-                },
-                'classic-competitive': {
-                    game: 'Neon Snake',
-                    reason: 'Perfect classic competitive gameplay with modern style!',
-                    features: ['Arrow key precision', 'Growing challenge', 'Neon cyberpunk aesthetic']
-                },
-                'casual-classic': {
-                    game: 'Neon Snake',
-                    reason: 'Easy to learn, perfect for quick gaming sessions!',
-                    features: ['Simple controls', 'Classic gameplay', 'Beautiful visual effects']
-                },
-                'puzzle-cyberpunk': {
-                    game: 'Cyberpunk Tetris',
-                    reason: 'Perfect puzzle game with stunning cyberpunk aesthetics!',
-                    features: ['Classic Tetris gameplay', 'Neon visual effects', 'Progressive difficulty']
-                },
-                'competitive-puzzle': {
-                    game: 'Cyberpunk Tetris',
-                    reason: 'Challenge yourself with this skill-based puzzle game!',
-                    features: ['High score tracking', 'Increasing speed', 'Line clearing mastery']
-                }
-            };
-
-            var bestMatch = null;
-            var combo1 = platform + '-' + experience + '-' + theme;
-            var combo2 = platform + '-' + time + '-' + theme;
-            var combo3 = theme + '-' + experience;
-            var combo4 = experience + '-arcade';
-            var combo5 = 'classic-' + experience;
-            var combo6 = time + '-classic';
-            var combo7 = 'puzzle-' + theme;
-            var combo8 = experience + '-puzzle';
-            
-            if (recommendations[combo1]) bestMatch = recommendations[combo1];
-            else if (recommendations[combo2]) bestMatch = recommendations[combo2];
-            else if (recommendations[combo3]) bestMatch = recommendations[combo3];
-            else if (experience === 'competitive' && recommendations[combo4]) bestMatch = recommendations[combo4];
-            else if (recommendations[combo5]) bestMatch = recommendations[combo5];
-            else if (recommendations[combo6]) bestMatch = recommendations[combo6];
-            else if (recommendations[combo7]) bestMatch = recommendations[combo7];
-            else if (recommendations[combo8]) bestMatch = recommendations[combo8];
-            
-            if (!bestMatch) {
-                if (theme === 'science') bestMatch = recommendations['pc-educational-science'];
-                else if (theme === 'environment') bestMatch = recommendations['environment-science'];
-                else if (theme === 'urban') bestMatch = recommendations['urban-science'];
-                else if (platform === 'vr') bestMatch = recommendations['vr-educational'];
-                else if (experience === 'competitive') bestMatch = recommendations['competitive-puzzle'];
-                else if (time === 'casual') bestMatch = recommendations['casual-classic'];
-                else bestMatch = recommendations['puzzle-cyberpunk'];
-            }
-
-            var featuresHtml = '';
-            for (var i = 0; i < bestMatch.features.length; i++) {
-                featuresHtml += '<li>• ' + bestMatch.features[i] + '</li>';
-            }
-
-            var buttonAction = '';
-            if (bestMatch.game === 'Asteroids Arcade') {
-                buttonAction = 'onclick="closeQuiz(); openAsteroidsGame();"';
-            } else if (bestMatch.game === 'Neon Snake') {
-                buttonAction = 'onclick="closeQuiz(); openSnakeGame();"';
-            } else if (bestMatch.game === 'Cyberpunk Tetris') {
-                buttonAction = 'onclick="closeQuiz(); openTetrisGame();"';
-            } else {
-                buttonAction = 'onclick="closeQuiz(); var gamesSection = document.querySelector(\'#games\'); if(gamesSection) gamesSection.scrollIntoView({behavior: \'smooth\'});"';
-            }
-
-            return '<h4 class="text-xl font-bold text-teal-400 mb-4">🎯 ' + bestMatch.game + '</h4>' +
-                   '<p class="mb-4">' + bestMatch.reason + '</p>' +
-                   '<ul class="text-sm opacity-90">' + featuresHtml + '</ul>' +
-                   '<div class="mt-4 text-center">' +
-                   '<button class="quiz-btn quiz-btn-primary" ' + buttonAction + '>' +
-                   'Explore This Game</button></div>';
-        }
-
-        function resetQuiz() {
-            currentQuestion = 1;
-            quizAnswers = {};
-            var questions = document.querySelectorAll('.quiz-question');
-            for (var i = 0; i < questions.length; i++) {
-                questions[i].classList.remove('active');
-            }
-            var options = document.querySelectorAll('.quiz-option');
-            for (var i = 0; i < options.length; i++) {
-                options[i].classList.remove('selected');
-            }
-            var radios = document.querySelectorAll('input[type="radio"]');
-            for (var i = 0; i < radios.length; i++) {
-                radios[i].checked = false;
-            }
-            var firstQuestion = document.querySelector('[data-question="1"]');
-            if (firstQuestion) firstQuestion.classList.add('active');
-            updateProgressBar();
-            updateButtons();
-        }
-
-        // Snake Game Variables
-        let snakeGame = null;
-
-        function openSnakeGame() {
-            const modal = document.getElementById('snakeModal');
-            if (modal) {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                document.addEventListener('touchmove', preventDefaultMobile, { passive: false });
-                initializeSnakeGame();
-            }
-        }
-
-        function closeSnakeGame() {
-            const modal = document.getElementById('snakeModal');
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                document.removeEventListener('touchmove', preventDefaultMobile);
-                if (snakeGame) {
-                    snakeGame.destroy();
-                    snakeGame = null;
-                }
-            }
-        }
-
-        function initializeSnakeGame() {
-            if (snakeGame) {
-                snakeGame.destroy();
-            }
-            
-            // Game elements
-            const canvas = document.getElementById('snake-canvas');
-            const gameElements = document.getElementById('snake-game-elements');
-            const scoreElement = document.getElementById('snake-score');
-            const highScoreElement = document.getElementById('snake-high-score');
-            const startBtn = document.getElementById('snake-start-btn');
-            const pauseBtn = document.getElementById('snake-pause-btn');
-            const restartBtn = document.getElementById('snake-restart-btn');
-            const gameOverModal = document.getElementById('snake-game-over-modal');
-            const finalScoreElement = document.getElementById('snake-final-score');
-            const playAgainBtn = document.getElementById('snake-play-again-btn');
-            
-            if (!canvas) {
-                console.error('Snake canvas not found');
-                return;
-            }
-            
-            const ctx = canvas.getContext('2d');
-            
-            // Game constants
-            const GRID_SIZE = 20;
-            let CANVAS_WIDTH = 500;
-            let CANVAS_HEIGHT = 500;
-            
-            // Game state
-            let snake = [{ x: 200, y: 200 }];
-            let food = { x: 300, y: 300 };
-            let direction = { x: 0, y: 0 };
-            let nextDirection = { x: 0, y: 0 };
-            let score = 0;
-            let highScore = localStorage.getItem('snakeHighScore') || 0;
-            let gameRunning = false;
-            let gamePaused = false;
-            let gameInterval = null;
-            let particles = [];
-            let touchStartX = 0;
-            let touchStartY = 0;
-            
-            // Initialize canvas
-            function initCanvas() {
-                const container = canvas.parentElement;
-                const containerRect = container.getBoundingClientRect();
-                
-                CANVAS_WIDTH = Math.min(containerRect.width - 40, 500);
-                CANVAS_HEIGHT = Math.min(containerRect.height - 40, 500);
-                
-                // Make sure dimensions are multiples of grid size
-                CANVAS_WIDTH = Math.floor(CANVAS_WIDTH / GRID_SIZE) * GRID_SIZE;
-                CANVAS_HEIGHT = Math.floor(CANVAS_HEIGHT / GRID_SIZE) * GRID_SIZE;
-                
-                canvas.width = CANVAS_WIDTH;
-                canvas.height = CANVAS_HEIGHT;
-                canvas.style.width = CANVAS_WIDTH + 'px';
-                canvas.style.height = CANVAS_HEIGHT + 'px';
-            }
-            
-            // Update high score display
-            function updateHighScore() {
-                highScoreElement.textContent = highScore;
-            }
-            
-            // Generate random food position
-            function generateFood() {
-                let newFood;
-                do {
-                    newFood = {
-                        x: Math.floor(Math.random() * (CANVAS_WIDTH / GRID_SIZE)) * GRID_SIZE,
-                        y: Math.floor(Math.random() * (CANVAS_HEIGHT / GRID_SIZE)) * GRID_SIZE
-                    };
-                } while (snake.some(segment => segment.x === newFood.x && segment.y === newFood.y));
-                
-                return newFood;
-            }
-            
-            // Create particles
-            function createParticles(x, y, color, count = 8) {
-                for (let i = 0; i < count; i++) {
-                    particles.push({
-                        x: x + GRID_SIZE / 2,
-                        y: y + GRID_SIZE / 2,
-                        vx: (Math.random() - 0.5) * 4,
-                        vy: (Math.random() - 0.5) * 4,
-                        life: 1.0,
-                        decay: 0.02 + Math.random() * 0.02,
-                        color: color,
-                        size: 2 + Math.random() * 3
-                    });
-                }
-            }
-            
-            // Update particles
-            function updateParticles() {
-                for (let i = particles.length - 1; i >= 0; i--) {
-                    const p = particles[i];
-                    p.x += p.vx;
-                    p.y += p.vy;
-                    p.life -= p.decay;
-                    p.vx *= 0.98;
-                    p.vy *= 0.98;
-                    
-                    if (p.life <= 0) {
-                        particles.splice(i, 1);
-                    }
-                }
-            }
-            
-            // Draw particles
-            function drawParticles() {
-                particles.forEach(p => {
-                    ctx.save();
-                    ctx.globalAlpha = p.life;
-                    ctx.fillStyle = p.color;
-                    ctx.shadowBlur = 10;
-                    ctx.shadowColor = p.color;
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                    ctx.fill();
-                    ctx.restore();
-                });
-            }
-            
-            // Draw game
-            function draw() {
-                // Clear canvas with dark background
-                ctx.fillStyle = 'rgba(15, 15, 26, 0.9)';
-                ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-                
-                // Draw snake
-                snake.forEach((segment, index) => {
-                    ctx.save();
-                    
-                    if (index === 0) {
-                        // Head
-                        ctx.fillStyle = '#00e5ff';
-                        ctx.shadowBlur = 15;
-                        ctx.shadowColor = '#00e5ff';
-                    } else {
-                        // Body
-                        ctx.fillStyle = '#39ff14';
-                        ctx.shadowBlur = 10;
-                        ctx.shadowColor = '#39ff14';
-                    }
-                    
-                    ctx.fillRect(segment.x + 1, segment.y + 1, GRID_SIZE - 2, GRID_SIZE - 2);
-                    ctx.restore();
-                });
-                
-                // Draw food
-                ctx.save();
-                ctx.fillStyle = '#ff2ced';
-                ctx.shadowBlur = 15;
-                ctx.shadowColor = '#ff2ced';
-                
-                const pulseSize = 2 + Math.sin(Date.now() * 0.01) * 1;
-                const foodSize = GRID_SIZE - 4 + pulseSize;
-                const offset = (GRID_SIZE - foodSize) / 2;
-                
-                ctx.beginPath();
-                ctx.arc(
-                    food.x + GRID_SIZE / 2, 
-                    food.y + GRID_SIZE / 2, 
-                    foodSize / 2, 
-                    0, 
-                    Math.PI * 2
-                );
-                ctx.fill();
-                ctx.restore();
-                
-                // Draw particles
-                drawParticles();
-            }
-            
-            // Update game state
-            function update() {
-                if (!gameRunning || gamePaused) return;
-                
-                // Update direction
-                direction = { ...nextDirection };
-                
-                // Calculate new head position
-                const head = { ...snake[0] };
-                head.x += direction.x * GRID_SIZE;
-                head.y += direction.y * GRID_SIZE;
-                
-                // Check wall collision
-                if (head.x < 0 || head.x >= CANVAS_WIDTH || head.y < 0 || head.y >= CANVAS_HEIGHT) {
-                    gameOver();
-                    return;
-                }
-                
-                // Check self collision
-                if (snake.some(segment => segment.x === head.x && segment.y === head.y)) {
-                    gameOver();
-                    return;
-                }
-                
-                snake.unshift(head);
-                
-                // Check food collision
-                if (head.x === food.x && head.y === food.y) {
-                    score++;
-                    scoreElement.textContent = score;
-                    
-                    // Create particles
-                    createParticles(food.x, food.y, '#ff2ced', 12);
-                    
-                    // Generate new food
-                    food = generateFood();
-                    
-                    // Don't remove tail (snake grows)
-                } else {
-                    // Remove tail
-                    snake.pop();
-                }
-                
-                // Update particles
-                updateParticles();
-            }
-            
-            // Game over
-            function gameOver() {
-                gameRunning = false;
-                gamePaused = false;
-                
-                if (gameInterval) {
-                    clearInterval(gameInterval);
-                    gameInterval = null;
-                }
-                
-                // Update high score
-                if (score > highScore) {
-                    highScore = score;
-                    localStorage.setItem('snakeHighScore', highScore);
-                    updateHighScore();
-                }
-                
-                // Create explosion particles
-                createParticles(snake[0].x, snake[0].y, '#ff2ced', 20);
-                
-                // Show game over modal
-                finalScoreElement.textContent = score;
-                gameOverModal.classList.add('active');
-                
-                // Update button states
-                startBtn.disabled = false;
-                pauseBtn.disabled = true;
-                startBtn.innerHTML = '<i class="fas fa-play mr-2"></i> START';
-            }
-            
-            // Start game
-            function startGame() {
-                if (gameRunning) return;
-                
-                // Reset game state
-                snake = [{ x: Math.floor(CANVAS_WIDTH / 2 / GRID_SIZE) * GRID_SIZE, y: Math.floor(CANVAS_HEIGHT / 2 / GRID_SIZE) * GRID_SIZE }];
-                direction = { x: 0, y: 0 };
-                nextDirection = { x: 0, y: 0 };
-                score = 0;
-                particles = [];
-                food = generateFood();
-                
-                scoreElement.textContent = score;
-                gameOverModal.classList.remove('active');
-                
-                gameRunning = true;
-                gamePaused = false;
-                
-                // Update button states
-                startBtn.disabled = true;
-                pauseBtn.disabled = false;
-                startBtn.innerHTML = '<i class="fas fa-pause mr-2"></i> PLAYING';
-                pauseBtn.innerHTML = '<i class="fas fa-pause mr-2"></i> PAUSE';
-                
-                // Start game loop
-                gameInterval = setInterval(() => {
-                    update();
-                    draw();
-                }, 150);
-                
-                draw();
-            }
-            
-            // Pause/unpause game
-            function togglePause() {
-                if (!gameRunning) return;
-                
-                gamePaused = !gamePaused;
-                
-                if (gamePaused) {
-                    pauseBtn.innerHTML = '<i class="fas fa-play mr-2"></i> RESUME';
-                } else {
-                    pauseBtn.innerHTML = '<i class="fas fa-pause mr-2"></i> PAUSE';
-                }
-            }
-            
-            // Restart game
-            function restartGame() {
-                if (gameInterval) {
-                    clearInterval(gameInterval);
-                    gameInterval = null;
-                }
-                
-                gameRunning = false;
-                gamePaused = false;
-                gameOverModal.classList.remove('active');
-                
-                // Reset button states
-                startBtn.disabled = false;
-                pauseBtn.disabled = true;
-                startBtn.innerHTML = '<i class="fas fa-play mr-2"></i> START';
-                pauseBtn.innerHTML = '<i class="fas fa-pause mr-2"></i> PAUSE';
-                
-                draw();
-            }
-            
-            // Handle keyboard input
-            function handleKeyPress(e) {
-                if (!gameRunning || gamePaused) return;
-                
-                switch (e.key) {
-                    case 'ArrowUp':
-                        if (direction.y === 0) {
-                            nextDirection = { x: 0, y: -1 };
-                        }
-                        break;
-                    case 'ArrowDown':
-                        if (direction.y === 0) {
-                            nextDirection = { x: 0, y: 1 };
-                        }
-                        break;
-                    case 'ArrowLeft':
-                        if (direction.x === 0) {
-                            nextDirection = { x: -1, y: 0 };
-                        }
-                        break;
-                    case 'ArrowRight':
-                        if (direction.x === 0) {
-                            nextDirection = { x: 1, y: 0 };
-                        }
-                        break;
-                }
-            }
-            
-            // Handle touch input
-            function handleTouchStart(e) {
-                e.preventDefault();
-                const touch = e.touches[0];
-                touchStartX = touch.clientX;
-                touchStartY = touch.clientY;
-            }
-            
-            function handleTouchEnd(e) {
-                e.preventDefault();
-                if (!gameRunning || gamePaused) return;
-                
-                const touch = e.changedTouches[0];
-                const deltaX = touch.clientX - touchStartX;
-                const deltaY = touch.clientY - touchStartY;
-                const minSwipeDistance = 30;
-                
-                if (Math.abs(deltaX) > Math.abs(deltaY)) {
-                    // Horizontal swipe
-                    if (Math.abs(deltaX) > minSwipeDistance && direction.x === 0) {
-                        if (deltaX > 0) {
-                            nextDirection = { x: 1, y: 0 }; // Right
-                        } else {
-                            nextDirection = { x: -1, y: 0 }; // Left
-                        }
-                    }
-                } else {
-                    // Vertical swipe
-                    if (Math.abs(deltaY) > minSwipeDistance && direction.y === 0) {
-                        if (deltaY > 0) {
-                            nextDirection = { x: 0, y: 1 }; // Down
-                        } else {
-                            nextDirection = { x: 0, y: -1 }; // Up
-                        }
-                    }
-                }
-            }
-            
-            // Event listeners
-            document.addEventListener('keydown', handleKeyPress);
-            canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
-            canvas.addEventListener('touchend', handleTouchEnd, { passive: false });
-            
-            startBtn.addEventListener('click', startGame);
-            pauseBtn.addEventListener('click', togglePause);
-            restartBtn.addEventListener('click', restartGame);
-            playAgainBtn.addEventListener('click', () => {
-                gameOverModal.classList.remove('active');
-                restartGame();
-            });
-            
-            // Initialize
-            initCanvas();
-            updateHighScore();
-            draw();
-            
-            // Window resize handler
-            window.addEventListener('resize', () => {
-                initCanvas();
-                draw();
-            });
-            
-            snakeGame = {
-                destroy: function() {
-                    if (gameInterval) {
-                        clearInterval(gameInterval);
-                        gameInterval = null;
-                    }
-                    
-                    document.removeEventListener('keydown', handleKeyPress);
-                    canvas.removeEventListener('touchstart', handleTouchStart);
-                    canvas.removeEventListener('touchend', handleTouchEnd);
-                    
-                    gameRunning = false;
-                    gamePaused = false;
-                    particles = [];
-                }
-            };
-        }
-
-        // Asteroids Game Variables
-        let asteroidsGame = null;
-
-        function openAsteroidsGame() {
-            const modal = document.getElementById('asteroidsModal');
-            if (modal) {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                document.addEventListener('touchmove', preventDefaultMobile, { passive: false });
-                initializeAsteroidsGame();
-            }
-        }
-
-        function closeAsteroidsGame() {
-            const modal = document.getElementById('asteroidsModal');
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                document.removeEventListener('touchmove', preventDefaultMobile);
-                if (asteroidsGame) {
-                    asteroidsGame.destroy();
-                    asteroidsGame = null;
-                }
-            }
-        }
-
-        function initializeAsteroidsGame() {
-            if (asteroidsGame) {
-                asteroidsGame.destroy();
-            }
-            
-            // Game setup
-            const canvas = document.getElementById('asteroids-canvas');
-            const ctx = canvas.getContext('2d');
-            const scoreElement = document.getElementById('asteroids-score');
-            const livesElement = document.getElementById('asteroids-lives');
-            const endScoreElement = document.getElementById('asteroids-end-score');
-            const gameOverElement = document.getElementById('asteroids-game-over');
-            const restartButton = document.getElementById('asteroids-restart');
-            const startScreen = document.getElementById('asteroids-start-screen');
-            const startButton = document.getElementById('asteroids-start-btn');
-            
-            // Mobile controls
-            const leftBtn = document.getElementById('asteroids-left-btn');
-            const rightBtn = document.getElementById('asteroids-right-btn');
-            const upBtn = document.getElementById('asteroids-up-btn');
-            const fireBtn = document.getElementById('asteroids-fire-btn');
-            
-            // Set canvas dimensions
-            function resizeCanvas() {
-                canvas.width = canvas.parentElement.clientWidth;
-                canvas.height = canvas.parentElement.clientHeight;
-            }
-            
-            resizeCanvas();
-            
-            // Game state
-            let score = 0;
-            let lives = 3;
-            let gameOver = false;
-            let gameStarted = false;
-            let asteroids = [];
-            let bullets = [];
-            let particles = [];
-            let keys = {};
-            let animationFrameId;
-            
-            // Player ship
-            const ship = {
-                x: canvas.width / 2,
-                y: canvas.height / 2,
-                radius: 15,
-                angle: -Math.PI/2,
-                rotation: 0,
-                thrusting: false,
-                thrust: { x: 0, y: 0 },
-                velocity: { x: 0, y: 0 },
-                invulnerable: false,
-                invulnerableTime: 0
-            };
-            
-            // Event listeners
-            function handleKeyDown(e) {
-                if (gameStarted) {
-                    keys[e.key] = true;
-                    if (e.key === ' ' && e.target === document.body) {
-                        e.preventDefault();
-                    }
-                }
-            }
-            
-            function handleKeyUp(e) {
-                if (gameStarted) {
-                    keys[e.key] = false;
-                }
-            }
-            
-            // Mobile touch events
-            const handleMobileDown = (key) => {
-                return (e) => {
-                    e.preventDefault();
-                    if (!gameStarted) return;
-                    if (key === 'ArrowLeft') keys['ArrowLeft'] = true;
-                    if (key === 'ArrowRight') keys['ArrowRight'] = true;
-                    if (key === 'ArrowUp') keys['ArrowUp'] = true;
-                    if (key === ' ') keys[' '] = true;
-                };
-            };
-            
-            const handleMobileUp = (key) => {
-                return (e) => {
-                    e.preventDefault();
-                    if (!gameStarted) return;
-                    if (key === 'ArrowLeft') keys['ArrowLeft'] = false;
-                    if (key === 'ArrowRight') keys['ArrowRight'] = false;
-                    if (key === 'ArrowUp') keys['ArrowUp'] = false;
-                    if (key === ' ') keys[' '] = false;
-                };
-            };
-            
-            // Start game
-            function startGame() {
-                gameStarted = true;
-                startScreen.style.display = 'none';
-                resetGame();
-                gameLoop();
-            }
-            
-            function resetGame() {
-                score = 0;
-                lives = 3;
-                gameOver = false;
-                asteroids = [];
-                bullets = [];
-                particles = [];
-                
-                ship.x = canvas.width / 2;
-                ship.y = canvas.height / 2;
-                ship.angle = -Math.PI/2;
-                ship.velocity.x = 0;
-                ship.velocity.y = 0;
-                ship.invulnerable = true;
-                ship.invulnerableTime = 120;
-                
-                scoreElement.textContent = score;
-                livesElement.textContent = lives;
-                gameOverElement.style.display = 'none';
-                
-                createAsteroids(4);
-            }
-            
-            function createAsteroids(count) {
-                for (let i = 0; i < count; i++) {
-                    const angle = Math.random() * Math.PI * 2;
-                    const distance = Math.max(canvas.width, canvas.height) * 0.4;
-                    
-                    const asteroid = createAsteroid(
-                        canvas.width/2 + Math.cos(angle) * distance,
-                        canvas.height/2 + Math.sin(angle) * distance,
-                        Math.random() * Math.PI * 2,
-                        1
-                    );
-                    
-                    asteroids.push(asteroid);
-                }
-            }
-            
-            function createAsteroid(x, y, angle, size) {
-                let radius, points;
-                
-                switch(size) {
-                    case 1: radius = 40; points = 20; break;
-                    case 2: radius = 25; points = 50; break;
-                    case 3: radius = 10; points = 100; break;
-                }
-                
-                const speed = size === 1 ? 1 + Math.random() * 1 : 
-                              size === 2 ? 1.5 + Math.random() * 1.5 : 
-                              2 + Math.random() * 2;
-                
-                return {
-                    x, y, radius, size, points,
-                    vertices: Math.floor(Math.random() * 9) + 5,
-                    angle, speed,
-                    velocity: {
-                        x: Math.cos(angle) * speed,
-                        y: Math.sin(angle) * speed
-                    },
-                    rotation: (Math.random() - 0.5) * 0.2
-                };
-            }
-            
-            function gameLoop() {
-                if (!gameStarted || gameOver) return;
-                
-                resizeCanvas();
-                
-                // Clear canvas
-                ctx.fillStyle = '#111';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                
-                // Draw starfield
-                drawStarfield();
-                
-                // Update and draw game elements
-                updateShip();
-                drawShip();
-                updateBullets();
-                drawBullets();
-                updateAsteroids();
-                drawAsteroids();
-                updateParticles();
-                drawParticles();
-                
-                checkCollisions();
-                spawnAsteroids();
-                
-                if (ship.invulnerable) {
-                    ship.invulnerableTime--;
-                    if (ship.invulnerableTime <= 0) {
-                        ship.invulnerable = false;
-                    }
-                }
-                
-                animationFrameId = requestAnimationFrame(gameLoop);
-            }
-            
-            function drawStarfield() {
-                ctx.fillStyle = '#fff';
-                ctx.save();
-                for (let i = 0; i < 100; i++) {
-                    const x = Math.random() * canvas.width;
-                    const y = Math.random() * canvas.height;
-                    const size = Math.random() * 1.5;
-                    ctx.globalAlpha = Math.random();
-                    ctx.beginPath();
-                    ctx.arc(x, y, size, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-                ctx.restore();
-            }
-            
-            function updateShip() {
-                if (keys['ArrowLeft']) {
-                    ship.rotation = -0.1;
-                } else if (keys['ArrowRight']) {
-                    ship.rotation = 0.1;
-                } else {
-                    ship.rotation = 0;
-                }
-                
-                ship.angle += ship.rotation;
-                
-                if (keys['ArrowUp']) {
-                    ship.thrusting = true;
-                    ship.thrust.x = Math.cos(ship.angle) * 0.1;
-                    ship.thrust.y = Math.sin(ship.angle) * 0.1;
-                } else {
-                    ship.thrusting = false;
-                    ship.thrust.x = 0;
-                    ship.thrust.y = 0;
-                }
-                
-                ship.velocity.x += ship.thrust.x;
-                ship.velocity.y += ship.thrust.y;
-                ship.velocity.x *= 0.98;
-                ship.velocity.y *= 0.98;
-                
-                ship.x += ship.velocity.x;
-                ship.y += ship.velocity.y;
-                
-                // Screen wrapping
-                if (ship.x < 0 - ship.radius) ship.x = canvas.width + ship.radius;
-                else if (ship.x > canvas.width + ship.radius) ship.x = 0 - ship.radius;
-                if (ship.y < 0 - ship.radius) ship.y = canvas.height + ship.radius;
-                else if (ship.y > canvas.height + ship.radius) ship.y = 0 - ship.radius;
-                
-                if (keys[' '] && !keys['_space']) {
-                    keys['_space'] = true;
-                    fireBullet();
-                } else if (!keys[' ']) {
-                    keys['_space'] = false;
-                }
-            }
-            
-            function drawShip() {
-                ctx.save();
-                ctx.translate(ship.x, ship.y);
-                ctx.rotate(ship.angle);
-                
-                if (ship.invulnerable) {
-                    ctx.strokeStyle = Date.now() % 200 > 100 ? '#0f0' : '#f80';
-                } else {
-                    ctx.strokeStyle = '#0f0';
-                }
-                
-                ctx.lineWidth = 2;
-                ctx.beginPath();
-                ctx.moveTo(20, 0);
-                ctx.lineTo(-10, -10);
-                ctx.lineTo(-5, 0);
-                ctx.lineTo(-10, 10);
-                ctx.closePath();
-                ctx.stroke();
-                
-                if (ship.thrusting) {
-                    ctx.beginPath();
-                    ctx.moveTo(-15, 0);
-                    ctx.lineTo(-25, 0);
-                    ctx.strokeStyle = '#f80';
-                    ctx.stroke();
-                }
-                
-                ctx.restore();
-            }
-            
-            function fireBullet() {
-                if (bullets.length > 4) return;
-                
-                bullets.push({
-                    x: ship.x + Math.cos(ship.angle) * 20,
-                    y: ship.y + Math.sin(ship.angle) * 20,
-                    velocity: {
-                        x: Math.cos(ship.angle) * 7 + ship.velocity.x,
-                        y: Math.sin(ship.angle) * 7 + ship.velocity.y
-                    },
-                    radius: 3,
-                    life: 60
-                });
-            }
-            
-            function updateBullets() {
-                for (let i = bullets.length - 1; i >= 0; i--) {
-                    bullets[i].x += bullets[i].velocity.x;
-                    bullets[i].y += bullets[i].velocity.y;
-                    bullets[i].life--;
-                    
-                    // Screen wrapping
-                    if (bullets[i].x < 0) bullets[i].x = canvas.width;
-                    else if (bullets[i].x > canvas.width) bullets[i].x = 0;
-                    if (bullets[i].y < 0) bullets[i].y = canvas.height;
-                    else if (bullets[i].y > canvas.height) bullets[i].y = 0;
-                    
-                    if (bullets[i].life <= 0) {
-                        bullets.splice(i, 1);
-                    }
-                }
-            }
-            
-            function drawBullets() {
-                ctx.fillStyle = '#0f0';
-                for (let bullet of bullets) {
-                    ctx.beginPath();
-                    ctx.arc(bullet.x, bullet.y, bullet.radius, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            }
-            
-            function updateAsteroids() {
-                for (let asteroid of asteroids) {
-                    asteroid.x += asteroid.velocity.x;
-                    asteroid.y += asteroid.velocity.y;
-                    asteroid.angle += asteroid.rotation;
-                    
-                    // Screen wrapping
-                    if (asteroid.x < 0 - asteroid.radius) asteroid.x = canvas.width + asteroid.radius;
-                    else if (asteroid.x > canvas.width + asteroid.radius) asteroid.x = 0 - asteroid.radius;
-                    if (asteroid.y < 0 - asteroid.radius) asteroid.y = canvas.height + asteroid.radius;
-                    else if (asteroid.y > canvas.height + asteroid.radius) asteroid.y = 0 - asteroid.radius;
-                }
-            }
-            
-            function drawAsteroids() {
-                for (const asteroid of asteroids) {
-                    ctx.save();
-                    ctx.translate(asteroid.x, asteroid.y);
-                    ctx.rotate(asteroid.angle);
-                    
-                    ctx.strokeStyle = '#fff';
-                    ctx.lineWidth = 2;
-                    ctx.beginPath();
-                    
-                    for (let i = 0; i < asteroid.vertices; i++) {
-                        const angle = (i / asteroid.vertices) * Math.PI * 2;
-                        const offset = asteroid.radius * (0.7 + Math.random() * 0.3);
-                        const x = Math.cos(angle) * offset;
-                        const y = Math.sin(angle) * offset;
-                        
-                        if (i === 0) {
-                            ctx.moveTo(x, y);
-                        } else {
-                            ctx.lineTo(x, y);
-                        }
-                    }
-                    
-                    ctx.closePath();
-                    ctx.stroke();
-                    ctx.restore();
-                }
-            }
-            
-            function checkCollisions() {
-                // Bullets vs Asteroids
-                for (let i = asteroids.length - 1; i >= 0; i--) {
-                    const asteroid = asteroids[i];
-                    
-                    for (let j = bullets.length - 1; j >= 0; j--) {
-                        const bullet = bullets[j];
-                        const dx = asteroid.x - bullet.x;
-                        const dy = asteroid.y - bullet.y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-                        
-                        if (distance < asteroid.radius + bullet.radius) {
-                            createParticles(asteroid);
-                            score += asteroid.points;
-                            scoreElement.textContent = score;
-                            
-                            if (asteroid.size < 3) {
-                                for (let n = 0; n < 2; n++) {
-                                    const angle = Math.random() * Math.PI * 2;
-                                    const newAsteroid = createAsteroid(
-                                        asteroid.x, asteroid.y, angle, asteroid.size + 1
-                                    );
-                                    asteroids.push(newAsteroid);
-                                }
-                            }
-                            
-                            asteroids.splice(i, 1);
-                            bullets.splice(j, 1);
-                            break;
-                        }
-                    }
-                }
-                
-                // Ship vs Asteroids
-                if (!ship.invulnerable) {
-                    for (let i = 0; i < asteroids.length; i++) {
-                        const asteroid = asteroids[i];
-                        const dx = ship.x - asteroid.x;
-                        const dy = ship.y - asteroid.y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-                        
-                        if (distance < ship.radius + asteroid.radius) {
-                            lives--;
-                            livesElement.textContent = lives;
-                            createParticles(asteroid);
-                            
-                            if (lives <= 0) {
-                                gameOver = true;
-                                gameOverElement.style.display = 'flex';
-                                endScoreElement.textContent = score;
-                                return;
-                            }
-                            
-                            ship.x = canvas.width / 2;
-                            ship.y = canvas.height / 2;
-                            ship.velocity.x = 0;
-                            ship.velocity.y = 0;
-                            ship.angle = -Math.PI/2;
-                            ship.invulnerable = true;
-                            ship.invulnerableTime = 120;
-                            break;
-                        }
-                    }
-                }
-            }
-            
-            function createParticles(asteroid) {
-                const particleCount = 15 + Math.floor(Math.random() * 10);
-                for (let i = 0; i < particleCount; i++) {
-                    particles.push({
-                        x: asteroid.x + (Math.random() * 20 - 10),
-                        y: asteroid.y + (Math.random() * 20 - 10),
-                        size: Math.random() * 3 + 1,
-                        color: `hsl(${Math.random() * 60 + 30}, 100%, 50%)`,
-                        speed: 1 + Math.random() * 3,
-                        angle: Math.random() * Math.PI * 2,
-                        life: 30 + Math.random() * 40,
-                        decay: 0.95 + Math.random() * 0.04
-                    });
-                }
-            }
-            
-            function updateParticles() {
-                for (let i = particles.length - 1; i >= 0; i--) {
-                    const p = particles[i];
-                    p.x += Math.cos(p.angle) * p.speed;
-                    p.y += Math.sin(p.angle) * p.speed;
-                    p.life--;
-                    p.speed *= p.decay;
-                    
-                    if (p.life <= 0) {
-                        particles.splice(i, 1);
-                    }
-                }
-            }
-            
-            function drawParticles() {
-                for (const particle of particles) {
-                    ctx.fillStyle = particle.color;
-                    ctx.globalAlpha = Math.min(1, particle.life / 30);
-                    ctx.beginPath();
-                    ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-                ctx.globalAlpha = 1;
-            }
-            
-            function spawnAsteroids() {
-                if (asteroids.length <= 3 && Math.random() < 0.01) {
-                    const side = Math.floor(Math.random() * 4);
-                    let x, y;
-                    
-                    switch(side) {
-                        case 0: x = Math.random() * canvas.width; y = 0 - 50; break;
-                        case 1: x = canvas.width + 50; y = Math.random() * canvas.height; break;
-                        case 2: x = Math.random() * canvas.width; y = canvas.height + 50; break;
-                        case 3: x = 0 - 50; y = Math.random() * canvas.height; break;
-                    }
-                    
-                    const angle = Math.atan2(canvas.height/2 - y, canvas.width/2 - x) + 
-                                  (Math.random() - 0.5) * 0.5;
-                    
-                    asteroids.push(createAsteroid(x, y, angle, 1));
-                }
-            }
-            
-            // Event listeners
-            window.addEventListener('keydown', handleKeyDown);
-            window.addEventListener('keyup', handleKeyUp);
-            
-            // Mobile controls
-            leftBtn.addEventListener('touchstart', handleMobileDown('ArrowLeft'), {passive: false});
-            leftBtn.addEventListener('touchend', handleMobileUp('ArrowLeft'), {passive: false});
-            rightBtn.addEventListener('touchstart', handleMobileDown('ArrowRight'), {passive: false});
-            rightBtn.addEventListener('touchend', handleMobileUp('ArrowRight'), {passive: false});
-            upBtn.addEventListener('touchstart', handleMobileDown('ArrowUp'), {passive: false});
-            upBtn.addEventListener('touchend', handleMobileUp('ArrowUp'), {passive: false});
-            fireBtn.addEventListener('touchstart', handleMobileDown(' '), {passive: false});
-            fireBtn.addEventListener('touchend', handleMobileUp(' '), {passive: false});
-            
-            startButton.addEventListener('click', startGame);
-            restartButton.addEventListener('click', resetGame);
-            
-            asteroidsGame = {
-                destroy: function() {
-                    if (animationFrameId) {
-                        cancelAnimationFrame(animationFrameId);
-                    }
-                    window.removeEventListener('keydown', handleKeyDown);
-                    window.removeEventListener('keyup', handleKeyUp);
-                    gameStarted = false;
-                    gameOver = true;
-                }
-            };
-        }
-
-        // Tetris Game Variables
-        let tetrisGame = null;
-
-        function openTetrisGame() {
-            const modal = document.getElementById('tetrisModal');
-            if (modal) {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                document.addEventListener('touchmove', preventDefaultMobile, { passive: false });
-                initializeTetrisGame();
-            }
-        }
-
-        function closeTetrisGame() {
-            const modal = document.getElementById('tetrisModal');
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                document.removeEventListener('touchmove', preventDefaultMobile);
-                if (tetrisGame) {
-                    tetrisGame.destroy();
-                    tetrisGame = null;
-                }
-            }
-        }
-
-        function initializeTetrisGame() {
-            if (tetrisGame) {
-                tetrisGame.destroy();
-            }
-            
-            // Game constants
-            const COLS = 10;
-            const ROWS = 20;
-            const EMPTY = 0;
-            
-            // Tetris shapes
-            const SHAPES = [
-                [[1, 1, 1, 1]],                       // I
-                [[1, 1, 1], [0, 0, 1]],               // J
-                [[1, 1, 1], [1, 0, 0]],               // L
-                [[1, 1], [1, 1]],                     // O
-                [[0, 1, 1], [1, 1, 0]],               // S
-                [[0, 1, 0], [1, 1, 1]],               // T
-                [[1, 1, 0], [0, 1, 1]]                // Z
-            ];
-            
-            const CLASSES = [
-                'tetris-piece-i', 'tetris-piece-j', 'tetris-piece-l', 'tetris-piece-o', 
-                'tetris-piece-s', 'tetris-piece-t', 'tetris-piece-z'
-            ];
-            
-            // DOM elements
-            const gridElement = document.getElementById('tetris-grid');
-            const nextPieceElement = document.getElementById('tetris-next-piece');
-            const scoreElement = document.getElementById('tetris-score');
-            const levelElement = document.getElementById('tetris-level');
-            const linesElement = document.getElementById('tetris-lines');
-            const startButton = document.getElementById('tetris-start-btn');
-            const pauseOverlay = document.getElementById('tetris-pause-overlay');
-            const gameOverOverlay = document.getElementById('tetris-game-over-overlay');
-            const continueBtn = document.getElementById('tetris-continue-btn');
-            const playAgainBtn = document.getElementById('tetris-play-again-btn');
-            const finalScoreElement = document.getElementById('tetris-final-score');
-            
-            // Game state
-            let grid = createGrid(ROWS, COLS);
-            let piece = null;
-            let nextPiece = null;
-            let score = 0;
-            let level = 1;
-            let lines = 0;
-            let gameLoop = null;
-            let isPaused = false;
-            let isGameOver = false;
-            let dropCounter = 0;
-            let dropInterval = 1000;
-            let lastTime = 0;
-            let ghostPiecePosition = null;
-            
-            // Create grid
-            function createGrid(rows, cols) {
-                const grid = [];
-                for (let r = 0; r < rows; r++) {
-                    grid.push(new Array(cols).fill(EMPTY));
-                }
-                return grid;
-            }
-            
-            // Initialize game elements
-            function init() {
-                gridElement.innerHTML = '';
-                for (let r = 0; r < ROWS; r++) {
-                    for (let c = 0; c < COLS; c++) {
-                        const cell = document.createElement('div');
-                        cell.classList.add('tetris-grid-cell');
-                        cell.setAttribute('data-row', r);
-                        cell.setAttribute('data-col', c);
-                        gridElement.appendChild(cell);
-                    }
-                }
-                
-                nextPieceElement.innerHTML = '';
-                for (let r = 0; r < 4; r++) {
-                    for (let c = 0; c < 4; c++) {
-                        const cell = document.createElement('div');
-                        cell.classList.add('tetris-grid-cell');
-                        cell.setAttribute('data-row', r);
-                        cell.setAttribute('data-col', c);
-                        nextPieceElement.appendChild(cell);
-                    }
-                }
-            }
-            
-            // Create piece
-            function createPiece(type) {
-                const shape = SHAPES[type];
-                const x = Math.floor(COLS / 2) - Math.floor(shape[0].length / 2);
-                const y = -2;
-                
-                return {
-                    x, y, shape, type,
-                    width: shape[0].length,
-                    height: shape.length
-                };
-            }
-            
-            // Draw game
-            function draw() {
-                const cells = document.querySelectorAll('#tetris-grid .tetris-grid-cell');
-                cells.forEach(cell => {
-                    cell.className = 'tetris-grid-cell';
-                });
-                
-                // Draw placed pieces
-                for (let r = 0; r < ROWS; r++) {
-                    for (let c = 0; c < COLS; c++) {
-                        if (grid[r][c] !== EMPTY) {
-                            const index = (r * COLS) + c;
-                            cells[index].classList.add(CLASSES[grid[r][c] - 1]);
-                        }
-                    }
-                }
-                
-                // Draw current piece
-                if (piece) {
-                    drawPiece(piece);
-                    if (ghostPiecePosition) {
-                        drawGhostPiece(ghostPiecePosition);
-                    }
-                }
-                
-                // Draw next piece
-                if (nextPiece) {
-                    drawNextPiece(nextPiece);
-                }
-            }
-            
-            // Draw piece
-            function drawPiece(piece) {
-                const cells = document.querySelectorAll('#tetris-grid .tetris-grid-cell');
-                
-                for (let r = 0; r < piece.shape.length; r++) {
-                    for (let c = 0; c < piece.shape[r].length; c++) {
-                        if (piece.shape[r][c]) {
-                            const gridRow = piece.y + r;
-                            const gridCol = piece.x + c;
-                            
-                            if (gridRow >= 0 && gridRow < ROWS && gridCol >= 0 && gridCol < COLS) {
-                                const index = (gridRow * COLS) + gridCol;
-                                cells[index].classList.add(CLASSES[piece.type]);
-                            }
-                        }
-                    }
-                }
-            }
-            
-            // Draw ghost piece
-            function drawGhostPiece(ghostPos) {
-                const cells = document.querySelectorAll('#tetris-grid .tetris-grid-cell');
-                cells.forEach(cell => cell.classList.remove('tetris-piece-ghost'));
-                
-                for (let r = 0; r < piece.shape.length; r++) {
-                    for (let c = 0; c < piece.shape[r].length; c++) {
-                        if (piece.shape[r][c]) {
-                            const gridRow = ghostPos.y + r;
-                            const gridCol = ghostPos.x + c;
-                            
-                            if (gridRow >= 0 && gridRow < ROWS && gridCol >= 0 && gridCol < COLS) {
-                                const index = (gridRow * COLS) + gridCol;
-                                if (grid[gridRow][gridCol] === EMPTY) {
-                                    cells[index].classList.add('tetris-piece-ghost');
-                                    cells[index].classList.add(CLASSES[piece.type]);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            
-            // Draw next piece
-            function drawNextPiece(piece) {
-                const cells = document.querySelectorAll('#tetris-next-piece .tetris-grid-cell');
-                cells.forEach(cell => {
-                    cell.className = 'tetris-grid-cell';
-                });
-                
-                const offsetX = Math.floor((4 - piece.shape[0].length) / 2);
-                const offsetY = Math.floor((4 - piece.shape.length) / 2);
-                
-                for (let r = 0; r < piece.shape.length; r++) {
-                    for (let c = 0; c < piece.shape[r].length; c++) {
-                        if (piece.shape[r][c]) {
-                            const gridRow = offsetY + r;
-                            const gridCol = offsetX + c;
-                            const index = (gridRow * 4) + gridCol;
-                            if (index >= 0 && index < 16) {
-                                cells[index].classList.add(CLASSES[piece.type]);
-                            }
-                        }
-                    }
-                }
-            }
-            
-            // Update score
-            function updateScore(linesCleared) {
-                const linePoints = [0, 40, 100, 300, 1200];
-                score += linePoints[linesCleared] * level;
-                lines += linesCleared;
-                level = Math.floor(lines / 10) + 1;
-                dropInterval = Math.max(100, 1000 - (level - 1) * 100);
-                
-                scoreElement.textContent = score;
-                levelElement.textContent = level;
-                linesElement.textContent = lines;
-            }
-            
-            // Check collision
-            function isCollision(piece, offsetX = 0, offsetY = 0) {
-                for (let r = 0; r < piece.shape.length; r++) {
-                    for (let c = 0; c < piece.shape[r].length; c++) {
-                        if (piece.shape[r][c]) {
-                            const newX = piece.x + c + offsetX;
-                            const newY = piece.y + r + offsetY;
-                            
-                            if (newX < 0 || newX >= COLS || newY >= ROWS) {
-                                return true;
-                            }
-                            
-                            if (newY >= 0 && grid[newY][newX] !== EMPTY) {
-                                return true;
-                            }
-                        }
-                    }
-                }
-                return false;
-            }
-            
-            // Clear lines
-            function clearLines() {
-                let linesCleared = 0;
-                
-                for (let r = ROWS - 1; r >= 0; r--) {
-                    const isLineFull = grid[r].every(cell => cell !== EMPTY);
-                    
-                    if (isLineFull) {
-                        linesCleared++;
-                        grid.splice(r, 1);
-                        grid.unshift(new Array(COLS).fill(EMPTY));
-                        r++;
-                    }
-                }
-                
-                if (linesCleared > 0) {
-                    updateScore(linesCleared);
-                }
-            }
-            
-            // Merge piece
-            function mergePiece() {
-                for (let r = 0; r < piece.shape.length; r++) {
-                    for (let c = 0; c < piece.shape[r].length; c++) {
-                        if (piece.shape[r][c]) {
-                            const gridRow = piece.y + r;
-                            const gridCol = piece.x + c;
-                            
-                            if (gridRow >= 0 && gridRow < ROWS && gridCol >= 0 && gridCol < COLS) {
-                                grid[gridRow][gridCol] = piece.type + 1;
-                            }
-                        }
-                    }
-                }
-            }
-            
-            // Rotate piece
-            function rotate() {
-                if (!piece || isGameOver || isPaused) return;
-                
-                const newShape = [];
-                for (let c = 0; c < piece.width; c++) {
-                    const newRow = [];
-                    for (let r = piece.height - 1; r >= 0; r--) {
-                        newRow.push(piece.shape[r][c]);
-                    }
-                    newShape.push(newRow);
-                }
-                
-                const originalShape = piece.shape;
-                piece.shape = newShape;
-                piece.width = piece.shape[0].length;
-                piece.height = piece.shape.length;
-                
-                if (isCollision(piece)) {
-                    if (piece.x + piece.width > COLS) {
-                        piece.x = COLS - piece.width;
-                    }
-                    if (piece.x < 0) {
-                        piece.x = 0;
-                    }
-                    
-                    if (isCollision(piece)) {
-                        piece.shape = originalShape;
-                        piece.width = piece.shape[0].length;
-                        piece.height = piece.shape.length;
-                    }
-                }
-                
-                updateGhostPiece();
-                draw();
-            }
-            
-            // Move left
-            function moveLeft() {
-                if (!piece || isGameOver || isPaused) return;
-                
-                if (!isCollision(piece, -1)) {
-                    piece.x--;
-                    updateGhostPiece();
-                    draw();
-                }
-            }
-            
-            // Move right
-            function moveRight() {
-                if (!piece || isGameOver || isPaused) return;
-                
-                if (!isCollision(piece, 1)) {
-                    piece.x++;
-                    updateGhostPiece();
-                    draw();
-                }
-            }
-            
-            // Soft drop
-            function softDrop() {
-                if (!piece || isGameOver || isPaused) return;
-                
-                if (!isCollision(piece, 0, 1)) {
-                    piece.y++;
-                    dropCounter = 0;
-                    draw();
-                }
-            }
-            
-            // Hard drop
-            function hardDrop() {
-                if (!piece || isGameOver || isPaused) return;
-                
-                while (!isCollision(piece, 0, 1)) {
-                    piece.y++;
-                }
-                
-                dropCounter = dropInterval;
-            }
-            
-            // Update ghost piece
-            function updateGhostPiece() {
-                if (!piece) return;
-                
-                ghostPiecePosition = { ...piece };
-                
-                while (!isCollision(ghostPiecePosition, 0, 1)) {
-                    ghostPiecePosition.y++;
-                }
-            }
-            
-            // Toggle pause
-            function togglePause() {
-                if (isGameOver) return;
-                
-                isPaused = !isPaused;
-                
-                if (isPaused) {
-                    pauseOverlay.classList.remove('hidden');
-                } else {
-                    pauseOverlay.classList.add('hidden');
-                    lastTime = performance.now();
-                }
-            }
-            
-            // Game over
-            function gameOver() {
-                isGameOver = true;
-                finalScoreElement.textContent = score;
-                gameOverOverlay.classList.remove('hidden');
-                if (gameLoop) cancelAnimationFrame(gameLoop);
-            }
-            
-            // Reset game
-            function resetGame() {
-                grid = createGrid(ROWS, COLS);
-                piece = null;
-                nextPiece = null;
-                score = 0;
-                level = 1;
-                lines = 0;
-                dropInterval = 1000;
-                isGameOver = false;
-                isPaused = false;
-                lastTime = 0;
-                dropCounter = 0;
-                
-                scoreElement.textContent = score;
-                levelElement.textContent = level;
-                linesElement.textContent = lines;
-                
-                gameOverOverlay.classList.add('hidden');
-                pauseOverlay.classList.add('hidden');
-                
-                nextPiece = createPiece(Math.floor(Math.random() * SHAPES.length));
-                spawnPiece();
-                
-                if (gameLoop) cancelAnimationFrame(gameLoop);
-                lastTime = performance.now();
-                gameLoop = requestAnimationFrame(update);
-            }
-            
-            // Spawn piece
-            function spawnPiece() {
-                if (nextPiece) {
-                    piece = nextPiece;
-                    nextPiece = createPiece(Math.floor(Math.random() * SHAPES.length));
-                } else {
-                    piece = createPiece(Math.floor(Math.random() * SHAPES.length));
-                    nextPiece = createPiece(Math.floor(Math.random() * SHAPES.length));
-                }
-                
-                updateGhostPiece();
-                
-                if (isCollision(piece)) {
-                    gameOver();
-                }
-            }
-            
-            // Main game loop
-            function update(time = 0) {
-                if (isPaused || isGameOver) {
-                    lastTime = time;
-                    gameLoop = requestAnimationFrame(update);
-                    return;
-                }
-                
-                const deltaTime = time - lastTime;
-                lastTime = time;
-                
-                dropCounter += deltaTime;
-                
-                if (dropCounter > dropInterval) {
-                    if (!isCollision(piece, 0, 1)) {
-                        piece.y++;
-                    } else {
-                        mergePiece();
-                        clearLines();
-                        spawnPiece();
-                    }
-                    
-                    dropCounter = 0;
-                }
-                
-                draw();
-                gameLoop = requestAnimationFrame(update);
-            }
-            
-            // Key handler
-            function handleKeyDown(e) {
-                if (isGameOver) return;
-                
-                switch (e.key) {
-                    case 'ArrowLeft':
-                        moveLeft();
-                        break;
-                    case 'ArrowRight':
-                        moveRight();
-                        break;
-                    case 'ArrowDown':
-                        softDrop();
-                        break;
-                    case 'ArrowUp':
-                        rotate();
-                        break;
-                    case ' ':
-                        e.preventDefault();
-                        hardDrop();
-                        break;
-                    case 'p':
-                    case 'P':
-                        togglePause();
-                        break;
-                }
-            }
-            
-            // Start game
-            function startGame() {
-                resetGame();
-                startButton.textContent = 'RESTART';
-            }
-            
-            // Event listeners
-            startButton.addEventListener('click', startGame);
-            continueBtn.addEventListener('click', togglePause);
-            playAgainBtn.addEventListener('click', resetGame);
-            document.addEventListener('keydown', handleKeyDown);
-            
-            // Initialize
-            init();
-            
-            tetrisGame = {
-                destroy: function() {
-                    if (gameLoop) {
-                        cancelAnimationFrame(gameLoop);
-                    }
-                    document.removeEventListener('keydown', handleKeyDown);
-                    isGameOver = true;
-                    isPaused = true;
-                }
-            };
-        }
-
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Search functionality
-        const searchButton = document.getElementById('search-button');
-        searchButton.addEventListener('click', () => {
-            const searchTerm = prompt('Search for games, research, or content:');
-            if (searchTerm) {
-                const searchLower = searchTerm.toLowerCase();
-                
-                const searchMappings = {
-                    'game': '#games',
-                    'games': '#games',
-                    'asteroids': '#games',
-                    'snake': '#games',
-                    'neon snake': '#games',
-                    'tetris': '#games',
-                    'cyberpunk': '#games',
-                    'puzzle': '#games',
-                    'data city': '#games',
-                    'quantum': '#games',
-                    'eco balance': '#games',
-                    'neural network': '#games',
-                    'climate': '#games',
-                    'memory palace': '#games',
-                    'research': '#research',
-                    'lakesim': '#research',
-                    'array of things': '#research',
-                    'about': '#about',
-                    'contact': '#contact',
-                    'bo rodda': '#about',
-                    'professor': '#about'
-                };
-                
-                let targetSection = null;
-                for (const [key, section] of Object.entries(searchMappings)) {
-                    if (searchLower.includes(key)) {
-                        targetSection = section;
-                        break;
-                    }
-                }
-                
-                if (targetSection) {
-                    document.querySelector(targetSection).scrollIntoView({ behavior: 'smooth' });
-                } else {
-                    alert(`No results found for "${searchTerm}". Try searching for: games, research, about, or contact.`);
-                }
-            }
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-        
-        // Add shadow to navbar on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-lg');
-            } else {
-                nav.classList.remove('shadow-lg');
-            }
-        });
-        
-        // Game card hover effect
-        const gameCards = document.querySelectorAll('.game-card');
-        gameCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                const img = card.querySelector('img');
-                if (img) {
-                    img.style.transform = 'scale(1.1)';
-                }
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                const img = card.querySelector('img');
-                if (img) {
-                    img.style.transform = 'scale(1)';
-                }
-            });
-        });
-
-        // Enhanced form handling
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            setTimeout(() => {
-                alert('Thank you for your message! Your default email client should now open with the pre-filled message. If it doesn\'t open automatically, please send your message directly to wrodda@kaplan.iit.edu');
-            }, 100);
-        });
-
-        // Add typing animation restart on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const typewriter = entry.target.querySelector('.typewriter');
-                    if (typewriter) {
-                        typewriter.style.animation = 'none';
-                        typewriter.offsetHeight;
-                        typewriter.style.animation = 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite';
-                    }
-                }
-            });
-        });
-
-        observer.observe(document.querySelector('#home'));
-
-        // Add pulse animation to contact icons
-        const contactIcons = document.querySelectorAll('.bg-purple-500, .bg-teal-500, .bg-yellow-500');
-        contactIcons.forEach(icon => {
-            icon.addEventListener('mouseenter', () => {
-                icon.classList.add('pulse-ring');
-            });
-            icon.addEventListener('mouseleave', () => {
-                icon.classList.remove('pulse-ring');
-            });
-        });
-
-        // Close modals when clicking outside
-        window.addEventListener('click', (e) => {
-            const quizModal = document.getElementById('quizModal');
-            const asteroidsModal = document.getElementById('asteroidsModal');
-            const snakeModal = document.getElementById('snakeModal');
-            const tetrisModal = document.getElementById('tetrisModal');
-            
-            if (e.target === quizModal) {
-                closeQuiz();
-            }
-            if (e.target === asteroidsModal) {
-                closeAsteroidsGame();
-            }
-            if (e.target === snakeModal) {
-                closeSnakeGame();
-            }
-            if (e.target === tetrisModal) {
-                closeTetrisGame();
-            }
-        });
-    </script>
-</body>
-</html>
-
     <!-- Snake Game Modal -->
     <div id="snakeModal" class="snake-modal">
         <div class="snake-content">
             <span class="snake-close" onclick="closeSnakeGame()">&times;</span>
             
-            <div id="snake-game-elements">
-                <div class="text-center mb-6">
-                    <h1 class="text-4xl mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">
-                        NEON SNAKE
-                    </h1>
-                    <div class="text-xl text-green-400 font-mono">
-                        SCORE: <span id="snake-score">0</span> | HIGH: <span id="snake-high-score">0</span>
-                    </div>
+            <div class="text-center mb-6">
+                <h1 class="text-4xl mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 pixel-font">
+                    NEON SNAKE
+                </h1>
+                <div class="text-xl text-green-400 font-mono">
+                    SCORE: <span id="snake-score">0</span> | HIGH: <span id="snake-high-score">0</span>
                 </div>
-                
-                <div id="snake-game-container">
-                    <canvas id="snake-canvas"></canvas>
-                    <div class="snake-grid-lines"></div>
-                </div>
-                
-                <div class="flex justify-center mt-6 gap-4">
-                    <button id="snake-start-btn" class="snake-btn">
-                        <i class="fas fa-play mr-2"></i> START
-                    </button>
-                    <button id="snake-pause-btn" class="snake-btn" disabled>
-                        <i class="fas fa-pause mr-2"></i> PAUSE
-                    </button>
-                    <button id="snake-restart-btn" class="snake-btn">
-                        <i class="fas fa-redo mr-2"></i> RESTART
-                    </button>
-                </div>
-                
-                <div class="text-center mt-4 text-sm text-gray-400">
-                    Use arrow keys or swipe to control
-                </div>
+            </div>
+            
+            <div class="snake-game-container">
+                <canvas id="snake-canvas"></canvas>
+                <div class="snake-grid-lines"></div>
+            </div>
+            
+            <div class="flex justify-center mt-6 gap-4 flex-wrap">
+                <button id="snake-start-btn" class="snake-btn">
+                    <i class="fas fa-play mr-2"></i> START
+                </button>
+                <button id="snake-pause-btn" class="snake-btn" disabled>
+                    <i class="fas fa-pause mr-2"></i> PAUSE
+                </button>
+                <button id="snake-restart-btn" class="snake-btn">
+                    <i class="fas fa-redo mr-2"></i> RESTART
+                </button>
+            </div>
+            
+            <div class="text-center mt-4 text-sm text-gray-400">
+                Use arrow keys or swipe to control
             </div>
             
             <!-- Game Over Modal -->
@@ -4495,9 +4651,9 @@
             <div class="tetris-scanline"></div>
             
             <!-- Main game container -->
-            <div class="tetris-game-container flex flex-col md:flex-row items-center justify-center gap-8 p-4">
+            <div class="tetris-game-container">
                 <!-- Left panel with info -->
-                <div class="tetris-neon-border-blue bg-black bg-opacity-70 p-6 rounded-lg w-64 h-96 flex flex-col justify-between">
+                <div class="tetris-neon-border-blue bg-black bg-opacity-70 p-6 rounded-lg w-64 flex flex-col justify-between">
                     <div>
                         <h1 class="tetris-glitch text-3xl mb-6 text-center tetris-neon-text-blue" data-text="CYBER TETRIS">CYBER TETRIS</h1>
                         <div class="mb-6">
@@ -4534,10 +4690,8 @@
                 </div>
                 
                 <!-- Game field -->
-                <div class="relative">
-                    <div class="tetris-neon-border-blue bg-black bg-opacity-70">
-                        <div id="tetris-grid" class="grid grid-cols-10" style="grid-template-rows: repeat(20, 1fr);"></div>
-                    </div>
+                <div class="tetris-grid-container">
+                    <div id="tetris-grid" class="tetris-neon-border-blue bg-black bg-opacity-70"></div>
                     
                     <!-- Pause overlay -->
                     <div id="tetris-pause-overlay" class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center hidden">
@@ -4558,10 +4712,11 @@
                 </div>
                 
                 <!-- Next piece panel -->
-                <div class="tetris-neon-border-blue bg-black bg-opacity-70 p-4 rounded-lg w-32 h-32 flex flex-col items-center">
+                <div class="tetris-neon-border-blue bg-black bg-opacity-70 p-4 rounded-lg w-32 flex flex-col items-center">
                     <h3 class="tetris-neon-text-pink text-lg mb-2">NEXT:</h3>
-                    <div id="tetris-next-piece" class="grid grid-cols-4" style="grid-template-rows: repeat(4, 1fr); width: 80px; height: 80px;"></div>
+                    <div id="tetris-next-piece"></div>
                 </div>
             </div>
         </div>
     </div>
+                                
