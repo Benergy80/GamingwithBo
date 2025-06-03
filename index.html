@@ -1452,6 +1452,1329 @@
                     <div class="flex-shrink-0">
                         <span class="text-2xl font-bold text-white pixel-font">GamingwithBo</span>
                     </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">Home</a>
+                        <a href="#games" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">Games</a>
+                        <a href="#arcade-classics" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">Arcade</a>
+                        <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">About Bo</a>
+                        <a href="#research" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">Research</a>
+                        <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden md:block">
+                <div class="ml-4 flex items-center md:ml-6">
+                    <div class="relative mr-4">
+                        <input 
+                            type="text" 
+                            id="search-input" 
+                            placeholder="Search games, research..." 
+                            class="bg-gray-800 text-white px-3 py-1 pr-8 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 w-48"
+                        >
+                        <button id="search-button" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <a href="https://www.borodda.com/" target="_blank" class="p-1 rounded-full text-gray-400 hover:text-white focus:outline-none">
+                        <span class="sr-only">Profile</span>
+                        <i class="fas fa-user-circle h-6 w-6"></i>
+                    </a>
+                </div>
+            </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div class="px-3 py-2">
+                    <input 
+                        type="text" 
+                        id="mobile-search-input" 
+                        placeholder="Search games, research..." 
+                        class="w-full bg-gray-800 text-white px-3 py-2 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    >
+                </div>
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Home</a>
+                <a href="#games" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Games</a>
+                <a href="#arcade-classics" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Arcade</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">About Bo</a>
+                <a href="#research" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Research</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Contact</a>
+            </div>
+            <div class="pt-4 pb-3 border-t border-gray-700">
+                <div class="flex items-center px-5">
+                    <a href="https://www.borodda.com/" target="_blank" class="ml-auto flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none">
+                        <span class="sr-only">Profile</span>
+                        <i class="fas fa-user-circle h-6 w-6"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="absolute top-0 left-0 w-full h-full">
+            <div class="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-10"></div>
+        </div>
+        
+        <!-- Space Invaders Background -->
+        <div class="space-invaders">
+            <!-- Row 1 - Top -->
+            <div class="invader invader-type-1" style="top: 10%;"></div>
+            <div class="invader invader-type-2" style="top: 15%;"></div>
+            <div class="invader invader-type-3" style="top: 12%;"></div>
+            <div class="invader invader-type-1 reverse" style="top: 18%;"></div>
+            <div class="invader invader-type-2" style="top: 8%;"></div>
+            
+            <!-- Row 2 - Upper Middle -->
+            <div class="invader invader-type-2" style="top: 25%;"></div>
+            <div class="invader invader-type-3 reverse" style="top: 30%;"></div>
+            <div class="invader invader-type-1" style="top: 28%;"></div>
+            <div class="invader invader-type-2" style="top: 22%;"></div>
+            <div class="invader invader-type-3" style="top: 35%;"></div>
+            
+            <!-- Row 3 - Middle -->
+            <div class="invader invader-type-3" style="top: 45%;"></div>
+            <div class="invader invader-type-1 reverse" style="top: 42%;"></div>
+            <div class="invader invader-type-2" style="top: 48%;"></div>
+            <div class="invader invader-type-3" style="top: 40%;"></div>
+            <div class="invader invader-type-1" style="top: 52%;"></div>
+            
+            <!-- Row 4 - Lower Middle -->
+            <div class="invader invader-type-1" style="top: 58%;"></div>
+            <div class="invader invader-type-2 reverse" style="top: 62%;"></div>
+            <div class="invader invader-type-3" style="top: 65%;"></div>
+            <div class="invader invader-type-1" style="top: 60%;"></div>
+            <div class="invader invader-type-2" style="top: 68%;"></div>
+            
+            <!-- Row 5 - Bottom -->
+            <div class="invader invader-type-2" style="top: 75%;"></div>
+            <div class="invader invader-type-3 reverse" style="top: 78%;"></div>
+            <div class="invader invader-type-1" style="top: 85%;"></div>
+            <div class="invader invader-type-2" style="top: 82%;"></div>
+            <div class="invader invader-type-3" style="top: 88%;"></div>
+            <div class="invader invader-type-1 reverse" style="top: 90%;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10 text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white glow pixel-font">
+                Gaming<span class="text-yellow-300">with</span>Bo
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto px-4">
+                Exploring the intersection of game design, emerging technology, and data-driven storytelling through niche independent games.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 px-4">
+                <a href="#games" class="px-6 sm:px-8 py-3 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-105">
+                    Explore Games
+                </a>
+                <a href="#about" class="px-6 sm:px-8 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-gray-900 transition duration-300 transform hover:scale-105">
+                    About Bo
+                </a>
+            </div>
+            
+            <div class="mt-16 px-4">
+                <div class="typewriter-container">
+                    <!-- Mobile version - just first line -->
+                    <div class="typewriter block sm:hidden text-sm text-white font-mono">
+                        Assistant Professor of Experiential Media and Design
+                    </div>
+                    <!-- Desktop version - full text -->
+                    <div class="typewriter hidden sm:block text-xl md:text-2xl text-white font-mono">
+                        Assistant Professor of Experiential Media and Design at Illinois Tech
+                    </div>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+                <a href="#games" class="text-white animate-bounce">
+                    <i class="fas fa-chevron-down text-3xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4 pixel-font">Featured Games</h2>
+                <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
+                <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+                    Experimental games that push boundaries of storytelling and interaction
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Game Card 1 - Data City Sim -->
+                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/datacitysim-1-e1748201517252.png" 
+                             alt="Data City Sim" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            NEW
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Data City Sim</h3>
+                        <p class="text-gray-300 mb-4">
+                            A city builder where every decision is driven by real urban data. Experience the complexity of urban planning.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Simulation</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Educational</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Data-Driven</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                Play Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Card 2 - Quantum Explorer -->
+                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/quantumexplorer-e1748201614720.png" 
+                             alt="Quantum Explorer" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Quantum Explorer</h3>
+                        <p class="text-gray-300 mb-4">
+                            Navigate through quantum dimensions where your choices create parallel universes with different outcomes.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Adventure</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Sci-Fi</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Narrative</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                Play Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Card 3 - Eco Balance -->
+                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/ecobalance.png" 
+                             alt="Eco Balance" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            FREE
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Eco Balance</h3>
+                        <p class="text-gray-300 mb-4">
+                            A strategy game about maintaining ecological balance while developing a sustainable civilization.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Strategy</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Sustainability</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Resource Mgmt</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                Play Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hidden games that show when "View All Games" is clicked -->
+                <div id="additional-games" class="contents hidden">
+                    <!-- Game Card 4 - Neural Network Builder -->
+                    <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/neuralnetworkbuilder-e1748200104726.png" 
+                                 alt="Neural Network Builder" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                                BETA
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">Neural Network Builder</h3>
+                            <p class="text-gray-300 mb-4">
+                                Design and train AI systems through an intuitive visual interface. Learn machine learning concepts through play.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Educational</span>
+                                <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">AI/ML</span>
+                                <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Puzzle</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                    Play Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game Card 5 - Climate Crisis Chronicles -->
+                    <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/climatecrisischronicles.png" 
+                                 alt="Climate Crisis Chronicles" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                                FEATURED
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">Climate Crisis Chronicles</h3>
+                            <p class="text-gray-300 mb-4">
+                                Experience climate change scenarios through interactive storytelling and scientific simulation.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Interactive Fiction</span>
+                                <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Science</span>
+                                <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Social Impact</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                    Play Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game Card 6 - Memory Palace VR -->
+                    <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Memory Palace VR" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                                VR
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">Memory Palace VR</h3>
+                            <p class="text-gray-300 mb-4">
+                                Build and explore virtual memory palaces to enhance learning and cognitive abilities through spatial memory techniques.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">VR</span>
+                                <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Cognitive</span>
+                                <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Learning</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                    Play Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <button id="view-all-games-btn" onclick="toggleAllGames()" class="px-8 py-3 border-2 border-purple-500 text-purple-500 font-bold rounded-full hover:bg-purple-500 hover:text-white transition duration-300 transform hover:scale-105">
+                    View All Games
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arcade Classics Section -->
+    <section id="arcade-classics" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4 pixel-font">Arcade Classics</h2>
+                <div class="w-24 h-1 bg-green-500 mx-auto"></div>
+                <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+                    Classic arcade games reimagined with modern visuals and effects
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cyberpunk Tetris Game Card -->
+                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/06/screenshot-2025-06-02-at-10.32.17e280afpm.jpg" 
+                             alt="Cyberpunk Tetris" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            PLAYABLE
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Cyberpunk Tetris</h3>
+                        <p class="text-gray-300 mb-4">
+                            Experience the classic puzzle game with a futuristic cyberpunk aesthetic. Stack falling blocks with glowing neon effects and CRT-style scanlines.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Puzzle</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Cyberpunk</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Classic</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button type="button" onclick="openTetrisGame()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                Play Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neon Snake Game Card -->
+                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/06/screenshot-2025-06-02-at-11.02.47e280afpm.jpg" 
+                             alt="Neon Snake" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            PLAYABLE
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Neon Snake</h3>
+                        <p class="text-gray-300 mb-4">
+                            Experience the classic Snake game with stunning neon visuals and particle effects. Control your growing snake to collect food while avoiding collisions.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Arcade</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Neon</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Classic</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <button type="button" onclick="openSnakeGame()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                Play Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Asteroids Game Card -->
+                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/asteroids.jpg" 
+                             alt="Asteroids Arcade" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            PLAYABLE
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Asteroids Arcade</h3>
+                        <p class="text-gray-300 mb-4">
+                            Classic space shooter reimagined. Navigate through asteroid fields, destroy space rocks, and survive as long as possible in this retro arcade experience.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Arcade</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Retro</span>
+                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Action</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button type="button" onclick="openAsteroidsGame()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                                Play Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Bo Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4 pixel-font">About Bo Rodda</h2>
+                <div class="w-24 h-1 bg-teal-400 mx-auto"></div>
+                <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+                    Assistant Professor of Experiential Media and Design at Illinois Tech
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+                <div class="w-full lg:w-1/3 flex justify-center">
+                    <div class="relative group max-w-sm">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-teal-400 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                        <div class="relative bg-gray-900 rounded-lg overflow-hidden">
+                            <img src="https://yt3.googleusercontent.com/ytc/AIdro_mjMCGtI5elq9YXwwz7AA3IMESYqVnYwVYsyKXr0EENNBI=s900-c-k-c0x00ffffff-no-rj" 
+                                 alt="Bo Rodda" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-2/3 px-4 lg:px-0">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 text-center lg:text-left">Exploring the intersection of design, technology, and storytelling</h3>
+                    <p class="text-gray-300 mb-6 text-center lg:text-left">
+                        Bo Rodda is an internationally exhibited designer and co-founder of ChiLab Design Studio. His research and practice explore the intersection of design, emerging technology, game design and data-driven storytelling.
+                    </p>
+                    <p class="text-gray-300 mb-6 text-center lg:text-left">
+                        He leads cross-sector collaborations that bridge the arts, science, and innovation. His work has been supported by the NSF, Infosys, United Airlines, Wilson Sporting Goods, among many others. He engages audiences through both public exhibition and applied research.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gray-700 bg-opacity-50 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-teal-500 p-2 rounded-full mr-4">
+                                    <i class="fas fa-graduation-cap text-white"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-white">Education</h4>
+                            </div>
+                            <p class="text-gray-300">
+                                BFA, Rhode Island School of Design, Studio Arts | Painting
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gray-700 bg-opacity-50 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-purple-500 p-2 rounded-full mr-4">
+                                    <i class="fas fa-users text-white"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-white">Affiliations</h4>
+                            </div>
+                            <p class="text-gray-300">
+                                DVS, Data Visualization Society
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start">
+                        <a href="https://www.borodda.com/work" target="_blank" class="px-6 py-2 bg-teal-500 text-white font-bold rounded-full hover:bg-teal-600 transition text-center">
+                            View Research
+                        </a>
+                        <a href="https://www.linkedin.com/in/bo-rodda-3249a614/details/experience/" target="_blank" class="px-6 py-2 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-gray-900 transition text-center">
+                            View CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research & Projects Section -->
+    <section id="research" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4 pixel-font">Research & Projects</h2>
+                <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
+                <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+                    Groundbreaking work at the intersection of technology, design, and urban systems
+                </p>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="relative">
+                <div class="hidden md:block absolute left-1/2 w-1 h-full bg-gray-700 transform -translate-x-1/2"></div>
+                
+                <!-- Timeline Item 1 -->
+                <div class="mb-16 flex flex-col md:flex-row items-center justify-between timeline-item">
+                    <div class="w-full md:w-5/12 md:pr-8 md:text-right mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold text-white mb-2">
+                            <a href="https://www.borodda.com/work#/new-page/" target="_blank" class="hover:text-purple-400 transition">LakeSIM</a>
+                        </h3>
+                        <p class="text-gray-300 mb-4">
+                            <a href="https://www.borodda.com/work#/new-page/" target="_blank" class="hover:text-purple-300 transition">
+                                Urban Simulation and Planning Platform developed in collaboration with University of Chicago and Argonne National Laboratory.
+                            </a>
+                        </p>
+                        <a href="https://www.borodda.com/work#/new-page/" target="_blank" class="inline-block bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold hover:bg-purple-700 transition">
+                            2015 - Present
+                        </a>
+                    </div>
+                    <div class="hidden md:flex w-2/12 justify-center">
+                        <div class="relative">
+                            <div class="h-6 w-6 bg-purple-500 rounded-full"></div>
+                            <div class="absolute inset-0 animate-ping bg-purple-500 rounded-full opacity-75"></div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-5/12 md:pl-8">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                            <p class="text-gray-300">
+                                <a href="https://www.borodda.com/work#/new-page/" target="_blank" class="hover:text-purple-300 transition">
+                                    Lead architect of a data-driven tool designed to connect urban design concepts with scientific modeling. Funded in part by the NSF, and featured in ISOCARP Review.
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="mb-16 flex flex-col md:flex-row items-center justify-between timeline-item">
+                    <div class="w-full md:w-5/12 md:pr-8 md:text-right mb-6 md:mb-0 md:order-1">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                            <p class="text-gray-300">
+                                <a href="https://www.borodda.com/work#/energy-dashboard/" target="_blank" class="hover:text-teal-300 transition">
+                                    Senior personnel on a groundbreaking urban sensing project co-developed with Argonne National Laboratory and the University of Chicago.
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex w-2/12 justify-center md:order-2">
+                        <div class="relative">
+                            <div class="h-6 w-6 bg-teal-500 rounded-full"></div>
+                            <div class="absolute inset-0 animate-ping bg-teal-500 rounded-full opacity-75"></div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-5/12 md:pl-8 md:order-3">
+                        <h3 class="text-2xl font-bold text-white mb-2">
+                            <a href="https://www.borodda.com/work#/energy-dashboard/" target="_blank" class="hover:text-teal-400 transition">The Array of Things</a>
+                        </h3>
+                        <p class="text-gray-300 mb-4">
+                            <a href="https://www.borodda.com/work#/energy-dashboard/" target="_blank" class="hover:text-teal-300 transition">
+                                Contributed to sensor design, public engagement strategies, and educational workshops.
+                            </a>
+                        </p>
+                        <a href="https://www.borodda.com/work#/energy-dashboard/" target="_blank" class="inline-block bg-teal-600 text-white px-3 py-1 rounded-full text-sm font-bold hover:bg-teal-700 transition">
+                            2013 - 2017
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3 -->
+                <div class="mb-16 flex flex-col md:flex-row items-center justify-between timeline-item">
+                    <div class="w-full md:w-5/12 md:pr-8 md:text-right mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold text-white mb-2">
+                            <a href="https://www.borodda.com/work#/city-model-20-1/" target="_blank" class="hover:text-yellow-400 transition">Chicago City Model</a>
+                        </h3>
+                        <p class="text-gray-300 mb-4">
+                            <a href="https://www.borodda.com/work#/city-model-20-1/" target="_blank" class="hover:text-yellow-300 transition">
+                                Dynamic Data Projection Mapping for the Chicago Architecture Foundation's City of Big Data exhibition.
+                            </a>
+                        </p>
+                        <a href="https://www.borodda.com/work#/city-model-20-1/" target="_blank" class="inline-block bg-yellow-600 text-white px-3 py-1 rounded-full text-sm font-bold hover:bg-yellow-700 transition">
+                            2012 - 2014
+                        </a>
+                    </div>
+                    <div class="hidden md:flex w-2/12 justify-center">
+                        <div class="relative">
+                            <div class="h-6 w-6 bg-yellow-500 rounded-full"></div>
+                            <div class="absolute inset-0 animate-ping bg-yellow-500 rounded-full opacity-75"></div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-5/12 md:pl-8">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                            <p class="text-gray-300">
+                                <a href="https://www.borodda.com/work#/city-model-20-1/" target="_blank" class="hover:text-yellow-300 transition">
+                                    Created a projection system mapping real-time urban data onto a 3D model of the city, serving as technical advisor for the exhibition.
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Expertise Section -->
+            <div class="mt-24">
+                <h3 class="text-3xl font-bold text-white mb-8 text-center">Areas of Expertise</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
+                        <div class="text-purple-500 text-4xl mb-4">
+                            <i class="fas fa-vr-cardboard"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Experiential Media</h4>
+                        <p class="text-gray-300">
+                            Development and critical exploration of immersive media, AR/VR, physical computing, and sensor-based systems.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
+                        <div class="text-teal-500 text-4xl mb-4">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Human-Centered Design</h4>
+                        <p class="text-gray-300">
+                            Expertise in rapid prototyping, user experience design, and microcontroller-based development.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
+                        <div class="text-yellow-500 text-4xl mb-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Data Visualization</h4>
+                        <p class="text-gray-300">
+                            Design of data-driven tools and visual narratives for public understanding, planning, and civic engagement.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
+                        <div class="text-red-500 text-4xl mb-4">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Game Studies</h4>
+                        <p class="text-gray-300">
+                            Research and teaching at the intersection of interactive media, ludic systems, and cultural critique.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Appearances -->
+    <section class="py-16 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-12 text-center">Featured In</h3>
+            
+            <!-- Desktop Marquee -->
+            <div class="hidden md:block relative overflow-hidden">
+                <div class="flex marquee">
+                    <div class="flex-shrink-0 mx-8">
+                        <a href="https://www.nytimes.com/2013/05/23/garden/at-the-international-contemporary-furniture-fair-going-for-the-remix.html?_r=0#" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                        </a>
+                    </div>
+                    <div class="flex-shrink-0 mx-8">
+                        <a href="https://digital.modernluxury.com/publication/?i=216825&article_id=1758227&view=articleBrowser" target="_blank">
+                            <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                        </a>
+                    </div>
+                    <div class="flex-shrink-0 mx-8">
+                        <a href="https://www.researchgate.net/publication/281099639_Designing_Future_Cities_-_LakeSIM_Integrated_Design_Tool_For_Assessing_Short-_and_Long-Term_Impacts_of_Urban_Scale_Conceptual_Designs" target="_blank">
+                            <img src="https://c5.rgstatic.net/m/419438641133902/images/icons/svgicons/new-index-logo.svg" alt="ResearchGate" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                        </a>
+                    </div>
+                    <div class="flex-shrink-0 mx-8">
+                        <a href="https://www.architectmagazine.com/design/these-collectives-made-it-work-at-wanteddesign-2014_o" target="_blank">
+                            <img src="https://cdnassets.hw.net/ca/e1/2ee6b6a64149a76c3ccaff7c5689/architect.png" alt="Architect Magazine" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                        </a>
+                    </div>
+                    <div class="flex-shrink-0 mx-8">
+                        <a href="https://digital.modernluxury.com/publication/?i=216825&article_id=1758227&view=articleBrowser" target="_blank">
+                            <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                        </a>
+                    </div>
+                    <div class="flex-shrink-0 mx-8">
+                        <a href="https://www.nytimes.com/2013/05/23/garden/at-the-international-contemporary-furniture-fair-going-for-the-remix.html?_r=0#" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Grid -->
+            <div class="md:hidden grid grid-cols-2 gap-6 max-w-md mx-auto">
+                <a href="https://www.nytimes.com/2013/05/23/garden/at-the-international-contemporary-furniture-fair-going-for-the-remix.html?_r=0#" target="_blank" class="bg-gray-700 bg-opacity-50 p-4 rounded-lg flex items-center justify-center hover:bg-opacity-70 transition">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-8 w-auto max-w-full object-contain opacity-90">
+                </a>
+                <a href="https://digital.modernluxury.com/publication/?i=216825&article_id=1758227&view=articleBrowser" target="_blank" class="bg-gray-700 bg-opacity-50 p-4 rounded-lg flex items-center justify-center hover:bg-opacity-70 transition">
+                    <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-8 w-auto max-w-full object-contain opacity-90">
+                </a>
+                <a href="https://www.researchgate.net/publication/281099639_Designing_Future_Cities_-_LakeSIM_Integrated_Design_Tool_For_Assessing_Short-_and_Long-Term_Impacts_of_Urban_Scale_Conceptual_Designs" target="_blank" class="bg-gray-700 bg-opacity-50 p-4 rounded-lg flex items-center justify-center hover:bg-opacity-70 transition">
+                    <img src="https://c5.rgstatic.net/m/419438641133902/images/icons/svgicons/new-index-logo.svg" alt="ResearchGate" class="h-8 w-auto max-w-full object-contain opacity-90">
+                </a>
+                <a href="https://www.architectmagazine.com/design/these-collectives-made-it-work-at-wanteddesign-2014_o" target="_blank" class="bg-gray-700 bg-opacity-50 p-4 rounded-lg flex items-center justify-center hover:bg-opacity-70 transition">
+                    <img src="https://cdnassets.hw.net/ca/e1/2ee6b6a64149a76c3ccaff7c5689/architect.png" alt="Architect Magazine" class="h-8 w-auto max-w-full object-contain opacity-90">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4 pixel-font">Get In Touch</h2>
+                <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
+                <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+                    Interested in collaborations, research opportunities, or just want to chat about games?
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-500">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-500">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Subject</label>
+                            <select id="subject" name="subject" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
+                                <option>Game Development</option>
+                                <option>Research Collaboration</option>
+                                <option>Speaking Engagement</option>
+                                <option>Educational Partnership</option>
+                                <option>Media Inquiry</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-500" placeholder="Tell me about your project or inquiry..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg transition duration-300 transform hover:scale-105">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-800 p-8 rounded-xl h-full">
+                        <h3 class="text-2xl font-bold text-white mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-purple-500 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white mb-1">Location</h4>
+                                    <p class="text-gray-300">Illinois Institute of Technology, Chicago</p>
+                                    <p class="text-gray-400 text-sm">Institute of Design</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-teal-500 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white mb-1">Email</h4>
+                                    <p class="text-gray-300">wrodda@kaplan.iit.edu</p>
+                                    <p class="text-gray-400 text-sm">Academic inquiries welcome</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-yellow-500 p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white mb-1">Office Hours</h4>
+                                    <p class="text-gray-300">By appointment</p>
+                                    <p class="text-gray-400 text-sm">Usually respond within 24 hours</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12">
+                            <h4 class="text-lg font-bold text-white mb-4">Connect on Social Media</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://x.com/b0rodda" target="_blank" class="bg-gray-700 hover:bg-blue-600 text-white p-3 rounded-full transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/bo-rodda-3249a614/" target="_blank" class="bg-gray-700 hover:bg-blue-800 text-white p-3 rounded-full transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://www.instagram.com/b0rodda/" target="_blank" class="bg-gray-700 hover:bg-purple-600 text-white p-3 rounded-full transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.youtube.com/@BoRodda" target="_blank" class="bg-gray-700 hover:bg-red-600 text-white p-3 rounded-full transition">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="https://github.com/borodda" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white p-3 rounded-full transition">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Quick Contact Stats -->
+                        <div class="mt-8 p-4 bg-gray-700 bg-opacity-50 rounded-lg">
+                            <h5 class="text-white font-bold mb-2">Quick Stats</h5>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <span class="text-purple-400">Response Rate:</span>
+                                    <span class="text-white block">98%</span>
+                                </div>
+                                <div>
+                                    <span class="text-teal-400">Avg. Response:</span>
+                                    <span class="text-white block">< 24 hrs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-2xl font-bold text-white pixel-font">GamingwithBo</span>
+                    <p class="text-gray-400 mt-2">Exploring the future of game design and technology</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
+                    <div>
+                        <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Navigation</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-300 hover:text-white transition">Home</a></li>
+                            <li><a href="#games" class="text-gray-300 hover:text-white transition">Games</a></li>
+                            <li><a href="#arcade-classics" class="text-gray-300 hover:text-white transition">Arcade</a></li>
+                            <li><a href="#about" class="text-gray-300 hover:text-white transition">About</a></li>
+                            <li><a href="#research" class="text-gray-300 hover:text-white transition">Research</a></li>
+                            <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Legal</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-300 hover:text-white transition">Privacy Policy</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition">Terms of Service</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2025 GamingwithBo. All rights reserved.
+                </p>
+                
+                <div class="mt-4 md:mt-0">
+                    <p class="text-gray-400 text-sm">
+                        Made with <i class="fas fa-heart text-red-500"></i> by ChiLab
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Gaming Preferences Quiz Modal -->
+    <div id="quizModal" class="quiz-modal">
+        <div class="quiz-content">
+            <span class="quiz-close" onclick="closeQuiz()">&times;</span>
+            
+            <div class="quiz-header">
+                <h2 class="text-2xl font-bold pixel-font">🎮 Gaming Preferences Quiz</h2>
+                <p class="mt-2 opacity-90">Help us understand what type of games you love!</p>
+            </div>
+            
+            <div class="quiz-body">
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar" id="progressBar"></div>
+                </div>
+                
+                <!-- Question 1 -->
+                <div class="quiz-question active" data-question="1">
+                    <h3 class="text-xl font-bold mb-6">What's your favorite gaming platform?</h3>
+                    <div class="quiz-option" onclick="selectOption(this, 'pc')">
+                        <input type="radio" name="platform" value="pc">
+                        <div>
+                            <strong>🖥️ PC/Desktop</strong>
+                            <p class="text-sm opacity-80">High-end graphics, complex controls, modding community</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'mobile')">
+                        <input type="radio" name="platform" value="mobile">
+                        <div>
+                            <strong>📱 Mobile/Tablet</strong>
+                            <p class="text-sm opacity-80">Portable, touch controls, quick sessions</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'console')">
+                        <input type="radio" name="platform" value="console">
+                        <div>
+                            <strong>🎮 Console</strong>
+                            <p class="text-sm opacity-80">Couch gaming, exclusive titles, controller precision</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'vr')">
+                        <input type="radio" name="platform" value="vr">
+                        <div>
+                            <strong>🥽 VR/AR</strong>
+                            <p class="text-sm opacity-80">Immersive experiences, motion controls, presence</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="quiz-question" data-question="2">
+                    <h3 class="text-xl font-bold mb-6">What type of game experience do you prefer?</h3>
+                    <div class="quiz-option" onclick="selectOption(this, 'educational')">
+                        <input type="radio" name="experience" value="educational">
+                        <div>
+                            <strong>🎓 Educational & Learning</strong>
+                            <p class="text-sm opacity-80">Learn new skills, scientific concepts, real-world knowledge</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'narrative')">
+                        <input type="radio" name="experience" value="narrative">
+                        <div>
+                            <strong>📖 Story-Driven</strong>
+                            <p class="text-sm opacity-80">Rich narratives, character development, emotional journeys</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'competitive')">
+                        <input type="radio" name="experience" value="competitive">
+                        <div>
+                            <strong>🏆 Competitive & Challenging</strong>
+                            <p class="text-sm opacity-80">Skill-based gameplay, leaderboards, mastery</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'social')">
+                        <input type="radio" name="experience" value="social">
+                        <div>
+                            <strong>👥 Social & Collaborative</strong>
+                            <p class="text-sm opacity-80">Multiplayer, team building, community-driven</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="quiz-question" data-question="3">
+                    <h3 class="text-xl font-bold mb-6">How much time do you typically spend gaming?</h3>
+                    <div class="quiz-option" onclick="selectOption(this, 'casual')">
+                        <input type="radio" name="time" value="casual">
+                        <div>
+                            <strong>⏰ 15-30 minutes</strong>
+                            <p class="text-sm opacity-80">Quick sessions, bite-sized content</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'moderate')">
+                        <input type="radio" name="time" value="moderate">
+                        <div>
+                            <strong>🕐 1-2 hours</strong>
+                            <p class="text-sm opacity-80">Regular gaming sessions, deeper gameplay</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'dedicated')">
+                        <input type="radio" name="time" value="dedicated">
+                        <div>
+                            <strong>🕒 2+ hours</strong>
+                            <p class="text-sm opacity-80">Long sessions, complex games, immersive worlds</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'variable')">
+                        <input type="radio" name="time" value="variable">
+                        <div>
+                            <strong>🔄 It varies</strong>
+                            <p class="text-sm opacity-80">Depends on the game and my schedule</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="quiz-question" data-question="4">
+                    <h3 class="text-xl font-bold mb-6">What themes interest you most in games?</h3>
+                    <div class="quiz-option" onclick="selectOption(this, 'science')">
+                        <input type="radio" name="theme" value="science">
+                        <div>
+                            <strong>🔬 Science & Technology</strong>
+                            <p class="text-sm opacity-80">AI, space exploration, scientific discovery</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'environment')">
+                        <input type="radio" name="theme" value="environment">
+                        <div>
+                            <strong>🌱 Environment & Sustainability</strong>
+                            <p class="text-sm opacity-80">Climate change, ecology, green technology</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'urban')">
+                        <input type="radio" name="theme" value="urban">
+                        <div>
+                            <strong>🏙️ Urban Planning & Society</strong>
+                            <p class="text-sm opacity-80">City building, social systems, data visualization</p>
+                        </div>
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(this, 'fantasy')">
+                        <input type="radio" name="theme" value="fantasy">
+                        <div>
+                            <strong>✨ Fantasy & Adventure</strong>
+                            <p class="text-sm opacity-80">Magic, exploration, fictional worlds</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div class="quiz-results" id="quizResults">
+                    <h3 class="text-2xl font-bold mb-6">🎉 Your Perfect Game Match!</h3>
+                    <div id="gameRecommendation" class="game-recommendation">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                    <p class="mt-6 text-center opacity-80">
+                        Thank you for taking our quiz! Your preferences help us understand our gaming community better.
+                    </p>
+                    <div class="mt-6 text-center">
+                        <button class="quiz-btn quiz-btn-primary" onclick="restartQuiz()">
+                            Take Quiz Again
+                        </button>
+                    </div>
+                </div>
+
+                <div class="quiz-buttons">
+                    <button class="quiz-btn quiz-btn-secondary" id="prevBtn" onclick="prevQuestion()">Previous</button>
+                    <button class="quiz-btn quiz-btn-primary" id="nextBtn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Snake Game Modal -->
+    <div id="snakeModal" class="snake-modal">
+        <div class="snake-content">
+            <span class="snake-close" onclick="closeSnakeGame()">&times;</span>
+            
+            <div class="text-center mb-6">
+                <h1 class="text-4xl mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 pixel-font">
+                    NEON SNAKE
+                </h1>
+                <div class="text-xl text-green-400 font-mono">
+                    SCORE: <span id="snake-score">0</span> | HIGH: <span id="snake-high-score">0</span>
+                </div>
+            </div>
+            
+            <div class="snake-game-container">
+                <canvas id="snake-canvas"></canvas>
+                <div class="snake-grid-lines"></div>
+            </div>
+            
+            <div class="flex justify-center mt-6 gap-4 flex-wrap">
+                <button id="snake-start-btn" class="snake-btn">
+                    <i class="fas fa-play mr-2"></i> START
+                </button>
+                <button id="snake-pause-btn" class="snake-btn" disabled>
+                    <i class="fas fa-pause mr-2"></i> PAUSE
+                </button>
+                <button id="snake-restart-btn" class="snake-btn">
+                    <i class="fas fa-redo mr-2"></i> RESTART
+                </button>
+            </div>
+            
+            <div class="text-center mt-4 text-sm text-gray-400">
+                Use arrow keys or swipe to control
+            </div>
+            
+            <!-- Game Over Modal -->
+            <div id="snake-game-over-modal" class="snake-game-over-modal">
+                <div class="snake-game-over-title">GAME OVER!</div>
+                <h2 class="text-2xl mb-4 text-green-400">Your Score: <span id="snake-final-score">0</span></h2>
+                <p class="text-white mb-4">Try again to beat your high score!</p>
+                <button id="snake-play-again-btn" class="snake-btn">
+                    <i class="fas fa-gamepad mr-2"></i> PLAY AGAIN
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Asteroids Game Modal -->
+    <div id="asteroidsModal" class="asteroids-modal">
+        <div class="asteroids-content">
+            <span class="asteroids-close" onclick="closeAsteroidsGame()">&times;</span>
+            
+            <div id="asteroids-game-header">
+                <h1>ASTEROIDS</h1>
+            </div>
+            
+            <div id="asteroids-game-container">
+                <canvas id="asteroids-canvas"></canvas>
+                
+                <div id="asteroids-ui">
+                    <div id="asteroids-score-display">SCORE: <span id="asteroids-score">0</span></div>
+                    <div id="asteroids-lives-display">LIVES: <span id="asteroids-lives">3</span></div>
+                </div>
+                
+                <div id="asteroids-controls">
+                    <div class="control-group">
+                        <div>SHIP CONTROLS:</div>
+                        <div><span class="key">←</span> Rotate Left</div>
+                        <div><span class="key">→</span> Rotate Right</div>
+                        <div><span class="key">↑</span> Thrust</div>
+                    </div>
+                    <div class="control-group">
+                        <div>WEAPONS:</div>
+                        <div><span class="key space">SPACE</span> Fire</div>
+                    </div>
+                </div>
+                
+                <div id="asteroids-mobile-controls">
+                    <div class="mobile-btn" id="asteroids-left-btn">←</div>
+                    <div class="mobile-btn" id="asteroids-up-btn">↑</div>
+                    <div class="mobile-btn" id="asteroids-right-btn">→</div>
+                    <div class="mobile-btn" id="asteroids-fire-btn">FIRE</div>
+                </div>
+                
+                <div id="asteroids-game-over">
+                    <h2>GAME OVER</h2>
+                    <div id="asteroids-final-score">FINAL SCORE: <span id="asteroids-end-score">0</span></div>
+                    <button id="asteroids-restart">PLAY AGAIN</button>
+                </div>
+                
+                <div id="asteroids-start-screen">
+                    <h1>ASTEROIDS ARCADE</h1>
+                    <p>Navigate your spaceship through an asteroid field. Destroy asteroids to earn points, but be careful - hitting them will cost you a life!</p>
+                    <button id="asteroids-start-btn">START GAME</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cyberpunk Tetris Game Modal -->
+    <div id="tetrisModal" class="tetris-modal">
+        <div class="tetris-content">
+            <span class="tetris-close" onclick="closeTetrisGame()">&times;</span>
+            
+            <!-- Tetris scanlines effect -->
+            <div class="tetris-scanline"></div>
+            
+            <!-- Main game container -->
+            <div class="tetris-game-container">
+                <!-- Left panel with info -->
+                <div class="tetris-neon-border-blue bg-black bg-opacity-70 p-6 rounded-lg w-64 flex flex-col justify-between">
+                    <div>
+                        <h1 class="tetris-glitch text-3xl mb-6 text-center tetris-neon-text-blue" data-text="CYBER TETRIS">CYBER TETRIS</h1>
+                        <div class="mb-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="tetris-neon-text-pink">SCORE:</span>
+                                <span id="tetris-score" class="tetris-neon-text-blue">0</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="tetris-neon-text-pink">LEVEL:</span>
+                                <span id="tetris-level" class="tetris-neon-text-blue">1</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="tetris-neon-text-pink">LINES:</span>
+                                <span id="tetris-lines" class="tetris-neon-text-blue">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="tetris-neon-text-pink text-lg mb-2">CONTROLS:</h3>
+                        <ul class="space-y-1 text-sm">
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-left mr-2"></i> <span>Move Left</span></li>
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-right mr-2"></i> <span>Move Right</span></li>
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-down mr-2"></i> <span>Soft Drop</span></li>
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-up mr-2"></i> <span>Rotate</span></li>
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-space-shuttle mr-2"></i> <span>Hard Drop</span></li>
+                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-pause mr-2"></i> <span>Pause (P)</span></li>
+                        </ul>
+                    </div>
+                    
+                    <button id="tetris-start-btn" class="tetris-neon-border-pink tetris-neon-text-pink hover:bg-pink-900 hover:bg-opacity-30 py-2 px-4 rounded-md transition-all duration-300 tetris-glow">
+                        START GAME
+                    </button>
+                </div>
+                
+                <!-- Game field -->
+                <div class="tetris-grid-container">
+                    <div id="tetris-grid" class="tetris-neon-border-blue bg-black bg-opacity-70"></div>
+                    
+                    <!-- Mobile Controls -->
+                    <div class="tetris-mobile-controls">
+                        <!-- Left side controls -->
+                        <div class="tetris-mobile-left">
+                            <div class="tetris-mobile-btn" id="tetris-left-btn">←</div>
+                            <div class="tetris-mobile-btn" id="tetris-right-btn">→</div>
+                            <div class="tetris-mobile-btn" id="tetris-down-btn">↓</div>
+                        </div>
+                        
+                        <!-- Right side controls -->
+                        <div class="tetris-mobile-right">
+                            <div class="tetris-mobile-btn" id="tetris-rotate-btn">↻</div>
+                            <div class="tetris-mobile-btn tall" id="tetris-drop-btn">DROP</div>
+                            <div class="tetris-mobile-btn" id="tetris-pause-btn">⏸</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pause overlay -->
+                    <div id="tetris-pause-overlay" class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center hidden">
+                        <h2 class="tetris-neon-text-pink text-4xl mb-6">PAUSED</h2>
+                        <button id="tetris-continue-btn" class="tetris-neon-border-blue tetris-neon-text-blue hover:bg-blue-900 hover:bg-opacity-30 py-2 px-6 rounded-md transition-all duration-300">
+                            CONTINUE
+                        </button>
+                    </div>
+                    
+                    <!-- Game Over overlay -->
+                    <div id="tetris-game-over-overlay" class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center hidden">
+                        <h2 class="tetris-neon-text-pink text-4xl mb-4 tetris-glitch" data-text="GAME OVER">GAME OVER</h2>
+                        <p class="tetris-neon-text-blue mb-6">SCORE: <span id="tetris-final-score">0</span></p>
+                        <button id="tetris-play-again-btn" class="tetris-neon-border-blue tetris-neon-text-blue hover:bg-blue-900 hover:bg-opacity-30 py-2 px-6 rounded-md transition-all duration-300">
+                            PLAY AGAIN
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Next piece panel -->
+                <div class="tetris-neon-border-blue bg-black bg-opacity-70 p-4 rounded-lg w-32 flex flex-col items-center">
+                    <h3 class="tetris-neon-text-pink text-lg mb-2">NEXT:</h3>
+                    <div id="tetris-next-piece"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript Functions -->
     <script>
@@ -1791,6 +3114,10 @@
                 CANVAS_WIDTH = Math.floor(CANVAS_WIDTH / GRID_SIZE) * GRID_SIZE;
                 CANVAS_HEIGHT = Math.floor(CANVAS_HEIGHT / GRID_SIZE) * GRID_SIZE;
                 
+                // Ensure minimum playable area
+                if (CANVAS_WIDTH < GRID_SIZE * 10) CANVAS_WIDTH = GRID_SIZE * 10;
+                if (CANVAS_HEIGHT < GRID_SIZE * 10) CANVAS_HEIGHT = GRID_SIZE * 10;
+                
                 canvas.width = CANVAS_WIDTH;
                 canvas.height = CANVAS_HEIGHT;
                 canvas.style.width = CANVAS_WIDTH + 'px';
@@ -1955,7 +3282,7 @@
                 head.x += direction.x * GRID_SIZE;
                 head.y += direction.y * GRID_SIZE;
                 
-                // Check wall collision
+                // Check wall collision - use grid-based collision
                 if (head.x < 0 || head.x >= CANVAS_WIDTH || head.y < 0 || head.y >= CANVAS_HEIGHT) {
                     endGame();
                     return;
@@ -3040,22 +4367,6 @@
                 }
             }
             
-            // Merge piece
-            function mergePiece() {
-                for (let r = 0; r < piece.shape.length; r++) {
-                    for (let c = 0; c < piece.shape[r].length; c++) {
-                        if (piece.shape[r][c]) {
-                            const gridRow = piece.y + r;
-                            const gridCol = piece.x + c;
-                            
-                            if (gridRow >= 0 && gridRow < ROWS && gridCol >= 0 && gridCol < COLS) {
-                                grid[gridRow][gridCol] = piece.type + 1;
-                            }
-                        }
-                    }
-                }
-            }
-            
             // Rotate piece
             function rotate() {
                 if (!piece || isGameOver || isPaused) return;
@@ -3353,6 +4664,112 @@
             };
         }
 
+        // Enhanced search functionality
+        function performSearch(searchTerm) {
+            if (!searchTerm) return;
+            
+            const searchLower = searchTerm.toLowerCase();
+            
+            const searchMappings = {
+                'game': '#games',
+                'games': '#games',
+                'featured': '#games',
+                'arcade': '#arcade-classics',
+                'classic': '#arcade-classics',
+                'asteroids': '#arcade-classics',
+                'snake': '#arcade-classics',
+                'neon snake': '#arcade-classics',
+                'tetris': '#arcade-classics',
+                'cyberpunk': '#arcade-classics',
+                'cyberpunk tetris': '#arcade-classics',
+                'puzzle': '#games',
+                'data city': '#games',
+                'quantum': '#games',
+                'eco balance': '#games',
+                'neural network': '#games',
+                'climate': '#games',
+                'memory palace': '#games',
+                'research': '#research',
+                'lakesim': '#research',
+                'array of things': '#research',
+                'about': '#about',
+                'contact': '#contact',
+                'bo rodda': '#about',
+                'professor': '#about'
+            };
+            
+            let targetSection = null;
+            for (const [key, section] of Object.entries(searchMappings)) {
+                if (searchLower.includes(key)) {
+                    targetSection = section;
+                    break;
+                }
+            }
+            
+            if (targetSection) {
+                document.querySelector(targetSection).scrollIntoView({ behavior: 'smooth' });
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            } else {
+                alert(`No results found for "${searchTerm}". Try searching for: games, arcade classics, research, about, or contact.`);
+            }
+        }
+
+        // Search functionality
+        function setupSearch() {
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            const mobileSearchInput = document.getElementById('mobile-search-input');
+            
+            // Desktop search
+            if (searchInput) {
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        performSearch(searchInput.value);
+                        searchInput.value = '';
+                    }
+                });
+            }
+            
+            if (searchButton) {
+                searchButton.addEventListener('click', () => {
+                    if (searchInput && searchInput.value) {
+                        performSearch(searchInput.value);
+                        searchInput.value = '';
+                    } else {
+                        searchInput.focus();
+                    }
+                });
+            }
+            
+            // Mobile search
+            if (mobileSearchInput) {
+                mobileSearchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        performSearch(mobileSearchInput.value);
+                        mobileSearchInput.value = '';
+                    }
+                });
+            }
+        }
+
+        // Toggle all games visibility
+        function toggleAllGames() {
+            const additionalGames = document.getElementById('additional-games');
+            const button = document.getElementById('view-all-games-btn');
+            
+            if (additionalGames.classList.contains('hidden')) {
+                additionalGames.classList.remove('hidden');
+                button.textContent = 'Show Less Games';
+            } else {
+                additionalGames.classList.add('hidden');
+                button.textContent = 'View All Games';
+            }
+        }
+
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -3363,54 +4780,8 @@
             });
         }
 
-        // Search functionality
-        const searchButton = document.getElementById('search-button');
-        if (searchButton) {
-            searchButton.addEventListener('click', () => {
-                const searchTerm = prompt('Search for games, research, or content:');
-                if (searchTerm) {
-                    const searchLower = searchTerm.toLowerCase();
-                    
-                    const searchMappings = {
-                        'game': '#games',
-                        'games': '#games',
-                        'asteroids': '#games',
-                        'snake': '#games',
-                        'neon snake': '#games',
-                        'tetris': '#games',
-                        'cyberpunk': '#games',
-                        'puzzle': '#games',
-                        'data city': '#games',
-                        'quantum': '#games',
-                        'eco balance': '#games',
-                        'neural network': '#games',
-                        'climate': '#games',
-                        'memory palace': '#games',
-                        'research': '#research',
-                        'lakesim': '#research',
-                        'array of things': '#research',
-                        'about': '#about',
-                        'contact': '#contact',
-                        'bo rodda': '#about',
-                        'professor': '#about'
-                    };
-                    
-                    let targetSection = null;
-                    for (const [key, section] of Object.entries(searchMappings)) {
-                        if (searchLower.includes(key)) {
-                            targetSection = section;
-                            break;
-                        }
-                    }
-                    
-                    if (targetSection) {
-                        document.querySelector(targetSection).scrollIntoView({ behavior: 'smooth' });
-                    } else {
-                        alert(`No results found for "${searchTerm}". Try searching for: games, research, about, or contact.`);
-                    }
-                }
-            });
-        }
+        // Initialize search functionality when page loads
+        document.addEventListener('DOMContentLoaded', setupSearch);
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -3526,1294 +4897,3 @@
     </script>
 </body>
 </html>
-                    <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-4">
-                            <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">Home</a>
-                            <a href="#games" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">Games</a>
-                            <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">About Bo</a>
-                            <a href="#research" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">Research</a>
-                            <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition">Contact</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-4 flex items-center md:ml-6">
-                        <button id="search-button" class="p-1 rounded-full text-gray-400 hover:text-white focus:outline-none">
-                            <span class="sr-only">Search</span>
-                            <i class="fas fa-search h-6 w-6"></i>
-                        </button>
-                        <a href="https://www.borodda.com/" target="_blank" class="ml-3 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none">
-                            <span class="sr-only">Profile</span>
-                            <i class="fas fa-user-circle h-6 w-6"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="-mr-2 flex md:hidden">
-                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
-                        <span class="sr-only">Open main menu</span>
-                        <i class="fas fa-bars h-6 w-6"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Home</a>
-                <a href="#games" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Games</a>
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">About Bo</a>
-                <a href="#research" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Research</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Contact</a>
-            </div>
-            <div class="pt-4 pb-3 border-t border-gray-700">
-                <div class="flex items-center px-5">
-                    <button class="ml-auto flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none" onclick="document.getElementById('search-button').click()">
-                        <span class="sr-only">Search</span>
-                        <i class="fas fa-search h-6 w-6"></i>
-                    </button>
-                    <a href="https://www.borodda.com/" target="_blank" class="ml-3 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none">
-                        <span class="sr-only">Profile</span>
-                        <i class="fas fa-user-circle h-6 w-6"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="absolute top-0 left-0 w-full h-full">
-            <div class="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-10"></div>
-        </div>
-        
-        <!-- Space Invaders Background -->
-        <div class="space-invaders">
-            <!-- Row 1 - Top -->
-            <div class="invader invader-type-1" style="top: 10%;"></div>
-            <div class="invader invader-type-2" style="top: 15%;"></div>
-            <div class="invader invader-type-3" style="top: 12%;"></div>
-            <div class="invader invader-type-1 reverse" style="top: 18%;"></div>
-            <div class="invader invader-type-2" style="top: 8%;"></div>
-            
-            <!-- Row 2 - Upper Middle -->
-            <div class="invader invader-type-2" style="top: 25%;"></div>
-            <div class="invader invader-type-3 reverse" style="top: 30%;"></div>
-            <div class="invader invader-type-1" style="top: 28%;"></div>
-            <div class="invader invader-type-2" style="top: 22%;"></div>
-            <div class="invader invader-type-3" style="top: 35%;"></div>
-            
-            <!-- Row 3 - Middle -->
-            <div class="invader invader-type-3" style="top: 45%;"></div>
-            <div class="invader invader-type-1 reverse" style="top: 42%;"></div>
-            <div class="invader invader-type-2" style="top: 48%;"></div>
-            <div class="invader invader-type-3" style="top: 40%;"></div>
-            <div class="invader invader-type-1" style="top: 52%;"></div>
-            
-            <!-- Row 4 - Lower Middle -->
-            <div class="invader invader-type-1" style="top: 58%;"></div>
-            <div class="invader invader-type-2 reverse" style="top: 62%;"></div>
-            <div class="invader invader-type-3" style="top: 65%;"></div>
-            <div class="invader invader-type-1" style="top: 60%;"></div>
-            <div class="invader invader-type-2" style="top: 68%;"></div>
-            
-            <!-- Row 5 - Bottom -->
-            <div class="invader invader-type-2" style="top: 75%;"></div>
-            <div class="invader invader-type-3 reverse" style="top: 78%;"></div>
-            <div class="invader invader-type-1" style="top: 85%;"></div>
-            <div class="invader invader-type-2" style="top: 82%;"></div>
-            <div class="invader invader-type-3" style="top: 88%;"></div>
-            <div class="invader invader-type-1 reverse" style="top: 90%;"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10 text-center">
-            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white glow pixel-font">
-                Gaming<span class="text-yellow-300">with</span>Bo
-            </h1>
-            <p class="text-lg sm:text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto px-4">
-                Exploring the intersection of game design, emerging technology, and data-driven storytelling through niche independent games.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4 px-4">
-                <a href="#games" class="px-6 sm:px-8 py-3 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-105">
-                    Explore Games
-                </a>
-                <a href="#about" class="px-6 sm:px-8 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-gray-900 transition duration-300 transform hover:scale-105">
-                    About Bo
-                </a>
-            </div>
-            
-            <div class="mt-16 px-4">
-                <div class="typewriter-container">
-                    <!-- Mobile version - just first line -->
-                    <div class="typewriter block sm:hidden text-sm text-white font-mono">
-                        Assistant Professor of Experiential Media and Design
-                    </div>
-                    <!-- Desktop version - full text -->
-                    <div class="typewriter hidden sm:block text-xl md:text-2xl text-white font-mono">
-                        Assistant Professor of Experiential Media and Design at Illinois Tech
-                    </div>
-                </div>
-            </div>
-            
-            <div class="absolute bottom-10 left-0 right-0 flex justify-center">
-                <a href="#games" class="text-white animate-bounce">
-                    <i class="fas fa-chevron-down text-3xl"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Games Section -->
-    <section id="games" class="py-20 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4 pixel-font">Featured Games</h2>
-                <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
-                <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
-                    Experimental games that push boundaries of storytelling and interaction
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Cyberpunk Tetris Game Card -->
-                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/06/screenshot-2025-06-02-at-10.32.17e280afpm.jpg" 
-                             alt="Cyberpunk Tetris" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            PLAYABLE
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-white mb-2">Cyberpunk Tetris</h3>
-                        <p class="text-gray-300 mb-4">
-                            Experience the classic puzzle game with a futuristic cyberpunk aesthetic. Stack falling blocks with glowing neon effects and CRT-style scanlines.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Puzzle</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Cyberpunk</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Classic</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <button type="button" onclick="openTetrisGame()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
-                                Play Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Neon Snake Game Card -->
-                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/06/screenshot-2025-06-02-at-11.02.47e280afpm.jpg" 
-                             alt="Neon Snake" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            PLAYABLE
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-white mb-2">Neon Snake</h3>
-                        <p class="text-gray-300 mb-4">
-                            Experience the classic Snake game with stunning neon visuals and particle effects. Control your growing snake to collect food while avoiding collisions.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Arcade</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Neon</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Classic</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <button type="button" onclick="openSnakeGame()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
-                                Play Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Asteroids Game Card -->
-                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/asteroids.jpg" 
-                             alt="Asteroids Arcade" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            PLAYABLE
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-white mb-2">Asteroids Arcade</h3>
-                        <p class="text-gray-300 mb-4">
-                            Classic space shooter reimagined. Navigate through asteroid fields, destroy space rocks, and survive as long as possible in this retro arcade experience.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Arcade</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Retro</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Action</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <button type="button" onclick="openAsteroidsGame()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
-                                Play Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Game Card 1 -->
-                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/datacitysim-1-e1748201517252.png" 
-                             alt="Data City Sim" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            NEW
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-white mb-2">Data City Sim</h3>
-                        <p class="text-gray-300 mb-4">
-                            A city builder where every decision is driven by real urban data. Experience the complexity of urban planning.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Simulation</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Educational</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Data-Driven</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
-                                Play Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Game Card 2 -->
-                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/quantumexplorer-e1748201614720.png" 
-                             alt="Quantum Explorer" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-white mb-2">Quantum Explorer</h3>
-                        <p class="text-gray-300 mb-4">
-                            Navigate through quantum dimensions where your choices create parallel universes with different outcomes.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Adventure</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Sci-Fi</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Narrative</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
-                                Play Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Game Card 3 -->
-                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/ecobalance.png" 
-                             alt="Eco Balance" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            FREE
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-white mb-2">Eco Balance</h3>
-                        <p class="text-gray-300 mb-4">
-                            A strategy game about maintaining ecological balance while developing a sustainable civilization.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Strategy</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Sustainability</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Resource Mgmt</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
-                                Play Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Game Card 4 - New -->
-                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/neuralnetworkbuilder-e1748200104726.png" 
-                             alt="Neural Network Builder" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            BETA
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-white mb-2">Neural Network Builder</h3>
-                        <p class="text-gray-300 mb-4">
-                            Design and train AI systems through an intuitive visual interface. Learn machine learning concepts through play.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Educational</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">AI/ML</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Puzzle</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
-                                Play Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Game Card 5 - New -->
-                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://artisanalmetals.wordpress.com/wp-content/uploads/2025/05/climatecrisischronicles.png" 
-                             alt="Climate Crisis Chronicles" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            FEATURED
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-white mb-2">Climate Crisis Chronicles</h3>
-                        <p class="text-gray-300 mb-4">
-                            Experience climate change scenarios through interactive storytelling and scientific simulation.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Interactive Fiction</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Science</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Social Impact</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
-                                Play Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Game Card 6 - New -->
-                <div class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-500">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="Memory Palace VR" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            VR
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-white mb-2">Memory Palace VR</h3>
-                        <p class="text-gray-300 mb-4">
-                            Build and explore virtual memory palaces to enhance learning and cognitive abilities through spatial memory techniques.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">VR</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Cognitive</span>
-                            <span class="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs">Learning</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <button type="button" onclick="openQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
-                                Play Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-16">
-                <button class="px-8 py-3 border-2 border-purple-500 text-purple-500 font-bold rounded-full hover:bg-purple-500 hover:text-white transition duration-300 transform hover:scale-105">
-                    View All Games
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Bo Section -->
-    <section id="about" class="py-20 bg-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4 pixel-font">About Bo Rodda</h2>
-                <div class="w-24 h-1 bg-teal-400 mx-auto"></div>
-                <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
-                    Assistant Professor of Experiential Media and Design at Illinois Tech
-                </p>
-            </div>
-            
-            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-                <div class="w-full lg:w-1/3 flex justify-center">
-                    <div class="relative group max-w-sm">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-teal-400 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-                        <div class="relative bg-gray-900 rounded-lg overflow-hidden">
-                            <img src="https://yt3.googleusercontent.com/ytc/AIdro_mjMCGtI5elq9YXwwz7AA3IMESYqVnYwVYsyKXr0EENNBI=s900-c-k-c0x00ffffff-no-rj" 
-                                 alt="Bo Rodda" class="w-full h-auto object-cover">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="w-full lg:w-2/3 px-4 lg:px-0">
-                    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 text-center lg:text-left">Exploring the intersection of design, technology, and storytelling</h3>
-                    <p class="text-gray-300 mb-6 text-center lg:text-left">
-                        Bo Rodda is an internationally exhibited designer and co-founder of ChiLab Design Studio. His research and practice explore the intersection of design, emerging technology, game design and data-driven storytelling.
-                    </p>
-                    <p class="text-gray-300 mb-6 text-center lg:text-left">
-                        He leads cross-sector collaborations that bridge the arts, science, and innovation. His work has been supported by the NSF, Infosys, United Airlines, Wilson Sporting Goods, among many others. He engages audiences through both public exhibition and applied research.
-                    </p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-gray-700 bg-opacity-50 p-6 rounded-lg">
-                            <div class="flex items-center mb-4">
-                                <div class="bg-teal-500 p-2 rounded-full mr-4">
-                                    <i class="fas fa-graduation-cap text-white"></i>
-                                </div>
-                                <h4 class="text-xl font-bold text-white">Education</h4>
-                            </div>
-                            <p class="text-gray-300">
-                                BFA, Rhode Island School of Design, Studio Arts | Painting
-                            </p>
-                        </div>
-                        
-                        <div class="bg-gray-700 bg-opacity-50 p-6 rounded-lg">
-                            <div class="flex items-center mb-4">
-                                <div class="bg-purple-500 p-2 rounded-full mr-4">
-                                    <i class="fas fa-users text-white"></i>
-                                </div>
-                                <h4 class="text-xl font-bold text-white">Affiliations</h4>
-                            </div>
-                            <p class="text-gray-300">
-                                DVS, Data Visualization Society
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start">
-                        <a href="https://www.borodda.com/work" target="_blank" class="px-6 py-2 bg-teal-500 text-white font-bold rounded-full hover:bg-teal-600 transition text-center">
-                            View Research
-                        </a>
-                        <a href="https://www.linkedin.com/in/bo-rodda-3249a614/details/experience/" target="_blank" class="px-6 py-2 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-gray-900 transition text-center">
-                            View CV
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research & Projects Section -->
-    <section id="research" class="py-20 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4 pixel-font">Research & Projects</h2>
-                <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
-                <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
-                    Groundbreaking work at the intersection of technology, design, and urban systems
-                </p>
-            </div>
-            
-            <!-- Timeline -->
-            <div class="relative">
-                <div class="hidden md:block absolute left-1/2 w-1 h-full bg-gray-700 transform -translate-x-1/2"></div>
-                
-                <!-- Timeline Item 1 -->
-                <div class="mb-16 flex flex-col md:flex-row items-center justify-between timeline-item">
-                    <div class="w-full md:w-5/12 md:pr-8 md:text-right mb-6 md:mb-0">
-                        <h3 class="text-2xl font-bold text-white mb-2">
-                            <a href="https://www.borodda.com/work#/new-page/" target="_blank" class="hover:text-purple-400 transition">LakeSIM</a>
-                        </h3>
-                        <p class="text-gray-300 mb-4">
-                            <a href="https://www.borodda.com/work#/new-page/" target="_blank" class="hover:text-purple-300 transition">
-                                Urban Simulation and Planning Platform developed in collaboration with University of Chicago and Argonne National Laboratory.
-                            </a>
-                        </p>
-                        <a href="https://www.borodda.com/work#/new-page/" target="_blank" class="inline-block bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold hover:bg-purple-700 transition">
-                            2015 - Present
-                        </a>
-                    </div>
-                    <div class="hidden md:flex w-2/12 justify-center">
-                        <div class="relative">
-                            <div class="h-6 w-6 bg-purple-500 rounded-full"></div>
-                            <div class="absolute inset-0 animate-ping bg-purple-500 rounded-full opacity-75"></div>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-5/12 md:pl-8">
-                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                            <p class="text-gray-300">
-                                <a href="https://www.borodda.com/work#/new-page/" target="_blank" class="hover:text-purple-300 transition">
-                                    Lead architect of a data-driven tool designed to connect urban design concepts with scientific modeling. Funded in part by the NSF, and featured in ISOCARP Review.
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Timeline Item 2 -->
-                <div class="mb-16 flex flex-col md:flex-row items-center justify-between timeline-item">
-                    <div class="w-full md:w-5/12 md:pr-8 md:text-right mb-6 md:mb-0 md:order-1">
-                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                            <p class="text-gray-300">
-                                <a href="https://www.borodda.com/work#/energy-dashboard/" target="_blank" class="hover:text-teal-300 transition">
-                                    Senior personnel on a groundbreaking urban sensing project co-developed with Argonne National Laboratory and the University of Chicago.
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="hidden md:flex w-2/12 justify-center md:order-2">
-                        <div class="relative">
-                            <div class="h-6 w-6 bg-teal-500 rounded-full"></div>
-                            <div class="absolute inset-0 animate-ping bg-teal-500 rounded-full opacity-75"></div>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-5/12 md:pl-8 md:order-3">
-                        <h3 class="text-2xl font-bold text-white mb-2">
-                            <a href="https://www.borodda.com/work#/energy-dashboard/" target="_blank" class="hover:text-teal-400 transition">The Array of Things</a>
-                        </h3>
-                        <p class="text-gray-300 mb-4">
-                            <a href="https://www.borodda.com/work#/energy-dashboard/" target="_blank" class="hover:text-teal-300 transition">
-                                Contributed to sensor design, public engagement strategies, and educational workshops.
-                            </a>
-                        </p>
-                        <a href="https://www.borodda.com/work#/energy-dashboard/" target="_blank" class="inline-block bg-teal-600 text-white px-3 py-1 rounded-full text-sm font-bold hover:bg-teal-700 transition">
-                            2013 - 2017
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Timeline Item 3 -->
-                <div class="mb-16 flex flex-col md:flex-row items-center justify-between timeline-item">
-                    <div class="w-full md:w-5/12 md:pr-8 md:text-right mb-6 md:mb-0">
-                        <h3 class="text-2xl font-bold text-white mb-2">
-                            <a href="https://www.borodda.com/work#/city-model-20-1/" target="_blank" class="hover:text-yellow-400 transition">Chicago City Model</a>
-                        </h3>
-                        <p class="text-gray-300 mb-4">
-                            <a href="https://www.borodda.com/work#/city-model-20-1/" target="_blank" class="hover:text-yellow-300 transition">
-                                Dynamic Data Projection Mapping for the Chicago Architecture Foundation's City of Big Data exhibition.
-                            </a>
-                        </p>
-                        <a href="https://www.borodda.com/work#/city-model-20-1/" target="_blank" class="inline-block bg-yellow-600 text-white px-3 py-1 rounded-full text-sm font-bold hover:bg-yellow-700 transition">
-                            2012 - 2014
-                        </a>
-                    </div>
-                    <div class="hidden md:flex w-2/12 justify-center">
-                        <div class="relative">
-                            <div class="h-6 w-6 bg-yellow-500 rounded-full"></div>
-                            <div class="absolute inset-0 animate-ping bg-yellow-500 rounded-full opacity-75"></div>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-5/12 md:pl-8">
-                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                            <p class="text-gray-300">
-                                <a href="https://www.borodda.com/work#/city-model-20-1/" target="_blank" class="hover:text-yellow-300 transition">
-                                    Created a projection system mapping real-time urban data onto a 3D model of the city, serving as technical advisor for the exhibition.
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Expertise Section -->
-            <div class="mt-24">
-                <h3 class="text-3xl font-bold text-white mb-8 text-center">Areas of Expertise</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
-                        <div class="text-purple-500 text-4xl mb-4">
-                            <i class="fas fa-vr-cardboard"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-2">Experiential Media</h4>
-                        <p class="text-gray-300">
-                            Development and critical exploration of immersive media, AR/VR, physical computing, and sensor-based systems.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
-                        <div class="text-teal-500 text-4xl mb-4">
-                            <i class="fas fa-users-cog"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-2">Human-Centered Design</h4>
-                        <p class="text-gray-300">
-                            Expertise in rapid prototyping, user experience design, and microcontroller-based development.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
-                        <div class="text-yellow-500 text-4xl mb-4">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-2">Data Visualization</h4>
-                        <p class="text-gray-300">
-                            Design of data-driven tools and visual narratives for public understanding, planning, and civic engagement.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
-                        <div class="text-red-500 text-4xl mb-4">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-2">Game Studies</h4>
-                        <p class="text-gray-300">
-                            Research and teaching at the intersection of interactive media, ludic systems, and cultural critique.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Media Appearances -->
-    <section class="py-16 bg-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-12 text-center">Featured In</h3>
-            
-            <!-- Desktop Marquee -->
-            <div class="hidden md:block relative overflow-hidden">
-                <div class="flex marquee">
-                    <div class="flex-shrink-0 mx-8">
-                        <a href="https://www.nytimes.com/2013/05/23/garden/at-the-international-contemporary-furniture-fair-going-for-the-remix.html?_r=0#" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
-                        </a>
-                    </div>
-                    <div class="flex-shrink-0 mx-8">
-                        <a href="https://digital.modernluxury.com/publication/?i=216825&article_id=1758227&view=articleBrowser" target="_blank">
-                            <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
-                        </a>
-                    </div>
-                    <div class="flex-shrink-0 mx-8">
-                        <a href="https://www.researchgate.net/publication/281099639_Designing_Future_Cities_-_LakeSIM_Integrated_Design_Tool_For_Assessing_Short-_and_Long-Term_Impacts_of_Urban_Scale_Conceptual_Designs" target="_blank">
-                            <img src="https://c5.rgstatic.net/m/419438641133902/images/icons/svgicons/new-index-logo.svg" alt="ResearchGate" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
-                        </a>
-                    </div>
-                    <div class="flex-shrink-0 mx-8">
-                        <a href="https://www.architectmagazine.com/design/these-collectives-made-it-work-at-wanteddesign-2014_o" target="_blank">
-                            <img src="https://cdnassets.hw.net/ca/e1/2ee6b6a64149a76c3ccaff7c5689/architect.png" alt="Architect Magazine" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
-                        </a>
-                    </div>
-                    <div class="flex-shrink-0 mx-8">
-                        <a href="https://digital.modernluxury.com/publication/?i=216825&article_id=1758227&view=articleBrowser" target="_blank">
-                            <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
-                        </a>
-                    </div>
-                    <div class="flex-shrink-0 mx-8">
-                        <a href="https://www.nytimes.com/2013/05/23/garden/at-the-international-contemporary-furniture-fair-going-for-the-remix.html?_r=0#" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mobile Grid -->
-            <div class="md:hidden grid grid-cols-2 gap-6 max-w-md mx-auto">
-                <a href="https://www.nytimes.com/2013/05/23/garden/at-the-international-contemporary-furniture-fair-going-for-the-remix.html?_r=0#" target="_blank" class="bg-gray-700 bg-opacity-50 p-4 rounded-lg flex items-center justify-center hover:bg-opacity-70 transition">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_New_York_Times_Logo.svg/2560px-The_New_York_Times_Logo.svg.png" alt="New York Times" class="h-8 w-auto max-w-full object-contain opacity-90">
-                </a>
-                <a href="https://digital.modernluxury.com/publication/?i=216825&article_id=1758227&view=articleBrowser" target="_blank" class="bg-gray-700 bg-opacity-50 p-4 rounded-lg flex items-center justify-center hover:bg-opacity-70 transition">
-                    <img src="https://img.coverstand.com/logos/1725-1725-mllogo_trans.png" alt="Modern Luxury" class="h-8 w-auto max-w-full object-contain opacity-90">
-                </a>
-                <a href="https://www.researchgate.net/publication/281099639_Designing_Future_Cities_-_LakeSIM_Integrated_Design_Tool_For_Assessing_Short-_and_Long-Term_Impacts_of_Urban_Scale_Conceptual_Designs" target="_blank" class="bg-gray-700 bg-opacity-50 p-4 rounded-lg flex items-center justify-center hover:bg-opacity-70 transition">
-                    <img src="https://c5.rgstatic.net/m/419438641133902/images/icons/svgicons/new-index-logo.svg" alt="ResearchGate" class="h-8 w-auto max-w-full object-contain opacity-90">
-                </a>
-                <a href="https://www.architectmagazine.com/design/these-collectives-made-it-work-at-wanteddesign-2014_o" target="_blank" class="bg-gray-700 bg-opacity-50 p-4 rounded-lg flex items-center justify-center hover:bg-opacity-70 transition">
-                    <img src="https://cdnassets.hw.net/ca/e1/2ee6b6a64149a76c3ccaff7c5689/architect.png" alt="Architect Magazine" class="h-8 w-auto max-w-full object-contain opacity-90">
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4 pixel-font">Get In Touch</h2>
-                <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
-                <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
-                    Interested in collaborations, research opportunities, or just want to chat about games?
-                </p>
-            </div>
-            
-            <div class="flex flex-col lg:flex-row gap-12">
-                <div class="lg:w-1/2">
-                    <form id="contact-form" class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
-                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-500">
-                        </div>
-                        
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-500">
-                        </div>
-                        
-                        <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Subject</label>
-                            <select id="subject" name="subject" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
-                                <option>Game Development</option>
-                                <option>Research Collaboration</option>
-                                <option>Speaking Engagement</option>
-                                <option>Educational Partnership</option>
-                                <option>Media Inquiry</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
-                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-500" placeholder="Tell me about your project or inquiry..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="w-full px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg transition duration-300 transform hover:scale-105">
-                            <i class="fas fa-paper-plane mr-2"></i>
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-                
-                <div class="lg:w-1/2">
-                    <div class="bg-gray-800 p-8 rounded-xl h-full">
-                        <h3 class="text-2xl font-bold text-white mb-6">Contact Information</h3>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="bg-purple-500 p-3 rounded-full mr-4">
-                                    <i class="fas fa-map-marker-alt text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-white mb-1">Location</h4>
-                                    <p class="text-gray-300">Illinois Institute of Technology, Chicago</p>
-                                    <p class="text-gray-400 text-sm">Institute of Design</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="bg-teal-500 p-3 rounded-full mr-4">
-                                    <i class="fas fa-envelope text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-white mb-1">Email</h4>
-                                    <p class="text-gray-300">wrodda@kaplan.iit.edu</p>
-                                    <p class="text-gray-400 text-sm">Academic inquiries welcome</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="bg-yellow-500 p-3 rounded-full mr-4">
-                                    <i class="fas fa-clock text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-white mb-1">Office Hours</h4>
-                                    <p class="text-gray-300">By appointment</p>
-                                    <p class="text-gray-400 text-sm">Usually respond within 24 hours</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-12">
-                            <h4 class="text-lg font-bold text-white mb-4">Connect on Social Media</h4>
-                            <div class="flex space-x-4">
-                                <a href="https://x.com/b0rodda" target="_blank" class="bg-gray-700 hover:bg-blue-600 text-white p-3 rounded-full transition">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/in/bo-rodda-3249a614/" target="_blank" class="bg-gray-700 hover:bg-blue-800 text-white p-3 rounded-full transition">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="https://www.instagram.com/b0rodda/" target="_blank" class="bg-gray-700 hover:bg-purple-600 text-white p-3 rounded-full transition">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="https://www.youtube.com/@BoRodda" target="_blank" class="bg-gray-700 hover:bg-red-600 text-white p-3 rounded-full transition">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                                <a href="https://github.com/borodda" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white p-3 rounded-full transition">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Quick Contact Stats -->
-                        <div class="mt-8 p-4 bg-gray-700 bg-opacity-50 rounded-lg">
-                            <h5 class="text-white font-bold mb-2">Quick Stats</h5>
-                            <div class="grid grid-cols-2 gap-4 text-sm">
-                                <div>
-                                    <span class="text-purple-400">Response Rate:</span>
-                                    <span class="text-white block">98%</span>
-                                </div>
-                                <div>
-                                    <span class="text-teal-400">Avg. Response:</span>
-                                    <span class="text-white block">< 24 hrs</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-black py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <span class="text-2xl font-bold text-white pixel-font">GamingwithBo</span>
-                    <p class="text-gray-400 mt-2">Exploring the future of game design and technology</p>
-                </div>
-                
-                <div class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
-                    <div>
-                        <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Navigation</h4>
-                        <ul class="space-y-2">
-                            <li><a href="#home" class="text-gray-300 hover:text-white transition">Home</a></li>
-                            <li><a href="#games" class="text-gray-300 hover:text-white transition">Games</a></li>
-                            <li><a href="#about" class="text-gray-300 hover:text-white transition">About</a></li>
-                            <li><a href="#research" class="text-gray-300 hover:text-white transition">Research</a></li>
-                            <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Legal</h4>
-                        <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-300 hover:text-white transition">Privacy Policy</a></li>
-                            <li><a href="#" class="text-gray-300 hover:text-white transition">Terms of Service</a></li>
-                            <li><a href="#" class="text-gray-300 hover:text-white transition">Cookie Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm">
-                    &copy; 2025 GamingwithBo. All rights reserved.
-                </p>
-                
-                <div class="mt-4 md:mt-0">
-                    <p class="text-gray-400 text-sm">
-                        Made with <i class="fas fa-heart text-red-500"></i> by ChiLab
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Gaming Preferences Quiz Modal -->
-    <div id="quizModal" class="quiz-modal">
-        <div class="quiz-content">
-            <span class="quiz-close" onclick="closeQuiz()">&times;</span>
-            
-            <div class="quiz-header">
-                <h2 class="text-2xl font-bold pixel-font">🎮 Gaming Preferences Quiz</h2>
-                <p class="mt-2 opacity-90">Help us understand what type of games you love!</p>
-            </div>
-            
-            <div class="quiz-body">
-                <div class="quiz-progress">
-                    <div class="quiz-progress-bar" id="progressBar"></div>
-                </div>
-                
-                <!-- Question 1 -->
-                <div class="quiz-question active" data-question="1">
-                    <h3 class="text-xl font-bold mb-6">What's your favorite gaming platform?</h3>
-                    <div class="quiz-option" onclick="selectOption(this, 'pc')">
-                        <input type="radio" name="platform" value="pc">
-                        <div>
-                            <strong>🖥️ PC/Desktop</strong>
-                            <p class="text-sm opacity-80">High-end graphics, complex controls, modding community</p>
-                        </div>
-                    </div>
-                    <div class="quiz-option" onclick="selectOption(this, 'mobile')">
-                        <input type="radio" name="platform" value="mobile">
-                        <div>
-                            <strong>📱 Mobile/Tablet</strong>
-                            <p class="text-sm opacity-80">Portable, touch controls, quick sessions</p>
-                        </div>
-                    </div>
-                    <div class="quiz-option" onclick="selectOption(this, 'console')">
-                        <input type="radio" name="platform" value="console">
-                        <div>
-                            <strong>🎮 Console</strong>
-                            <p class="text-sm opacity-80">Couch gaming, exclusive titles, controller precision</p>
-                        </div>
-                    </div>
-                    <div class="quiz-option" onclick="selectOption(this, 'vr')">
-                        <input type="radio" name="platform" value="vr">
-                        <div>
-                            <strong>🥽 VR/AR</strong>
-                            <p class="text-sm opacity-80">Immersive experiences, motion controls, presence</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Question 2 -->
-                <div class="quiz-question" data-question="2">
-                    <h3 class="text-xl font-bold mb-6">What type of game experience do you prefer?</h3>
-                    <div class="quiz-option" onclick="selectOption(this, 'educational')">
-                        <input type="radio" name="experience" value="educational">
-                        <div>
-                            <strong>🎓 Educational & Learning</strong>
-                            <p class="text-sm opacity-80">Learn new skills, scientific concepts, real-world knowledge</p>
-                        </div>
-                    </div>
-                    <div class="quiz-option" onclick="selectOption(this, 'narrative')">
-                        <input type="radio" name="experience" value="narrative">
-                        <div>
-                            <strong>📖 Story-Driven</strong>
-                            <p class="text-sm opacity-80">Rich narratives, character development, emotional journeys</p>
-                        </div>
-                    </div>
-                    <div class="quiz-option" onclick="selectOption(this, 'competitive')">
-                        <input type="radio" name="experience" value="competitive">
-                        <div>
-                            <strong>🏆 Competitive & Challenging</strong>
-                            <p class="text-sm opacity-80">Skill-based gameplay, leaderboards, mastery</p>
-                        </div>
-                    </div>
-                    <div class="quiz-option" onclick="selectOption(this, 'social')">
-                        <input type="radio" name="experience" value="social">
-                        <div>
-                            <strong>👥 Social & Collaborative</strong>
-                            <p class="text-sm opacity-80">Multiplayer, team building, community-driven</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Question 3 -->
-                <div class="quiz-question" data-question="3">
-                    <h3 class="text-xl font-bold mb-6">How much time do you typically spend gaming?</h3>
-                    <div class="quiz-option" onclick="selectOption(this, 'casual')">
-                        <input type="radio" name="time" value="casual">
-                        <div>
-                            <strong>⏰ 15-30 minutes</strong>
-                            <p class="text-sm opacity-80">Quick sessions, bite-sized content</p>
-                        </div>
-                    </div>
-                    <div class="quiz-option" onclick="selectOption(this, 'moderate')">
-                        <input type="radio" name="time" value="moderate">
-                        <div>
-                            <strong>🕐 1-2 hours</strong>
-                            <p class="text-sm opacity-80">Regular gaming sessions, deeper gameplay</p>
-                        </div>
-                    </div>
-                    <div class="quiz-option" onclick="selectOption(this, 'dedicated')">
-                        <input type="radio" name="time" value="dedicated">
-                        <div>
-                            <strong>🕒 2+ hours</strong>
-                            <p class="text-sm opacity-80">Long sessions, complex games, immersive worlds</p>
-                        </div>
-                    </div>
-                    <div class="quiz-option" onclick="selectOption(this, 'variable')">
-                        <input type="radio" name="time" value="variable">
-                        <div>
-                            <strong>🔄 It varies</strong>
-                            <p class="text-sm opacity-80">Depends on the game and my schedule</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Question 4 -->
-                <div class="quiz-question" data-question="4">
-                    <h3 class="text-xl font-bold mb-6">What themes interest you most in games?</h3>
-                    <div class="quiz-option" onclick="selectOption(this, 'science')">
-                        <input type="radio" name="theme" value="science">
-                        <div>
-                            <strong>🔬 Science & Technology</strong>
-                            <p class="text-sm opacity-80">AI, space exploration, scientific discovery</p>
-                        </div>
-                    </div>
-                    <div class="quiz-option" onclick="selectOption(this, 'environment')">
-                        <input type="radio" name="theme" value="environment">
-                        <div>
-                            <strong>🌱 Environment & Sustainability</strong>
-                            <p class="text-sm opacity-80">Climate change, ecology, green technology</p>
-                        </div>
-                    </div>
-                    <div class="quiz-option" onclick="selectOption(this, 'urban')">
-                        <input type="radio" name="theme" value="urban">
-                        <div>
-                            <strong>🏙️ Urban Planning & Society</strong>
-                            <p class="text-sm opacity-80">City building, social systems, data visualization</p>
-                        </div>
-                    </div>
-                    <div class="quiz-option" onclick="selectOption(this, 'fantasy')">
-                        <input type="radio" name="theme" value="fantasy">
-                        <div>
-                            <strong>✨ Fantasy & Adventure</strong>
-                            <p class="text-sm opacity-80">Magic, exploration, fictional worlds</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Results -->
-                <div class="quiz-results" id="quizResults">
-                    <h3 class="text-2xl font-bold mb-6">🎉 Your Perfect Game Match!</h3>
-                    <div id="gameRecommendation" class="game-recommendation">
-                        <!-- Dynamic content will be inserted here -->
-                    </div>
-                    <p class="mt-6 text-center opacity-80">
-                        Thank you for taking our quiz! Your preferences help us understand our gaming community better.
-                    </p>
-                    <div class="mt-6 text-center">
-                        <button class="quiz-btn quiz-btn-primary" onclick="restartQuiz()">
-                            Take Quiz Again
-                        </button>
-                    </div>
-                </div>
-
-                <div class="quiz-buttons">
-                    <button class="quiz-btn quiz-btn-secondary" id="prevBtn" onclick="prevQuestion()">Previous</button>
-                    <button class="quiz-btn quiz-btn-primary" id="nextBtn" onclick="nextQuestion()">Next</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Snake Game Modal -->
-    <div id="snakeModal" class="snake-modal">
-        <div class="snake-content">
-            <span class="snake-close" onclick="closeSnakeGame()">&times;</span>
-            
-            <div class="text-center mb-6">
-                <h1 class="text-4xl mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 pixel-font">
-                    NEON SNAKE
-                </h1>
-                <div class="text-xl text-green-400 font-mono">
-                    SCORE: <span id="snake-score">0</span> | HIGH: <span id="snake-high-score">0</span>
-                </div>
-            </div>
-            
-            <div class="snake-game-container">
-                <canvas id="snake-canvas"></canvas>
-                <div class="snake-grid-lines"></div>
-            </div>
-            
-            <div class="flex justify-center mt-6 gap-4 flex-wrap">
-                <button id="snake-start-btn" class="snake-btn">
-                    <i class="fas fa-play mr-2"></i> START
-                </button>
-                <button id="snake-pause-btn" class="snake-btn" disabled>
-                    <i class="fas fa-pause mr-2"></i> PAUSE
-                </button>
-                <button id="snake-restart-btn" class="snake-btn">
-                    <i class="fas fa-redo mr-2"></i> RESTART
-                </button>
-            </div>
-            
-            <div class="text-center mt-4 text-sm text-gray-400">
-                Use arrow keys or swipe to control
-            </div>
-            
-            <!-- Game Over Modal -->
-            <div id="snake-game-over-modal" class="snake-game-over-modal">
-                <div class="snake-game-over-title">GAME OVER!</div>
-                <h2 class="text-2xl mb-4 text-green-400">Your Score: <span id="snake-final-score">0</span></h2>
-                <p class="text-white mb-4">Try again to beat your high score!</p>
-                <button id="snake-play-again-btn" class="snake-btn">
-                    <i class="fas fa-gamepad mr-2"></i> PLAY AGAIN
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Asteroids Game Modal -->
-    <div id="asteroidsModal" class="asteroids-modal">
-        <div class="asteroids-content">
-            <span class="asteroids-close" onclick="closeAsteroidsGame()">&times;</span>
-            
-            <div id="asteroids-game-header">
-                <h1>ASTEROIDS</h1>
-            </div>
-            
-            <div id="asteroids-game-container">
-                <canvas id="asteroids-canvas"></canvas>
-                
-                <div id="asteroids-ui">
-                    <div id="asteroids-score-display">SCORE: <span id="asteroids-score">0</span></div>
-                    <div id="asteroids-lives-display">LIVES: <span id="asteroids-lives">3</span></div>
-                </div>
-                
-                <div id="asteroids-controls">
-                    <div class="control-group">
-                        <div>SHIP CONTROLS:</div>
-                        <div><span class="key">←</span> Rotate Left</div>
-                        <div><span class="key">→</span> Rotate Right</div>
-                        <div><span class="key">↑</span> Thrust</div>
-                    </div>
-                    <div class="control-group">
-                        <div>WEAPONS:</div>
-                        <div><span class="key space">SPACE</span> Fire</div>
-                    </div>
-                </div>
-                
-                <div id="asteroids-mobile-controls">
-                    <div class="mobile-btn" id="asteroids-left-btn">←</div>
-                    <div class="mobile-btn" id="asteroids-up-btn">↑</div>
-                    <div class="mobile-btn" id="asteroids-right-btn">→</div>
-                    <div class="mobile-btn" id="asteroids-fire-btn">FIRE</div>
-                </div>
-                
-                <div id="asteroids-game-over">
-                    <h2>GAME OVER</h2>
-                    <div id="asteroids-final-score">FINAL SCORE: <span id="asteroids-end-score">0</span></div>
-                    <button id="asteroids-restart">PLAY AGAIN</button>
-                </div>
-                
-                <div id="asteroids-start-screen">
-                    <h1>ASTEROIDS ARCADE</h1>
-                    <p>Navigate your spaceship through an asteroid field. Destroy asteroids to earn points, but be careful - hitting them will cost you a life!</p>
-                    <button id="asteroids-start-btn">START GAME</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cyberpunk Tetris Game Modal -->
-    <div id="tetrisModal" class="tetris-modal">
-        <div class="tetris-content">
-            <span class="tetris-close" onclick="closeTetrisGame()">&times;</span>
-            
-            <!-- Tetris scanlines effect -->
-            <div class="tetris-scanline"></div>
-            
-            <!-- Main game container -->
-            <div class="tetris-game-container">
-                <!-- Left panel with info -->
-                <div class="tetris-neon-border-blue bg-black bg-opacity-70 p-6 rounded-lg w-64 flex flex-col justify-between">
-                    <div>
-                        <h1 class="tetris-glitch text-3xl mb-6 text-center tetris-neon-text-blue" data-text="CYBER TETRIS">CYBER TETRIS</h1>
-                        <div class="mb-6">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="tetris-neon-text-pink">SCORE:</span>
-                                <span id="tetris-score" class="tetris-neon-text-blue">0</span>
-                            </div>
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="tetris-neon-text-pink">LEVEL:</span>
-                                <span id="tetris-level" class="tetris-neon-text-blue">1</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="tetris-neon-text-pink">LINES:</span>
-                                <span id="tetris-lines" class="tetris-neon-text-blue">0</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <h3 class="tetris-neon-text-pink text-lg mb-2">CONTROLS:</h3>
-                        <ul class="space-y-1 text-sm">
-                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-left mr-2"></i> <span>Move Left</span></li>
-                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-right mr-2"></i> <span>Move Right</span></li>
-                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-down mr-2"></i> <span>Soft Drop</span></li>
-                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-arrow-up mr-2"></i> <span>Rotate</span></li>
-                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-space-shuttle mr-2"></i> <span>Hard Drop</span></li>
-                            <li class="flex items-center tetris-neon-text-blue"><i class="fas fa-pause mr-2"></i> <span>Pause (P)</span></li>
-                        </ul>
-                    </div>
-                    
-                    <button id="tetris-start-btn" class="tetris-neon-border-pink tetris-neon-text-pink hover:bg-pink-900 hover:bg-opacity-30 py-2 px-4 rounded-md transition-all duration-300 tetris-glow">
-                        START GAME
-                    </button>
-                </div>
-                
-                <!-- Game field -->
-                <div class="tetris-grid-container">
-                    <div id="tetris-grid" class="tetris-neon-border-blue bg-black bg-opacity-70"></div>
-                    
-                    <!-- Mobile Controls -->
-                    <div class="tetris-mobile-controls">
-                        <!-- Left side controls -->
-                        <div class="tetris-mobile-left">
-                            <div class="tetris-mobile-btn" id="tetris-left-btn">←</div>
-                            <div class="tetris-mobile-btn" id="tetris-right-btn">→</div>
-                            <div class="tetris-mobile-btn" id="tetris-down-btn">↓</div>
-                        </div>
-                        
-                        <!-- Right side controls -->
-                        <div class="tetris-mobile-right">
-                            <div class="tetris-mobile-btn" id="tetris-rotate-btn">↻</div>
-                            <div class="tetris-mobile-btn tall" id="tetris-drop-btn">DROP</div>
-                            <div class="tetris-mobile-btn" id="tetris-pause-btn">⏸</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Pause overlay -->
-                    <div id="tetris-pause-overlay" class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center hidden">
-                        <h2 class="tetris-neon-text-pink text-4xl mb-6">PAUSED</h2>
-                        <button id="tetris-continue-btn" class="tetris-neon-border-blue tetris-neon-text-blue hover:bg-blue-900 hover:bg-opacity-30 py-2 px-6 rounded-md transition-all duration-300">
-                            CONTINUE
-                        </button>
-                    </div>
-                    
-                    <!-- Game Over overlay -->
-                    <div id="tetris-game-over-overlay" class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center hidden">
-                        <h2 class="tetris-neon-text-pink text-4xl mb-4 tetris-glitch" data-text="GAME OVER">GAME OVER</h2>
-                        <p class="tetris-neon-text-blue mb-6">SCORE: <span id="tetris-final-score">0</span></p>
-                        <button id="tetris-play-again-btn" class="tetris-neon-border-blue tetris-neon-text-blue hover:bg-blue-900 hover:bg-opacity-30 py-2 px-6 rounded-md transition-all duration-300">
-                            PLAY AGAIN
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Next piece panel -->
-                <div class="tetris-neon-border-blue bg-black bg-opacity-70 p-4 rounded-lg w-32 flex flex-col items-center">
-                    <h3 class="tetris-neon-text-pink text-lg mb-2">NEXT:</h3>
-                    <div id="tetris-next-piece"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-                                
